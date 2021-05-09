@@ -1,0 +1,17 @@
+@mixin columns($name: col, $gap: 12px, $column: 12) {
+	@for $i from 1 through $column {
+		.#{$name}-#{$i} {
+			flex: 0 0 auto;
+			width: $i/12 * 100%;
+			padding-left: $gap;
+			padding-right: $gap;
+		}
+	}
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -$gap;
+		margin-right: -$gap;
+	}
+}

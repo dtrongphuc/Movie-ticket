@@ -1,0 +1,14 @@
+@mixin display($name: d) {
+	$object: (
+		'-none': none,
+		'-block': block,
+		'-inline': inline,
+		'-flex': flex,
+		'-inline-block': inline-block,
+	);
+	@each $prop, $value in $object {
+		.#{$name}#{$prop} {
+			display: $value;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@mixin align-items($name: align-items) {
+	$object: (
+		'-stretch': stretch,
+		'-start': flex-start,
+		'-end': flex-end,
+		'-center': center,
+		'-base': baseline,
+	);
+	@each $prop, $value in $object {
+		.#{$name}#{$prop} {
+			#{$name}: $value;
+		}
+	}
+}

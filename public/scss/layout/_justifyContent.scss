@@ -1,0 +1,16 @@
+@mixin justify-content($name: justify-content) {
+	$object: (
+		'-start': flex-start,
+		'-end': flex-end,
+		'-center': center,
+		'-between': space-between,
+		'-around': space-around,
+		'-evenly': space-evenly,
+	);
+
+	@each $prop, $value in $object {
+		.#{$name}#{$prop} {
+			#{$name}: $value;
+		}
+	}
+}

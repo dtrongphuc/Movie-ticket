@@ -1,0 +1,45 @@
+@use "sass:string";
+
+$containerObj: (
+	'': 100%,
+	'-sm': 576px,
+	'-md': 768px,
+	'-lg': 992px,
+	'-xl': 1200px,
+	'-xxl': 1400px,
+);
+
+@mixin base($gap) {
+	width: 100%;
+	padding-right: $gap;
+	padding-left: $gap;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@function forAllContainer($name, $obj) {
+	$selector: ();
+
+	@each $prop, $value in $containerObj {
+		$selector: append($selector, unquote('.#{$name}#{$prop}'), 'comma');
+	}
+
+	@return $selector;
+}
+
+@mixin container($name: container, $gap: 12px) {
+	$className: forAllContainer($name, $containerObj);
+
+	@each $prop, $value in $containerObj {
+		.#{$name}#{$prop} {
+			@include base($gap);
+			max-width: $value;
+		}
+
+		@media (min-width: $value) {
+			#{$className} {
+				max-width: $value;
+			}
+		}
+	}
+}

@@ -1,17 +1,7 @@
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
 .sub-nav {
 	background-color: $color-secondary;
 	padding-top: 4px;
 	padding-bottom: 4px;
-
-	// display: flex;
-	// align-items: center;
-	// justify-content: space-between;
 
 	&--left,
 	&--right {
