@@ -1,7 +1,10 @@
-@import "variables/variable";
-@import "carousel";
+@import 'variables/variable';
 @import 'base/reset';
 @import 'base/common';
+
+// import duoi cung
+@import 'layout/flexbox';
+@import 'carousel';
 @import 'navbar/navbar.scss';
 @import 'gridsystem/grid.scss';
 @import 'DetailCinema.scss';
