@@ -1,15 +1,13 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const express = require('express')
+const app = express()
+const route = require('./routers/index');
+//ejs
+const expressLayouts = require('express-ejs-layouts');
 
-app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
-app.get('/', function (req, res) {
-	res.render('index');
-});
+route(app);
 
-// Server Listening
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
-});
+app.listen(3000)
