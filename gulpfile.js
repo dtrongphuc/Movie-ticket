@@ -14,11 +14,6 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest('public/css'));
 });
 
-// Watching
-gulp.task('sass:watch', function () {
-	gulp.watch('public/scss/*.scss', gulp.series('sass'));
-});
-
 gulp.task(
 	'serve',
 	gulp.series('sass', function () {
@@ -30,8 +25,9 @@ gulp.task(
 		});
 
 		gulp.watch('public/scss/*.scss', gulp.series('sass'));
-		gulp.watch('views/*.ejs').on('change', browserSync.reload);
-		gulp.watch('public/scss/*.scss').on('change', browserSync.reload);
+		gulp.watch('public/scss/**/*.scss', gulp.series('sass'));
+		gulp.watch('views/').on('change', browserSync.reload);
+		gulp.watch('public/scss/').on('change', browserSync.reload);
 	})
 );
 
