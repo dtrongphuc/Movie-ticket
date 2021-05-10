@@ -1,0 +1,36 @@
+.profileinfo {
+  background: #f9f6ec;
+  & .profileinfo__title {
+    font-size: 23px;
+  }
+  & .profileinfo__content {
+    width: 50%;
+    background: #E5E5E5;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 24px;
+
+    ul {
+      padding: 20px 20px;
+      display: block;
+      width: 100%;
+      height: autos;
+
+      li {
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        & .profileinfo__content-title {
+          font-weight: bold;
+          display: inline-block;
+          width: auto;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+.profileinfo__content-value{
+    display: inline-block;
+    margin-left: 10px;
+}
