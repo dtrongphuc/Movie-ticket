@@ -1,3 +1,87 @@
-<%- include('../layouts/header', {title: 'Đăng nhập'}); -%>
-  <%- include('../layouts/navbar/navbar') -%>
+<%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<main>
+	<div class="login__wrapper">
+		<div class="container">
+			<h3 class="login__title">Đăng nhập</h3>
+			<div class="login__form__wrapper">
+				<div class="row justify-content-end">
+					<div class="col-7 col-md-12">
+						<form action="#" method="POST" class="login__form">
+							<p class="text-top">
+								Vui lòng đăng nhập để nhận nhiều ưu đãi dành riêng cho thành
+								viên của Lotte Cinema.
+							</p>
+							<div class="row">
+								<div class="col-9">
+									<div class="login__form--left">
+										<div class="form-group">
+											<label class="form-label" for="email">ID</label>
+											<input type="email name="email" id="email"
+											placeholder="Vui lòng nhập địa chỉ Email"
+											class="form-input" />
+										</div>
+										<div class="form-group">
+											<label class="form-label" for="password">Mật khẩu</label>
+											<input
+												type="text"
+												name="password"
+												id="password"
+												class="form-input"
+											/>
+										</div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="login__form--right">
+										<button type="submit" class="login__form__submit">
+											Đăng nhập
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="login__form--bottom">
+								<ul class="login__form__options">
+									<li>
+										<div class="form-group">
+											<input type="checkbox" name="cbSave" id="cbSave" />
+											<label for="cbSave">Lưu ID</label>
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="#">Tìm ID</a>
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="#">Tìm mật khẩu</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+					<div class="col-5 col-md-12">
+						<a href="#">
+							<img
+								src="images/auth/c776c5c1a6f347b4b6ecd42921159152.jpg"
+								alt="Thăng cấp thẻ quyền lực"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="login__footer">
+				<span>
+					Nếu bạn có một ID, bạn có thể đăng nhập trực tuyến / app của tất cả
+					các Công ty áp dụng Thẻ thành viên L.Point một cách thuận tiện.
+				</span>
+				<button type="button">
+					<a href="#">Đăng kí tài khoản</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</main>
 <%- include('../layouts/footer') -%>

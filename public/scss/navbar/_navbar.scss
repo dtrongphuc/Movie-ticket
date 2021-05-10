@@ -1,8 +1,11 @@
 .header {
+	position: relative;
 	width: 100%;
 	text-align: center;
-	border-top: 1px solid #f9f6ec;
-	border-bottom: 1px solid #f9f6ec;
+	border-top: 1px solid #e9e4d2;
+	border-bottom: 1px solid #e9e4d2;
+	box-shadow: 0px -1px 1px 1px #e9e4d2;
+	z-index: 100;
 
 	&__logo {
 		text-align: center;

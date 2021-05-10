@@ -1,0 +1,142 @@
+.login__wrapper {
+	position: relative;
+	padding: 20px 0px 40px;
+	background-color: $color-secondary;
+}
+
+.login__title {
+	font-size: 2rem;
+	color: #000;
+	font-weight: 500;
+}
+
+.login__form__wrapper {
+	background-color: #fff;
+	width: 100%;
+	padding: 40px 30px;
+}
+
+.login__form {
+	& > .text-top {
+		font-size: 14px;
+	}
+
+	& > .row {
+		padding-top: 30px;
+	}
+
+	&--right {
+		text-align: left;
+	}
+
+	&--bottom {
+		padding-top: 20px;
+	}
+}
+
+.form-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+
+	& > .form-label {
+		width: 90px;
+		font-weight: bold;
+		color: #353535;
+		font-size: 14px;
+		text-align: left;
+		vertical-align: middle;
+	}
+
+	& > .form-input {
+		height: 40px;
+		width: calc(100% - 90px);
+		border: 1px solid #dedede;
+		background-color: #f5f5f5;
+		font-size: 12px;
+		border-radius: 0;
+		padding: 4px 12px;
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+.login__form__submit {
+	width: 98px;
+	height: 90px;
+	background: #231f20 url('/images/icons/icon_login.png') no-repeat 50% 19px;
+	color: #e5e1b0;
+	padding-top: 38px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.login__form__options {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& > li {
+		padding-left: 30px;
+		padding-right: 30px;
+
+		& > .form-group {
+			& > label {
+				margin-left: 8px;
+			}
+		}
+
+		& > .form-group {
+			& > a {
+				position: relative;
+				display: inline-block;
+				background: url('/images/icons/ico_page_blank.gif') no-repeat right
+					center;
+				color: #231f20;
+				padding-right: 20px;
+				font-size: 14px;
+				vertical-align: middle;
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+		}
+	}
+
+	& > li:nth-child(2) > .form-group {
+		& > a:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: -30px;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 14px;
+			background-color: #dedede;
+		}
+	}
+}
+
+.login__footer {
+	background-color: #efebdb;
+	height: 82px;
+	text-align: center;
+	line-height: 82px;
+
+	& > button {
+		border: 1px solid #d1d1d1;
+		background-color: #fff;
+		font-weight: 600;
+		font-size: 12px;
+		height: 32px;
+		padding-left: 16px;
+		padding-right: 16px;
+		margin-left: 8px;
+
+		& > a {
+			color: #000;
+		}
+	}
+}
