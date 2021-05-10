@@ -1,15 +1,20 @@
-@import 'carousel';
+@import "carousel";
+
+@mixin tabletandmobile {
+  @media (max-width: 1237px) {
+    @content;
+  }
+}
 
 .detailFlim__right {
-	h3 {
-		font-size: 30px;
-	}
-	p {
-		font-size: 20px;
-	}
-}
-@media only screen and (max-width: 735px) {
-	.detailFlim__right {
-		padding: 0 10px;
-	}
+  h3 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
+  @include tabletandmobile {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
