@@ -6,6 +6,7 @@
   border-radius: 15px;
   padding: 30px;
   margin: 15px 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   & .profileinfo-box__username {
     font-size: 23px;
@@ -14,11 +15,13 @@
 }
 
 .profileinfo-box__info {
+  
   & .profileinfo-box__info--items {
     background: #f9f6ec;
     padding: 10px;
     border-radius: 15px;
     margin: 5px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
     & .boxinfo__items--icon {
       padding: 0 10px;
