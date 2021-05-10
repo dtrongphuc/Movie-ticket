@@ -1,0 +1,80 @@
+<%- include('../layouts/header', {title: 'Phim' }); -%>
+
+<div class="container" class="sub">
+  <div class="content">
+    <div class="screen_cwrap">
+      <ul class="tab_st02">
+        <li><a href="/" id="aNow" class="on">Phim Hot tại rap</a></li>
+        <li><a href="/" id="aSoon">Phim đang chiếu</a></li>
+      </ul>
+
+      <div class="item_list">
+        <div class="blind">
+          <h3>Phim Hot tại rap</h3>
+        </div>
+      </div>
+
+      <!-- tab content on -->
+      <div class="tab_content on">
+        <!-- 2016.05.03 장착법 -->
+        <div class="blind">
+          <h3 id="title_h3">Phim đang chiếu<!--현재상영작--></h3>
+        </div>
+        <div class="blind">
+          <h4 id="title_h4">Đặt vé trước<!--예매순--></h4>
+        </div>
+
+        <ul class="curr_list movie_clist" id="ulMovieList">
+          <li class="">
+            <div class="curr_box">
+              <span class="num">1</span
+              ><span class="img"
+                ><a href="javascript:void(0);" id="aFocusItem0"
+                  ><img
+                    src="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202103/10714_103_100002.jpg"
+                    alt="49K BÀN TAY DIỆT QUỶ" /></a
+              ></span>
+            </div>
+            <div class="layer_hover">
+              <a
+                href="javascript:void(0)"
+                onclick="goToTiketing('10714');"
+                class="btn_reserve"
+                >Đặt vé</a
+              ><a
+                href="javascript:void(0)"
+                onclick="goToMovie('10714');"
+                class="btn_View"
+                >Chi tiết</a
+              >
+            </div>
+            <dl class="list_text">
+              <dt>
+                <a href="javascript:void(0);" onclick="goToMovie('10714');"
+                  ><span class="grade_18">청불</span>49K BÀN TAY DIỆT QUỶ</a
+                >
+              </dt>
+              <dd>
+                <span class="rate">128Phút</span
+                ><span class="grade"><em>09/04/2021</em></span>
+              </dd>
+            </dl>
+          </li>
+          
+        </ul>
+
+        <a href="javascript:void(0);" class="btn_view" id="aMore2"
+          ><span class="Lang-LBL0000">Thêm<!--더보기--></span></a
+        ><!--20170404 sunho javascript:void(0); 삭제 웹 접근성 # -->
+        <div class="srchResult_none" style="display: none">
+          <span class="txt Lang-LBL0000"
+            >Không có phim nào đang chạy.<!--상영 중인 영화가 없습니다.--></span
+          >
+        </div>
+      </div>
+      <!-- end tab content on -->
+    </div>
+  </div>
+</div>
+
+<%- include('../layouts/footer'); -%>

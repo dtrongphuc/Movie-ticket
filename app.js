@@ -8,6 +8,10 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => res.render('auth/login'));
 
+// Test giao diện content
+app.get('/view', (req, res) => res.render('content/content'));
+
+
 route(app);
 
 app.listen(port, () => {
