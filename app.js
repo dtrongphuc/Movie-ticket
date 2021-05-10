@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const connection = require('./db/connection');
 const route = require('./routers/index');
 const port = 3000;
 
@@ -10,7 +12,6 @@ app.get('/', (req, res) => res.render('auth/login'));
 
 // Test giao diện content
 app.get('/view', (req, res) => res.render('content/content'));
-
 
 route(app);
 
