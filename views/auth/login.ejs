@@ -1,3 +1,69 @@
-<%- include('../layouts/header', {title: 'Đăng nhập'}); -%>
-  <%- include('../layouts/navbar/navbar') -%>
+<%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<main>
+	<div class="login__wrapper">
+		<div class="container">
+			<h3 class="login__title">Đăng nhập</h3>
+			<div class="login__form__wrapper">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<form action="#" method="POST">
+							<p class="text-top">
+								Vui lòng đăng nhập để nhận nhiều ưu đãi dành riêng cho thành
+								viên của Lotte Cinema.
+							</p>
+							<div class="d-flex algin-items-center">
+								<div class="login__form--left">
+									<div class="form-group">
+										<label for="id">ID</label>
+										<input
+											type="text"
+											name="id"
+											id="id"
+											placeholder="Vui lòng nhập địa chỉ Email"
+											class="form-input"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="password">Mật khẩu</label>
+										<input
+											type="text"
+											name="password"
+											id="password"
+											class="form-input"
+										/>
+									</div>
+								</div>
+								<div class="login__form--right">
+									<button type="submit">Đăng nhập</button>
+								</div>
+							</div>
+							<div class="login__form--bottom">
+								<ul class="d-flex align-items-center">
+									<li>
+										<div class="form-group">
+											<label for="cbSave">Lưu ID</label>
+											<input type="checkbox" name="saveId" id="saveId" />
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="#">Tìm ID</a>
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="#">Tìm mật khẩu</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+					<div class="col-12 col-md-6"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
 <%- include('../layouts/footer') -%>
