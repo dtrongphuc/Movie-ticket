@@ -1,36 +1,40 @@
 .profileinfo {
   background: #f9f6ec;
-  & .profileinfo__title {
+}
+.profileinfo-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 15px 0;
+
+  & .profileinfo-box__username {
     font-size: 23px;
-  }
-  & .profileinfo__content {
-    width: 50%;
-    background: #E5E5E5;
-    border-radius: 5px;
-    font-size: 15px;
-    line-height: 24px;
-
-    ul {
-      padding: 20px 20px;
-      display: block;
-      width: 100%;
-      height: autos;
-
-      li {
-        padding: 5px 10px;
-        margin-bottom: 5px;
-        & .profileinfo__content-title {
-          font-weight: bold;
-          display: inline-block;
-          width: auto;
-          color: #333;
-        }
-      }
-    }
+    margin: 10px 0 20px 0;
   }
 }
 
-.profileinfo__content-value{
-    display: inline-block;
-    margin-left: 10px;
+.profileinfo-box__info {
+  & .profileinfo-box__info--items {
+    background: #f9f6ec;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 5px 15px;
+
+    & .boxinfo__items--icon {
+      padding: 0 10px;
+    }
+    & .boxinfo__items--content {
+      padding: 0 10px;
+
+      span {
+        margin: 0 0 6px;
+        font-size: 16px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+  }
 }
