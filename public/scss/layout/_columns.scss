@@ -1,4 +1,27 @@
 @mixin columns($name: col, $gap: 12px, $column: 12) {
+	$object: (
+		'': 100%,
+		'-sm': 576px,
+		'-md': 768px,
+		'-lg': 992px,
+		'-xl': 1200px,
+		'-xxl': 1400px,
+	);
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -$gap;
+		margin-right: -$gap;
+	}
+
+	.col {
+		flex: 1 0 0%;
+		width: 100%;
+		padding-left: $gap;
+		padding-right: $gap;
+	}
+
 	@for $i from 1 through $column {
 		.#{$name}-#{$i} {
 			flex: 0 0 auto;
@@ -8,10 +31,14 @@
 		}
 	}
 
-	.row {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: -$gap;
-		margin-right: -$gap;
+	@each $prop, $value in $object {
+		@for $j from 1 through $column {
+			@media (min-width: $value) {
+				.#{$name}#{$prop}-#{$j} {
+					flex: 0 0 auto;
+					width: $j/12 * 100%;
+				}
+			}
+		}
 	}
 }

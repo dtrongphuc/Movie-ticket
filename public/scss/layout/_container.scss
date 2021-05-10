@@ -1,14 +1,5 @@
 @use "sass:string";
 
-$containerObj: (
-	'': 100%,
-	'-sm': 576px,
-	'-md': 768px,
-	'-lg': 992px,
-	'-xl': 1200px,
-	'-xxl': 1400px,
-);
-
 @mixin base($gap) {
 	width: 100%;
 	padding-right: $gap;
@@ -20,7 +11,7 @@ $containerObj: (
 @function forAllContainer($name, $obj) {
 	$selector: ();
 
-	@each $prop, $value in $containerObj {
+	@each $prop, $value in $obj {
 		$selector: append($selector, unquote('.#{$name}#{$prop}'), 'comma');
 	}
 
@@ -28,6 +19,15 @@ $containerObj: (
 }
 
 @mixin container($name: container, $gap: 12px) {
+	$containerObj: (
+		'': 100%,
+		'-sm': 576px,
+		'-md': 768px,
+		'-lg': 992px,
+		'-xl': 1200px,
+		'-xxl': 1400px,
+	);
+
 	$className: forAllContainer($name, $containerObj);
 
 	@each $prop, $value in $containerObj {
