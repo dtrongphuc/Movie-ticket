@@ -33,7 +33,7 @@
 
 	@each $prop, $value in $object {
 		@for $j from 1 through $column {
-			@media (min-width: $value) {
+			@media (max-width: $value) {
 				.#{$name}#{$prop}-#{$j} {
 					flex: 0 0 auto;
 					width: $j/12 * 100%;

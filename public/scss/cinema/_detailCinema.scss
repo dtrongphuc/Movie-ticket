@@ -18,3 +18,10 @@
     padding-right: 20px;
   }
 }
+
+@media (max-width: 400px){
+  .detailFlim__avatar{
+    width: 305px;
+    height: 505px;
+  }
+}
