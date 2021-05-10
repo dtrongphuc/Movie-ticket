@@ -1,9 +1,0 @@
-.detailFlim__right h3 {
-  font-size: 30px; }
-
-.detailFlim__right p {
-  font-size: 20px; }
-
-@media only screen and (max-width: 735px) {
-  .detailFlim__right {
-    padding: 0 10px; } }
