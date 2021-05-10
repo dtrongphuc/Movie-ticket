@@ -1,0 +1,27 @@
+@import "carousel";
+
+@mixin tabletandmobile {
+  @media (max-width: 1237px) {
+    @content;
+  }
+}
+
+.detailFlim__right {
+  h3 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
+  @include tabletandmobile {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 400px){
+  .detailFlim__avatar{
+    width: 305px;
+    height: 505px;
+  }
+}

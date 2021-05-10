@@ -1,16 +1,82 @@
+.sub-nav--left__link {
+	position: relative;
+	padding-left: 22px;
+	font-size: 12px;
+	font-weight: 600;
+	color: $color-text-primary;
+
+	&:after {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 16px;
+		height: 16px;
+	}
+}
+
 .sub-nav {
+	height: 30px;
+	display: flex;
+	align-items: center;
 	background-color: $color-secondary;
-	padding-top: 4px;
-	padding-bottom: 4px;
 
 	&--left,
 	&--right {
-		ul {
+		& > ul {
 			display: flex;
 			align-items: center;
 
 			& > li {
-				margin-right: 16px;
+				margin-right: 20px;
+			}
+		}
+	}
+
+	&--left {
+		& > ul {
+			& > li:first-child {
+				& > a {
+					@extend .sub-nav--left__link;
+
+					&::after {
+						content: url('/images/icons/icon_lottecinemaapp.png');
+					}
+				}
+			}
+
+			& > li:last-child {
+				& > a {
+					@extend .sub-nav--left__link;
+
+					&::after {
+						content: url('/images/icons/icon_fb_top.png');
+					}
+				}
+			}
+		}
+	}
+
+	&--right {
+		& > ul {
+			& > li {
+				& > a {
+					$color: #6f6247;
+					position: relative;
+					color: $color;
+					font-size: 12px;
+
+					&:hover:after {
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: -1px;
+						height: 1px;
+						background-color: #9d9580;
+					}
+				}
 			}
 		}
 	}
