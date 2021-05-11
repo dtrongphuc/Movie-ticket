@@ -38,10 +38,11 @@ const user = (sequelize, DataTypes) => {
 
 	
 
+	
 	User.findByEmail = async (email) => {
 		let result = await User.findOne({
 			where: {
-				email: email,
+				email: email
 			},
 		});
 

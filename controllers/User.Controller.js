@@ -1,12 +1,17 @@
-const models = require('../db/connection');
+const { User } = require('../db/connection');
 
 class CinemaController {
-	async index(req, res, next) {
-		// test database
-		// const user = await models.User.findByPk(1);
-		// console.log(user);
+	async profile(req, res, next) {
+		const { id } = req.params;
 
-		res.render('user/Profile');
+		User.findOne({where : {id: id}})
+			.then(user => {
+				res.render('user/Profile', {user, });
+			})
+			.catch(() => res.send('loi'))
+
+
+		
 	}
 }
 

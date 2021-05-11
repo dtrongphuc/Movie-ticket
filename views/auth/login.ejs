@@ -1,10 +1,10 @@
 <%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
 include('../layouts/navbar/navbar') -%>
 <main>
-	<div class="login__wrapper">
+	<div class="auth__wrapper">
 		<div class="container">
-			<h3 class="login__title">Đăng nhập</h3>
-			<div class="login__form__wrapper">
+			<h3 class="auth__title login__title">Đăng nhập</h3>
+			<div class="auth__form__wrapper">
 				<div class="row justify-content-end">
 					<div class="col-7 col-md-12">
 						<form action="#" method="POST" class="login__form">
@@ -65,20 +65,20 @@ include('../layouts/navbar/navbar') -%>
 					<div class="col-5 col-md-12">
 						<a href="#">
 							<img
-								src="images/auth/c776c5c1a6f347b4b6ecd42921159152.jpg"
+								src="/images/auth/c776c5c1a6f347b4b6ecd42921159152.jpg"
 								alt="Thăng cấp thẻ quyền lực"
 							/>
 						</a>
 					</div>
 				</div>
 			</div>
-			<div class="login__footer">
+			<div class="auth__footer">
 				<span>
 					Nếu bạn có một ID, bạn có thể đăng nhập trực tuyến / app của tất cả
 					các Công ty áp dụng Thẻ thành viên L.Point một cách thuận tiện.
 				</span>
 				<button type="button">
-					<a href="#">Đăng kí tài khoản</a>
+					<a href="/auth/register">Đăng kí tài khoản</a>
 				</button>
 			</div>
 		</div>
