@@ -1,23 +1,19 @@
 body {
-    font-size: 12px;
-    font-family: "Arial", "Helvetica", "sans-serif";
-    font-weight: 400;
-    color: #555;
-    line-height: 1;
-  }
-  
-  div {
-    display: block;
-  }
-  
-  ol,
-  ul,
-  li {
-    list-style: none;
-  }
+  font-size: 12px;
+  font-family: "Arial", "Helvetica", "sans-serif";
+  font-weight: 400;
+  color: #555;
+  line-height: 1;
+}
 
-.container.sub {
-    margin: 39px 0 0 0;
+div {
+  display: block;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
 }
 
 .container {
@@ -25,6 +21,11 @@ body {
   min-width: 980px;
   border-top: 1px solid #e9e4d2;
   min-height: 669px;
+
+  &--sub {
+    margin: 39px 0 0 0;
+  }
+
 }
 
 .content {
@@ -32,16 +33,18 @@ body {
   min-height: 400px;
 }
 
-// tab_st02 
+// tab_st02
 .screen_cwrap {
   width: 980px;
   margin: 0 auto;
   padding-top: 40px;
+  
 }
 
 .screen_cwrap .tab_st02 {
   margin-bottom: 17px;
 }
+
 .tab_st02 {
   margin-bottom: 29px;
   text-align: center;
@@ -50,7 +53,7 @@ body {
   display: inline-block;
 }
 .tab_st02 li a.on {
-  background: #231f20 ;
+  background: #231f20;
   color: #cdc197;
   font-weight: bold;
 }
@@ -74,6 +77,7 @@ a {
 .screen_cwrap .item_list {
   margin-bottom: 20px;
 }
+
 .item_list {
   margin-bottom: 16px;
 }
@@ -85,8 +89,8 @@ a {
   top: -9999px !important;
 }
 
-.item_list:after {
-  content: '';
+.item_list::after {
+  content: "";
   display: block;
   clear: both;
 }
@@ -99,23 +103,12 @@ a {
   padding-bottom: 10px;
 }
 
-.blind {
-  overflow: hidden;
-  position: absolute;
-  left: -9999px !important;
-  top: -9999px !important;
+.movie_clist {
 }
 
-.movie_clist {
-  text-align: center;
-}
-
-.movie_clist {
-  text-align: center;
-}
 .curr_list {
-    margin-left: -20px;
-    min-height: 441px;
+  margin-left: -20px;
+  min-height: 441px;
 }
 
 .movie_clist.curr_list > li {
@@ -150,7 +143,7 @@ a {
   background: url(/LCHS/Image/Bg/bg_w_mk.png) repeat-y left bottom;
   font-size: 28px;
   color: #fff;
-  font-family: 'linlivertine';
+  font-family: "linlivertine";
   font-weight: bold;
   padding: 5px 0 0 20px;
   font-style: italic;
@@ -172,10 +165,6 @@ a {
 
 .curr_list a {
   display: block;
-}
-a {
-  text-decoration: none;
-  color: #555;
 }
 
 .movie_clist.curr_list .img img {
@@ -288,10 +277,10 @@ a {
   text-decoration: none;
   color: #555;
 }
-.movie_clist.curr_list .list_text dt a [class^=grade_] {
+.movie_clist.curr_list .list_text dt a [class^="grade_"] {
   vertical-align: top;
 }
-[class^=grade_] {
+[class^="grade_"] {
   display: inline-block;
   overflow: hidden;
   vertical-align: middle;
@@ -325,12 +314,12 @@ a {
   padding-left: 8px;
 }
 .curr_list .list_text dd:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
 .curr_list .list_text dd .grade:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 10px;
@@ -339,7 +328,7 @@ a {
   background: #dfdfdf;
 }
 .curr_list .list_text dd .grade:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 10px;
@@ -350,7 +339,9 @@ a {
 .curr_list .list_text dd .grade em {
   display: inline-block;
 }
-address, caption, em {
+address,
+caption,
+em {
   font-weight: normal;
   font-style: normal;
 }
