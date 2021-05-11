@@ -72,16 +72,16 @@
   color: #222;
 }
 
-.infouser__modal{
-  h1{
+.infouser__modal {
+  h1 {
     margin: 15px;
     text-align: center;
   }
 
-  .infouser__item{
+  .infouser__item {
     margin-top: 5px;
 
-    .infouser__item-title{
+    .infouser__item-title {
       font-weight: bold;
       font-size: 15px;
       width: 200px;
@@ -89,19 +89,64 @@
   }
 }
 
-.input--type{
-  display:block;
-  width:100%;
-  margin:10px 0;
-  padding:10px;
+.input--type {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
   border: 10px;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 15px;
   line-height: 24px;
   font-size: 15px;
 }
-.input--type:focus{
+.input--type:focus {
   outline: none;
   border-color: #e3e3e3;
   box-shadow: 0 0 2px #9ecaed;
+}
+
+// History
+.histoty {
+  margin: 30px 0 80px 0;
+  .histoty__title {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+
+//Table
+.history__table {
+  table {
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 2px 15px rgba(64, 64, 64, 0.7);
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+  td,
+  th {
+    padding: 15px 20px;
+    text-align: center;
+  }
+  th {
+    background-color: #ffb2b2;
+    color: #fafafa;
+    font-family: "Open Sans", Sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+  tr {
+    width: 100%;
+    background-color: #fafafa;
+    font-family: "Montserrat", sans-serif;
+
+    &:nth-child(even) {
+      background-color: #f9f6ec;
+    }
+    &:hover{
+      background-color: #f8e0dd;
+    }
+  }
 }
