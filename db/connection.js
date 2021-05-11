@@ -40,7 +40,7 @@ models.Booking.belongsTo(models.Showtime);
 
 models.Booking.hasOne(models.Ticket);
 models.Ticket.belongsTo(models.Booking);
-sequelize.sync({ force: true })
+sequelize.sync({ alter: true })
 	.then(async () => {
 		try {
 			await sequelize.authenticate();
