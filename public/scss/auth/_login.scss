@@ -120,10 +120,14 @@
 }
 
 .login__footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: #efebdb;
-	height: 82px;
+	line-height: 1.5;
+	min-height: 82px;
 	text-align: center;
-	line-height: 82px;
+	padding: 0 16px;
 
 	& > button {
 		border: 1px solid #d1d1d1;
