@@ -1,0 +1,42 @@
+.register__title {
+	text-align: center;
+}
+
+.register__form__wrapper {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.register__form {
+	text-align: center;
+	& > .form-group {
+		@include input-group(28%);
+	}
+
+	&__submit {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 14px;
+
+		text-align: center;
+		border: none;
+		width: 90px;
+		height: 40px;
+		color: #fff;
+		background-color: #555;
+		font-size: 14px;
+		transition: all ease 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #353535;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.register__form__wrapper {
+		width: 100%;
+	}
+}

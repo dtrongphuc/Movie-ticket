@@ -8,7 +8,7 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.render('auth/login'));
+app.get('/', (req, res) => res.send('index'));
 
 // Test giao diện content
 app.get('/view', (req, res) => res.render('content/content'));
