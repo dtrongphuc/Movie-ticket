@@ -8,10 +8,11 @@ class CinemaController {
 			.then(user => {
 				res.render('user/Profile', {user, });
 			})
-			.catch(() => res.send('loi'))
-
-
-		
+			.catch(() => res.send('loi'))		
+	}
+	async updateprofile(req, res, next) {
+		const formData = req.body;
+		return res.status(200).json({a: '1'});
 	}
 }
 

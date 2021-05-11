@@ -27,27 +27,27 @@
                                         <div class="modal__content">
                                             <div class="infouser__modal">
                                                 <h1>Chỉnh sửa thông tin</h1>
-                                                <form class="d-flex" action="" style="flex-direction: column;">
+                                                <form id="updateinfo-form" class="d-flex" style="flex-direction: column;">
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Email: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="<%- user.email %>" readonly>
+                                                            value="<%- user.email %>" name="email" readonly>
                                                     </div>
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Họ tên: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="<%- user.fullname %>">
+                                                            value="<%- user.fullname %>" name="fullname">
                                                     </div>
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Số điện thoại: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="<%- user.phoneNumber %>">
+                                                            value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
 
-                                                    <button type="submit" class="btn btn--updateprofile" style="margin-top: 20px;">
+                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo" style="margin-top: 20px;">
                                                         Lưu thay đổi
                                                     </button>
                                                 </form>
