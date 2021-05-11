@@ -7,7 +7,7 @@ include('../layouts/navbar/navbar') -%>
 			<div class="auth__form__wrapper">
 				<div class="row justify-content-end">
 					<div class="col-7 col-md-12">
-						<form action="#" method="POST" class="login__form">
+						<form action="/auth/login" method="POST" class="login__form">
 							<p class="text-top">
 								Vui lòng đăng nhập để nhận nhiều ưu đãi dành riêng cho thành
 								viên của Lotte Cinema.
@@ -59,6 +59,20 @@ include('../layouts/navbar/navbar') -%>
 										</div>
 									</li>
 								</ul>
+								<div class="login__social">
+									<button>
+										<a href="<%- gooleLoginUrl %>">
+											<i class="fab fa-google"></i>
+											Google
+										</a>
+									</button>
+									<button>
+										<a href="#">
+											<i class="fab fa-facebook-f"></i>
+											Facebook
+										</a>
+									</button>
+								</div>
 							</div>
 						</form>
 					</div>
