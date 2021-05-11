@@ -23,10 +23,6 @@ const user = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allownull: false,
 		},
-		fullname: {
-			type: DataTypes.STRING,
-			allownull: false,
-		},
 		phoneNumber: {
 			type: DataTypes.STRING,
 			allownull: false,
@@ -45,10 +41,11 @@ const user = (sequelize, DataTypes) => {
 	//   User.hasMany(models.Booking)
 	// }
 
+	
 	User.findByEmail = async (email) => {
 		let result = await User.findOne({
 			where: {
-				email: email,
+				email: email
 			},
 		});
 
