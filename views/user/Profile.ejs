@@ -16,7 +16,7 @@
                                 <img src="/images/icons/user.png" alt="">
                                 <div class="showmodal__updateprofile">
                                     <button data-modal="#modal2"
-                                        class="btn btn--primary d-flex align-items-center modal__trigger">
+                                        class="btn btn--updateprofile d-flex align-items-center modal__trigger">
                                         <img src="/images/icons/edit.png" alt="" width="25px" style="padding: 2px;">
                                         <span>Sửa thông tin</span>
                                     </button>
@@ -27,25 +27,29 @@
                                         <div class="modal__content">
                                             <div class="infouser__modal">
                                                 <h1>Chỉnh sửa thông tin</h1>
-                                                <form action="">
+                                                <form id="updateinfo-form" class="d-flex" style="flex-direction: column;">
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Email: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="nghiadx2001@gmail.com">
+                                                            value="<%- user.email %>" name="email" readonly>
                                                     </div>
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Họ tên: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="Nguyễn Hiếu Nghĩa">
+                                                            value="<%- user.fullname %>" name="fullname">
                                                     </div>
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Số điện thoại: </div>
                                                         <input class="input--type" type="text" placeholder="Email"
-                                                            value="0947094472">
+                                                            value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
+
+                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo" style="margin-top: 20px;">
+                                                        Lưu thay đổi
+                                                    </button>
                                                 </form>
                                             </div>
 
@@ -60,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profileinfo-box__username d-flex justify-content-center">Nguyễn Hiếu Nghĩa</div>
+                            <div class="profileinfo-box__username d-flex justify-content-center"><%- user.fullname %></div>
                             <div class="profileinfo-box__info">
                                 <div class="row">
                                     <div class="col">
@@ -70,7 +74,7 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Email</span>
-                                                <p>Nghiadx2001@gmail.com</p>
+                                                <p><%- user.email %></p>
                                             </div>
                                         </div>
                                         <div class="profileinfo-box__info--items d-flex align-items-center">
@@ -79,7 +83,7 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Số điện thoại</span>
-                                                <p>Nghiadx2001@gmail.com</p>
+                                                <p><%- user.phoneNumber %></p>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +94,7 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Giới tính</span>
-                                                <p>Nghiadx2001@gmail.com</p>
+                                                <p>Không xác định</p>
                                             </div>
                                         </div>
                                         <div class="profileinfo-box__info--items d-flex align-items-center">

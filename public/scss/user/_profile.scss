@@ -67,8 +67,8 @@
   border: none;
   font-size: 15px;
 }
-.btn--primary {
-  background: #f9f6ec;
+.btn--updateprofile {
+  background: #ffb2b2;
   color: #222;
 }
 
@@ -143,7 +143,7 @@
     font-family: "Montserrat", sans-serif;
 
     &:nth-child(even) {
-      background-color: #f9f6ec;
+      background-color: #e5e5e5;
     }
     &:hover{
       background-color: #f8e0dd;

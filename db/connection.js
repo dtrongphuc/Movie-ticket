@@ -1,28 +1,51 @@
 const { Sequelize } = require('sequelize');
 const userModel = require('../models/user.model');
+const theatersModel = require('../models/theater.model');
+const cimenaModel = require('../models/cinema.model');
+const movieModel = require('../models/movie.model');
+const imageModel = require('../models/image.model');
+const ShowtimeModel = require('../models/showtime.model');
+const BookingModel = require('../models/booking.model');
+const TicketModel = require('../models/ticket.model');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
-	logging: false,
+	//logging: true,
 });
 
 const models = {
 	User: userModel(sequelize, Sequelize),
+	Theater: theatersModel(sequelize, Sequelize),
+	Cinema: cimenaModel(sequelize, Sequelize),
+	Movie: movieModel(sequelize, Sequelize),
+	Image: imageModel(sequelize, Sequelize),
+	Showtime: ShowtimeModel(sequelize, Sequelize),
+	Booking: BookingModel(sequelize, Sequelize),
+	Ticket: TicketModel(sequelize, Sequelize),
 };
 
-// Object.keys(models).forEach((key) => {
-// 	if ('associate' in models[key]) {
-// 		models[key].associate(models);
-// 	}
-// });
+models.Theater.hasMany(models.Cinema);
+models.Cinema.belongsTo(models.Theater);
 
-(async () => {
+models.Movie.hasMany(models.Image), models.Image.belongsTo(models.Movie);
+
+models.Movie.belongsToMany(models.Cinema, { through: 'showtime' });
+models.Cinema.belongsToMany(models.Movie, { through: 'showtime' });
+
+models.User.hasOne(models.Booking);
+models.Booking.belongsTo(models.User);
+
+models.Showtime.hasOne(models.Booking);
+models.Booking.belongsTo(models.Showtime);
+
+models.Booking.hasOne(models.Ticket);
+models.Ticket.belongsTo(models.Booking);
+sequelize.sync({ alter: true }).then(async () => {
 	try {
 		await sequelize.authenticate();
-		await sequelize.sync({ alter: true });
 		console.log('Connection has been established successfully.');
 	} catch (error) {
 		console.error('Unable to connect to the database:', error);
 	}
-})();
+});
 
 module.exports = models;
