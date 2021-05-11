@@ -1,23 +1,9 @@
 const bcrypt = require('bcrypt');
 const models = require('../../db/connection');
-
-const emailRegexp =
-	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-const checkEmailExisted = async (email) => {
-	try {
-		let user = models.User.findOne({
-			where: {
-				email: email,
-			},
-		});
-		if (user) {
-			return false;
-		}
-	} catch (error) {
-		return true;
-	}
-};
+const {
+	checkEmailExisted,
+	checkValidEmail,
+} = require('../../helpers/validate/email.validate');
 
 const hashPassword = async (plainPassword) => {
 	let hashedPassword = await bcrypt.hash(plainPassword, 10);
@@ -36,7 +22,7 @@ module.exports = {
 			error = 'Email đã tồn tại';
 		} else if (password !== confirmPassword) {
 			error = 'Mật khẩu xác nhận không khớp';
-		} else if (!emailRegexp.test(email)) {
+		} else if (!checkValidEmail(email)) {
 			error = 'Email không hợp lệ';
 		}
 

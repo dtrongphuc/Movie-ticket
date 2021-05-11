@@ -23,4 +23,35 @@ module.exports = {
 			next();
 		}
 	},
+
+	validate: async (req, res, next) => {
+		const { email, password } = req.body;
+
+		let error = '';
+
+		if (!email || !password || !confirmPassword || !fullname || !phoneNumber) {
+			error = 'Vui lòng điền đầy đủ dữ liệu';
+		} else if (await checkEmailExisted(email)) {
+			error = 'Email đã tồn tại';
+		} else if (password !== confirmPassword) {
+			error = 'Mật khẩu xác nhận không khớp';
+		} else if (!emailRegexp.test(email)) {
+			error = 'Email không hợp lệ';
+		}
+
+		res.locals.error = error;
+
+		if (!error) {
+			let hashedPassword = await hashPassword(password);
+
+			res.locals.data = {
+				email,
+				hashedPassword,
+				fullname,
+				phoneNumber,
+			};
+		}
+
+		next();
+	},
 };

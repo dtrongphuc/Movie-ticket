@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-body {
-  font-size: 12px;
-  font-family: "Arial", "Helvetica", "sans-serif";
-  font-weight: 400;
-  color: #555;
-  line-height: 1;
-}
-
-div {
-  display: block;
-}
-
-ol,
-ul,
-li {
-  list-style: none;
-}
-
-.container {
-  position: relative;
-  min-width: 980px;
-  border-top: 1px solid #e9e4d2;
-  min-height: 669px;
-
-  &--sub {
-    margin: 39px 0 0 0;
-  }
-
-}
-=======
 .container.sub {
 	margin: 39px 0 0 0;
 }
@@ -39,7 +8,6 @@ li {
 // 	border-top: 1px solid #e9e4d2;
 // 	min-height: 669px;
 // }
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 
 .content {
 	position: relative;
@@ -48,16 +16,9 @@ li {
 
 // tab_st02
 .screen_cwrap {
-<<<<<<< HEAD
-  width: 980px;
-  margin: 0 auto;
-  padding-top: 40px;
-  
-=======
 	width: 980px;
 	margin: 0 auto;
 	padding-top: 40px;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 
 .screen_cwrap .tab_st02 {
@@ -72,15 +33,9 @@ li {
 	display: inline-block;
 }
 .tab_st02 li a.on {
-<<<<<<< HEAD
-  background: #231f20;
-  color: #cdc197;
-  font-weight: bold;
-=======
 	background: #231f20;
 	color: #cdc197;
 	font-weight: bold;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 .tab_st02 li a {
 	display: block;
@@ -114,17 +69,10 @@ a {
 	top: -9999px !important;
 }
 
-<<<<<<< HEAD
-.item_list::after {
-  content: "";
-  display: block;
-  clear: both;
-=======
 .item_list:after {
 	content: '';
 	display: block;
 	clear: both;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 
 .screen_cwrap .tab_content.on {
@@ -135,14 +83,6 @@ a {
 	padding-bottom: 10px;
 }
 
-<<<<<<< HEAD
-.movie_clist {
-}
-
-.curr_list {
-  margin-left: -20px;
-  min-height: 441px;
-=======
 .blind {
 	overflow: hidden;
 	position: absolute;
@@ -160,7 +100,6 @@ a {
 .curr_list {
 	margin-left: -20px;
 	min-height: 441px;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 
 .movie_clist.curr_list > li {
@@ -185,27 +124,6 @@ a {
 }
 
 .curr_list .num {
-<<<<<<< HEAD
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 11;
-  display: block;
-  width: 100%;
-  height: 49px;
-  background: url(/LCHS/Image/Bg/bg_w_mk.png) repeat-y left bottom;
-  font-size: 28px;
-  color: #fff;
-  font-family: "linlivertine";
-  font-weight: bold;
-  padding: 5px 0 0 20px;
-  font-style: italic;
-  line-height: 45px;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  text-align: left;
-=======
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -225,7 +143,6 @@ a {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	text-align: left;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 
 .movie_clist.curr_list .img {
@@ -240,13 +157,10 @@ a {
 .curr_list a {
 	display: block;
 }
-<<<<<<< HEAD
-=======
 a {
 	text-decoration: none;
 	color: #555;
 }
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 
 .movie_clist.curr_list .img img {
 	width: 228px;
@@ -358,19 +272,6 @@ a {
 	text-decoration: none;
 	color: #555;
 }
-<<<<<<< HEAD
-.movie_clist.curr_list .list_text dt a [class^="grade_"] {
-  vertical-align: top;
-}
-[class^="grade_"] {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  text-indent: -99999em;
-=======
 .movie_clist.curr_list .list_text dt a [class^='grade_'] {
 	vertical-align: top;
 }
@@ -382,7 +283,6 @@ a {
 	height: 20px;
 	margin-right: 5px;
 	text-indent: -99999em;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 .grade_18 {
 	background: url(/LCHS/Image/Bg/bg_grade_18.png) no-repeat 0 0;
@@ -409,29 +309,6 @@ a {
 	padding-left: 8px;
 }
 .curr_list .list_text dd:after {
-<<<<<<< HEAD
-  content: "";
-  display: block;
-  clear: both;
-}
-.curr_list .list_text dd .grade:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 1px;
-  height: 11px;
-  background: #dfdfdf;
-}
-.curr_list .list_text dd .grade:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 1px;
-  height: 11px;
-  background: #dfdfdf;
-=======
 	content: '';
 	display: block;
 	clear: both;
@@ -453,7 +330,6 @@ a {
 	width: 1px;
 	height: 11px;
 	background: #dfdfdf;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 .curr_list .list_text dd .grade em {
 	display: inline-block;
@@ -461,13 +337,8 @@ a {
 address,
 caption,
 em {
-<<<<<<< HEAD
-  font-weight: normal;
-  font-style: normal;
-=======
 	font-weight: normal;
 	font-style: normal;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
 
 .btn_view {
@@ -498,15 +369,6 @@ em {
 }
 
 .srchResult_none .txt {
-<<<<<<< HEAD
-  display: inline-block;
-  height: 23px;
-  padding-left: 28px;
-  background: url(/LCHS/Image/Bg/bg_ex_mark.png) no-repeat 0 0;
-  font-size: 18px;
-  color: #777;
-  line-height: 25px;
-=======
 	display: inline-block;
 	height: 23px;
 	padding-left: 28px;
@@ -514,5 +376,4 @@ em {
 	font-size: 18px;
 	color: #777;
 	line-height: 25px;
->>>>>>> e5a4b96ef67802e4397d2c104832f988f32e3b81
 }
