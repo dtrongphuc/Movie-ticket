@@ -1,6 +1,6 @@
 const { User } = require('../db/connection');
 
-class CinemaController {
+class UserController {
 	async profile(req, res, next) {
 		const { id } = req.params;
 
@@ -16,4 +16,4 @@ class CinemaController {
 	}
 }
 
-module.exports = new CinemaController();
+module.exports = new UserController();
