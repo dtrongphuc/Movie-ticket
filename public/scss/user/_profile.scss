@@ -1,3 +1,5 @@
+@import "model";
+
 .profileinfo {
   background: #f9f6ec;
 }
@@ -66,7 +68,40 @@
   font-size: 15px;
 }
 .btn--primary {
-  background: #231F20;
-  color: #fff;
+  background: #f9f6ec;
+  color: #222;
 }
 
+.infouser__modal{
+  h1{
+    margin: 15px;
+    text-align: center;
+  }
+
+  .infouser__item{
+    margin-top: 5px;
+
+    .infouser__item-title{
+      font-weight: bold;
+      font-size: 15px;
+      width: 200px;
+    }
+  }
+}
+
+.input--type{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+  border: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border-radius: 15px;
+  line-height: 24px;
+  font-size: 15px;
+}
+.input--type:focus{
+  outline: none;
+  border-color: #e3e3e3;
+  box-shadow: 0 0 2px #9ecaed;
+}
