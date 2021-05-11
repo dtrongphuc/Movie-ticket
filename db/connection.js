@@ -38,6 +38,7 @@ models.Booking.belongsTo(models.User);
 models.Showtime.hasOne(models.Booking);
 models.Booking.belongsTo(models.Showtime);
 
+
 models.Booking.hasOne(models.Ticket);
 models.Ticket.belongsTo(models.Booking);
 sequelize.sync({ force: true })

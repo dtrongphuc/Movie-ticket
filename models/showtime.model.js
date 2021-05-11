@@ -3,9 +3,14 @@ const Movie = require('./movie.model');
 
 const showtime = (sequelize, type) => {
 	const showtime = sequelize.define('showtime', {
+		id:{
+			type: type.INTEGER,
+			allownull: false,
+			primaryKey: true,
+			autoIncrement: true
+		},
 		movieId: {
 			type: type.INTEGER,
-            primaryKey: true,
 			references: {
                 model: Movie, 
                 key: 'id'
@@ -13,7 +18,6 @@ const showtime = (sequelize, type) => {
 		},
 		cinemaId: {
 			type: type.INTEGER,
-            primaryKey: true,
 			references: {
                 model: Cinema,
                 key: 'id'
