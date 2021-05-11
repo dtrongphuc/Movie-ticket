@@ -1,0 +1,42 @@
+@mixin input-group($labelWidth: 90px, $breakpoint: 992px) {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	margin-bottom: 14px;
+
+	& > .form-label {
+		width: 100%;
+		margin-bottom: 8px;
+		@media (min-width: #{$breakpoint}) {
+			width: $labelWidth;
+			margin-bottom: 0;
+		}
+		font-weight: bold;
+		color: #353535;
+		font-size: 14px;
+		text-align: left;
+		vertical-align: middle;
+		margin-right: 12px;
+	}
+
+	& > .form-input {
+		height: 40px;
+		width: 100%;
+		@media (min-width: #{$breakpoint}) {
+			width: calc(100% - #{$labelWidth});
+		}
+		border: 1px solid #dedede;
+		background-color: #f5f5f5;
+		font-size: 12px;
+		border-radius: 0;
+		padding: 4px 12px;
+		outline: none;
+
+		box-shadow: none;
+	}
+
+	@media (min-width: #{$breakpoint}) {
+		flex-direction: row;
+		align-items: center;
+	}
+}
