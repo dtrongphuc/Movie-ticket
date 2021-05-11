@@ -9,7 +9,7 @@ const BookingModel = require('../models/booking.model');
 const TicketModel = require('../models/ticket.model');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
-	//logging: true,
+	logging: false,
 });
 
 const models = {
