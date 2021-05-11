@@ -36,10 +36,7 @@ const user = (sequelize, DataTypes) => {
 		},
 	});
 
-	// Khoá ngoại
-	// User.associate = models => {
-	//   User.hasMany(models.Booking)
-	// }
+	
 
 	
 	User.findByEmail = async (email) => {
