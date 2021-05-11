@@ -5,16 +5,20 @@ include('../layouts/navbar/navbar') -%>
 		<div class="container-md">
 			<h3 class="auth__title register__title">Đăng ký</h3>
 			<div class="auth__form__wrapper register__form__wrapper">
-				<form action="#" method="POST" class="register__form">
+				<form action="/auth/register" method="POST" class="register__form">
+					<% if(message) { %>
+					<div class="alert alert-<%- message?.type %>">
+						<%- message?.content %>
+					</div>
+					<% } %>
 					<div class="form-group">
 						<label class="form-label" for="email">Email</label>
-						<input type="email name="email" id="email" placeholder="Vui lòng
-						nhập địa chỉ Email" class="form-input" />
+						<input type="email" name="email" id="email" class="form-input" />
 					</div>
 					<div class="form-group">
 						<label class="form-label" for="password">Mật khẩu</label>
 						<input
-							type="text"
+							type="password"
 							name="password"
 							id="password"
 							class="form-input"
@@ -25,7 +29,7 @@ include('../layouts/navbar/navbar') -%>
 							>Nhập lại mật khẩu</label
 						>
 						<input
-							type="text"
+							type="password"
 							name="confirmPassword"
 							id="confirmPassword"
 							class="form-input"

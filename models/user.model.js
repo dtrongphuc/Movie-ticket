@@ -23,10 +23,6 @@ const user = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allownull: false,
 		},
-		fullname: {
-			type: DataTypes.STRING,
-			allownull: false,
-		},
 		phoneNumber: {
 			type: DataTypes.STRING,
 			allownull: false,
