@@ -1,5 +1,5 @@
-<%- include('../layouts/header', {title: 'Phim' }); -%>
-
+<%- include('../layouts/header', {title: 'Phim' }); -%> <%-
+include('../layouts/navbar/navbar') -%>
 <div class="container--sub">
   <div class="content">
     <div class="screen_cwrap">
@@ -39,16 +39,20 @@
                 href="javascript:void(0)"
                 onclick="goToTiketing('10714');"
                 class="btn_reserve"
-                >Đặt vé</a>
-                <a
+                >Đặt vé</a
+              >
+              <a
                 href="javascript:void(0)"
                 onclick="goToMovie('10714');"
-                class="btn_View">Chi tiết</a>
+                class="btn_View"
+                >Chi tiết</a
+              >
             </div>
             <dl class="list_text">
               <dt>
                 <a href="javascript:void(0);" onclick="goToMovie('10714');"
-                  ><span class="grade_18"></span>49K BÀN TAY DIỆT QUỶ</a>
+                  ><span class="grade_18"></span>49K BÀN TAY DIỆT QUỶ</a
+                >
               </dt>
               <dd>
                 <span class="rate">128Phút</span
@@ -56,17 +60,16 @@
               </dd>
             </dl>
           </li>
-          
         </ul>
 
-        <a href="javascript:void(0);" class="btn_view" 
-          ><span class="Lang-LBL0000">Thêm</span></a>
+        <a href="javascript:void(0);" class="btn_view"
+          ><span class="Lang-LBL0000">Thêm</span></a
+        >
         <div class="srchResult_none" style="display: none">
-          <span class="txt Lang-LBL0000"
-            >Không có phim nào đang chạy.</span
-          >
+          <span class="txt Lang-LBL0000">Không có phim nào đang chạy.</span>
         </div>
       </div>
+
       <!-- end tab content on -->
     </div>
   </div>

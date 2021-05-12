@@ -1,4 +1,12 @@
 const queryString = require('query-string');
+const passport = require('passport');
+const bcrypt = require('bcrypt');
+const { User } = require('../../db/connection');
+
+const comparePassword = async (plainPassword, hashedPassword) => {
+	let check = await bcrypt.compare(plainPassword, hashedPassword);
+	return check;
+};
 
 module.exports = {
 	getGoogleLoginUrl: (req, res, next) => {
@@ -29,29 +37,44 @@ module.exports = {
 
 		let error = '';
 
-		if (!email || !password || !confirmPassword || !fullname || !phoneNumber) {
+		if (!email || !password) {
 			error = 'Vui lòng điền đầy đủ dữ liệu';
-		} else if (await checkEmailExisted(email)) {
-			error = 'Email đã tồn tại';
-		} else if (password !== confirmPassword) {
-			error = 'Mật khẩu xác nhận không khớp';
 		} else if (!emailRegexp.test(email)) {
 			error = 'Email không hợp lệ';
+		} else if (!(await checkEmailExisted(email))) {
+			error = 'Tài khoản hoặc mật khẩu không chính xác';
 		}
 
 		res.locals.error = error;
 
-		if (!error) {
-			let hashedPassword = await hashPassword(password);
-
-			res.locals.data = {
-				email,
-				hashedPassword,
-				fullname,
-				phoneNumber,
-			};
-		}
-
 		next();
+	},
+
+	login: async (req, res, next) => {
+		const { email, password } = req.body;
+
+		passport.use(
+			new LocalStrategy(function (email, password, done) {
+				User.findOne(
+					{
+						where: {
+							email: email,
+						},
+					},
+					async function (err, user) {
+						if (err) {
+							return done(err);
+						}
+						if (!user) {
+							return done(null, false);
+						}
+						if (!(await comparePassword(password, user.hashedPassword))) {
+							return done(null, false);
+						}
+						return done(null, user);
+					}
+				);
+			})
+		);
 	},
 };
