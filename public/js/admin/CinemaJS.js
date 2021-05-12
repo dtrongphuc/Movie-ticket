@@ -13,7 +13,7 @@ async function initTableData() {
                     type: eachth.type,
                     hor: eachth.hor,
                     ver: eachth.ver,
-                    delete: "<a href=/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
+                    delete: "<a href=/admin/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
