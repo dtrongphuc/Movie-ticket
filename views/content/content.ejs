@@ -1,11 +1,11 @@
-<%- include('../layouts/header', {title: 'Phim' }); -%>
-
-<div class="container" class="sub">
+<%- include('../layouts/header', {title: 'Phim' }); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<div class="container--sub">
   <div class="content">
     <div class="screen_cwrap">
       <ul class="tab_st02">
-        <li><a href="/" id="aNow" class="on">Phim Hot tại rap</a></li>
-        <li><a href="/" id="aSoon">Phim đang chiếu</a></li>
+        <li><a href="/view" id="aNow" class="on">Phim Hot tại rap</a></li>
+        <li><a href="/view" id="aSoon">Phim đang chiếu</a></li>
       </ul>
 
       <div class="item_list">
@@ -16,12 +16,11 @@
 
       <!-- tab content on -->
       <div class="tab_content on">
-        <!-- 2016.05.03 장착법 -->
         <div class="blind">
-          <h3 id="title_h3">Phim đang chiếu<!--현재상영작--></h3>
+          <h3 id="title_h3">Phim đang chiếu</h3>
         </div>
         <div class="blind">
-          <h4 id="title_h4">Đặt vé trước<!--예매순--></h4>
+          <h4 id="title_h4">Đặt vé trước</h4>
         </div>
 
         <ul class="curr_list movie_clist" id="ulMovieList">
@@ -41,7 +40,8 @@
                 onclick="goToTiketing('10714');"
                 class="btn_reserve"
                 >Đặt vé</a
-              ><a
+              >
+              <a
                 href="javascript:void(0)"
                 onclick="goToMovie('10714');"
                 class="btn_View"
@@ -51,7 +51,7 @@
             <dl class="list_text">
               <dt>
                 <a href="javascript:void(0);" onclick="goToMovie('10714');"
-                  ><span class="grade_18">청불</span>49K BÀN TAY DIỆT QUỶ</a
+                  ><span class="grade_18"></span>49K BÀN TAY DIỆT QUỶ</a
                 >
               </dt>
               <dd>
@@ -60,18 +60,16 @@
               </dd>
             </dl>
           </li>
-          
         </ul>
 
-        <a href="javascript:void(0);" class="btn_view" id="aMore2"
-          ><span class="Lang-LBL0000">Thêm<!--더보기--></span></a
-        ><!--20170404 sunho javascript:void(0); 삭제 웹 접근성 # -->
+        <a href="javascript:void(0);" class="btn_view"
+          ><span class="Lang-LBL0000">Thêm</span></a
+        >
         <div class="srchResult_none" style="display: none">
-          <span class="txt Lang-LBL0000"
-            >Không có phim nào đang chạy.<!--상영 중인 영화가 없습니다.--></span
-          >
+          <span class="txt Lang-LBL0000">Không có phim nào đang chạy.</span>
         </div>
       </div>
+
       <!-- end tab content on -->
     </div>
   </div>

@@ -1,6 +1,6 @@
 const { User } = require('../db/connection');
 
-class CinemaController {
+class UserController {
 	async profile(req, res, next) {
 		const { id } = req.params;
 
@@ -8,11 +8,12 @@ class CinemaController {
 			.then(user => {
 				res.render('user/Profile', {user, });
 			})
-			.catch(() => res.send('loi'))
-
-
-		
+			.catch(() => res.send('loi'))		
+	}
+	async updateprofile(req, res, next) {
+		const formData = req.body;
+		return res.status(200).json({a: '1'});
 	}
 }
 
-module.exports = new CinemaController();
+module.exports = new UserController();

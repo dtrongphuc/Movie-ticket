@@ -78,3 +78,43 @@
 		}
 	}
 }
+
+.login__social {
+	margin-top: 24px;
+	text-align: center;
+
+	& > button {
+		position: relative;
+		margin: 0 12px;
+		border: 1px solid #555;
+		width: 120px;
+		& > a {
+			display: block;
+			padding: 12px 4px;
+
+			& > i {
+				position: relative;
+				left: -12px;
+				font-size: 14px;
+				vertical-align: bottom;
+			}
+			color: $color-text-primary;
+		}
+	}
+
+	& > button:first-child {
+		&:hover {
+			& > a {
+				color: #000;
+			}
+		}
+	}
+
+	& > button:last-child {
+		&:hover {
+			& > a {
+				color: #568ee2;
+			}
+		}
+	}
+}

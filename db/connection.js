@@ -9,7 +9,7 @@ const BookingModel = require('../models/booking.model');
 const TicketModel = require('../models/ticket.model');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
-	//logging: true,
+	logging: false,
 });
 
 const models = {
@@ -26,11 +26,10 @@ const models = {
 models.Theater.hasMany(models.Cinema);
 models.Cinema.belongsTo(models.Theater);
 
-models.Movie.hasMany(models.Image),
-models.Image.belongsTo(models.Movie);
+models.Movie.hasMany(models.Image), models.Image.belongsTo(models.Movie);
 
-models.Movie.belongsToMany(models.Cinema,{through: 'showtime'});
-models.Cinema.belongsToMany(models.Movie,{through: 'showtime'});
+models.Movie.belongsToMany(models.Cinema, { through: 'showtime' });
+models.Cinema.belongsToMany(models.Movie, { through: 'showtime' });
 
 models.User.hasOne(models.Booking);
 models.Booking.belongsTo(models.User);
@@ -41,14 +40,13 @@ models.Booking.belongsTo(models.Showtime);
 
 models.Booking.hasOne(models.Ticket);
 models.Ticket.belongsTo(models.Booking);
-sequelize.sync({ force: true })
-	.then(async () => {
-		try {
-			await sequelize.authenticate();
-			console.log('Connection has been established successfully.');
-		} catch (error) {
-			console.error('Unable to connect to the database:', error);
-		}
-	})
+sequelize.sync({ alter: true }).then(async () => {
+	try {
+		await sequelize.authenticate();
+		console.log('Connection has been established successfully.');
+	} catch (error) {
+		console.error('Unable to connect to the database:', error);
+	}
+});
 
 module.exports = models;
