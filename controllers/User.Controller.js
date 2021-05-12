@@ -1,4 +1,4 @@
-const { User, Cinema, Booking, Ticket, Showtime, Movie,Theater } = require("../db/connection");
+const { User, Cinema, Booking, Ticket, Showtime, Movie, Theater } = require("../db/connection");
 const bcrypt = require("bcrypt");
 
 const comparePassword = async (plainPassword, hashedPassword) => {
@@ -14,14 +14,36 @@ class UserController {
     const { id } = req.params;
 
     //test
-    const joinBooking = await Booking.findAll({
-      // include: [
-      //   {
-      //     model: User,
-      //     required: true
-      //   },
-      // ],
-    });
+    // const joinBooking = await Booking.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       where: {id: id}
+    //     },
+    //     {
+    //       model: Showtime,
+    //       include: [
+    //         {
+    //           model: Movie,
+    //         },
+    //         // {
+    //         //   model: Cinema,
+    //         // }
+    //       ]
+    //     }
+    //   ],
+    // });
+    // const movie = await Movie.findAll({});
+    // const joinBooking = await Showtime.findAll({
+    //       include: [
+    //         {
+    //           model: Movie,
+    //         },
+    //       ]
+    // });
+    // const booking = await Booking.findOne({where: {id: '32465600-f596-4f39-985e-eae06a589b2b'}});//này nè um
+    // var x = booking.getMovies();
+    // const 
 
 
     User.findOne({ where: { id: id } })
