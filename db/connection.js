@@ -21,6 +21,7 @@ const models = {
 	Showtime: ShowtimeModel(sequelize, Sequelize),
 	Booking: BookingModel(sequelize, Sequelize),
 	Ticket: TicketModel(sequelize, Sequelize),
+	sequelize
 };
 
 models.Theater.hasMany(models.Cinema);

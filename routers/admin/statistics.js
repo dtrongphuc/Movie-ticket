@@ -8,7 +8,7 @@ router.use(function (req, resp, next) {
 });
 
 router.get('/', function (req, res) {
-    res.render('admin/statistics/statisticsTheaters', {movie: null, cinema: null});
+    res.render('admin/statistics/statisticsTheaters', {result: null});
 });
 
 router.post('/', controller.theater);
