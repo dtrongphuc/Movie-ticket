@@ -1,12 +1,6 @@
 const queryString = require('query-string');
-const passport = require('passport');
+const { passport } = require('../passport/index');
 const bcrypt = require('bcrypt');
-const { User } = require('../../db/connection');
-
-const comparePassword = async (plainPassword, hashedPassword) => {
-	let check = await bcrypt.compare(plainPassword, hashedPassword);
-	return check;
-};
 
 module.exports = {
 	getGoogleLoginUrl: (req, res, next) => {
@@ -50,31 +44,28 @@ module.exports = {
 		next();
 	},
 
-	login: async (req, res, next) => {
-		const { email, password } = req.body;
+	login: (req, res, next) => {
+		passport.authenticate('local-login', (error, user, info) => {
+			const { username, password } = req.body;
 
-		passport.use(
-			new LocalStrategy(function (email, password, done) {
-				User.findOne(
-					{
-						where: {
-							email: email,
-						},
-					},
-					async function (err, user) {
-						if (err) {
-							return done(err);
-						}
-						if (!user) {
-							return done(null, false);
-						}
-						if (!(await comparePassword(password, user.hashedPassword))) {
-							return done(null, false);
-						}
-						return done(null, user);
+			if (!username || !password) {
+				res.locals.message = {
+					content: 'Vui lòng điền đầy đủ dữ liệu',
+					type: 'error',
+				};
+			} else if (error) {
+				res.locals.message = error;
+			} else if (!user) {
+				res.locals.message = info;
+			} else {
+				req.logIn(user, function (err) {
+					if (err) {
+						res.locals.message = err;
 					}
-				);
-			})
-		);
+				});
+			}
+
+			next();
+		})(req, res, next);
 	},
 };

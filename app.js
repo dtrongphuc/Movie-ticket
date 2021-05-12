@@ -1,37 +1,28 @@
 require('dotenv').config();
-const express = require('express');
-const models = require('./db/connection');
-var expressLayouts = require('express-ejs-layouts');
-const passport = require('passport');
-const session = require('express-session');
-const app = express();
-const route = require('./routers/index');
-const theatersRouter = require('./routers/admin/theaters');
-const cinemaRouter = require('./routers/admin/cinema');
-const showtimeRouter = require('./routers/admin/showtime');
-const statisticeRouter = require('./routers/admin/statistics');
-const port = 3000;
+const express = require('express'),
+	models = require('./db/connection'),
+	expressLayouts = require('express-ejs-layouts'),
+	cookieParser = require('cookie-parser'),
+	app = express(),
+	route = require('./routers/index'),
+	{ initPassport } = require('./middlewares/passport/index'),
+	theatersRouter = require('./routers/admin/theaters'),
+	cinemaRouter = require('./routers/admin/cinema'),
+	showtimeRouter = require('./routers/admin/showtime'),
+	statisticeRouter = require('./routers/admin/statistics'),
+	port = 3000;
 
+// APP CONFIGURE
+app.use(require('morgan')('tiny'));
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-
 app.set('trust proxy', 1); // trust first proxy
-app.use(
-	session({
-		secret: 'keyboard cat',
-		resave: false,
-		saveUninitialized: false,
-		// cookie: { secure: true },
-	})
-);
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get('/', (req, res) => res.send('index'));
+// Passport
+initPassport(app);
 
 // Test giao diện content
 app.get('/view', (req, res) => res.render('content/content'));
@@ -41,7 +32,7 @@ route(app);
 //----------------------------------------------------------- ADMIN --------------------------------------------------------------
 
 app.get('/admin/dang-nhap', function (req, res) {
-    res.render('admin/login');
+	res.render('admin/login');
 });
 //apply template
 app.use(expressLayouts);

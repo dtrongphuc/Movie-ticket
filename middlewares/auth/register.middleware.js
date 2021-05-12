@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-const models = require('../../db/connection');
 const {
 	checkEmailExisted,
 	checkValidEmail,
