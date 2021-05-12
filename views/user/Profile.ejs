@@ -48,7 +48,7 @@
                                                             value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
 
-                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo"
+                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo "
                                                         style="margin-top: 20px;">
                                                         Lưu thay đổi
                                                     </button>
@@ -228,9 +228,9 @@
             </div>
         </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.2/sweetalert2.all.min.js"></script>
 
-
-        <script>
+        <!-- <script>
             var Modal = (function () {
 
                 var trigger = $qsa('.modal__trigger'); // what you click to activate the modal
@@ -238,6 +238,7 @@
                 var modalsbg = $qsa('.modal__bg'); // the entire modal (takes up entire window)
                 var content = $qsa('.modal__content'); // the inner content of the modal
                 var closers = $qsa('.modal__close'); // an element used to close the modal
+                // var closers = $qsa('.modal__close_submit'); // an element used to close the modal
                 var w = window;
                 var isOpen = false;
                 var contentDelay = 400; // duration after you click the button and wait for the content to show
@@ -410,13 +411,29 @@
                         modalsbg[i].addEventListener('click', close, false);
                     }
                 };
+                var AfterSubmit = function () {
+                    for (var i = 0; i < len; i++) {
+                        closers[i].addEventListener('click', close, false);
+                    }
+                };
+                var bindActions = function () {
+                    for (var i = 0; i < len; i++) {
+                        trigger[i].addEventListener('click', getId, false);
+                        closers[i].addEventListener('click', close, false);
+                        modalsbg[i].addEventListener('click', close, false);
+                    }
+                };
 
                 var init = function () {
                     bindActions();
                 };
+                var closeAfterSubmit = function () {
+                    bindActions();
+                };
 
                 return {
-                    init: init
+                    init: init,
+                    closeAfterSubmit: closeAfterSubmit
                 };
 
             }());
@@ -424,5 +441,5 @@
             Modal.init();
 
 
-        </script>
+        </script> -->
         <%- include('../layouts/footer'); -%>
