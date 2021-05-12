@@ -114,7 +114,9 @@
   border-color: #e3e3e3;
   box-shadow: 0 0 2px #9ecaed;
 }
-
+.input--error{
+  border: 1px solid red;
+}
 // History
 .histoty {
   margin: 30px 0 80px 0;

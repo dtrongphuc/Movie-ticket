@@ -1,11 +1,10 @@
-const btn_UpdateInfo = document.querySelector(".btn_updateinfo");
 const UpdateInfoForm = document.querySelector("#updateinfo-form");
+const UpdatePasswordForm = document.querySelector("#updateinfo-form--password");
+const btn_UpdateInfo = document.querySelector(".btn_updateinfo");
+const btn_Updatepassword = document.querySelector(".btn_updatepassword");
 
-///test
-var closers1 = document.querySelector(".modal__close_submit");
-var trigger1 = document.querySelector(".modal__trigger");
 const modal11 = document.querySelector('.modal__close');
-var len1 = trigger1.length;
+
 
 btn_UpdateInfo &&
   btn_UpdateInfo.addEventListener("click", async (e) => {
@@ -22,7 +21,7 @@ btn_UpdateInfo &&
       const response = await axios.post("/user/profile", updateInfoData);
       if (response.status === 200) {
         modal11.click();
-        
+
         //alert
         await Swal.fire({
           position: 'top-end',
@@ -35,17 +34,41 @@ btn_UpdateInfo &&
       }
     } catch (error) {
       console.log("sai");
-      //   let messageObj = error?.response?.data?.data;
-      //   let fields = Object.keys(messageObj);
-      //   fields.forEach((field) => {
-      //     document.querySelector("#" + field).classList.add("is-invalid");
-      //     document.querySelector(`#${field} + .invalid-feedback`).innerHTML =
-      //       messageObj[field];
-      //   });
     } finally {
     }
   });
+  
+btn_Updatepassword &&
+  btn_Updatepassword.addEventListener('click', async e =>{
+    e.preventDefault();
+    console.log(btn_UpdateInfo);
+    let formData = new FormData(UpdatePasswordForm);
+    const updatePasswordData = {
+      old_password: formData.get("old_password"),
+      new_password: formData.get("new_password"),
+      confirm: formData.get("confirm"),
+    };
 
+    try {
+      const response = await axios.post("/user/profile-changePass", updatePasswordData);
+      if (response.status === 200) {
+        modal11.click();
+
+        //alert
+        await Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: 'Your work has been saved 111fs',
+          showConfirmButton: false,
+          timer: 900
+        });
+        console.log("thành công");
+      }
+    } catch (error) {
+      console.log("sai");
+    } finally {
+    }
+  })
 
 
 var Modal = (function () {

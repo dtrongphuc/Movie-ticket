@@ -26,6 +26,22 @@ class UserController {
 
 		// return res.status(200).json({a: '1'});
 	}
+	async changePass(req, res, next) {
+		const formData = req.body;
+
+		User.findOne({where : {id: '32465435-f596-4f39-985e-eae06a589b2b'}})
+			.then(async user => {
+				//cập nhật
+				// user.fullname = formData.fullname;
+				// user.phoneNumber = formData.phone;
+				// await user.save();
+
+				return res.status(200).json();
+			})
+			.catch(() => res.status(400).json())	
+
+		// return res.status(200).json({a: '1'});
+	}
 }
 
 module.exports = new UserController();
