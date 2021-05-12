@@ -1,8 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const connection = require('./db/connection');
+var expressLayouts = require('express-ejs-layouts');
 const app = express();
 const route = require('./routers/index');
+const cinemaRouter = require('./routers/admin/cinema');
 const port = 3000;
 
 app.use(express.json());
@@ -17,6 +19,12 @@ app.get('/', (req, res) => res.send('index'));
 app.get('/view', (req, res) => res.render('content/content'));
 
 route(app);
+
+
+//apply template
+app.use(expressLayouts);
+app.set('layout', 'admin/layout');
+app.use('/admin/', cinemaRouter);
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);

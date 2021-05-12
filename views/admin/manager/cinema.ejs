@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="header_content">
+
+        <h1 class="title_content">Quản Lý Rạp</h1>
+        <button type="button" id="btnAdd" class="btn btn-success sml-1" data-toggle="modal" data-target="#modelAdd"
+            style="padding: 4px 35px;margin-left: 20px;">Thêm</button>
+    </div>
+    <table class="table table-striped display " id="theaters" style="width: 100%;">
+        <thead>
+            <tr id="list-header">
+                <th scope="col">STT</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Cụm rạp</th>
+                <th scope="col">Loại Rạp</th>
+                <th scope="col">Kích Thước Chiều Ngang</th>
+                <th scope="col">Kích Thước Chiều Dọc</th>
+                <th scope="col"></th>
+            </tr>
+            
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Cụm Rạp</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action='/' method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="theater">Tên Cụm Rạp</label>
+                        <input type="text" class="form-control" id="theater" name="nameTheaters"
+                            placeholder="Tên Cụm Rạp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="theaters">Cụm Rạp</label>
+                        <select class="form-control" id="theaters" name="theaters">
+                            <% if (theaters !=undefined ) { %>
+                                <% theaters.forEach(function(t) { %>
+                                    <option value="<%= t.id %>">
+                                        <%- t.name %>
+                                    </option>
+                                    <% }) %>
+                                        <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Loại Rạp</label>
+                        <select class="form-control" id="type" name="type">
+                            <% if (type !=undefined ) { %>
+                                <% type.forEach(function(t) { %>
+                                    <option value="<%= t.id %>">
+                                        <%- t.name %>
+                                    </option>
+                                    <% }) %>
+                                        <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="horizontal">Chiều Ngang</label>
+                        <input type="number" class="form-control" id="horizontal" name="horizontal"
+                            placeholder="Chiều Ngang Của Rạp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vertical">Chiều Dọc</label>
+                        <input type="number" class="form-control" id="vertical" name="vertical"
+                            placeholder="Chiều Dọc Của Rạp" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/admin/CinemaJS.js"></script>

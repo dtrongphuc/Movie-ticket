@@ -1,0 +1,64 @@
+.image-logo{
+    background: url(images/cinema.webp) !important;
+}
+
+.bg-login{
+    background: url(images/backgound-login.jpg) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+#ghegom > input{
+    padding: 2px 5px;
+    border: none!important;
+}
+
+
+
+.dataTables_paginate > span > a.current{
+    color: white !important;
+    padding: 2px 10px !important;
+    background: linear-gradient( 180deg ,#4e73df 10%,#224abe 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: white !important;
+}
+
+.header_content{
+    display: flex;
+    align-items: center;
+}
+
+.title_content{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.header-formdate{
+    display: flex;
+    justify-content: center;
+}
+
+.header-formdate > form{
+    display: flex;
+    margin-top: 23px;
+    height: 56px;
+}
+
+.header-formdate > form > div{
+    display: flex;
+}
+
+.header-formdate > form > div > label{
+    margin-top: 7px;
+}
+
+.header-formdate > form > div > input{
+    margin: 0 21px;
+}
+
+.header-formdate > form > button{
+    height: 40px;
+    width: 80px;
+}
