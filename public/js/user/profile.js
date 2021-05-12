@@ -4,7 +4,10 @@ const btn_UpdateInfo = document.querySelector(".btn_updateinfo");
 const btn_Updatepassword = document.querySelector(".btn_updatepassword");
 
 const modal11 = document.querySelector('.modal__close');
-
+const input_old_pass = document.querySelector('#old_password');
+const input_new_pass = document.querySelector('#new_password');
+const confirm = document.querySelector('#confirm');
+const error__oldPass = document.getElementsByClassName('error__oldPass');
 
 btn_UpdateInfo &&
   btn_UpdateInfo.addEventListener("click", async (e) => {
@@ -22,13 +25,17 @@ btn_UpdateInfo &&
       if (response.status === 200) {
         modal11.click();
 
+        //set hiển thị UI lại
+        document.querySelector('.username--primary').innerHTML = formData.get("fullname");
+        document.querySelector('.userphone--primary').innerHTML = formData.get("phone");
+
         //alert
         await Swal.fire({
           position: 'top-end',
           type: 'success',
-          title: 'Your work has been saved',
+          title: 'Thay đổi thông tin thành công!',
           showConfirmButton: false,
-          timer: 1500
+          timer: 900
         });
         console.log("thành công");
       }
@@ -41,31 +48,49 @@ btn_UpdateInfo &&
 btn_Updatepassword &&
   btn_Updatepassword.addEventListener('click', async e =>{
     e.preventDefault();
-    console.log(btn_UpdateInfo);
+    // console.log(btn_UpdateInfo);
     let formData = new FormData(UpdatePasswordForm);
     const updatePasswordData = {
       old_password: formData.get("old_password"),
       new_password: formData.get("new_password"),
       confirm: formData.get("confirm"),
     };
-
+    
     try {
       const response = await axios.post("/user/profile-changePass", updatePasswordData);
       if (response.status === 200) {
         modal11.click();
 
+        //set mặt định cho các input
+        input_old_pass.classList.remove('input--error');
+        input_new_pass.classList.remove('input--error');
+        Object.values(error__oldPass).forEach(html => html.innerHTML = '');
+
         //alert
         await Swal.fire({
           position: 'top-end',
           type: 'success',
-          title: 'Your work has been saved 111fs',
+          title: 'Thay đổi mật khẩu thành công!',
           showConfirmButton: false,
           timer: 900
         });
         console.log("thành công");
       }
     } catch (error) {
-      console.log("sai");
+      console.log(error.response.data);
+      if(error.response.data.err_oldPass != ''){
+        input_old_pass.classList.add('input--error');
+        error__oldPass[0].innerHTML = error.response.data.err_oldPass;
+      }
+      if(error.response.data.err_newPass != ''){
+        input_new_pass.classList.add('input--error');
+        error__oldPass[1].innerHTML = error.response.data.err_newPass;
+      }
+      if(error.response.data.err_confirm != ''){
+        confirm.classList.add('input--error');
+        error__oldPass[2].innerHTML = error.response.data.err_confirm;
+      }
+
     } finally {
     }
   })

@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profileinfo-box__username d-flex justify-content-center">
+                            <div class="profileinfo-box__username d-flex justify-content-center username--primary">
                                 <%- user.fullname %>
                             </div>
                             <div class="profileinfo-box__info">
@@ -78,7 +78,7 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Email</span>
-                                                <p>
+                                                <p class="">
                                                     <%- user.email %>
                                                 </p>
                                             </div>
@@ -89,7 +89,7 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Số điện thoại</span>
-                                                <p>
+                                                <p class="userphone--primary">
                                                     <%- user.phoneNumber %>
                                                 </p>
                                             </div>
@@ -130,28 +130,29 @@
                                                         </div>
                                                         <form id="updateinfo-form--password" class="d-flex"
                                                             style="flex-direction: column;">
-                                                            <div
-                                                                class="infouser__item d-flex" style="flex-direction: column; margin-bottom: 5px;">
+                                                            <div class="infouser__item d-flex" style="flex-direction: column; margin-bottom: 5px;">
                                                                 <!-- <div class="infouser__item-title">Mật khẩu cũ: </div> -->
                                                                 <!-- hiển thị lỗi: input--error -->
-                                                                <input class="input--type " type="text"
+                                                                <input class="input--type" type="text"
                                                                     placeholder="Mật khẩu cũ" 
-                                                                    name="old_password">
-                                                                <span class="input__lable--error" style="color: red; display: none;">Mật khẩu củ không chính xác</span>
+                                                                    name="old_password" id="old_password">
+                                                                <span class="input__lable--error error__oldPass" style="color: red; "></span>
                                                             </div>
                                                             <div
-                                                                class="infouser__item d-flex justify-content-between align-items-center">
+                                                                class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
                                                                 <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
                                                                 <input class="input--type" type="text"
                                                                     placeholder="Mật khẩu mới"
-                                                                    name="new_password">
+                                                                    name="new_password" id="new_password">
+                                                                    <span class="input__lable--error error__oldPass" style="color: red; "></span>
                                                             </div>
                                                             <div
-                                                                class="infouser__item d-flex justify-content-between align-items-center">
+                                                                class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
                                                                 <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
                                                                 <input class="input--type" type="text"
                                                                     placeholder="Nhập lại mật khẩu mới" 
-                                                                    name="confirm">
+                                                                    name="confirm" id="confirm">
+                                                                    <span class="input__lable--error error__oldPass" style="color: red; "></span>
                                                             </div>
 
                                                             <button type="submit"
