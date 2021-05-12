@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="header_content">
+
+        <h1 class="title_content">Quản Lý Rạp</h1>
+        <button type="button" id="btnAdd" class="btn btn-success sml-1" data-toggle="modal" data-target="#modelAdd"
+            style="padding: 4px 35px;margin-left: 20px;">Thêm</button>
+    </div>
+    <table class="table table-striped display" id="theaters" style="width: 100%;">
+        <thead>
+            <tr id="list-header">
+                <th scope="col">STT</th>
+                <th scope="col">Phim</th>
+                <th scope="col">Rạp</th>
+                <th scope="col">Thời Gian Bắt Đầu</th>
+                <th scope="col">Thời Gian Kết thúc</th>
+                <th scope="col">Giá Vé</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Cụm Rạp</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action='/admin/suat-phim' method="POST">
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                        <label for="movie">Phim</label>
+                        <select class="form-control" id="movie" name="movie">
+                            <% if (movie != undefined ) { %>
+                                <% movie.forEach(function(t) { %>
+                                    <option value="<%= t.id %>"><%- t.name %></option>
+                                <% }) %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cinema">Rạp</label>
+                        <select class="form-control" id="cinema" name="cinema">
+                            <% if (cinema != undefined ) { %>
+                                <% cinema.forEach(function(t) { %>
+                                    <option value="<%= t.id %>"><%- t.name %></option>
+                                <% }) %>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="starttime">Thời Gian Bắt Đầu</label>
+                        <input type="datetime-local" class="form-control" id="starttime" name="starttime"
+                            placeholder="Thời Gian Bắt Đầu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endtime">Thời Gian Kết Thúc</label>
+                        <input type="datetime-local" class="form-control" id="endtime" name="endtime" placeholder="Thời Gian Kết Thúc" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Giá Vé</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Giá Vé" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/admin/ShowtimeJS.js"></script>
