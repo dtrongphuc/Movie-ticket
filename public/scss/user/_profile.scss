@@ -89,6 +89,14 @@
   }
 }
 
+@media (max-width: 535px){
+  .showmodal__updateprofile{
+    span{
+      display: none;
+    }
+  }
+}
+
 .input--type {
   background-color: #f5f5f5;
   display: block;

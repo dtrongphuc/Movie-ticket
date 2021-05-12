@@ -27,7 +27,8 @@
                                         <div class="modal__content">
                                             <div class="infouser__modal">
                                                 <h1>Chỉnh sửa thông tin</h1>
-                                                <form id="updateinfo-form" class="d-flex" style="flex-direction: column;">
+                                                <form id="updateinfo-form" class="d-flex"
+                                                    style="flex-direction: column;">
                                                     <div
                                                         class="infouser__item d-flex justify-content-between align-items-center">
                                                         <div class="infouser__item-title">Email: </div>
@@ -47,7 +48,8 @@
                                                             value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
 
-                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo" style="margin-top: 20px;">
+                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo"
+                                                        style="margin-top: 20px;">
                                                         Lưu thay đổi
                                                     </button>
                                                 </form>
@@ -64,7 +66,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profileinfo-box__username d-flex justify-content-center"><%- user.fullname %></div>
+                            <div class="profileinfo-box__username d-flex justify-content-center">
+                                <%- user.fullname %>
+                            </div>
                             <div class="profileinfo-box__info">
                                 <div class="row">
                                     <div class="col">
@@ -74,7 +78,9 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Email</span>
-                                                <p><%- user.email %></p>
+                                                <p>
+                                                    <%- user.email %>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="profileinfo-box__info--items d-flex align-items-center">
@@ -83,7 +89,9 @@
                                             </div>
                                             <div class="boxinfo__items--content">
                                                 <span>Số điện thoại</span>
-                                                <p><%- user.phoneNumber %></p>
+                                                <p>
+                                                    <%- user.phoneNumber %>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -97,14 +105,64 @@
                                                 <p>Không xác định</p>
                                             </div>
                                         </div>
-                                        <div class="profileinfo-box__info--items d-flex align-items-center">
-                                            <div class="boxinfo__items--icon">
-                                                <img src="/images/icons/password.png" alt="">
+                                        <div
+                                            class="profileinfo-box__info--items d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <div class="boxinfo__items--icon">
+                                                    <img src="/images/icons/password.png" alt="">
+                                                </div>
+                                                <div class="boxinfo__items--content">
+                                                    <span>Mật khẩu</span>
+                                                    <p>***********</p>
+                                                </div>
                                             </div>
-                                            <div class="boxinfo__items--content">
-                                                <span>Mật khẩu</span>
-                                                <p>***********</p>
+                                            <div data-modal="#modal-password" class="modal__trigger"
+                                            style="padding: 0; box-shadow: none;">
+                                                <img src="/images/icons/edit.png" alt="" width="25px" style="padding: 2px;">
                                             </div>
+                                            <div id="modal-password" class="modal modal--align-top modal__bg" role="dialog"
+                                            aria-hidden="true">
+                                            <div class="modal__dialog">
+                                                <div class="modal__content">
+                                                    <div class="infouser__modal">
+                                                        <h1>Thay đổi mật khẩu</h1>
+                                                    </div>
+                                                    <form id="updateinfo-form" class="d-flex"
+                                                    style="flex-direction: column;">
+                                                    <div
+                                                        class="infouser__item d-flex justify-content-between align-items-center">
+                                                        <!-- <div class="infouser__item-title">Mật khẩu cũ: </div> -->
+                                                        <input class="input--type" type="text" placeholder="Email"
+                                                            value="Mật khẩu cũ" name="old_password" >
+                                                    </div>
+                                                    <div
+                                                        class="infouser__item d-flex justify-content-between align-items-center">
+                                                        <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
+                                                        <input class="input--type" type="text" placeholder="Email"
+                                                            value="Mật khẩu mới" name="new_password">
+                                                    </div>
+                                                    <div
+                                                        class="infouser__item d-flex justify-content-between align-items-center">
+                                                        <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
+                                                        <input class="input--type" type="text" placeholder="Email"
+                                                            value="Nhập lại mật khẩu mới" name="confirm">
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo"
+                                                        style="margin-top: 20px;">
+                                                        Lưu thay đổi
+                                                    </button>
+                                                </form>
+                                                    <a href="" class="modal__close demo-close">
+                                                        <svg class="" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
+                                                            <path d="M0 0h24v24h-24z" fill="none" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +183,7 @@
                 <div class="histoty__title">
                     <h1>Lịch Sử Đặt Vé</h1>
                     <div class="history__table d-flex justify-content-center">
-                        <table >
+                        <table>
                             <tr>
                                 <th>#</th>
                                 <th>Phim</th>
@@ -161,8 +219,8 @@
                                 <td>1368</td>
                                 <td>18 Mar 1982</td>
                             </tr>
-                            
-                    
+
+
                         </table>
                     </div>
 
@@ -171,7 +229,7 @@
         </div>
 
 
-        
+
         <script>
             var Modal = (function () {
 
