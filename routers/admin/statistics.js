@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 router.post('/', controller.theater);
 
 router.get('/movie', function (req, res) {
-    res.render('statistics/statisticsMove', {movie: null, cinema: null});
+    res.render('admin/statistics/statisticsMove', {result: null});
 });
 
 router.post('/movie', controller.movie);
