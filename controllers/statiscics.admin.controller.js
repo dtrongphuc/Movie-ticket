@@ -2,9 +2,15 @@ const express = require('express');
 class Statistics {
 
     theater(req, res) {
-        var bd = req.body;
-        console.log(bd);
-        res.render('admin/statistics/statisticsTheaters',{movie: movie, cinema: cinema});
+        var body = req.body;
+        console.log(body);
+        res.render('admin/statistics/statisticsTheaters',{movie: null, cinema: null});
+    };
+
+    movie(req, res) {
+        var body = req.body;
+        console.log(body);
+        res.render('admin/statistics/statisticsTheaters',{movie: null, cinema: null});
     };
 
 }

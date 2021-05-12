@@ -14,8 +14,10 @@ router.get('/', function (req, res) {
 router.post('/', controller.theater);
 
 router.get('/movie', function (req, res) {
-    res.render('statistics/statisticsMove');
+    res.render('statistics/statisticsMove', {movie: null, cinema: null});
 });
+
+router.post('/movie', controller.movie);
 
 
 module.exports = router;
