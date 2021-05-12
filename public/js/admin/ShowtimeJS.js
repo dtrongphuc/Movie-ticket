@@ -1,7 +1,7 @@
 var table;
 async function initTableData() {
     
-    var url = `/suat-phim/getdata`;
+    var url = `/admin/suat-phim/getdata`;
     axios.get(url)
         .then(function (response) {
             var i = 1;
@@ -13,7 +13,7 @@ async function initTableData() {
                     starttime: eachth.starttime,
                     endtime: eachth.endtime,
                     price: eachth.price,
-                    delete: "<a href=/suat-phim/delete/"+eachth.movieid+"/"+eachth.cinemaid+"><i class='fas fa-trash-alt'></i></a>"
+                    delete: "<a href=/admin/suat-phim/delete/"+eachth.movieid+"/"+eachth.cinemaid+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
