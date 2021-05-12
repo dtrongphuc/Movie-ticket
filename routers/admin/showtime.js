@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../../controllers/showtime.admin.controller');
 
 router.use(function (req, resp, next) {
-    resp.locals.title = 'Cụm Rạp';
+    resp.locals.title = 'Suất Chiếu';
     next();
 });
 router.get('/', controller.index);

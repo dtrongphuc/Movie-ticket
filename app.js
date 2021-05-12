@@ -6,8 +6,10 @@ const passport = require('passport');
 const session = require('express-session');
 const app = express();
 const route = require('./routers/index');
+const theatersRouter = require('./routers/admin/theaters');
 const cinemaRouter = require('./routers/admin/cinema');
 const showtimeRouter = require('./routers/admin/showtime');
+const statisticeRouter = require('./routers/admin/statistics');
 const port = 3000;
 
 app.use(express.json());
@@ -37,12 +39,17 @@ app.get('/view', (req, res) => res.render('content/content'));
 route(app);
 
 //----------------------------------------------------------- ADMIN --------------------------------------------------------------
+
+app.get('/admin/dang-nhap', function (req, res) {
+    res.render('admin/login');
+});
 //apply template
 app.use(expressLayouts);
 app.set('layout', 'admin/layout');
 app.use('/admin/', cinemaRouter);
 app.use('/admin/suat-phim', showtimeRouter);
-
+app.use('/admin/cum-rap', theatersRouter);
+app.use('/admin/thong-ke', statisticeRouter);
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });

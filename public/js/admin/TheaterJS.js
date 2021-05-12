@@ -1,7 +1,7 @@
 var table;
 async function initTableData() {
     
-    var url = `/cum-rap/getdata`;
+    var url = `/admin/cum-rap/getdata`;
     axios.get(url)
         .then(function (response) {
             var i = 1;
@@ -10,7 +10,7 @@ async function initTableData() {
                     STT: i++,
                     name: eachth.name,
                     address: eachth.address,
-                    delete: "<a href=/cum-rap/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
+                    delete: "<a href=/admin/cum-rap/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
