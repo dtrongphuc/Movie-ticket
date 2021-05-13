@@ -196,38 +196,30 @@
                                 <th>#</th>
                                 <th>Phim</th>
                                 <th>Rạp</th>
+                                <th>Cụm Rạp</th>
                                 <th>Ghế </th>
                                 <th>Ngày/giờ</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Lật mặt</td>
-                                <td>HCM</td>
-                                <td>C6</td>
-                                <td>18 Nov 1962</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Bóng đè</td>
-                                <td>HCM</td>
-                                <td>R12</td>
-                                <td>18 Dec 1962</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Conan: Viên Đạn Đỏ</td>
-                                <td>HN</td>
-                                <td>G45</td>
-                                <td>18 Nov 1972</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Nadia</td>
-                                <td>leBon</td>
-                                <td>1368</td>
-                                <td>18 Mar 1982</td>
-                            </tr>
 
+                            <!-- truy vấn query -->
+                                <!--  index + 1 
+                                 book.moviename 
+                                 book.cinemaname 
+                                 book.theatername 
+                                 book.seatId 
+                                 book.time.toLocaleDateString('en-GB')  -->
+                         
+                            <!-- join model -->
+                            <% joins.forEach(function(book, index) { %>
+                            <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%= book.showtime.movie.name %></td>
+                                <td><%= book.showtime.cinema.name %></td>
+                                <td><%= book.showtime.cinema.theater.name %></td>
+                                <td><%= book.ticket.seatId %></td>
+                                <td><%= book.time.toLocaleDateString('en-GB') %></td>
+                            </tr>
+                            <% }); %>
 
                         </table>
                     </div>

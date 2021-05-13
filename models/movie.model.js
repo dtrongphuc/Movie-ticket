@@ -14,6 +14,10 @@ const movie = (sequelize, type) => {
 			type: type.REAL,
 			allownull: false,
 		},
+		description: {
+			type: type.STRING,
+			allownull: false,
+		},
 	});
 
 
