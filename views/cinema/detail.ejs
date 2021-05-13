@@ -64,31 +64,18 @@
 				</div>
 				<div class="col-lg-12 col-6" style="margin: 0; padding: 0">
 					<div class="detailFlim__right" style="padding-top: 30px;">
-						<h3 class="filmName">LẬT MẶT 48H</h3>
-						<p><strong class="content__title">Khởi chiếu: </strong>Từ 16/04/2021</p>
+						<h3 class="filmName"><%- movie.name %></h3>
+						<p><strong class="content__title">Khởi chiếu: </strong>Từ <%- movie.OpeningDay.toLocaleDateString('en-GB') %></p>
 						<!-- <p><strong class="content__title">Xếp hạng: </strong>[Trong nước] 18 tuổi trở lên</p> -->
 						<!-- <p>
 							<strong class="content__title">Thông tin cơ bản: </strong>Action/Adventure/SF Vietnam
 							(110Phút)
 						</p> -->
-						<p><strong class="content__title">Thời lượng: </strong>150 phút</p>
-						<!-- <p >
-							<strong class="content__title">Tóm tắt: </strong>
-							Chuyện phim kể về Hiền (Võ Thành Tâm) - mộtcựu vận động viên võ thuật sau khi giải nghệ vì
-							chấn thương đã cùng vợ
-							(Ốc Thanh Vân) và con gái về quê thăm gia đình Lâm (Mạc Văn Khoa). Họ
-							bị cuốn vào một cuộc rượt đuổi với tay phản diện A Dìn (Huỳnh Đông).
-							Để bảo vệ cho gia đình nhỏ, Hiền phải đưa vợ con chạy trốn khắp miền
-							Tây sông nước với sự trợ giúp của người bạn thật thà và hài hước.
-						</p> -->
-						<!-- <style>
-							@media only screen and (max-width: 1237px) {
-								.detailFlim__right {
-									padding-left: 20px;
-									padding-right: 20px;
-								}
-							}
-						</style> -->
+						<p><strong class="content__title">Thời lượng: </strong><%- movie.time %> phút</p>
+						<p >
+							<strong class="content__title">Đạo diễn: </strong>
+							<%- movie.directors %>
+						</p>
 						<div class="review d-flex align-items-center">
 							<strong style="margin-right: 15px">Đánh giá: </strong>
 							<div class="review__img ">
@@ -132,10 +119,24 @@
 					</div>
 				</div>
 				<div class="col-1 col-lg-0"></div>
-
 			</div>
 		</div>
-
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-1 col-lg-0"></div>
+				<div class="col-10 col-lg-12">
+					<div class="descriptionMovie">
+						<p >
+							<strong class="content__title">Tóm tắt: </strong>
+							<%- movie.description %>
+						</p>
+					</div>
+				</div>
+				<div class="col-1 col-lg-0"></div>
+			</div>
+			
+		</div>
 
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

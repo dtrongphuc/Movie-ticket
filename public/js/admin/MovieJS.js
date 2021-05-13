@@ -1,21 +1,19 @@
 var table;
 async function initTableData() {
     
-    var url = `/admin/suat-phim/getdata`;
+    var url = `/admin/phim/getdata`;
     axios.get(url)
         .then(function (response) {
             var i = 1;
             var modified = response.data.map(e => {
                 return {
                     STT: i++,
-                    phim: e.movieName,
-                    rap: e.cinemaName,
-                    starttime: (e.startTime).substr(0, e.startTime.length - 14),
-                    endtime: (e.endTime).substr(0, e.endTime.length - 14),
-                    price: e.fare,
+                    name: e.name,
+                    time: e.time,
+                    open: (e.OpeningDay).substr(0, e.OpeningDay.length - 14),
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
-                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
-                    delete: "<a href=/admin/suat-phim/delete/"+e.movieId+"/"+ e.cinemaId+"><i class='fas fa-trash-alt'></i></a>"
+                    updatedAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
+                    delete: "<a href=/admin/phim/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
@@ -30,13 +28,11 @@ async function initTableData() {
                 data: modified,
                 columns: [
                     { data: 'STT' },
-                    { data: 'phim' },
-                    { data: 'rap' },
-                    { data: 'starttime' },
-                    { data: 'endtime' },
-                    { data: 'price' },
+                    { data: 'name' },
+                    { data: 'time' },
+                    { data: 'open' },
                     { data: 'createdAt' },
-                    { data: 'updateAt' },
+                    { data: 'updatedAt' },
                     { data: 'delete' }
                 ]
             });

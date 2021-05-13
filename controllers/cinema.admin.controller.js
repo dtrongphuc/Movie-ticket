@@ -13,7 +13,9 @@ class CinemaController {
     };
 
     async getData(req, res){
-        let query = `SELECT t."name" as "theaterName", c.* FROM theaters t JOIN cinemas c on t.id = c."theaterId"`;
+        let query = `SELECT t."name" as "theaterName", c.* 
+                    FROM theaters t JOIN cinemas c on t.id = c."theaterId" 
+                    ORDER BY c.id DESC`;
 
         var data = await models.sequelize.query(query,
             {
@@ -25,13 +27,23 @@ class CinemaController {
 
     async delete(req,res){
         var id = req.params.id;
-        console.log(id);
+        await models.Cinema.destroy({
+            where:{
+                id: id
+            }
+        });
         res.redirect('/admin/');
     }
 
     async add(req,res){
         var body = req.body;
-        console.log(body);
+        await models.Cinema.create({
+            name: body.name,
+            type: body.type,
+            length: body.length,
+            width: body.width,
+            theaterId: body.theaters
+        });
         res.redirect('/admin/');
     }
 }

@@ -14,7 +14,15 @@ const movie = (sequelize, type) => {
 			type: type.REAL,
 			allownull: false,
 		},
+		OpeningDay:{
+			type: type.DATE,
+			allownull: false,
+		},
 		description: {
+			type: type.TEXT,
+			allownull: false,
+		},
+		directors: {
 			type: type.STRING,
 			allownull: false,
 		},
