@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../../controllers/cinema.admin.controller');
 
 router.use(function (req, resp, next) {
-    resp.locals.title = 'Rạp';
+    resp.locals.title = 'Quản Lý Rạp';
     next();
 });
 router.get('/', controller.index);

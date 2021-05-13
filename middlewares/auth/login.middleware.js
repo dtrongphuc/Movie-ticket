@@ -3,29 +3,6 @@ const { passport } = require('../passport/index');
 const bcrypt = require('bcrypt');
 
 module.exports = {
-	getGoogleLoginUrl: (req, res, next) => {
-		try {
-			const stringifiedParams = queryString.stringify({
-				client_id: process.env.GOOGLE_CLIENT_ID,
-				redirect_uri: 'http://localhost:4000/auth/google',
-				scope: [
-					'https://www.googleapis.com/auth/userinfo.email',
-					'https://www.googleapis.com/auth/userinfo.profile',
-				].join(' '), // space seperated string
-				response_type: 'code',
-				access_type: 'offline',
-				prompt: 'consent',
-			});
-
-			const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`;
-			res.locals.googleLoginUrl = googleLoginUrl;
-		} catch (error) {
-			console.log('get google login url error', error);
-		} finally {
-			next();
-		}
-	},
-
 	validate: async (req, res, next) => {
 		const { email, password } = req.body;
 
@@ -44,25 +21,36 @@ module.exports = {
 		next();
 	},
 
-	login: (req, res, next) => {
+	localLogin: (req, res, next) => {
 		passport.authenticate('local-login', (error, user, info) => {
-			const { username, password } = req.body;
-
-			if (!username || !password) {
-				res.locals.message = {
+			const { email, password } = req.body;
+			if (!email || !password) {
+				req.session.message = {
 					content: 'Vui lòng điền đầy đủ dữ liệu',
 					type: 'error',
 				};
 			} else if (error) {
-				res.locals.message = error;
+				req.session.message = error;
 			} else if (!user) {
-				res.locals.message = info;
+				req.session.message = info;
 			} else {
 				req.logIn(user, function (err) {
 					if (err) {
-						res.locals.message = err;
+						req.session.message = err;
 					}
 				});
+			}
+
+			next();
+		})(req, res, next);
+	},
+
+	googleLogin: (req, res, next) => {
+		passport.authenticate('google', (error, profile, info) => {
+			if (error) {
+				req.session.message = error;
+			} else if (!profile) {
+				req.session.message = info;
 			}
 
 			next();

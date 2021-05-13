@@ -6,6 +6,16 @@ const user = (sequelize, DataTypes) => {
 			primaryKey: true,
 			defaultValue: DataTypes.UUIDV4,
 		},
+		googleId: {
+			type: DataTypes.STRING,
+			allownull: true,
+			defaultValue: null,
+		},
+		facebookId: {
+			type: DataTypes.STRING,
+			allownull: true,
+			defaultValue: null,
+		},
 		email: {
 			type: DataTypes.STRING,
 			allownull: false,
@@ -17,7 +27,8 @@ const user = (sequelize, DataTypes) => {
 		},
 		hashedPassword: {
 			type: DataTypes.STRING,
-			allownull: false,
+			allownull: true,
+			defaultValue: null,
 		},
 		fullname: {
 			type: DataTypes.STRING,
@@ -25,7 +36,8 @@ const user = (sequelize, DataTypes) => {
 		},
 		phoneNumber: {
 			type: DataTypes.STRING,
-			allownull: false,
+			allownull: true,
+			defaultValue: null,
 		},
 		role: {
 			type: DataTypes.STRING,
@@ -33,16 +45,14 @@ const user = (sequelize, DataTypes) => {
 			validate: {
 				isIn: [['admin', 'member']],
 			},
+			defaultValue: 'member',
 		},
 	});
 
-	
-
-	
 	User.findByEmail = async (email) => {
 		let result = await User.findOne({
 			where: {
-				email: email
+				email: email,
 			},
 		});
 

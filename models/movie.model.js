@@ -14,9 +14,12 @@ const movie = (sequelize, type) => {
 			type: type.REAL,
 			allownull: false,
 		},
-		//ngày công chiếu
-		premiere: {
+		OpeningDay:{
 			type: type.DATE,
+			allownull: false,
+		},
+		description: {
+			type: type.STRING,
 			allownull: false,
 		},
 	});

@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="header_content">
-        <h1 class="title_content">Quản Lý Rạp</h1>
+
+        <h1 class="title_content">Quản Lý Phim</h1>
         <button type="button" id="btnAdd" class="btn btn-success sml-1" data-toggle="modal" data-target="#modelAdd"
             style="padding: 4px 35px;margin-left: 20px;">Thêm</button>
     </div>
@@ -9,11 +10,13 @@
             <tr id="list-header">
                 <th scope="col">STT</th>
                 <th scope="col">Tên</th>
-                <th scope="col">Địa Chỉ</th>
+                <th scope="col">Thời Lượng</th>
+                <th scope="col">Ngày Công Chiếu</th>
                 <th scope="col">Ngày Tạo</th>
                 <th scope="col">Ngày Cập Nhật</th>
                 <th scope="col"></th>
             </tr>
+            
         </thead>
         <tbody>
         </tbody>
@@ -27,21 +30,31 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm Cụm Rạp</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Phim</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action='/admin/cum-rap' method="POST">
+            <form action='/admin/phim' method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="theater">Tên Cụm Rạp</label>
-                        <input type="text" class="form-control" id="theater" name="nameTheaters"
-                            placeholder="Tên Cụm Rạp" required>
+                        <label for="name">Tên Phim</label>
+                        <input type="text" class="form-control" id="theanameter" name="name"
+                            placeholder="Tên Phim" required>
                     </div>
                     <div class="form-group">
-                        <label for="address">Địa Chỉ</label>
-                        <input type="text" class="form-control" id="address" name="address" placeholder="Địa Chỉ" required>
+                        <label for="image">File</label>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                      </div>
+                    <div class="form-group">
+                        <label for="time">Thời Lượng</label>
+                        <input type="text" class="form-control" id="time" name="time"
+                            placeholder="Thời lượng phát sóng" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="starttime">Ngày Công Chiếu</label>
+                        <input type="datetime-local" class="form-control" id="starttime" name="starttime"
+                            placeholder="Thời Gian Bắt Đầu" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -52,5 +65,4 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="/js/admin/TheaterJS.js"></script>
+<script type="text/javascript" src="/js/admin/MovieJS.js"></script>

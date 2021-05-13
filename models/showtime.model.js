@@ -9,20 +9,6 @@ const showtime = (sequelize, type) => {
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		movieId: {
-			type: type.INTEGER,
-			references: {
-				model: Movie,
-				key: 'id',
-			},
-		},
-		cinemaId: {
-			type: type.INTEGER,
-			references: {
-				model: Cinema,
-				key: 'id',
-			},
-		},
 		startTime: {
 			type: type.DATE,
 		},

@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../../controllers/theaters.admin.controller');
 
 router.use(function (req, resp, next) {
-    resp.locals.title = 'Cụm Rạp';
+    resp.locals.title = 'Quán Lý Cụm Rạp';
     next();
 });
 router.get('/', controller.index);

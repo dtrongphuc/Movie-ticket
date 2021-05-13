@@ -1,39 +1,16 @@
 const models = require('../db/connection');
-const {
-	getAccessTokenFromCode,
-	getGoogleUserInfo,
-} = require('../helpers/googleToken/index');
 
 module.exports = {
 	// login
 	getLogin: (req, res) => {
-		const { googleLoginUrl } = res.locals;
-		res.render('auth/login', { googleLoginUrl: googleLoginUrl, message: null });
-	},
-
-	getLoginWithGoogle: async (req, res) => {
-		const { code, error } = req.query;
-
-		if (!!error) {
-			console.log(`An error occurred: ${error}`);
-		} else {
-			console.log(`The code is: ${code}`);
-		}
-		const accessToken = await getAccessTokenFromCode(code);
-		const userInfo = await getGoogleUserInfo(accessToken);
-
-		res.send('index');
+		res.render('auth/login', { message: res.locals.message });
 	},
 
 	postLogin: (req, res) => {
-		const { message, googleLoginUrl } = res.locals;
+		const { message } = req.session;
 		if (message) {
-			return res.render('auth/login', {
-				message: message,
-				googleLoginUrl: googleLoginUrl,
-			});
+			return res.redirect(301, '/auth/login');
 		}
-		// console.log(req.cookies);
 		return res.redirect('/');
 	},
 

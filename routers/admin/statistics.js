@@ -13,11 +13,11 @@ router.get('/', function (req, res) {
 
 router.post('/', controller.theater);
 
-router.get('/movie', function (req, res) {
+router.get('/phim', function (req, res) {
     res.render('admin/statistics/statisticsMove', {result: null});
 });
 
-router.post('/movie', controller.movie);
+router.post('/phim', controller.movie);
 
 
 module.exports = router;

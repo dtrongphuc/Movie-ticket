@@ -27,10 +27,8 @@ const models = {
 models.Theater.hasMany(models.Cinema);
 models.Cinema.belongsTo(models.Theater);
 
-models.Movie.hasMany(models.Image), models.Image.belongsTo(models.Movie);
-
-models.Movie.belongsToMany(models.Cinema, { through: 'showtime' });
-models.Cinema.belongsToMany(models.Movie, { through: 'showtime' });
+models.Movie.hasMany(models.Image), 
+models.Image.belongsTo(models.Movie);
 
 models.User.hasOne(models.Booking);
 models.Booking.belongsTo(models.User);
@@ -38,10 +36,14 @@ models.Booking.belongsTo(models.User);
 models.Showtime.hasOne(models.Booking);
 models.Booking.belongsTo(models.Showtime);
 
-models.Movie.hasOne(models.Showtime);
+models.Movie.hasMany(models.Showtime);
 models.Showtime.belongsTo(models.Movie);
 
+<<<<<<< HEAD
+models.Cinema.hasMany(models.Showtime);
+=======
 models.Cinema.hasOne(models.Showtime);
+>>>>>>> b9b5982f4b0f40496d6c66622e72c7e44746f6cb
 models.Showtime.belongsTo(models.Cinema);
 
 models.Booking.hasOne(models.Ticket);
