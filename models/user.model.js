@@ -28,7 +28,7 @@ const user = (sequelize, DataTypes) => {
 		hashedPassword: {
 			type: DataTypes.STRING,
 			allownull: true,
-			defaultValue: null
+			defaultValue: null,
 		},
 		fullname: {
 			type: DataTypes.STRING,
@@ -37,6 +37,7 @@ const user = (sequelize, DataTypes) => {
 		phoneNumber: {
 			type: DataTypes.STRING,
 			allownull: true,
+			defaultValue: null,
 		},
 		role: {
 			type: DataTypes.STRING,
@@ -44,6 +45,7 @@ const user = (sequelize, DataTypes) => {
 			validate: {
 				isIn: [['admin', 'member']],
 			},
+			defaultValue: 'member',
 		},
 	});
 
