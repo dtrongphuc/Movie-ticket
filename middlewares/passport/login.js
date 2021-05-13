@@ -1,8 +1,11 @@
-const models = require('../../db/connection');
-const { comparePassword } = require('../../helpers/validate/password.validate');
-const LocalStrategy = require('passport-local').Strategy;
+const models = require('../../db/connection'),
+	{ comparePassword } = require('../validate/password.validate'),
+	LocalStrategy = require('passport-local').Strategy,
+	GoogleStrategy = require('passport-google-oauth20').Strategy;
+const { checkEmailExisted } = require('../validate/email.validate');
 
 module.exports = function initLogin(passport) {
+	// Local login
 	passport.use(
 		'local-login',
 		new LocalStrategy(
@@ -39,6 +42,45 @@ module.exports = function initLogin(passport) {
 						content: 'Tài khoản hoặc mật khẩu không chính xác',
 						type: 'error',
 					});
+				}
+			}
+		)
+	);
+
+	// Using google
+	passport.use(
+		new GoogleStrategy(
+			{
+				clientID: process.env.GOOGLE_CLIENT_ID,
+				clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+				callbackURL: process.env.GOOGLE_CB_URL,
+			},
+			async function (accessToken, refreshToken, profile, cb) {
+				try {
+					let userEmail = profile?.emails[0]?.value;
+					let check = checkEmailExisted(userEmail);
+					if (check) {
+						return cb(null, false, {
+							content:
+								'Email đã được đăng ký, vui lòng đăng nhập bằng mật khẩu',
+							type: 'error',
+						});
+					}
+					let [user, isCreated] = await models.User.findOrCreate({
+						where: {
+							googleId: profile.id,
+						},
+						defaults: {
+							googleId: profile.id,
+							email: userEmail,
+							fullname: profile.displayName,
+						},
+					});
+
+					return cb(null, user);
+				} catch (error) {
+					console.log('error: ', error);
+					return cb(error, null);
 				}
 			}
 		)

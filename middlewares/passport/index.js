@@ -9,6 +9,7 @@ exports.initPassport = (app) => {
 			resave: false,
 			saveUninitialized: false,
 			cookie: { secure: false, httpOnly: false },
+			expires: +process.env.SESSION_LIFE,
 		})
 	);
 
