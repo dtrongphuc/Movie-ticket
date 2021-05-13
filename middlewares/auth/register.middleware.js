@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const {
 	checkEmailExisted,
 	checkValidEmail,
-} = require('../../helpers/validate/email.validate');
+} = require('../validate/email.validate');
 
 const hashPassword = async (plainPassword) => {
 	let hashedPassword = await bcrypt.hash(plainPassword, 10);

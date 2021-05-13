@@ -54,7 +54,7 @@ include('../layouts/navbar/navbar') -%>
 									<li>
 										<div class="form-group">
 											<input type="checkbox" name="cbSave" id="cbSave" />
-											<label for="cbSave">Lưu ID</label>
+											<label for="cbSave" style="bottom: 1px">Lưu ID</label>
 										</div>
 									</li>
 									<li>
@@ -70,13 +70,13 @@ include('../layouts/navbar/navbar') -%>
 								</ul>
 								<div class="login__social">
 									<button>
-										<a href="<%- googleLoginUrl %>">
+										<a href="/auth/google">
 											<i class="fab fa-google"></i>
 											Google
 										</a>
 									</button>
 									<button>
-										<a href="#">
+										<a href="/auth/facebook">
 											<i class="fab fa-facebook-f"></i>
 											Facebook
 										</a>
