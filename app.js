@@ -13,7 +13,7 @@ const express = require('express'),
 	port = 3000;
 
 // APP CONFIGURE
-app.use(require('morgan')('tiny'));
+// app.use(require('morgan')('tiny'));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());

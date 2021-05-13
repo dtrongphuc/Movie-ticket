@@ -8,13 +8,6 @@
     background-size: cover !important;
 }
 
-#ghegom > input{
-    padding: 2px 5px;
-    border: none!important;
-}
-
-
-
 .dataTables_paginate > span > a.current{
     color: white !important;
     padding: 2px 10px !important;
@@ -61,4 +54,8 @@
 .header-formdate > form > button{
     height: 40px;
     width: 80px;
+}
+
+.center_table{
+    text-align: center;
 }

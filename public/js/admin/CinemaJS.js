@@ -5,15 +5,17 @@ async function initTableData() {
     axios.get(url)
         .then(function (response) {
             var i = 1;
-            var modified = response.data.map(eachth => {
+            var modified = response.data.map(e => {
                 return {
                     STT: i++,
-                    name: eachth.name,
-                    theater: eachth.theater,
-                    type: eachth.type,
-                    hor: eachth.hor,
-                    ver: eachth.ver,
-                    delete: "<a href=/admin/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
+                    name: e.name,
+                    theater: e.theaterName,
+                    type: e.type,
+                    length: e.length,
+                    width: e.width,
+                    createAt: (e.createdAt).substr(0, e.createdAt.length - 14),
+                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
+                    delete: "<a href=/admin/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
@@ -31,8 +33,10 @@ async function initTableData() {
                     { data: 'name' },
                     { data: 'theater' },
                     { data: 'type' },
-                    { data: 'hor' },
-                    { data: 'ver' },
+                    { data: 'width' },
+                    { data: 'length' },
+                    { data: 'createAt' },
+                    { data: 'updateAt' },
                     { data: 'delete' },
                 ]
             });
