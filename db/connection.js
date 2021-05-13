@@ -40,11 +40,6 @@ models.Movie.hasMany(models.Showtime);
 models.Showtime.belongsTo(models.Movie);
 
 models.Cinema.hasMany(models.Showtime);
-<<<<<<< HEAD
-=======
-
-models.Cinema.hasOne(models.Showtime);
->>>>>>> 2ed503d417b66ada9f0738037a89cd872a8ad012
 models.Showtime.belongsTo(models.Cinema);
 
 models.Booking.hasOne(models.Ticket);
