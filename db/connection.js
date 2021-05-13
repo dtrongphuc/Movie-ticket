@@ -40,8 +40,6 @@ models.Movie.hasMany(models.Showtime);
 models.Showtime.belongsTo(models.Movie);
 
 models.Cinema.hasMany(models.Showtime);
-
-models.Cinema.hasOne(models.Showtime);
 models.Showtime.belongsTo(models.Cinema);
 
 models.Booking.hasOne(models.Ticket);
