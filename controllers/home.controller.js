@@ -4,7 +4,13 @@ const { QueryTypes } = require('sequelize');
 
 class HomeController {
     async index(req, res) {
-        res.render('content/content');
+
+        var movies= await models.Movie.findAll({
+            order: [
+                ['id', 'DESC'],
+            ]
+        });
+        res.render('content/content',{movies:movies});
     }
     
 }
