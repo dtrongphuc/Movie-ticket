@@ -38,6 +38,8 @@ models.Booking.belongsTo(models.User);
 models.Showtime.hasOne(models.Booking);
 models.Booking.belongsTo(models.Showtime);
 
+models.Movie.hasOne(models.Showtime);
+models.Showtime.belongsTo(models.Movie);
 
 models.Booking.hasOne(models.Ticket);
 models.Ticket.belongsTo(models.Booking);

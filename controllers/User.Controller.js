@@ -1,4 +1,14 @@
-const { User, Cinema, Booking, Ticket, Showtime, Movie, Theater } = require("../db/connection");
+const {
+  User,
+  Cinema,
+  Booking,
+  Ticket,
+  Showtime,
+  Movie,
+  Theater,
+} = require("../db/connection");
+const models = require("../db/connection");
+const { QueryTypes } = require('sequelize');
 const bcrypt = require("bcrypt");
 
 const comparePassword = async (plainPassword, hashedPassword) => {
@@ -14,41 +24,25 @@ class UserController {
     const { id } = req.params;
 
     //test
-    // const joinBooking = await Booking.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       where: {id: id}
-    //     },
-    //     {
-    //       model: Showtime,
-    //       include: [
-    //         {
-    //           model: Movie,
-    //         },
-    //         // {
-    //         //   model: Cinema,
-    //         // }
-    //       ]
-    //     }
-    //   ],
-    // });
-    // const movie = await Movie.findAll({});
-    // const joinBooking = await Showtime.findAll({
-    //       include: [
-    //         {
-    //           model: Movie,
-    //         },
-    //       ]
-    // });
-    // const booking = await Booking.findOne({where: {id: '32465600-f596-4f39-985e-eae06a589b2b'}});//này nè um
-    // var x = booking.getMovies();
-    // const 
-
+    var body = req.body;
+    const query = `select book."userId", mo."name" movieName, ci."name" cinemaName, th."name" theaterName, book."time", ti."seatId"
+                      from bookings book join showtimes shows on book."showtimeId" = shows.id
+                      join movies mo on mo.id = shows."movieId"
+                      join cinemas ci on ci.id = shows."cinemaId"
+                      join tickets ti on ti."bookingId" = book.id
+                      join theaters th on th.id = ci."theaterId"
+                      where book."userId" = :userid`;
+    const historyBooking = await models.sequelize.query(query, {
+      replacements: {
+        userid: "32465435-f596-4f39-985e-eae06a589b2b",
+      },
+      raw: false,
+      type: QueryTypes.SELECT,
+    });
 
     User.findOne({ where: { id: id } })
       .then((user) => {
-        res.render("user/Profile", { user });
+        res.render("user/Profile", { user, historyBooking });
       })
       .catch(() => res.send("loi"));
   }
