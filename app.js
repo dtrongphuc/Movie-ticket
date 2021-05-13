@@ -11,6 +11,7 @@ const express = require('express'),
 	showtimeRouter = require('./routers/admin/showtime'),
 	statisticeRouter = require('./routers/admin/statistics'),
 	movieRouter = require('./routers/admin/movie'),
+	homeRouter = require('./routers/home');
 	port = 3000;
 
 // APP CONFIGURE
@@ -25,8 +26,6 @@ app.set('trust proxy', 1); // trust first proxy
 // Passport
 initPassport(app);
 
-// Test giao diện content
-app.get('/view', (req, res) => res.render('content/content'));
 
 route(app);
 
@@ -35,6 +34,7 @@ route(app);
 app.get('/admin/dang-nhap', function (req, res) {
 	res.render('admin/login');
 });
+
 //apply template
 app.use(expressLayouts);
 app.set('layout', 'admin/layout');
@@ -43,6 +43,10 @@ app.use('/admin/suat-phim', showtimeRouter);
 app.use('/admin/cum-rap', theatersRouter);
 app.use('/admin/thong-ke', statisticeRouter);
 app.use('/admin/phim', movieRouter);
+
+// home
+app.use('/home', homeRouter);
+
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
