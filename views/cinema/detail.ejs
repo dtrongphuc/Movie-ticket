@@ -73,17 +73,9 @@
 						</p> -->
 						<p><strong class="content__title">Thời lượng: </strong><%- movie.time %> phút</p>
 						<p >
-							<strong class="content__title">Tóm tắt: </strong>
-							<%- movie.description %>
+							<strong class="content__title">Đạo diễn: </strong>
+							<%- movie.directors %>
 						</p>
-						<!-- <style>
-							@media only screen and (max-width: 1237px) {
-								.detailFlim__right {
-									padding-left: 20px;
-									padding-right: 20px;
-								}
-							}
-						</style> -->
 						<div class="review d-flex align-items-center">
 							<strong style="margin-right: 15px">Đánh giá: </strong>
 							<div class="review__img ">
@@ -127,10 +119,24 @@
 					</div>
 				</div>
 				<div class="col-1 col-lg-0"></div>
-
 			</div>
 		</div>
-
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-1 col-lg-0"></div>
+				<div class="col-10 col-lg-12">
+					<div class="descriptionMovie">
+						<p >
+							<strong class="content__title">Tóm tắt: </strong>
+							<%- movie.description %>
+						</p>
+					</div>
+				</div>
+				<div class="col-1 col-lg-0"></div>
+			</div>
+			
+		</div>
 
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
