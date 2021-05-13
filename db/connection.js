@@ -41,6 +41,9 @@ models.Booking.belongsTo(models.Showtime);
 models.Movie.hasOne(models.Showtime);
 models.Showtime.belongsTo(models.Movie);
 
+models.Cinema.hasOne(models.Showtime);
+models.Showtime.belongsTo(models.Cinema);
+
 models.Booking.hasOne(models.Ticket);
 models.Ticket.belongsTo(models.Booking);
 sequelize.sync({ alter: true }).then(async () => {

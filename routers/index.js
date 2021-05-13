@@ -5,9 +5,9 @@ const authRouter = require('./auth');
 
 function route(app) {
 	app.use('/auth', authRouter);
-	app.use('/', isAuth).get('/', (req, res) => {
-		res.render('content/content');
-	});
+	// app.use('/', isAuth).get('/', (req, res) => {
+	// 	res.render('content/content');
+	// });
 	app.use('/cinema', cinemaRouter);
 	app.use('/user', userRouter);
 }
