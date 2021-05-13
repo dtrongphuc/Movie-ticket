@@ -1,40 +1,38 @@
 const express = require('express');
+const models = require('../db/connection');
 class TheatersController {
 
     index(req, res) {
         res.render('admin/manager/theaters');
     };
 
-    getData(req, res){
-        var data = [
-    		{
-				"id": 1,
-				"name": "Quận 8",
-				"address": "123 Quận 8"
-			},
-			{
-				"id": 2,
-				"name": "Quận 2",
-				"address": "123 Quận 2"
-			},
-			{
-				"id": 3,
-				"name": "Quận 3",
-				"address": "123 Quận 3"
-			},
-    	];
+    async getData(req, res){
+        var data = await models.Theater.findAll({
+            order: [
+                ['id', 'DESC'],
+            ]
+        });
         res.status(200).json(data);
     }
 
-    delete(req,res){
+    async delete(req,res){
         var id = req.params.id;
-        console.log(id);
+        await models.Theater.destroy({
+            where:{
+                id: id
+            }
+        });
         res.redirect('/admin/cum-rap')
     }
 
-    add(req,res){
+    async add(req,res){
         var body = req.body;
-        console.log(body);
+        await models.Theater.create({
+            name: body.nameTheaters,
+            address: body.address
+        });
+
+
         res.redirect('/admin/cum-rap')
     }
 

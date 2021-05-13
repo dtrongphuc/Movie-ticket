@@ -5,12 +5,15 @@ async function initTableData() {
     axios.get(url)
         .then(function (response) {
             var i = 1;
-            var modified = response.data.map(eachth => {
+            let crt;
+            var modified = response.data.map(e => {
                 return {
                     STT: i++,
-                    name: eachth.name,
-                    address: eachth.address,
-                    delete: "<a href=/admin/cum-rap/delete/"+eachth.id+"><i class='fas fa-trash-alt'></i></a>"
+                    name: e.name,
+                    address: e.address,
+                    createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
+                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
+                    delete: "<a href=/admin/cum-rap/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
 
@@ -27,6 +30,8 @@ async function initTableData() {
                     { data: 'STT' },
                     { data: 'name' },
                     { data: 'address' },
+                    { data: 'createdAt' },
+                    { data: 'updateAt' },
                     { data: 'delete' },
                 ]
             });
