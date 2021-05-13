@@ -79,9 +79,10 @@ class UserController {
       .catch(() => res.send("loi"));
   }
   async updateprofile(req, res, next) {
+    const currentuser = req.user;
     const formData = req.body;
 
-    User.findOne({ where: { id: "32465435-f596-4f39-985e-eae06a589b2b" } })
+    User.findOne({ where: { id: currentuser.id } })
       .then(async (user) => {
         //cập nhật
         user.fullname = formData.name;
@@ -95,11 +96,12 @@ class UserController {
     // return res.status(200).json({a: '1'});
   }
   async changePass(req, res, next) {
+    const currentuser = req.user;
     const formData = req.body;
     let err_oldPass = "";
     let err_newPass = "";
     let err_confirm = "";
-    User.findOne({ where: { id: "32465435-f596-4f39-985e-eae06a589b2b" } })
+    User.findOne({ where: { id: currentuser.id } })
       .then(async (user) => {
         if (
           !(await comparePassword(formData.old_password, user.hashedPassword))
@@ -124,6 +126,27 @@ class UserController {
       .catch(() => res.status(400).json());
 
     // return res.status(200).json({a: '1'});
+  }
+  async addPass(req, res, next) {
+    const currentuser = req.user;
+    const formData = req.body;
+    let err_Pass = "";
+    let err_confirm = "";
+
+    if (formData.password != formData.confirm) {
+      err_confirm = "Mật khẩu mới không khớp";
+    }
+
+    if (!err_Pass && !err_confirm) {
+      let new_hassPassword = await hashPassword(formData.password);
+      currentuser.hashedPassword = new_hassPassword;
+      currentuser.save();
+      return res.status(200).json();
+    } else {
+      return res
+        .status(400)
+        .json({ err_Pass, err_confirm });
+    }
   }
 }
 

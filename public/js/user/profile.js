@@ -1,13 +1,19 @@
 const UpdateInfoForm = document.querySelector("#updateinfo-form");
 const UpdatePasswordForm = document.querySelector("#updateinfo-form--password");
+const addPasswordForm = document.querySelector("#updateinfo-form--addpassword");
 const btn_UpdateInfo = document.querySelector(".btn_updateinfo");
 const btn_Updatepassword = document.querySelector(".btn_updatepassword");
+const btn_addpassword = document.querySelector(".btn_addpassword");
 
 const modal11 = document.querySelector('.modal__close');
 const input_old_pass = document.querySelector('#old_password');
 const input_new_pass = document.querySelector('#new_password');
-const confirm = document.querySelector('#confirm');
+const confirmpass = document.querySelector('#confirm');
 const error__oldPass = document.getElementsByClassName('error__oldPass');
+const error__addpass = document.getElementsByClassName('error__addpass');
+
+//add pass
+
 
 btn_UpdateInfo &&
   btn_UpdateInfo.addEventListener("click", async (e) => {
@@ -63,7 +69,11 @@ btn_Updatepassword &&
 
         //set mặt định cho các input
         input_old_pass.classList.remove('input--error');
+        input_old_pass.value = "";
         input_new_pass.classList.remove('input--error');
+        input_new_pass.value = "";
+        confirmpass.classList.remove('input--error');
+        confirmpass.value = "";
         Object.values(error__oldPass).forEach(html => html.innerHTML = '');
 
         //alert
@@ -87,8 +97,51 @@ btn_Updatepassword &&
         error__oldPass[1].innerHTML = error.response.data.err_newPass;
       }
       if(error.response.data.err_confirm != ''){
-        confirm.classList.add('input--error');
+        confirmpass.classList.add('input--error');
         error__oldPass[2].innerHTML = error.response.data.err_confirm;
+      }
+
+    } finally {
+    }
+  })
+
+  //them mật khẩu cho tài khoản đn bằng google or fb
+btn_addpassword &&
+  btn_addpassword.addEventListener('click', async e =>{
+    e.preventDefault();
+    // console.log(btn_UpdateInfo);
+    let formData = new FormData(addPasswordForm);
+    const addPasswordData = {
+      password: formData.get("add_password"),
+      confirm: formData.get("confirm-addPassword"),
+    };
+    
+    try {
+      const response = await axios.post("/user/profile-addPass", addPasswordData);
+      if (response.status === 200) {
+        // modal11.click();
+
+        //alert
+        await Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: 'Thay đổi mật khẩu thành công!',
+          showConfirmButton: false,
+          timer: 900
+        });
+        console.log("thành công");
+        //reload trang lại luôn
+        window.location.reload();
+      }
+    } catch (error) {
+      // console.log(error.response.data);
+      if(error.response.data.err_newPass != ''){
+        // input_new_pass.classList.add('input--error');
+        error__addpass[1].innerHTML = error.response.data.err_newPass;
+      }
+      if(error.response.data.err_confirm != ''){
+        // confirm.classList.add('input--error');
+        error__addpass[2].innerHTML = error.response.data.err_confirm;
       }
 
     } finally {

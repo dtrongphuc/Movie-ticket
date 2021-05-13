@@ -113,14 +113,72 @@
                                                 </div>
                                                 <div class="boxinfo__items--content">
                                                     <span>Mật khẩu</span>
-                                                    <p>***********</p>
+                                                    <%if(user.hashedPassword == null) {%>
+                                                        <div data-modal="#modal-add_password" class="modal__trigger" 
+                                                        style="box-shadow: none; padding: 0; display: block;">
+                                                            <p style="cursor: pointer;">Thêm Mật khẩu</p>
+                                                        </div>
+                                                        
+                                            <div id="modal-add_password" class="modal modal--align-top modal__bg"
+                                            role="dialog" aria-hidden="true">
+                                            <div class="modal__dialog">
+                                                <div class="modal__content">
+                                                    <div class="infouser__modal">
+                                                        <h1>Thêm mật khẩu</h1>
+                                                    </div>
+                                                    <form id="updateinfo-form--addpassword" class="d-flex"
+                                                        style="flex-direction: column;">
+                                                        <div
+                                                            class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
+                                                            <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
+                                                            <input class="input--type" type="password"
+                                                                placeholder="Mật khẩu mới"
+                                                                name="add_password" id="add_password">
+                                                                <span class="input__lable--error error__addpass" style="color: red; "></span>
+                                                        </div>
+                                                        <div
+                                                            class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
+                                                            <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
+                                                            <input class="input--type" type="password"
+                                                                placeholder="Nhập lại mật khẩu mới" 
+                                                                name="confirm-addPassword" id="confirm-addPassword">
+                                                                <span class="input__lable--error error__addpass" style="color: red; "></span>
+                                                        </div>
+
+                                                        <button type="submit"
+                                                            class="btn btn--updateprofile btn_addpassword"
+                                                            style="margin-top: 20px;">
+                                                            Lưu thay đổi
+                                                        </button>
+                                                    </form>
+                                                    <a href="" class="modal__close demo-close">
+                                                        <svg class="" viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
+                                                            <path d="M0 0h24v24h-24z" fill="none" />
+                                                        </svg>
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <div data-modal="#modal-password" class="modal__trigger"
-                                                style="padding: 0; box-shadow: none;">
-                                                <img src="/images/icons/edit.png" alt="" width="25px"
-                                                    style="padding: 2px;">
                                             </div>
+                                                    <% } else{ %>
+                                                        <p>*************</p>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+
+                                            <%if(user.hashedPassword != null) {%>
+                                                <div data-modal="#modal-password" class="modal__trigger"
+                                                style="padding: 0; box-shadow: none;">
+                                                    <img src="/images/icons/edit.png" alt="" width="25px"
+                                                        style="padding: 2px;">
+                                                </div>
+                                                 <!-- modal add pass -->
+                                            <% } %> 
+                                           
+
+                                            <!-- MODal change pass -->
+                                            
                                             <div id="modal-password" class="modal modal--align-top modal__bg"
                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal__dialog">
@@ -191,6 +249,12 @@
                 <div class="histoty__title">
                     <h1>Lịch Sử Đặt Vé</h1>
                     <div class="history__table d-flex justify-content-center">
+                        <% if(joins.length == 0) {%>
+                            <div class="history--empty d-flex align-items-center" style="flex-direction: column; opacity: .6;">
+                                <img src="/images/icons/empty.png" alt="">
+                                <p>Bạn chưa đặt vé</p>
+                            </div>
+                        <% } else{ %>
                         <table>
                             <tr>
                                 <th>#</th>
@@ -209,7 +273,8 @@
                                  book.seatId 
                                  book.time.toLocaleDateString('en-GB')  -->
                          
-                            <!-- join model -->
+                            <!-- join model -->                          
+
                             <% joins.forEach(function(book, index) { %>
                             <tr>
                                 <td><%= index + 1 %></td>
@@ -222,6 +287,8 @@
                             <% }); %>
 
                         </table>
+                        
+                        <% } %>
                     </div>
 
                 </div>
