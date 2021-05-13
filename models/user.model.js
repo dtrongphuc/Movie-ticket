@@ -47,6 +47,15 @@ const user = (sequelize, DataTypes) => {
 			},
 			defaultValue: 'member',
 		},
+		verifyString: {
+			type: DataTypes.STRING,
+			allownull: true,
+		},
+		active: {
+			type: DataTypes.BOOLEAN,
+			allownull: false,
+			defaultValue: false,
+		},
 	});
 
 	User.findByEmail = async (email) => {

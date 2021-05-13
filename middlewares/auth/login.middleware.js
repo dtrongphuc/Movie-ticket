@@ -1,6 +1,4 @@
-const queryString = require('query-string');
 const { passport } = require('../passport/index');
-const bcrypt = require('bcrypt');
 
 module.exports = {
 	validate: async (req, res, next) => {

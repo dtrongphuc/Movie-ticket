@@ -1,4 +1,3 @@
-const { Op } = require('sequelize');
 const models = require('../../db/connection'),
 	{ comparePassword } = require('../validate/password.validate'),
 	LocalStrategy = require('passport-local').Strategy,
@@ -36,7 +35,6 @@ module.exports = function initLogin(passport) {
 							type: 'error',
 						});
 					}
-
 					return done(null, user);
 				} catch (error) {
 					return done(null, false, {
@@ -93,6 +91,7 @@ module.exports = function initLogin(passport) {
 		)
 	);
 
+	// Using Facebook
 	passport.use(
 		new FacebookStrategy(
 			{

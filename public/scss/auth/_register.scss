@@ -8,7 +8,8 @@
 	margin-right: auto;
 }
 
-.register__form {
+.register__form,
+.auth__form {
 	text-align: center;
 	& > .form-group {
 		@include input-group(28%);

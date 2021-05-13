@@ -1,0 +1,17 @@
+<%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<main>
+	<div class="auth__wrapper">
+		<div class="container">
+			<h3 class="auth__title login__title">Xác thực tài khoản</h3>
+			<div class="auth__form__wrapper">
+				<% if(message) { %>
+				<div class="alert alert-<%- message?.type %>">
+					<%- message?.content %>
+				</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('../layouts/footer') -%>

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authentication = require('../middlewares/auth/authentication');
 const authController = require('../controllers/auth.controller');
 const loginMiddleware = require('../middlewares/auth/login.middleware');
 const registerMiddleware = require('../middlewares/auth/register.middleware');
@@ -8,6 +9,8 @@ const { passport } = require('../middlewares/passport/index');
 // LOGIN ROUTES
 // GET
 router.get('/login', authController.getLogin);
+router.get('/forgot-pwd', authController.getForgotPwdForm);
+router.get('/reset-pwd/:id/:verifyString', authController.getResetPwdForm);
 
 //### GOOGLE
 router.get(
@@ -35,7 +38,14 @@ router.get(
 
 // POST
 //### LOCAL
-router.post('/login', loginMiddleware.localLogin, authController.postLogin);
+router.post(
+	'/login',
+	authentication.isActive,
+	loginMiddleware.localLogin,
+	authController.postLogin
+);
+router.post('/forgot-pwd', authController.postForgotPwd);
+router.post('/reset-pwd', authController.postResetPwd);
 
 // REGISTER ROUTES
 // GET
@@ -47,5 +57,8 @@ router.post(
 	registerMiddleware.validate,
 	authController.postRegister
 );
+
+//VERIFY ACCOUNT
+router.get('/verify/:id/:verifyString', authController.verifyAccount);
 
 module.exports = router;
