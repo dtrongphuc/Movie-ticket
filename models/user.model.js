@@ -28,6 +28,7 @@ const user = (sequelize, DataTypes) => {
 		hashedPassword: {
 			type: DataTypes.STRING,
 			allownull: true,
+			defaultValue: null
 		},
 		fullname: {
 			type: DataTypes.STRING,
