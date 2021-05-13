@@ -21,6 +21,18 @@ router.get(
 	authController.postLogin
 );
 
+//### FACEBOOK
+router.get(
+	'/facebook',
+	passport.authenticate('facebook', { scope: ['email'] })
+);
+
+router.get(
+	'/facebook/callback',
+	loginMiddleware.facebookLogin,
+	authController.postLogin
+);
+
 // POST
 //### LOCAL
 router.post('/login', loginMiddleware.localLogin, authController.postLogin);
