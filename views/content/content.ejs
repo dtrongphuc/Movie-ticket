@@ -1,7 +1,7 @@
 <%- include('../layouts/header', {title: 'Phim' }); -%> <%-
 include('../layouts/navbar/navbar') -%>
-<div class="container--sub">
-  <div class="content">
+<div id="container" class="sub">
+  <div id="content">
     <div class="screen_cwrap">
       <ul class="tab_st02">
         <li><a href="/view" id="aNow" class="on">Phim Hot tại rap</a></li>
@@ -10,56 +10,44 @@ include('../layouts/navbar/navbar') -%>
 
       <div class="item_list">
         <div class="blind">
-          <h3>Phim Hot tại rap</h3>
+          <h3>"Phim đang chiếu</h3>
         </div>
       </div>
 
       <!-- tab content on -->
       <div class="tab_content on">
-        <div class="blind">
-          <h3 id="title_h3">Phim đang chiếu</h3>
-        </div>
-        <div class="blind">
-          <h4 id="title_h4">Đặt vé trước</h4>
-        </div>
-
         <ul class="curr_list movie_clist" id="ulMovieList">
-          <li>
+          <li >
             <div class="curr_box">
-              <span class="num">1</span
-              ><span class="img"
-                ><a href="javascript:void(0);" id="aFocusItem0"
-                  ><img
-                    src="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202103/10714_103_100002.jpg"
-                    alt="49K BÀN TAY DIỆT QUỶ" /></a
-              ></span>
+              <span class="num">1</span>
+              <span class="img">
+                <a href="./" id="aFocusItem0">
+                  <img src="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202104/10726_103_100001.jpg" alt="THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ">
+                </a>
+              </span>
             </div>
+
+
             <div class="layer_hover">
-              <a
-                href="javascript:void(0)"
-                onclick="goToTiketing('10714');"
-                class="btn_reserve"
-                >Đặt vé</a
-              >
-              <a
-                href="javascript:void(0)"
-                onclick="goToMovie('10714');"
-                class="btn_View"
-                >Chi tiết</a
-              >
+              <a href="./" onclick="goToTiketing('10726');" class="btn_reserve1">Đặt vé</a>
+              <a href="./" onclick="goToTiketing('10726');" class="btn_reserve2">Chi tiet</a>
+
             </div>
+
+
             <dl class="list_text">
               <dt>
-                <a href="javascript:void(0);" onclick="goToMovie('10714');"
-                  ><span class="grade_18"></span>49K BÀN TAY DIỆT QUỶ</a
-                >
+                <a href="./" onclick="goToMovie('10726');">
+                  <span class="grade_13"></span>THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ</a>
               </dt>
               <dd>
-                <span class="rate">128Phút</span
-                ><span class="grade"><em>09/04/2021</em></span>
+                <span class="rate">111Phút</span>
+                <span class="grade"><em>23/04/2021</em></span>
               </dd>
             </dl>
+
           </li>
+
         </ul>
 
 
