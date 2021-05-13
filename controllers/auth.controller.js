@@ -8,7 +8,7 @@ module.exports = {
 	// login
 	getLogin: (req, res) => {
 		const { googleLoginUrl } = res.locals;
-		res.render('auth/login', { gooleLoginUrl: googleLoginUrl });
+		res.render('auth/login', { googleLoginUrl: googleLoginUrl, message: null });
 	},
 
 	getLoginWithGoogle: async (req, res) => {
@@ -23,6 +23,18 @@ module.exports = {
 		const userInfo = await getGoogleUserInfo(accessToken);
 
 		res.send('index');
+	},
+
+	postLogin: (req, res) => {
+		const { message, googleLoginUrl } = res.locals;
+		if (message) {
+			return res.render('auth/login', {
+				message: message,
+				googleLoginUrl: googleLoginUrl,
+			});
+		}
+		// console.log(req.cookies);
+		return res.redirect('/');
 	},
 
 	// register
