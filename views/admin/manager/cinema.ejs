@@ -32,7 +32,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm Cụm Rạp</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Rạp</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,8 +40,8 @@
             <form action='/admin/' method="POST">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="theater">Tên Cụm Rạp</label>
-                        <input type="text" class="form-control" id="theater" name="nameTheaters"
+                        <label for="name">Tên Rạp</label>
+                        <input type="text" class="form-control" id="name" name="name"
                             placeholder="Tên Cụm Rạp" required>
                     </div>
                     <div class="form-group">
@@ -62,13 +62,13 @@
                             placeholder="Chiều Ngang Của Rạp" required>
                     </div>
                     <div class="form-group">
-                        <label for="horizontal">Chiều Ngang</label>
-                        <input type="number" class="form-control" id="horizontal" name="horizontal"
+                        <label for="width">Chiều ngang</label>
+                        <input type="number" class="form-control" id="width" name="width"
                             placeholder="Chiều Ngang Của Rạp" required>
                     </div>
                     <div class="form-group">
-                        <label for="vertical">Chiều Dọc</label>
-                        <input type="number" class="form-control" id="vertical" name="vertical"
+                        <label for="length">Chiều Dọc</label>
+                        <input type="number" class="form-control" id="length" name="length"
                             placeholder="Chiều Dọc Của Rạp" required>
                     </div>
                 </div>

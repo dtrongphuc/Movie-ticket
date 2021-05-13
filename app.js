@@ -10,6 +10,7 @@ const express = require('express'),
 	cinemaRouter = require('./routers/admin/cinema'),
 	showtimeRouter = require('./routers/admin/showtime'),
 	statisticeRouter = require('./routers/admin/statistics'),
+	movieRouter = require('./routers/admin/movie'),
 	port = 3000;
 
 // APP CONFIGURE
@@ -41,6 +42,7 @@ app.use('/admin/', cinemaRouter);
 app.use('/admin/suat-phim', showtimeRouter);
 app.use('/admin/cum-rap', theatersRouter);
 app.use('/admin/thong-ke', statisticeRouter);
+app.use('/admin/phim', movieRouter);
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });

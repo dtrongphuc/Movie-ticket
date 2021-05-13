@@ -1,98 +1,48 @@
 const express = require('express');
+const models = require('../db/connection');
+const { QueryTypes } = require('sequelize');
 class ShowtimeController {
 
-    index(req, res) {
-        var movie= [
-            {
-                "id": 1,
-                "name": "Nghìn Lẽ Một Đêm"
-            },
-            {
-                "id": 2,
-                "name": "Đêm Trăng Tàn"
-            },
-            {
-                "id": 3,
-                "name": "Bố Già"
-            },
-            {
-                "id": 4,
-                "name": "Lật mặt"
-            },
-        ];
-        var cinema = [
-    		{
-				"id": 1,
-				"name": "cinema Quận 8",
-				"theater": "Quận 8",
-                "type": "2D",
-                "hor": "20",
-                "ver": "30"
-			},
-			{
-				"id": 2,
-				"name": "cinema Quận 3",
-				"theater": "Quận 3",
-                "type": "3D",
-                "hor": "70",
-                "ver": "30"
-			},
-			{
-				"id": 1,
-				"name": "cinema Quận 1",
-				"theater": "Quận 1",
-                "type": "4D",
-                "hor": "20",
-                "ver": "50"
-			},
-    	];
+    async index(req, res) {
+        var movie= await models.Movie.findAll();
+        let cinema = await models.Cinema.findAll();
         res.render('admin/manager/showtime',{movie: movie, cinema: cinema});
     };
 
-    getData(req, res){
-        var data = [
-    		{   
-                "movieid": 1,
-				"movie": "Nghìn Lẽ Một Đêm",
-                "cinemaid": 2,
-				"cinema": "Quận 8",
-                "starttime": "05/12/2021",
-                "endtime": "30/12/2021",
-                "price": 30000
-			},
-			{
-                "movieid": 2,
-				"movie": "Đêm Trăng Tàn",
-                "cinemaid": 3,
-				"cinema": "Quận 4",
-                "starttime": "02/12/2021",
-                "endtime": "30/12/2021",
-                "price": 35000
-			},
+    async getData(req, res){
+        let query =`SELECT c."name" as "cinemaName", m."name" as "movieName", s.* 
+                    FROM showtimes s JOIN cinemas c on c.id = s."cinemaId"
+                    join movies m on m.id = s."movieId" ORDER BY s.id DESC`
+        var data = await models.sequelize.query(query,
             {
-                "movieid": 3,
-				"movie": "Bố Già",
-                "cinemaid": 1,
-				"cinema": "Quận 7",
-                "starttime": "06/12/2021",
-                "endtime": "13/1/2022",
-                "price": 15000
-			},
-    	];
+                raw: false,
+                type: QueryTypes.SELECT
+            }
+        );
         res.status(200).json(data);
     }
 
-    delete(req,res){
+    async delete(req,res){
         var movie = req.params.movie;
         var cinema = req.params.cinema;
-        console.log("movie: "+ movie);
-        console.log("cinema: "+cinema);
+        await models.Showtime.destroy({
+            where:{
+                movieId: movie,
+                cinemaId: cinema
+            }
+        });
         res.redirect('/admin/suat-phim')
     }
 
-    add(req,res){
+    async add(req,res){
         var body = req.body;
-        console.log(body);
+        await models.Showtime.create({
+            startTime: body.starttime,
+            endTime: body.endtime,
+            fare: body.price,
+            movieId: body.movie,
+            cinemaId: body.cinema
+        });
         res.redirect('/admin/suat-phim')
     }
 }
