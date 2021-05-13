@@ -1,6 +1,6 @@
 const express = require('express');
 const models = require('../db/connection');
-class TheatersController {
+class MovieController {
 
     index(req, res) {
         res.render('admin/manager/movie');
@@ -40,4 +40,4 @@ class TheatersController {
 
 }
 
-module.exports = new TheatersController
+module.exports = new MovieController

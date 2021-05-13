@@ -19,7 +19,7 @@ const movie = (sequelize, type) => {
 			allownull: false,
 		},
 		description: {
-			type: type.STRING,
+			type: type.TEXT,
 			allownull: false,
 		},
 	});
