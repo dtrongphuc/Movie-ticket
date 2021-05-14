@@ -11,6 +11,7 @@ router.use(function (req, resp, next) {
 router.get('/', controller.index);
 router.get('/getdata', controller.getData);
 router.get('/delete/:id', controller.delete);
+router.get('/chi-tiet/:id', controller.detail);
 router.post('/', upload.single('image'), controller.add);
 
 module.exports = router;

@@ -6,6 +6,7 @@ const authRouter = require('./auth');
 const adminRouter = require('./admin/index');
 const authAdminRouter = require('./admin/auth');
 const homeRouter = require('./home');
+const ticketRouter = require('./ticket');
 
 function route(app) {
 	// Custom flash middleware -- from Ethan Brown's book, 'Web Development with Node & Express'
@@ -15,6 +16,7 @@ function route(app) {
 		delete req.session.message;
 		next();
 	});
+	app.use('/ticket', ticketRouter);
 
 	app.use('/auth', authRouter);
 	// app.use('/', isAuth).get('/', (req, res) => {
@@ -62,6 +64,7 @@ function route(app) {
 		adminRouter
 	);
 	app.use('/home', homeRouter);
+
 }
 
 module.exports = route;

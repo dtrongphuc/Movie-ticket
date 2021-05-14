@@ -13,6 +13,7 @@ async function initTableData() {
                     open: (e.OpeningDay).substr(0, e.OpeningDay.length - 14),
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
                     updatedAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
+                    detail: "<a href=/admin/phim/chi-tiet/"+e.id+"><i class='fas fa-info-circle'></i></a>",
                     delete: "<a href=/admin/phim/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
@@ -33,6 +34,7 @@ async function initTableData() {
                     { data: 'open' },
                     { data: 'createdAt' },
                     { data: 'updatedAt' },
+                    { data: 'detail' },
                     { data: 'delete' }
                 ]
             });

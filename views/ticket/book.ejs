@@ -1,0 +1,256 @@
+<%- include('../layouts/header', {title: 'Mua vé' }); -%>
+    <%- include('../layouts/navbar/navbar') -%>
+        <div class="ticket d-flex justify-content-center align-items-center">
+            <div class="ticket__navbar d-flex justify-content-center align-items-center">
+                <div class="ticket__navbar--items ticket__active">
+                    <a href="">MUA VÉ XEM PHIM</a>
+                </div>
+                <div class="ticket__navbar--items">
+                    <a href="">LỊCH CHIẾU PHIM</a>
+                </div>
+            </div>
+        </div>
+        <div class="booking" style="padding: 50px 0 0; background: #F9F6EC;">
+            <div class="container-lg">
+                <div class="row booking__inner">
+                    <div class="col-1 col-xl-0"></div>
+                    <div class="col-10 col-xl-12">
+                        <div class="row booking__step">
+                            <div class="col-8 " style="border-right: 1px solid rgb(230, 230, 230);">
+                                <div class="booking__left">
+                                    <div class="theater__header">Rạp</div>
+                                    <div class="theater__body">
+                                        <div class="theater__tab container">
+                                            <div class="row">
+
+                                                <!-- Cụm rạp -->
+                                                <div class="col-4">
+                                                    <div class="theater__sidebar">
+                                                        <ul>
+                                                            <li class="theater__sidebar--active">
+                                                                <a href="">TPHCM</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">Hà Nội</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">ĐB Sông Hồng</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">Tây Nam Bộ</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">Tây Bắc</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <!--các Rạp Khi dc chọn -->
+                                                <div class="col-8">
+                                                    <div class="row cinema__inner">
+                                                        <div class="col-4" style="padding: 0 3px;">
+                                                            <a href="">
+                                                                <div class="cinema__box">
+                                                                    <div class="cinema__box--item">Tiền Giang</div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-4" style="padding: 0 3px;">
+                                                            <a href="">
+                                                                <div class="cinema__box">
+                                                                    <div class="cinema__box--item">Bình Phước</div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-4" style="padding: 0 3px;">
+                                                            <a href="">
+                                                                <div class="cinema__box">
+                                                                    <div class="cinema__box--item">Đồng Nai</div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-4" style="padding: 0 3px;">
+                                                            <a href="">
+                                                                <div class="cinema__box">
+                                                                    <div class="cinema__box--item">Nha Trang</div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <!-- Danh sách Phim  -->
+                            <div class="col-4">
+                                <div class="booking__right">
+                                    <div class="movie__header">Phim</div>
+                                    <div class="movie__body">
+                                        <ul>
+                                            <li class="movie__list--active">
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>Bố Già</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>Lật Mặt</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>Thanh Gươm Diệt Quỷ</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>Bóng Đè</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>Nhà Có Khách</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="d-flex align-items-center">
+                                                    <div class="movie__item-img"></div>
+                                                    <span>NHÂN ĐÔI TÌNH YÊU</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- dãn cách cho đẹp -->
+                    <div class="col-1 col-xl-0"></div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="booking--part2">
+            <div class="container-lg">
+                <!-- PHIM VÀ RẠP ĐÃ CHỌN -->
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="row cinMovie__selected">
+                            <div class="col-4">
+                                <div class="cinMovie__selected--items d-flex ">
+                                    <div class="cinMovie__selected--title">Ngày</div>
+                                    <div class="cinMovie__selected--value">14/05/2021(Sáu)</div>
+
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="cinMovie__selected--items d-flex ">
+                                    <div class="cinMovie__selected--title">Rạp</div>
+                                    <!-- Khi chưa chọn rạp -->
+                                    <!-- <div class="cinMovie__selected--value">Vui lòng chọn rạp</div> -->
+                                    <div class="cinMovie__selected--value">Vinh</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="cinMovie__selected--items d-flex ">
+                                    <div class="cinMovie__selected--title">Phim</div>
+                                    <!-- Khi chưa chọn phim -->
+                                    <!-- <div class="cinMovie__selected--value">Vui lòng chọn phim</div> -->
+                                    <div class="cinMovie__selected--value">49K NHÂN ĐÔI TÌNH YÊU</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="showtime__inner">
+                            <div class="showtime__header d-flex align-items-center">
+                                <h5>Giờ chiếu</h5>
+                                <span>Thời gian chiếu phim có thể chênh lệch 15 phút do chiếu quảng cáo, giới thiệu phim
+                                    ra
+                                    rạp</span>
+                            </div>
+                            <div class="showtime__body">
+                                <!-- nếu không có suất chiếu dùng phần này -->
+                                <!-- <div class="showtime__noData d-flex align-items-center" style="flex-direction: column;">
+                    <img src="/images/icons/empty.png" alt="">
+                    <p>Kính mời quý khách chọn phim để xem lịch chiếu chi tiết tại rạp</p>
+                </div> -->
+
+                                <!-- Nếu có suất chiếu thì dùng này  -->
+                                <div class="showtime__Data">
+                                    <div class="showtime__movie--title d-flex align-items-center">
+                                        <span>49K NHÂN ĐÔI TÌNH YÊU </span>
+                                        <div class="showtime__render-movie">
+                                            <a href="#">
+                                                <img src="/images/icons/right.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="showtime__cinema">
+                                        <div class="showtime__cinema--title">Vinh</div>
+
+                                        <div class="showtime__list">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <div class="showtime__theater--type">Loại ghế: 2D</div>
+                                                    <div class="showtime__box">
+                                                        <a href="">
+                                                            <div class="showtime__box--screen">Screen5</div>
+                                                            <!-- startShow: thời gian bắt đầu phim -->
+                                                            <div class="showtime__box--time startShow">15:00</div>
+                                                            <!-- startToendtime: cộng thêm thời lượng phim -->
+                                                            <div class="showtime__box--time startToendtime">
+                                                                15:00 ~ 17:07
+                                                            </div>
+                                                            <div class="showtime__box--seat">88 / 88 Ghế ngồi</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="showtime__theater--type">Loại ghế: 2D</div>
+                                                    <div class="showtime__box">
+                                                        <a href="">
+                                                            <div class="showtime__box--screen">Screen5</div>
+                                                            <div class="showtime__box--time startShow">21:00</div>
+                                                            <!-- startToendtime: cộng thêm thời lượng phim -->
+                                                            <div class="showtime__box--time startToendtime">
+                                                                21:00 ~ 23:00
+                                                            </div>
+                                                            <div class="showtime__box--seat">88 / 99 Ghế ngồi</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <%- include('../layouts/footer'); -%>

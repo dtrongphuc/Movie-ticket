@@ -3,8 +3,8 @@ const router = express.Router();
 const controller = require('../../controllers/showtime.admin.controller');
 
 router.use(function (req, resp, next) {
-	resp.locals.title = 'Quản Lý Suất Chiếu';
-	next();
+    resp.locals.title = 'Quản Lý Suất Chiếu';
+    next();
 });
 router.get('/', controller.index);
 router.get('/getdata', controller.getData);
