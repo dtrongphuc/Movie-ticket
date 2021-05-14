@@ -48,7 +48,7 @@ class MovieController {
 			await Promise.all(
 				imagesUploaded.map(async (image) => {
 					let newImage = await models.Image.create({
-						publicUrl: image.public.url,
+						publicUrl: image.url,
 						publicId: image.publicId,
 					});
 
