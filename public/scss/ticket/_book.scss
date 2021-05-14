@@ -9,12 +9,12 @@
 .ticket {
   background: #dad2b4;
   line-height: 35px;
-  .ticket__navbar--items {
+  &__navbar--items {
     padding: 0 15px;
     font-size: 15px;
     font-weight: 500;
   }
-  .ticket__active {
+  &__active {
     font-weight: 700;
     a {
       border-bottom: 2px solid #222;
@@ -22,16 +22,17 @@
   }
 }
 
-.booking__step {
-  background: #fff;
-  border-top: 2px solid #222;
-}
+.booking {
+  &__step {
+    background: #fff;
+    border-top: 2px solid #222;
+  }
+  &__left {
+    // padding: 20px;
 
-.booking__left {
-  // padding: 20px;
-
-  .theater__header {
-    @include inner-booking {
+    .theater__header {
+      @include inner-booking {
+      }
     }
   }
 }
@@ -40,8 +41,10 @@
   li {
     text-align: center;
     a {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 50px;
+      font-weight: 600;
+      color: #767676;
     }
   }
   .theater__sidebar--active {
@@ -60,14 +63,14 @@
 }
 
 .movie__item-img {
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-    margin-left: 5px;
-  }
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  margin-left: 5px;
+}
 
 .movie__body {
-    padding-top: 20px;
+  padding-top: 20px;
   li {
     // padding: 0 5px;
     a {
@@ -86,6 +89,117 @@
         @extend .movie__item-img;
         background-image: url(/images/icons/check.png);
       }
+    }
+  }
+}
+.cinMovie__selected {
+  background: #dad2b4;
+  padding: 20px 15px;
+  .cinMovie__selected {
+    &--items {
+      font-size: 16px;
+    }
+    &--value {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  }
+}
+
+.showtime__inner {
+  padding: 50px 0;
+  h5 {
+    font-size: 24px;
+    margin-right: 15px;
+  }
+}
+.showtime {
+  &__noData {
+    padding: 20px 50px;
+    background: rgb(231, 231, 231);
+    opacity: 0.5;
+  }
+}
+
+.showtime {
+  &__movie--title {
+    padding: 20px;
+    font-size: 20px;
+    background: #efebdb;
+
+    img {
+      padding: 3px;
+    }
+  }
+  &__render-movie {
+    background: #fff;
+    margin-left: 20px;
+  }
+}
+.showtime__cinema {
+  padding: 30px;
+  &--title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+.showtime {
+  &__list {
+    padding-top: 20px;
+  }
+  &__theater--type {
+    padding-bottom: 5px;
+    font-size: 13px;
+    color: #979797;
+  }
+  &__box {
+    border: 1px solid rgb(202, 202, 202);
+    text-align: center;
+    &--screen,
+    &--seat {
+      font-size: 13px;
+      color: #979797;
+      padding: 3px 0;
+    }
+    &--time {
+      font-size: 16px;
+      font-weight: 600;
+      color: #222;
+      line-height: 45px;
+      border-top: 1px solid rgb(202, 202, 202);
+      border-bottom: 1px solid rgb(202, 202, 202);
+    }
+
+    &:hover {
+      background: #222;
+      .showtime__box--time {
+        color: #fff;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+      .startToendtime {
+        display: block;
+      }
+      .startShow {
+        display: none;
+      }
+    }
+  }
+}
+.startToendtime {
+  display: none;
+}
+
+.cinema {
+  &__inner {
+  }
+  &__box {
+    background: #efefef;
+    margin-bottom: 5px;
+    &--item {
+      font-size: 16px;
+      text-align: center;
+      padding: 18px 0;
     }
   }
 }
