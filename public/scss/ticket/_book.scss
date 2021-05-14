@@ -1,0 +1,91 @@
+@mixin inner-booking {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  @content;
+}
+
+.ticket {
+  background: #dad2b4;
+  line-height: 35px;
+  .ticket__navbar--items {
+    padding: 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .ticket__active {
+    font-weight: 700;
+    a {
+      border-bottom: 2px solid #222;
+    }
+  }
+}
+
+.booking__step {
+  background: #fff;
+  border-top: 2px solid #222;
+}
+
+.booking__left {
+  // padding: 20px;
+
+  .theater__header {
+    @include inner-booking {
+    }
+  }
+}
+.theater__tab {
+  padding: 20px;
+  li {
+    text-align: center;
+    a {
+      font-size: 13px;
+      line-height: 50px;
+    }
+  }
+  .theater__sidebar--active {
+    background: #222;
+    a {
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+
+//right
+.movie__header {
+  @include inner-booking {
+  }
+}
+
+.movie__item-img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    margin-left: 5px;
+  }
+
+.movie__body {
+    padding-top: 20px;
+  li {
+    // padding: 0 5px;
+    a {
+      font-size: 15px;
+      line-height: 50px;
+    }
+  }
+
+  .movie__list--active {
+    border: 1px solid #222;
+
+    a {
+      font-weight: bold;
+      color: #222;
+      .movie__item-img {
+        @extend .movie__item-img;
+        background-image: url(/images/icons/check.png);
+      }
+    }
+  }
+}
