@@ -4,19 +4,22 @@ const image = (sequelize, type) => {
 			type: type.INTEGER,
 			allownull: false,
 			primaryKey: true,
-			autoIncrement: true
+			autoIncrement: true,
 		},
-		image: {
+		publicUrl: {
+			type: type.STRING,
+			allownull: false,
+		},
+		publicId: {
 			type: type.STRING,
 			allownull: false,
 		},
 	});
 
-
 	image.findByMovieId = async (id) => {
 		let result = await image.findOne({
 			where: {
-				movieId	: id,
+				movieId: id,
 			},
 		});
 
@@ -27,4 +30,3 @@ const image = (sequelize, type) => {
 };
 
 module.exports = image;
-

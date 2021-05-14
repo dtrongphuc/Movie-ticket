@@ -4,7 +4,7 @@ const movie = (sequelize, type) => {
 			type: type.INTEGER,
 			allownull: false,
 			primaryKey: true,
-			autoIncrement: true
+			autoIncrement: true,
 		},
 		name: {
 			type: type.STRING,
@@ -14,7 +14,7 @@ const movie = (sequelize, type) => {
 			type: type.REAL,
 			allownull: false,
 		},
-		OpeningDay:{
+		openingDay: {
 			type: type.DATE,
 			allownull: false,
 		},
@@ -24,10 +24,25 @@ const movie = (sequelize, type) => {
 		},
 		directors: {
 			type: type.STRING,
+			allownull: true,
+		},
+		posterUrl: {
+			type: type.STRING,
 			allownull: false,
 		},
+		posterPublicId: {
+			type: type.STRING,
+			allownull: false,
+		},
+		trailerUrl: {
+			type: type.STRING,
+			allownull: true,
+		},
+		trailerPublicId: {
+			type: type.STRING,
+			allownull: true,
+		},
 	});
-
 
 	movie.findById = async (id) => {
 		let result = await movie.findOne({
@@ -43,4 +58,3 @@ const movie = (sequelize, type) => {
 };
 
 module.exports = movie;
-

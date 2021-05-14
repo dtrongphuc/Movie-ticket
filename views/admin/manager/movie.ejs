@@ -1,69 +1,150 @@
 <div class="container-fluid">
-    <div class="header_content">
-
-        <h1 class="title_content">Quản Lý Phim</h1>
-        <button type="button" id="btnAdd" class="btn btn-success sml-1" data-toggle="modal" data-target="#modelAdd"
-            style="padding: 4px 35px;margin-left: 20px;">Thêm</button>
-    </div>
-    <table class="table table-striped display center_table" id="theaters" style="width: 100%;">
-        <thead>
-            <tr id="list-header">
-                <th scope="col">STT</th>
-                <th scope="col">Tên</th>
-                <th scope="col">Thời Lượng (phút)</th>
-                <th scope="col">Ngày Công Chiếu</th>
-                <th scope="col">Ngày Tạo</th>
-                <th scope="col">Ngày Cập Nhật</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-            
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+	<div class="header_content">
+		<h1 class="title_content">Quản Lý Phim</h1>
+		<button
+			type="button"
+			id="btnAdd"
+			class="btn btn-success sml-1"
+			data-toggle="modal"
+			data-target="#modelAdd"
+			style="padding: 4px 35px; margin-left: 20px"
+		>
+			Thêm
+		</button>
+	</div>
+	<table
+		class="table table-striped display center_table"
+		id="theaters"
+		style="width: 100%"
+	>
+		<thead>
+			<tr id="list-header">
+				<th scope="col">STT</th>
+				<th scope="col">Tên</th>
+				<th scope="col">Thời Lượng (phút)</th>
+				<th scope="col">Ngày Công Chiếu</th>
+				<th scope="col">Ngày Tạo</th>
+				<th scope="col">Ngày Cập Nhật</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
 </div>
 
-
 <!-- Modal -->
-<div class="modal fade" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm Phim</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action='/admin/phim' method="POST" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="name">Tên Phim</label>
-                        <input type="text" class="form-control" id="theanameter" name="name"
-                            placeholder="Tên Phim" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">File</label>
-                        <input type="file" class="form-control-file" id="image" name="image" >
-                      </div>
-                    <div class="form-group">
-                        <label for="time">Thời Lượng</label>
-                        <input type="text" class="form-control" id="time" name="time"
-                            placeholder="Thời lượng phát sóng" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="starttime">Ngày Công Chiếu</label>
-                        <input type="datetime-local" class="form-control" id="starttime" name="starttime"
-                            placeholder="Thời Gian Bắt Đầu" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-primary">Thêm</button>
-                </div>
-            </form>
-        </div>
-    </div>
+<div
+	class="modal fade"
+	id="modelAdd"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="exampleModalLabel"
+	aria-hidden="true"
+>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Thêm Phim</h5>
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					aria-label="Close"
+				>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="/admin/phim" method="POST" id="formsmovie" enctype="multipart/form-data">
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name">Tên Phim</label>
+						<input
+							type="text"
+							class="form-control"
+							id="theanameter"
+							name="name"
+							placeholder="Tên Phim"
+							required
+						/>
+					</div>
+					
+					<div class="form-group">
+						<label for="imagePoster">Hình ảnh poster</label>
+						<input
+							type="file"
+							accept="image/*"
+							class="form-control-file"
+							id="imagePoster"
+							name="imagePoster"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="images">Hình ảnh khác</label>
+						<input
+							type="file"
+							accept="image/*"
+							class="form-control-file"
+							id="images"
+							name="images"
+							multiple
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="video">Video trailer</label>
+						<input
+							type="file"
+							accept="video/*"
+							class="form-control-file"
+							id="video"
+							name="video"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="time">Thời Lượng (phút)</label>
+						<input
+							type="number"
+							class="form-control"
+							id="time"
+							name="time"
+							placeholder="Thời lượng phát sóng"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="starttime">Ngày Công Chiếu</label>
+						<input
+							type="datetime-local"
+							class="form-control"
+							id="starttime"
+							name="starttime"
+							placeholder="Thời Gian Bắt Đầu"
+							required
+						/>
+					</div>
+					<div class="form-group">
+						<label for="name">Mô tả</label>
+						<textarea
+							form="formsmovie"
+							class="form-control"
+							id="description"
+							name="description"
+							placeholder="Mô tả"
+							required >
+						</textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Đóng
+					</button>
+					<button type="submit" class="btn btn-primary">Thêm</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="/js/admin/MovieJS.js"></script>

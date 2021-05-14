@@ -38,6 +38,7 @@
 
 		@media (min-width: $value) {
 			#{$className} {
+				// max-width: calc(#{$value} - (#{$gap} * 4));
 				max-width: $value;
 			}
 		}
