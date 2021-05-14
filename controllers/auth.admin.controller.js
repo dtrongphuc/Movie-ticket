@@ -1,5 +1,7 @@
 const express = require('express');
 const models = require('../db/connection');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 class AuthController {
 
     async index(req, res) {
@@ -17,22 +19,26 @@ class AuthController {
             }
         });
         if(user != null){
-            if(body.pass === user.hashedPassword){
-                req.session.user = user;
-                //req.sessionOptions.maxAge = 1 * 60 * 60 * 1000; // 2 tiếng
-                res.redirect('/admin/');
-                return;
-            }else{
-                res.render('admin/login', {message: "Mật Khẩu Không Đúng"});
-                return;
-            }
+            await bcrypt.compare(body.pass, user.hashedPassword, function(err, result) {
+                if(result == true){
+                    req.session.user = user;
+                    //req.sessionOptions.maxAge = 1 * 60 * 60 * 1000; // 2 tiếng
+                    res.redirect('/admin/');
+                    return;
+                }else{
+                    res.render('admin/login', {message: "Mật Khẩu Không Đúng"});
+                    return;
+                }
+            });
+        }else{
+            res.render('admin/login',{message: "Tài Khoản Không Tồn Tại"});
+            return;
         }
-        res.render('admin/login',{message: "Tài Khoản Không Tồn Tại"});
     }
 
     logout(req,res){
-        req.logout();
-        resp.redirect('/admin/dang-nhap');
+        req.session.destroy()
+        res.redirect('/admin/dang-nhap');
     }
     
 }
