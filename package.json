@@ -20,12 +20,18 @@
 		"express": "^4.17.1",
 		"express-ejs-layouts": "^2.5.0",
 		"express-session": "^1.17.1",
+<<<<<<< HEAD
 		"multer": "^1.4.2",
+=======
+		"nodemailer": "^6.6.0",
+>>>>>>> 8db795158596663d584cca93b0ab27a5adb769d0
 		"passport": "^0.4.1",
+		"passport-facebook": "^3.0.0",
 		"passport-google-oauth20": "^2.0.0",
 		"passport-local": "^1.0.0",
 		"pg": "^8.6.0",
 		"query-string": "^7.0.0",
+		"randomstring": "^1.2.1",
 		"sequelize": "^6.6.2",
 		"sweetalert2": "^10.16.7"
 	},

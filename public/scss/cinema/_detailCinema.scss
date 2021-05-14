@@ -29,7 +29,7 @@
 .detailFlim__avatar-img {
   width: 350px;
   // height: 677px;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 .filmName {
   font: 28px;
@@ -84,4 +84,12 @@
 .svg__order {
   font-size: 32px;
   margin-right: 8px;
+}
+
+.descriptionMovie{
+  padding: 0 55px;
+  margin-bottom: 50px;
+  p{
+    font-size: 20px;
+  }
 }

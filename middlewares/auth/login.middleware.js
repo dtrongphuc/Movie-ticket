@@ -1,6 +1,4 @@
-const queryString = require('query-string');
 const { passport } = require('../passport/index');
-const bcrypt = require('bcrypt');
 
 module.exports = {
 	validate: async (req, res, next) => {
@@ -51,6 +49,30 @@ module.exports = {
 				req.session.message = error;
 			} else if (!profile) {
 				req.session.message = info;
+			} else {
+				req.logIn(profile, function (err) {
+					if (err) {
+						req.session.message = err;
+					}
+				});
+			}
+
+			next();
+		})(req, res, next);
+	},
+
+	facebookLogin: (req, res, next) => {
+		passport.authenticate('facebook', (error, profile, info) => {
+			if (error) {
+				req.session.message = error;
+			} else if (!profile) {
+				req.session.message = info;
+			} else {
+				req.logIn(profile, function (err) {
+					if (err) {
+						req.session.message = err;
+					}
+				});
 			}
 
 			next();

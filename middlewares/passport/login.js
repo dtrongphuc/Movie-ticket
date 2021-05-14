@@ -1,8 +1,8 @@
 const models = require('../../db/connection'),
 	{ comparePassword } = require('../validate/password.validate'),
 	LocalStrategy = require('passport-local').Strategy,
-	GoogleStrategy = require('passport-google-oauth20').Strategy;
-const { checkEmailExisted } = require('../validate/email.validate');
+	GoogleStrategy = require('passport-google-oauth20').Strategy,
+	FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function initLogin(passport) {
 	// Local login
@@ -35,7 +35,6 @@ module.exports = function initLogin(passport) {
 							type: 'error',
 						});
 					}
-
 					return done(null, user);
 				} catch (error) {
 					return done(null, false, {
@@ -58,24 +57,78 @@ module.exports = function initLogin(passport) {
 			async function (accessToken, refreshToken, profile, cb) {
 				try {
 					let userEmail = profile?.emails[0]?.value;
-					let check = checkEmailExisted(userEmail);
-					if (check) {
+					let user = await models.User.findOne({
+						where: {
+							email: userEmail,
+						},
+					});
+					if (!user) {
+						user = await models.User.create({
+							googleId: profile.id,
+							email: userEmail,
+							fullname: profile.displayName,
+						});
+					} else if (
+						!user.googleId &&
+						!user.facebookId &&
+						user.email === userEmail
+					) {
 						return cb(null, false, {
 							content:
 								'Email đã được đăng ký, vui lòng đăng nhập bằng mật khẩu',
 							type: 'error',
 						});
+					} else if (!user.googleId && user.email === userEmail) {
+						user.googleId = profile.id;
+						await user.save();
 					}
-					let [user, isCreated] = await models.User.findOrCreate({
+					return cb(null, user);
+				} catch (error) {
+					console.log('error: ', error);
+					return cb(error, null);
+				}
+			}
+		)
+	);
+
+	// Using Facebook
+	passport.use(
+		new FacebookStrategy(
+			{
+				clientID: process.env.FACEBOOK_APP_ID,
+				clientSecret: process.env.FACEBOOK_APP_SECRET,
+				callbackURL: process.env.FACEBOOK_CB_URL,
+				profileFields: ['id', 'displayName', 'email'],
+			},
+			async function (accessToken, refreshToken, profile, cb) {
+				try {
+					console.log(profile);
+					let userEmail = profile?.emails[0]?.value;
+					let user = await models.User.findOne({
 						where: {
-							googleId: profile.id,
-						},
-						defaults: {
-							googleId: profile.id,
 							email: userEmail,
-							fullname: profile.displayName,
 						},
 					});
+					if (!user) {
+						user = await models.User.create({
+							facebookId: profile.id,
+							email: userEmail,
+							fullname: profile.displayName,
+						});
+					} else if (
+						!user.googleId &&
+						!user.facebookId &&
+						user.email === userEmail
+					) {
+						return cb(null, false, {
+							content:
+								'Email đã được đăng ký, vui lòng đăng nhập bằng mật khẩu',
+							type: 'error',
+						});
+					} else if (!user.facebookId && user.email === userEmail) {
+						user.facebookId = profile.id;
+						await user.save();
+					}
 
 					return cb(null, user);
 				} catch (error) {

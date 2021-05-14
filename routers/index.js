@@ -3,8 +3,12 @@ const { isAuth } = require('../middlewares/auth/authentication');
 const cinemaRouter = require('./cinema');
 const userRouter = require('./user');
 const authRouter = require('./auth');
+<<<<<<< HEAD
 const adminRouter = require('./admin/index');
 const authAdminRouter = require('./admin/auth');
+=======
+const homeRouter = require('./home');
+>>>>>>> 8db795158596663d584cca93b0ab27a5adb769d0
 
 function route(app) {
 	// Custom flash middleware -- from Ethan Brown's book, 'Web Development with Node & Express'
@@ -56,6 +60,7 @@ function route(app) {
 		res.locals.location = location;
 		next();
 	}, adminRouter);
+	app.use('/home', homeRouter);
 }
 
 module.exports = route;

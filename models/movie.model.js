@@ -22,6 +22,10 @@ const movie = (sequelize, type) => {
 			type: type.TEXT,
 			allownull: false,
 		},
+		directors: {
+			type: type.STRING,
+			allownull: false,
+		},
 	});
 
 
