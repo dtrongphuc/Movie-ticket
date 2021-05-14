@@ -187,7 +187,7 @@ module.exports = {
 					`Vui lòng xác thực qua liên kết: <a href=${verifyLink}>Xác thực</a>`
 				),
 			]);
-
+			
 			return res.render('auth/forgotPwd', {
 				message: {
 					content: 'Vui lòng kiểm tra thư xác nhận',
@@ -234,8 +234,11 @@ module.exports = {
 
 			await user.save();
 			delete req.session.sessionId;
-
-			return res.redirect('/auth/login');
+			if(user.role == 'admin'){
+				return res.redirect('/admin/dang-nhap');
+			}else{
+				return res.redirect('/auth/login');
+			}
 		} catch (error) {
 			console.log(error);
 			return res.render('auth/verify', {
