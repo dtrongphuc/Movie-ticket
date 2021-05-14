@@ -1,8 +1,5 @@
-const express = require('express');
 const models = require('../db/connection');
 const cloudinary = require('../helpers/cloudinary');
-var multer = require('multer');
-
 class MovieController {
 	index(req, res) {
 		res.render('admin/manager/movie');
@@ -26,20 +23,52 @@ class MovieController {
 	}
 
 	async add(req, res) {
-		var body = req.body;
-		let avatar = req.file;
-		let imagePath = await cloudinary.uploadMovieImage(req.file.path);
-		console.log(imagePath);
+		try {
+			var { name, description, time, starttime } = req.body;
+			const { imagePoster, images, video } = req.files;
+			let [posterUploaded, imagesUploaded, trailerUploaded] = await Promise.all(
+				[
+					cloudinary.uploadSingleFile(imagePoster[0].path, 'movie'),
+					cloudinary.uploadMovieImages(images.map((image) => image.path)),
+					cloudinary.uploadTrailer(video[0].path),
+				]
+			);
 
-		// var movie = await models.Movie.create({
-		//     name: body.name,
-		//     time: body.time,
-		//     OpeningDay: body.starttime
-		// });
+			let movie = await models.Movie.create({
+				name: name,
+				time: time,
+				openingDay: starttime,
+				description: description,
+				posterUrl: posterUploaded.url,
+				posterPublicId: posterUploaded.publicId,
+				trailerUrl: trailerUploaded.url,
+				trailerPublicId: trailerUploaded.publicId,
+			});
 
-		// console.log(movie);
+			let newImage = await models.Image.create({
+				publicUrl: imagesUploaded[0].publicUrl,
+				publicId: imagesUploaded[0].publicId,
+			});
 
-		res.redirect('/admin/phim');
+			console.log('movie', movie);
+			console.log('newimage', newImage);
+
+			await newImage.setMovies(movie);
+			// await Promise.all(
+			// 	imagesUploaded.map(async (image) => {
+			// 		let newImage = await models.Image.create({
+			// 			publicUrl: image.publicUrl,
+			// 			publicId: image.publicId,
+			// 		});
+
+			// 		return newImage.addMovies(movie);
+			// 	})
+			// );
+
+			return res.redirect('/admin/phim');
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	async detail(req, res) {
