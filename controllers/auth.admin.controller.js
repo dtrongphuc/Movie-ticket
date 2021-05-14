@@ -32,7 +32,7 @@ class AuthController {
 
     logout(req,res){
         req.logout();
-        resp.redirect('/admin/dang-nhap');
+        res.redirect('/admin/dang-nhap');
     }
     
 }

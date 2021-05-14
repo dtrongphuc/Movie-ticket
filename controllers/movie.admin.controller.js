@@ -1,7 +1,8 @@
 const express = require('express');
 const models = require('../db/connection');
-var cloudinary = require('cloudinary').v2;
-var multer = require('multer');
+const cloudinary = require('../helpers/cloudinary');
+var multer  = require('multer');
+
 class MovieController {
 
     index(req, res) {
@@ -30,7 +31,9 @@ class MovieController {
     async add(req,res){
         var body = req.body;
         let avatar = req.file;
-        console.log(avatar);
+        let imagePath = await cloudinary.uploadMovieImage(req.file.path);
+        console.log(imagePath);
+        
         // var movie = await models.Movie.create({
         //     name: body.name,
         //     time: body.time,

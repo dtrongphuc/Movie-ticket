@@ -19,7 +19,7 @@ app.set('trust proxy', 1); // trust first proxy
 // Passport
 initPassport(app);
 
-
+//---------------------------------------------------------------- ADMIN -----------------------------------------------------
 route(app);
 // home
 //app.use('/home', homeRouter);
