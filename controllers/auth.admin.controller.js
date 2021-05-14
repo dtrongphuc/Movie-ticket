@@ -31,7 +31,7 @@ class AuthController {
     }
 
     logout(req,res){
-        req.logout();
+        req.session.destroy()
         res.redirect('/admin/dang-nhap');
     }
     
