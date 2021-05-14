@@ -14,7 +14,7 @@ const movie = (sequelize, type) => {
 			type: type.REAL,
 			allownull: false,
 		},
-		OpeningDay:{
+		openingDay:{
 			type: type.DATE,
 			allownull: false,
 		},

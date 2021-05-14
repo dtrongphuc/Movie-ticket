@@ -10,7 +10,7 @@ async function initTableData() {
                     STT: i++,
                     name: e.name,
                     time: e.time,
-                    open: (e.OpeningDay).substr(0, e.OpeningDay.length - 14),
+                    open: (e.openingDay).substr(0, e.openingDay.length - 14),
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
                     updatedAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
                     detail: "<a href=/admin/phim/chi-tiet/"+e.id+"><i class='fas fa-info-circle'></i></a>",
