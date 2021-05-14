@@ -5,7 +5,8 @@ const express = require('express'),
 	app = express(),
 	route = require('./routers/index'),
 	{ initPassport } = require('./middlewares/passport/index'),
-	port = 3000;
+	homeRouter = require('./routers/home');
+port = 3000;
 
 // APP CONFIGURE
 // app.use(require('morgan')('tiny'));
@@ -18,11 +19,11 @@ app.set('trust proxy', 1); // trust first proxy
 
 // Passport
 initPassport(app);
-
+// home
+app.use('/home', homeRouter);
 //---------------------------------------------------------------- ADMIN -----------------------------------------------------
 route(app);
-// home
-//app.use('/home', homeRouter);
+
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
