@@ -10,15 +10,14 @@
   background: #dad2b4;
   line-height: 35px;
   &__navbar--items {
-    padding: 0 15px;
+    margin: 0 15px;
     font-size: 15px;
+    
     font-weight: 500;
   }
   &__active {
     font-weight: 700;
-    a {
-      border-bottom: 2px solid #222;
-    }
+    border-bottom: 2px solid #222;
   }
 }
 
@@ -201,5 +200,61 @@
       text-align: center;
       padding: 18px 0;
     }
+  }
+}
+.carousel__time {
+  background: #f9f6ec;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.time {
+  &__box {
+    flex-direction: column;  
+    &--dayofweek {
+      font-size: 17px;
+      color: #222;
+      padding-bottom: 10px;
+    }
+    &--date {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px;
+    }
+  }
+}
+.date--active{
+  border-radius: 50%;
+  background-color: #222;
+  color: #fff;
+}
+.no__showtime{
+  opacity: .5;
+}
+
+.calendar{
+  &__MM{
+    font-size: 28px;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+  &__MMYY{
+    margin-bottom: 20px;
   }
 }
