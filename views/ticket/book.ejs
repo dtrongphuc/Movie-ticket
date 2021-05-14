@@ -10,6 +10,119 @@
                 </div>
             </div>
         </div>
+        <div class="carousel__time " style="padding-top: 25px;">
+            <div class="container">
+                    <div class="calendar__MMYY d-flex align-items-center justify-content-center">
+                        <div class="calendar__MM">Tháng 5 2021</div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-1 d-flex align-items-center justify-content-end">
+                                <div class="swiper-button-prev" style="position: inherit !important; color: #222;"></div>
+                            </div>
+
+                            <!-- cho lịch trong carousel 20 ngày -->
+                            <div class="col-10">
+                                <div class="calendar__DD" style="height: 90px;">
+                                    <div class="swiper-container SwiperTime">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center ">
+                                                    <div class="time__box--dayofweek">Sáu</div>
+                                                    <div class="time__box--date date--active">14</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center">
+                                                    <div class="time__box--dayofweek">Bảy</div>
+                                                    <div class="time__box--date">15</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">CN</div>
+                                                    <div class="time__box--date">16</div>
+                                                </div>
+                                            </div>
+        
+                                            <!-- nếu không có suất chiếu vào ngày đó thì thêm class 'no__showtime' -->
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Hai</div>
+                                                    <div class="time__box--date">17</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Ba</div>
+                                                    <div class="time__box--date">18</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Tư</div>
+                                                    <div class="time__box--date">19</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Năm</div>
+                                                    <div class="time__box--date">20</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Sáu</div>
+                                                    <div class="time__box--date">21</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Bảy</div>
+                                                    <div class="time__box--date">22</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">CN</div>
+                                                    <div class="time__box--date">23</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Hai</div>
+                                                    <div class="time__box--date">24</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Ba</div>
+                                                    <div class="time__box--date">25</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="time__box d-flex align-items-center no__showtime">
+                                                    <div class="time__box--dayofweek">Tư</div>
+                                                    <div class="time__box--date">26</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1 d-flex align-items-center justify-content-start">
+                                <div class="swiper-button-next" style="position: inherit !important; color: #222;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+
+                   
+                </div>
+            </div>
+        </div>
         <div class="booking" style="padding: 50px 0 0; background: #F9F6EC;">
             <div class="container-lg">
                 <div class="row booking__inner">
@@ -46,7 +159,7 @@
                                                     </div>
                                                 </div>
 
-                                                <!--các Rạp Khi dc chọn -->
+                                                <!--các Rạp  -->
                                                 <div class="col-8">
                                                     <div class="row cinema__inner">
                                                         <div class="col-4" style="padding: 0 3px;">
@@ -251,6 +364,22 @@
 
             </div>
         </div>
-
-
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper(".SwiperTime", {
+                slidesPerView: 7,
+                spaceBetween: 30,
+                slidesPerGroup: 7,
+                loop: true,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
         <%- include('../layouts/footer'); -%>
