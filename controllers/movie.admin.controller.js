@@ -45,29 +45,21 @@ class MovieController {
 				trailerPublicId: trailerUploaded.publicId,
 			});
 
-			let newImage = await models.Image.create({
-				publicUrl: imagesUploaded[0].publicUrl,
-				publicId: imagesUploaded[0].publicId,
-			});
+			await Promise.all(
+				imagesUploaded.map(async (image) => {
+					let newImage = await models.Image.create({
+						publicUrl: image.public.url,
+						publicId: image.publicId,
+					});
 
-			console.log('movie', movie);
-			console.log('newimage', newImage);
-
-			await newImage.setMovies(movie);
-			// await Promise.all(
-			// 	imagesUploaded.map(async (image) => {
-			// 		let newImage = await models.Image.create({
-			// 			publicUrl: image.publicUrl,
-			// 			publicId: image.publicId,
-			// 		});
-
-			// 		return newImage.addMovies(movie);
-			// 	})
-			// );
+					return newImage.setMovie(movie);
+				})
+			);
 
 			return res.redirect('/admin/phim');
 		} catch (error) {
 			console.log(error);
+			return res.redirect('/admin/phim');
 		}
 	}
 
