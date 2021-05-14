@@ -33,7 +33,7 @@ class MovieController {
         let avatar = req.file;
         let imagePath = await cloudinary.uploadMovieImage(req.file.path);
         console.log(imagePath);
-        
+
         // var movie = await models.Movie.create({
         //     name: body.name,
         //     time: body.time,
@@ -43,6 +43,11 @@ class MovieController {
         // console.log(movie);
 
         res.redirect('/admin/phim')
+    }
+
+    async detail(req,res){
+        let id = req.params.id;
+        res.render('admin/manager/detailMovie', {id: id});
     }
 
 }

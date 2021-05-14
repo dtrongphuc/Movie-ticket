@@ -8,7 +8,6 @@ router.use(authMiddleware);
 
 router.use(function (req, resp, next) {
     resp.locals.title = 'Quản Lý Suất Chiếu';
-    resp.locals.location = 'showtime';
     next();
 });
 router.get('/', controller.index);

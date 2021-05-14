@@ -59,7 +59,7 @@ class Statistics {
                 type: QueryTypes.SELECT
             }
         );
-        res.render('admin/statistics/statisticsTheaters', { result: result});
+        res.render('admin/statistics/statisticsMove', { result: result});
     };
 
 }
