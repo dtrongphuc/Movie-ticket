@@ -35,7 +35,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action='/admin/phim' method="POST">
+            <form action='/admin/phim' method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name">Tên Phim</label>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">File</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file" id="image" name="image" >
                       </div>
                     <div class="form-group">
                         <label for="time">Thời Lượng</label>
