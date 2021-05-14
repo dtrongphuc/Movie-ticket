@@ -6,7 +6,7 @@ const express = require('express'),
 	route = require('./routers/index'),
 	{ initPassport } = require('./middlewares/passport/index'),
 	homeRouter = require('./routers/home');
-	port = 3000;
+port = 3000;
 
 // APP CONFIGURE
 // app.use(require('morgan')('tiny'));
@@ -19,7 +19,6 @@ app.set('trust proxy', 1); // trust first proxy
 
 // Passport
 initPassport(app);
-
 
 route(app);
 
