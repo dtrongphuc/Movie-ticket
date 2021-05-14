@@ -1,5 +1,7 @@
 const express = require('express');
 const models = require('../db/connection');
+var cloudinary = require('cloudinary').v2;
+var multer = require('multer');
 class MovieController {
 
     index(req, res) {
@@ -27,13 +29,15 @@ class MovieController {
 
     async add(req,res){
         var body = req.body;
-        var movie = await models.Movie.create({
-            name: body.name,
-            time: body.time,
-            OpeningDay: body.starttime
-        });
+        let avatar = req.file;
+        console.log(avatar);
+        // var movie = await models.Movie.create({
+        //     name: body.name,
+        //     time: body.time,
+        //     OpeningDay: body.starttime
+        // });
 
-        console.log(movie);
+        // console.log(movie);
 
         res.redirect('/admin/phim')
     }

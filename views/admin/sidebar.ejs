@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion nav" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -8,42 +8,42 @@
     <!-- Heading -->
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'trang-chu' ? 'myactive'  : '' %>" href="/admin/" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-video"></i>
             <span>Quản Lý Rạp</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/cum-rap" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'cum-rap' ? 'myactive'  : '' %>" href="/admin/cum-rap" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Quản Lý Cụm Rạp</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/phim" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'phim' ? 'myactive'  : '' %>" href="/admin/phim" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-film"></i>
             <span>Quản Lý Phim</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/suat-phim" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'suat-phim' ? 'myactive'  : '' %>" href="/admin/suat-phim" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Quản Lý Suất Chiếu</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/thong-ke/" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'thong-ke' ? 'myactive'  : '' %>" href="/admin/thong-ke/" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Doanh Thu Cụm Rạp</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="/admin/thong-ke/phim" aria-expanded="true"
+        <a class="nav-link collapsed <%- location == 'thong-ke/phim' ? 'myactive'  : '' %>" href="/admin/thong-ke/phim" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-chart-line"></i>
             <span>Doanh Thu Phim</span>
