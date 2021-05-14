@@ -7,15 +7,12 @@ const authMiddleware = require('../../middlewares/auth/auth.admin.middleware');
 router.use(authMiddleware);
 
 router.use(function (req, resp, next) {
-    resp.locals.title = 'Quản Lý Suất Chiếu';
-    resp.locals.location = 'showtime';
-    next();
+	resp.locals.title = 'Quản Lý Suất Chiếu';
+	next();
 });
 router.get('/', controller.index);
 router.get('/getdata', controller.getData);
 router.get('/delete/:movie/:cinema', controller.delete);
 router.post('/', controller.add);
-
-
 
 module.exports = router;

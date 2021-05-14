@@ -102,7 +102,6 @@ module.exports = function initLogin(passport) {
 			},
 			async function (accessToken, refreshToken, profile, cb) {
 				try {
-					console.log(profile);
 					let userEmail = profile?.emails[0]?.value;
 					let user = await models.User.findOne({
 						where: {

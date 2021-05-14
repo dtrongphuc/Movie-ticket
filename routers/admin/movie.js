@@ -7,8 +7,8 @@ const authMiddleware = require('../../middlewares/auth/auth.admin.middleware');
 router.use(authMiddleware);
 
 router.use(function (req, resp, next) {
-    resp.locals.title = 'Quản Lý Phim';
-    next();
+	resp.locals.title = 'Quản Lý Phim';
+	next();
 });
 router.get('/', controller.index);
 router.get('/getdata', controller.getData);
