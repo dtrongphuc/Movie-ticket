@@ -1,13 +1,16 @@
 const { route } = require('./cinema');
 
 const express = require('express'),
-    router = express.Router(),
-    theatersRouter = require('./theaters'),
-    cinemaRouter = require('./cinema'),
-    showtimeRouter = require('./showtime'),
-    statisticeRouter = require('./statistics'),
-    movieRouter = require('./movie');
+	router = express.Router(),
+	theatersRouter = require('./theaters'),
+	cinemaRouter = require('./cinema'),
+	showtimeRouter = require('./showtime'),
+	statisticeRouter = require('./statistics'),
+	movieRouter = require('./movie'),
+	authMiddleware = require('../../middlewares/auth/auth.admin.middleware');
 
+//chặn quyền
+router.use(authMiddleware);
 
 //apply template
 

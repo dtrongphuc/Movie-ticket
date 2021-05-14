@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../../controllers/showtime.admin.controller');
-const authMiddleware = require('../../middlewares/auth/auth.admin.middleware');
-
-//chặn quyền
-router.use(authMiddleware);
 
 router.use(function (req, resp, next) {
 	resp.locals.title = 'Quản Lý Suất Chiếu';
