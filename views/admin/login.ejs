@@ -31,19 +31,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Quản Trị</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user"  method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email"
+                                                aria-describedby="emailHelp" name="email" placeholder="Email"
                                                 required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mật Khẩu" required>
+                                                placeholder="Mật Khẩu" name="pass" required>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <%if (message !=undefined) { %>
+                                            <div class="alert alert-danger" role="alert">
+                                                <%= message %>
+                                            </div>
+                                        <% } %>
+                                        <button class="btn btn-primary btn-user btn-block " type="submit">
                                             Đăng Nhập
-                                        </a>
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">

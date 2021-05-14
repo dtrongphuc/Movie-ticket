@@ -1,5 +1,6 @@
 const express = require('express');
 const models = require('../db/connection');
+var cloudinary = require('cloudinary').v2;
 class MovieController {
 
     index(req, res) {
@@ -27,11 +28,12 @@ class MovieController {
 
     async add(req,res){
         var body = req.body;
-        var movie = await models.Movie.create({
-            name: body.name,
-            time: body.time,
-            OpeningDay: body.starttime
-        });
+        console.log(body.image);
+        // var movie = await models.Movie.create({
+        //     name: body.name,
+        //     time: body.time,
+        //     OpeningDay: body.starttime
+        // });
 
         console.log(movie);
 

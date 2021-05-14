@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../../controllers/statiscics.admin.controller');
+const authMiddleware = require('../../middlewares/auth/auth.admin.middleware');
+
+//chặn quyền
+router.use(authMiddleware);
 
 router.use(function (req, resp, next) {
     resp.locals.title = 'Thông Kê Doanh Thu';
