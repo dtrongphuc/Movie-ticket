@@ -8,5 +8,9 @@ router.get(
 	bookingMiddleware.dateQuery,
 	ticketController.getBookingByDate
 );
+router.get(
+	'/bookseat',
+	ticketController.bookseat
+);
 
 module.exports = router;
