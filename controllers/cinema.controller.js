@@ -1,18 +1,23 @@
-const {
-	Movie,
-} = require("../db/connection");
+const models = require("../db/connection");
 
 class CinemaController {
 	async index(req, res, next) {
 		const { id } = req.query;
 
-		await Movie.findOne({where: {id: id}})
-			.then(movie => {
-				return res.render('cinema/detail', {movie, });
-			})
-			.catch(() => {
-				res.status(500).send({ error: 'Something failed!' })
-			})
+		models.Movie.findOne({
+			where: {id: id},
+			include: [
+				{
+					model: models.Image,
+				}
+			]
+		})
+		.then(movie => {
+			return res.render('cinema/detail', {movie, });
+		})
+		.catch(() => {
+			res.status(500).send({ error: 'Something failed!' })
+		})
 	}
 }
 

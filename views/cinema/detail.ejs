@@ -3,46 +3,16 @@
 		<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff; height: 400px; background: black;"
 			class="swiper-container mySwiper">
 			<div class="swiper-wrapper">
+
+				<% movie.images.forEach(function(img) { %>
 				<div class="swiper-slide" style="opacity: 1;">
 					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://i.ytimg.com/vi/ykBfss-8H4Y/maxresdefault.jpg" class="swiper-lazy" />
+					<img src="<%= img.publicUrl %>" class="swiper-lazy" />
 					<!-- Preloader image -->
 					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
 				</div>
-				<div class="swiper-slide" style="opacity: 1;">
-					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://znews-photo.zadn.vn/w660/Uploaded/izhqv/2021_04_24/review_lat_mat_48h.jpg"
-						class="swiper-lazy" />
-					<!-- Preloader image -->
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide" style="opacity: 1;">
-					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://media-cdn.laodong.vn/Storage/NewsPortal/2021/4/26/902575/Lat-Mat-48H-Gif-3.gif?w=414&h=276&crop=auto&scale=both"
-						class="swiper-lazy" />
-					<!-- Preloader image -->
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide" style="opacity: 1;">
-					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://themillennials.life/wp-content/uploads/2021/04/screenshot-5-1-1617075656708437663430.png"
-						class="swiper-lazy" />
-					<!-- Preloader image -->
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide" style="opacity: 1;">
-					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://i.ytimg.com/vi/-iCBapAoAsM/maxresdefault.jpg" class="swiper-lazy" />
-					<!-- Preloader image -->
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide" style="opacity: 1;">
-					<!-- Required swiper-lazy class and image source specified in data-src attribute -->
-					<img data-src="https://static.mservice.io/blogscontents/momo-upload-api-210112174817-637460704971301288.jpg"
-						class="swiper-lazy" />
-					<!-- Preloader image -->
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
+				<% }); %>
+
 			</div>
 			<div class="swiper-button-next"></div>
 			<div class="swiper-button-prev"></div>
@@ -67,8 +37,8 @@
 						<h3 class="filmName">
 							<%- movie.name %>
 						</h3>
-						<p><strong class="content__title">Khởi chiếu: </strong>Từ <%-
-								movie.OpeningDay.toLocaleDateString('en-GB') %>
+						<p><strong class="content__title">Khởi chiếu: </strong>
+							Từ <%- movie.openingDay.toLocaleDateString('en-GB') %>
 						</p>
 						<!-- <p><strong class="content__title">Xếp hạng: </strong>[Trong nước] 18 tuổi trở lên</p> -->
 						<!-- <p>

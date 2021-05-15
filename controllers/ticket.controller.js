@@ -1,10 +1,8 @@
-
-
-class TicketController {
-    async index(req, res) {
-        res.render('ticket/book');
-        // res.render('cinema/detail');
-    }
-}
-
-module.exports = new TicketController 
+module.exports = {
+	getBookingByDate: (req, res) => {
+		return res.render('ticket/book');
+	},
+	bookseat: (req, res) => {
+		return res.render('ticket/bookseat');
+	},
+};

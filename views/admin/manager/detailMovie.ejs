@@ -1,1 +1,85 @@
-<h1>hello detail movie id: <%= id %></h1>
+<div class="container dtMovie">
+    <div class="dtMovie__header d-flex flex-column align-items-center">
+        <span>Phim</span>
+        <span><strong><%- movie.name %></strong></span>
+    </div>
+
+    <!-- <div class="dtMovie__lable--big">Thông tin phim</div> -->
+    <div class="dtMovie__info">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="dtMovie__poster">
+                    <img src="<%- movie.posterUrl %>" alt="">
+                    <span>Poster phim <%- movie.name %></span>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9">
+                <div class="dtMovie__info--items">
+                    <div class="dtMovie__info--value"><strong>Khởi chiếu: </strong>từ ngày <%- movie.openingDay.toLocaleDateString('en-GB') %></div>
+                </div>
+                <div class="dtMovie__info--items">
+                    <div class="dtMovie__info--value"><strong>Thời lượng: </strong><%- movie.time %> phút</div>
+                </div>
+                <div class="dtMovie__info--items">
+                    <div class="dtMovie__info--value"><strong>Đạo diễn: </strong><%- movie.directors %></div>
+                </div>
+                <div class="dtMovie__info--items">
+                    <div class="dtMovie__info--value" style="text-align: justify;">
+                        <strong>Tóm tắt phim: </strong>
+                        <%- movie.description %>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+   
+    
+    <div class="dtMovie__carousel" >
+        <div class="dtMovie__lable--big">
+            Các hình ảnh trong phim
+        </div>
+        <div class="swiper-container mySwiper" style="height: 350px;">
+            <div class="swiper-wrapper">
+
+                <% movie.images.forEach(function(img) { %>
+              <div class="swiper-slide">
+                  <img src="<%= img.publicUrl %>" class="swiper-lazy" />
+              </div>
+              <% }); %>
+
+            </div>
+            <div class="swiper-button-next" style="color: #222;"></div>
+            <div class="swiper-button-prev" style="color: #222;"></div>
+            <div class="swiper-pagination" style="color: #222;"></div>
+          </div>
+    </div>
+
+<div class="dtMovie__play">
+    <div class="dtMovie__lable--big">
+        Trailler phim
+    </div>
+    <div class="dtMovie__trailler">
+        <video width="100%" controls>
+            <source src="<%- movie.trailerUrl %>" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+    </div>
+    
+</div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+</div>
