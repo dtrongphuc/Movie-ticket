@@ -1,6 +1,7 @@
 const express = require('express');
 const models = require('../db/connection');
 const { QueryTypes } = require('sequelize');
+const moment = require('moment')
 class ShowtimeController {
 
     async index(req, res) {
@@ -19,6 +20,15 @@ class ShowtimeController {
                 type: QueryTypes.SELECT
             }
         );
+        let momentDate;
+        // var start = momentDate.format("YYYY-MM-DD HH:mm:ss");
+        
+        for(let i = 0; i < data.length; i++) {
+            momentDate = moment(data[i].startTime);
+            data[i].startTime = momentDate.format("YYYY-MM-DD HH:mm:ss")
+            momentDate = moment(data[i].endTime);
+            data[i].endTime = momentDate.format("YYYY-MM-DD HH:mm:ss")
+          }
         res.status(200).json(data);
     }
 
