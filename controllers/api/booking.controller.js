@@ -23,7 +23,7 @@ module.exports = {
 			if (!theaterId) {
 				throw new Error('id is required');
 			}
-			let theater = await models.Theater.findByPk(theaterId);
+			let theater = await models.Theater.findByPk(+theaterId);
 
 			let cinemas = await theater.getCinemas();
 

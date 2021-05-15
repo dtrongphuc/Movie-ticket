@@ -14,7 +14,6 @@ async function initTableData() {
                     length: e.length,
                     width: e.width,
                     createAt: (e.createdAt).substr(0, e.createdAt.length - 14),
-                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
                     delete: "<a href=/admin/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
@@ -36,7 +35,6 @@ async function initTableData() {
                     { data: 'width' },
                     { data: 'length' },
                     { data: 'createAt' },
-                    { data: 'updateAt' },
                     { data: 'delete' },
                 ]
             });

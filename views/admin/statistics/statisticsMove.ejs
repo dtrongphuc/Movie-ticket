@@ -11,27 +11,3 @@
         <button type="submit" class="btn btn-primary">Xem</button>
       </form>
 </div>
-<%if (result !=undefined) { %>
-<div class="container-fluid">
-  <table class="table table-striped display center_table" id="theaters" style="width: 100%;">
-      <thead>
-          <tr id="list-header">
-              <th scope="col">STT</th>
-              <th scope="col">Phim</th>
-              <th scope="col">Vé Bán Được</th>
-              <th scope="col">Doanh Thu</th>
-          </tr>
-      </thead>
-      <tbody>
-        <% for(var i=0; i< result.length; i++) { %>
-          <tr>
-            <td><%= i+1 %></td>
-            <td><%= result[i].name %></td>
-            <td><%= result[i].ve %></td>
-            <td><%= result[i].doanhthu %></td>
-          </tr>
-          <% } %>
-      </tbody>
-  </table>
-</div>
-<% } %>

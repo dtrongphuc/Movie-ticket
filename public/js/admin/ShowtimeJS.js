@@ -10,11 +10,10 @@ async function initTableData() {
                     STT: i++,
                     phim: e.movieName,
                     rap: e.cinemaName,
-                    starttime: (e.startTime).substr(0, e.startTime.length - 14),
-                    endtime: (e.endTime).substr(0, e.endTime.length - 14),
+                    starttime: e.startTime,
+                    endtime: e.endTime,
                     price: e.fare,
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
-                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
                     delete: "<a href=/admin/suat-phim/delete/"+e.movieId+"/"+ e.cinemaId+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
@@ -36,7 +35,6 @@ async function initTableData() {
                     { data: 'endtime' },
                     { data: 'price' },
                     { data: 'createdAt' },
-                    { data: 'updateAt' },
                     { data: 'delete' }
                 ]
             });
