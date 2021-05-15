@@ -50,7 +50,7 @@
 			color: #767676;
 		}
 	}
-	.theater__sidebar--active {
+	.theater__item--active {
 		background: #222;
 		a {
 			color: white;
@@ -74,6 +74,9 @@
 
 .movie__body {
 	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 350px;
+	overflow-y: auto;
 	li {
 		// padding: 0 5px;
 		a {
@@ -82,7 +85,7 @@
 		}
 	}
 
-	.movie__list--active {
+	.movie__item--active {
 		border: 1px solid #222;
 
 		a {
@@ -204,12 +207,48 @@
 	// &__inner {
 	// }
 	&__box {
-		background: #efefef;
+		$bg: #efefef;
+		background: $bg;
+		border: 1px solid $bg;
 		margin-bottom: 5px;
+		cursor: pointer;
+
+		&--disable {
+			$bgd: #fafafa;
+			background: $bgd;
+			border: 1px solid $bgd;
+			cursor: default;
+
+			& > .cinema__box--item {
+				color: #d1d1d1;
+			}
+		}
+
+		&--active {
+			position: relative;
+			font-weight: bold;
+			color: #231f20;
+			border: 1px solid #999;
+			word-break: break-all;
+			background-color: #fff;
+
+			&:after {
+				content: '';
+				position: absolute;
+				left: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+				background: url('/images/icons/bg_ckth.png') no-repeat center;
+				width: 13px;
+				height: 10px;
+			}
+		}
+
 		&--item {
-			font-size: 16px;
+			font-size: 14px;
 			text-align: center;
-			padding: 18px 0;
+			padding: 18px 12px;
+			color: #666;
 		}
 	}
 }
@@ -237,6 +276,7 @@
 }
 .time {
 	&__box {
+		cursor: pointer;
 		flex-direction: column;
 		&--dayofweek {
 			font-size: 17px;
@@ -247,16 +287,30 @@
 			font-size: 15px;
 			font-weight: 600;
 			padding: 10px;
+			color: #000;
+		}
+
+		&--blue {
+			& > div {
+				color: #407bbb;
+			}
+		}
+
+		&--red {
+			& > div {
+				color: #cd190b;
+			}
 		}
 	}
 }
 .date--active {
 	border-radius: 50%;
 	background-color: #222;
-	color: #fff;
+	color: #fff !important;
 }
 .no__showtime {
 	opacity: 0.5;
+	cursor: default !important;
 }
 
 .calendar {
