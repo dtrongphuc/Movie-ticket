@@ -6,11 +6,9 @@ const bookingMiddleware = require('../middlewares/booking/booking.middleware');
 router.get(
 	'/book',
 	bookingMiddleware.dateQuery,
-	ticketController.getBookingByDate
+	bookingMiddleware.getTheaters,
+	ticketController.getBooking
 );
-router.get(
-	'/bookseat',
-	ticketController.bookseat
-);
+router.get('/bookseat', ticketController.bookseat);
 
 module.exports = router;

@@ -16,8 +16,8 @@ include('../layouts/navbar/navbar') -%>
 			class="calendar__MMYY d-flex align-items-center justify-content-center"
 		>
 			<div class="calendar__MM">
-				<span class="month">Tháng 5 </span>
-				<span class="year">2021</span>
+				<span class="month">Tháng <%- dateSlider.active?.month %> </span>
+				<span class="year"><%- dateSlider.active?.year %> </span>
 			</div>
 		</div>
 		<div class="row">
@@ -36,15 +36,14 @@ include('../layouts/navbar/navbar') -%>
 						<div class="calendar__DD" style="height: 90px">
 							<div class="swiper-container SwiperTime">
 								<div class="swiper-wrapper">
-									<% dateSlider.forEach(function(date) { %>
+									<% dateSlider?.dateArr.forEach(function(date) { %>
 									<div class="swiper-slide">
 										<a
-											href="<%
-                                            if(date.hasMovieShow) { %>
-                                                /ticket/book?date=<%- date.value %>
-                                            <% } else { %>
-                                                javascript:void(0)
-                                            <% } %>"
+											href="<%if(date.hasMovieShow) { %>
+															/ticket/book?date=<%- date.value %>
+														<% } else { %>
+																javascript:void(0)
+														<% } %>"
 											class="
 												time__box
 												d-flex
@@ -79,7 +78,7 @@ include('../layouts/navbar/navbar') -%>
 												class="
 													time__box--date
 													<%-
-													date.active
+													dateSlider?.active?.value
 													===
 													date.value
 													?
@@ -93,7 +92,7 @@ include('../layouts/navbar/navbar') -%>
 											</div>
 										</a>
 									</div>
-									<% }) %>
+									<% }); %>
 								</div>
 							</div>
 						</div>
@@ -125,57 +124,20 @@ include('../layouts/navbar/navbar') -%>
 										<!-- Cụm rạp -->
 										<div class="col-4">
 											<div class="theater__sidebar">
-												<ul class="theater__list">
-													<li class="theater__item theater__item--active">
-														<a href="javascript:void(0)">TPHCM</a>
-													</li>
-													<li class="theater__item">
-														<a href="javascript:void(0)">Hà Nội</a>
-													</li>
-													<li class="theater__item">
-														<a href="javascript:void(0)">ĐB Sông Hồng</a>
-													</li>
-													<li class="theater__item">
-														<a href="javascript:void(0)">Tây Nam Bộ</a>
-													</li>
-													<li class="theater__item">
-														<a href="javascript:void(0)">Tây Bắc</a>
-													</li>
-												</ul>
+												<ul class="theater__list"></ul>
 											</div>
 										</div>
 
 										<!--các Rạp  -->
 										<div class="col-8">
 											<div class="row cinema__inner">
-												<div class="col-4" style="padding: 0 3px">
+												<!-- <div class="col-4" style="padding: 0 3px">
 													<a href="javascript:void(0)">
 														<div class="cinema__box cinema__box--disable">
 															<div class="cinema__box--item">Tiền Giang</div>
 														</div>
 													</a>
-												</div>
-												<div class="col-4" style="padding: 0 3px">
-													<a href="javascript:void(0)">
-														<div class="cinema__box cinema__box--active">
-															<div class="cinema__box--item">Bình Phước</div>
-														</div>
-													</a>
-												</div>
-												<div class="col-4" style="padding: 0 3px">
-													<a href="javascript:void(0)">
-														<div class="cinema__box">
-															<div class="cinema__box--item">Đồng Nai</div>
-														</div>
-													</a>
-												</div>
-												<div class="col-4" style="padding: 0 3px">
-													<a href="javascript:void(0)">
-														<div class="cinema__box">
-															<div class="cinema__box--item">Nha Trang</div>
-														</div>
-													</a>
-												</div>
+												</div> -->
 											</div>
 										</div>
 									</div>
@@ -380,5 +342,7 @@ include('../layouts/navbar/navbar') -%>
 		},
 	});
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="module" src="/js/booking/index.js"></script>
 <%- include('../layouts/footer'); -%>
