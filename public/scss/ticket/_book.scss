@@ -6,6 +6,12 @@
 	@content;
 }
 
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+	outline: none;
+	border: none;
+}
+
 .ticket {
 	background: #dad2b4;
 	line-height: 35px;

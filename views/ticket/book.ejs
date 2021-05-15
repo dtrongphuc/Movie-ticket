@@ -16,8 +16,8 @@ include('../layouts/navbar/navbar') -%>
 			class="calendar__MMYY d-flex align-items-center justify-content-center"
 		>
 			<div class="calendar__MM">
-				<span class="month">Tháng 5 </span>
-				<span class="year">2021</span>
+				<span class="month">Tháng <%- dateSlider.active?.month %> </span>
+				<span class="year"><%- dateSlider.active?.year %> </span>
 			</div>
 		</div>
 		<div class="row">
@@ -36,15 +36,14 @@ include('../layouts/navbar/navbar') -%>
 						<div class="calendar__DD" style="height: 90px">
 							<div class="swiper-container SwiperTime">
 								<div class="swiper-wrapper">
-									<% dateSlider.forEach(function(date) { %>
+									<% dateSlider?.dateArr.forEach(function(date) { %>
 									<div class="swiper-slide">
 										<a
-											href="<%
-                                            if(date.hasMovieShow) { %>
-                                                /ticket/book?date=<%- date.value %>
-                                            <% } else { %>
-                                                javascript:void(0)
-                                            <% } %>"
+											href="<%if(date.hasMovieShow) { %>
+															/ticket/book?date=<%- date.value %>
+														<% } else { %>
+																javascript:void(0)
+														<% } %>"
 											class="
 												time__box
 												d-flex
@@ -79,7 +78,7 @@ include('../layouts/navbar/navbar') -%>
 												class="
 													time__box--date
 													<%-
-													date.active
+													dateSlider?.active?.value
 													===
 													date.value
 													?

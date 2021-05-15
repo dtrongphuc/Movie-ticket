@@ -52,13 +52,20 @@ module.exports = {
 		const dateSliderCount = 14;
 		let activeDates = await getAvailableDate();
 		let selectedDate = req.query?.date || moment().format('YYYYMMDD');
-		let dateArr = [];
+		let dateObj = {
+			active: {
+				value: selectedDate,
+				day: moment(selectedDate, 'YYYYMMDD').date(),
+				month: moment(selectedDate, 'YYYYMMDD').month() + 1,
+				year: moment(selectedDate, 'YYYYMMDD').year(),
+			},
+			dateArr: [],
+		};
 		for (let i = 0; i < dateSliderCount; ++i) {
 			let nextDate = moment(selectedDate, 'YYYYMMDD')
 				.add(i, 'days')
 				.format('YYYYMMDD');
-			dateArr.push({
-				active: selectedDate,
+			dateObj.dateArr.push({
 				value: nextDate,
 				year: moment(nextDate, 'YYYYMMDD').year(),
 				month: moment(nextDate, 'YYYYMMDD').month(),
@@ -73,7 +80,7 @@ module.exports = {
 			});
 		}
 
-		res.locals.dateSlider = dateArr;
+		res.locals.dateSlider = dateObj;
 		next();
 	},
 };
