@@ -1,11 +1,11 @@
-<%- include('../layouts/header', {title: 'Phim' }); -%> 
+<%- include('../layouts/header', {title: 'Phim' }); -%>
 <%-include('../layouts/navbar/navbar') -%>
 <div id="container" class="sub">
   <div id="content">
     <div class="screen_cwrap">
       <ul class="tab_st02">
         <li><a href="/view" id="aNow" class="on">Phim Hot tại rap</a></li>
-        <li><a href="/view" id="aSoon">Phim đang chiếu</a></li>
+        <li><a href="/view" id="aSoon">Phim mới đang chiếu</a></li>
       </ul>
 
       <div class="item_list">
@@ -14,48 +14,60 @@
         </div>
       </div>
 
+      <% if (movies != undefined ) { %> 
+       
       <!-- tab content on -->
       <div class="tab_content on">
         <ul class="curr_list movie_clist" id="ulMovieList">
-          <li >
+          <% movies.forEach(function(item, index) { %>
+          <li>
             <div class="curr_box">
-              <span class="num">1</span>
+              <span class="num"><%= index += 1 %> </span>
               <span class="img">
                 <a href="./" id="aFocusItem0">
-                  <img src="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202104/10726_103_100001.jpg" alt="THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ">
+                  <img
+                    src="https://media.lottecinemavn.com/Media/MovieFile/MovieImg/202104/10726_103_100001.jpg"
+                    alt="THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ"
+                  />
                 </a>
               </span>
             </div>
 
-
             <div class="layer_hover">
-              <a href="./home/pay" onclick="goToTiketing('10726');" class="btn_reserve1">Đặt vé</a>
-              <a href="./cinema/detail" onclick="goToTiketing('10726');" class="btn_reserve2">Chi tiet</a>
-
+              <a
+                href="./home/pay"
+                onclick="goToTiketing('10726');"
+                class="btn_reserve1"
+                >Đặt vé</a
+              >
+              <a
+                href="./cinema/detail"
+                onclick="goToTiketing('10726');"
+                class="btn_reserve2"
+                >Chi tiet</a
+              >
             </div>
-
 
             <dl class="list_text">
               <dt>
                 <a href="./" onclick="goToMovie('10726');">
-                  <span class="grade_13"></span>THÁM TỬ LỪNG DANH CONAN: VIÊN ĐẠN ĐỎ</a>
+                  <span class="grade_13"></span><%= item.name %></a>
               </dt>
               <dd>
-                <span class="rate">111Phút</span>
-                <span class="grade"><em>23/04/2021</em></span>
+                <span class="rate"><%= item.time + 'phút'%></span>
+                <span class="grade"><em><%= moment(item.openingDay).format( 'DD-MM-YYYY') %></em></span>
               </dd>
             </dl>
-
           </li>
-
+          <% }) %> 
         </ul>
-
+          
+        <% } %>
 
         <!-- button Them -->
         <a href="javascript:void(0);" class="btn_view">
-            <span>Thêm</span>
+          <span>Thêm</span>
         </a>
-
       </div>
 
       <!-- end tab content on -->

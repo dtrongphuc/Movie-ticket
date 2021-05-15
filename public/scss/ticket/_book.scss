@@ -1,260 +1,326 @@
 @mixin inner-booking {
-  padding: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  border-bottom: 1px solid rgb(230, 230, 230);
-  @content;
+	padding: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid rgb(230, 230, 230);
+	@content;
 }
 
 .ticket {
-  background: #dad2b4;
-  line-height: 35px;
-  &__navbar--items {
-    margin: 0 15px;
-    font-size: 15px;
-    
-    font-weight: 500;
-  }
-  &__active {
-    font-weight: 700;
-    border-bottom: 2px solid #222;
-  }
+	background: #dad2b4;
+	line-height: 35px;
+	&__navbar--items {
+		margin: 0 15px;
+		font-size: 14px;
+
+		font-weight: 500;
+
+		& > a {
+			color: #000;
+		}
+	}
+	&__active {
+		font-weight: 700;
+		border-bottom: 2px solid #222;
+	}
 }
 
 .booking {
-  &__step {
-    background: #fff;
-    border-top: 2px solid #222;
-  }
-  &__left {
-    // padding: 20px;
+	&__step {
+		background: #fff;
+		border-top: 2px solid #222;
+	}
+	&__left {
+		// padding: 20px;
 
-    .theater__header {
-      @include inner-booking {
-      }
-    }
-  }
+		.theater__header {
+			@include inner-booking {
+			}
+		}
+	}
 }
 .theater__tab {
-  padding: 20px;
-  li {
-    text-align: center;
-    a {
-      font-size: 15px;
-      line-height: 50px;
-      font-weight: 600;
-      color: #767676;
-    }
-  }
-  .theater__sidebar--active {
-    background: #222;
-    a {
-      color: white;
-      font-weight: bold;
-    }
-  }
+	padding: 20px;
+	li {
+		text-align: center;
+		a {
+			font-size: 15px;
+			line-height: 50px;
+			font-weight: 600;
+			color: #767676;
+		}
+	}
+	.theater__item--active {
+		background: #222;
+		a {
+			color: white;
+			font-weight: bold;
+		}
+	}
 }
 
 //right
 .movie__header {
-  @include inner-booking {
-  }
+	@include inner-booking {
+	}
 }
 
 .movie__item-img {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-  margin-left: 5px;
+	width: 24px;
+	height: 24px;
+	margin-right: 15px;
+	margin-left: 5px;
 }
 
 .movie__body {
-  padding-top: 20px;
-  li {
-    // padding: 0 5px;
-    a {
-      font-size: 15px;
-      line-height: 50px;
-    }
-  }
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 350px;
+	overflow-y: auto;
+	li {
+		// padding: 0 5px;
+		a {
+			font-size: 15px;
+			line-height: 50px;
+		}
+	}
 
-  .movie__list--active {
-    border: 1px solid #222;
+	.movie__item--active {
+		border: 1px solid #222;
 
-    a {
-      font-weight: bold;
-      color: #222;
-      .movie__item-img {
-        @extend .movie__item-img;
-        background-image: url(/images/icons/check.png);
-      }
-    }
-  }
+		a {
+			font-weight: bold;
+			color: #222;
+			.movie__item-img {
+				@extend .movie__item-img;
+				background-image: url(/images/icons/check.png);
+			}
+		}
+	}
 }
 .cinMovie__selected {
-  background: #dad2b4;
-  padding: 20px 15px;
-  .cinMovie__selected {
-    &--items {
-      font-size: 16px;
-    }
-    &--value {
-      margin-left: 10px;
-      font-weight: bold;
-    }
-  }
+	background: #dad2b4;
+	padding: 20px 15px;
+	.cinMovie__selected {
+		&--items {
+			font-size: 16px;
+		}
+		&--value {
+			margin-left: 10px;
+			font-weight: bold;
+			color: #000;
+		}
+	}
 }
 
 .showtime__inner {
-  padding: 50px 0;
-  h5 {
-    font-size: 24px;
-    margin-right: 15px;
-  }
+	padding: 50px 0;
+	h5 {
+		font-size: 24px;
+		margin-right: 15px;
+		color: #000;
+	}
 }
 .showtime {
-  &__noData {
-    padding: 20px 50px;
-    background: rgb(231, 231, 231);
-    opacity: 0.5;
-  }
+	&__noData {
+		padding: 20px 50px;
+		background: rgb(231, 231, 231);
+		opacity: 0.5;
+	}
+
+	&__header > span {
+		position: relative;
+		bottom: -3px;
+	}
 }
 
 .showtime {
-  &__movie--title {
-    padding: 20px;
-    font-size: 20px;
-    background: #efebdb;
+	&__movie--title {
+		padding: 20px;
+		font-size: 20px;
+		background: #efebdb;
 
-    img {
-      padding: 3px;
-    }
-  }
-  &__render-movie {
-    background: #fff;
-    margin-left: 20px;
-  }
+		img {
+			padding: 3px;
+		}
+	}
+	&__render-movie {
+		background: #fff;
+		margin-left: 20px;
+	}
 }
 .showtime__cinema {
-  padding: 30px;
-  &--title {
-    font-size: 16px;
-    font-weight: 600;
-  }
+	padding: 30px;
+	&--title {
+		font-size: 16px;
+		font-weight: 600;
+	}
 }
 .showtime {
-  &__list {
-    padding-top: 20px;
-  }
-  &__theater--type {
-    padding-bottom: 5px;
-    font-size: 13px;
-    color: #979797;
-  }
-  &__box {
-    border: 1px solid rgb(202, 202, 202);
-    text-align: center;
-    &--screen,
-    &--seat {
-      font-size: 13px;
-      color: #979797;
-      padding: 3px 0;
-    }
-    &--time {
-      font-size: 16px;
-      font-weight: 600;
-      color: #222;
-      line-height: 45px;
-      border-top: 1px solid rgb(202, 202, 202);
-      border-bottom: 1px solid rgb(202, 202, 202);
-    }
+	&__list {
+		padding-top: 20px;
+	}
+	&__theater--type {
+		padding-bottom: 5px;
+		font-size: 13px;
+		color: #979797;
+	}
+	&__box {
+		border: 1px solid rgb(202, 202, 202);
+		text-align: center;
+		&--screen,
+		&--seat {
+			font-size: 13px;
+			color: #979797;
+			padding: 3px 0;
+		}
+		&--time {
+			font-size: 16px;
+			font-weight: 600;
+			color: #222;
+			line-height: 45px;
+			border-top: 1px solid rgb(202, 202, 202);
+			border-bottom: 1px solid rgb(202, 202, 202);
+		}
 
-    &:hover {
-      background: #222;
-      .showtime__box--time {
-        color: #fff;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-      }
-      .startToendtime {
-        display: block;
-      }
-      .startShow {
-        display: none;
-      }
-    }
-  }
+		&:hover {
+			background: #222;
+			.showtime__box--time {
+				color: #fff;
+				border-top: 1px solid black;
+				border-bottom: 1px solid black;
+			}
+			.startToendtime {
+				display: block;
+			}
+			.startShow {
+				display: none;
+			}
+		}
+	}
 }
 .startToendtime {
-  display: none;
+	display: none;
 }
 
 .cinema {
-  &__inner {
-  }
-  &__box {
-    background: #efefef;
-    margin-bottom: 5px;
-    &--item {
-      font-size: 16px;
-      text-align: center;
-      padding: 18px 0;
-    }
-  }
+	// &__inner {
+	// }
+	&__box {
+		$bg: #efefef;
+		background: $bg;
+		border: 1px solid $bg;
+		margin-bottom: 5px;
+		cursor: pointer;
+
+		&--disable {
+			$bgd: #fafafa;
+			background: $bgd;
+			border: 1px solid $bgd;
+			cursor: default;
+
+			& > .cinema__box--item {
+				color: #d1d1d1;
+			}
+		}
+
+		&--active {
+			position: relative;
+			font-weight: bold;
+			color: #231f20;
+			border: 1px solid #999;
+			word-break: break-all;
+			background-color: #fff;
+
+			&:after {
+				content: '';
+				position: absolute;
+				left: 10px;
+				top: 50%;
+				transform: translateY(-50%);
+				background: url('/images/icons/bg_ckth.png') no-repeat center;
+				width: 13px;
+				height: 10px;
+			}
+		}
+
+		&--item {
+			font-size: 14px;
+			text-align: center;
+			padding: 18px 12px;
+			color: #666;
+		}
+	}
 }
 .carousel__time {
-  background: #f9f6ec;
+	background: #f9f6ec;
 }
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: transparent;
+	text-align: center;
+	font-size: 18px;
+	background: transparent;
 
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
 }
 .time {
-  &__box {
-    flex-direction: column;  
-    &--dayofweek {
-      font-size: 17px;
-      color: #222;
-      padding-bottom: 10px;
-    }
-    &--date {
-      font-size: 15px;
-      font-weight: 600;
-      padding: 10px;
-    }
-  }
+	&__box {
+		cursor: pointer;
+		flex-direction: column;
+		&--dayofweek {
+			font-size: 17px;
+			color: #222;
+			padding-bottom: 10px;
+		}
+		&--date {
+			font-size: 15px;
+			font-weight: 600;
+			padding: 10px;
+			color: #000;
+		}
+
+		&--blue {
+			& > div {
+				color: #407bbb;
+			}
+		}
+
+		&--red {
+			& > div {
+				color: #cd190b;
+			}
+		}
+	}
 }
-.date--active{
-  border-radius: 50%;
-  background-color: #222;
-  color: #fff;
+.date--active {
+	border-radius: 50%;
+	background-color: #222;
+	color: #fff !important;
 }
-.no__showtime{
-  opacity: .5;
+.no__showtime {
+	opacity: 0.5;
+	cursor: default !important;
 }
 
-.calendar{
-  &__MM{
-    font-size: 28px;
-    font-weight: 800;
-    text-decoration: underline;
-  }
-  &__MMYY{
-    margin-bottom: 20px;
-  }
+.calendar {
+	&__MM {
+		font-size: 28px;
+		font-weight: 800;
+		text-decoration: underline;
+		color: #000;
+	}
+	&__MMYY {
+		margin-bottom: 20px;
+	}
 }

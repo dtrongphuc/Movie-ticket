@@ -67,6 +67,7 @@ module.exports = function initLogin(passport) {
 							googleId: profile.id,
 							email: userEmail,
 							fullname: profile.displayName,
+							active: true,
 						});
 					} else if (
 						!user.googleId &&
@@ -113,6 +114,7 @@ module.exports = function initLogin(passport) {
 							facebookId: profile.id,
 							email: userEmail,
 							fullname: profile.displayName,
+							active: true,
 						});
 					} else if (
 						!user.googleId &&
