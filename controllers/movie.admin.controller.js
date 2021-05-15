@@ -63,9 +63,26 @@ class MovieController {
 		}
 	}
 
-	async detail(req, res) {
-		let id = req.params.id;
-		res.render('admin/manager/detailMovie', { id: id });
+	async detail(req, res, next) {
+		const id = req.params.id;
+
+		models.Movie.findOne({
+			where: {id: id},
+			include: [
+				{
+					model: models.Image,
+				}
+			]
+		})
+		.then(movie => {
+			return res.render('admin/manager/detailMovie', {movie});
+		})
+		.catch(()=>{
+			res.send('ko tòn tại')
+		})
+			
+		// return res.render('admin/manager/detailMovie');
+		
 	}
 }
 
