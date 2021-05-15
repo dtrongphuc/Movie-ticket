@@ -8,13 +8,13 @@ router.use(function (req, resp, next) {
 });
 
 router.get('/', function (req, res) {
-	res.render('admin/statistics/statisticsTheaters', { result: null });
+	res.render('admin/statistics/statisticsTheaters');
 });
 
-router.post('/', controller.theater);
+router.get('/getdata/:start/:end', controller.theater);
 
 router.get('/phim', function (req, res) {
-	res.render('admin/statistics/statisticsMove', { result: null });
+	res.render('admin/statistics/statisticsMove');
 });
 
 router.post('/phim', controller.movie);

@@ -4,7 +4,8 @@ const models = require('../db/connection');
 class Statistics {
 
     async theater(req, res) {
-        var body = req.body;
+        var starttime = req.params.start;
+        var endtime = req.params.end;
         var query = `SELECT t.id,t."name", SUM(statisshowtime."ve") as "ve", SUM(statisshowtime."doanhthu") as "doanhthu" 
                      FROM showtimes as s
                      JOIN (
@@ -24,14 +25,14 @@ class Statistics {
         var result = await models.sequelize.query(query,
             {
                 replacements: { 
-                    start: body.starttime+' 00:00:00+07',
-                    end: body.endtime+' 00:00:00+07'
+                    start: starttime +' 00:00:00+07',
+                    end: endtime +' 00:00:00+07'
                  },
                 raw: false,
                 type: QueryTypes.SELECT
             }
         );
-        res.render('admin/statistics/statisticsTheaters', { result: result });
+        res.status(200).json(result);
     };
 
     async movie(req, res) {
@@ -59,7 +60,7 @@ class Statistics {
                 type: QueryTypes.SELECT
             }
         );
-        res.render('admin/statistics/statisticsMove', { result: result});
+        res.render('admin/statistics/statisticsMove');
     };
 
 }

@@ -12,7 +12,6 @@ async function initTableData() {
                     name: e.name,
                     address: e.address,
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
-                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
                     delete: "<a href=/admin/cum-rap/delete/"+e.id+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
@@ -31,7 +30,6 @@ async function initTableData() {
                     { data: 'name' },
                     { data: 'address' },
                     { data: 'createdAt' },
-                    { data: 'updateAt' },
                     { data: 'delete' },
                 ]
             });

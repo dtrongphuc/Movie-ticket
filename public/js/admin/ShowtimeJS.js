@@ -14,7 +14,6 @@ async function initTableData() {
                     endtime: e.endTime,
                     price: e.fare,
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
-                    updateAt: (e.updatedAt).substr(0, e.updatedAt.length - 14),
                     delete: "<a href=/admin/suat-phim/delete/"+e.movieId+"/"+ e.cinemaId+"><i class='fas fa-trash-alt'></i></a>"
                 }
             });
@@ -36,7 +35,6 @@ async function initTableData() {
                     { data: 'endtime' },
                     { data: 'price' },
                     { data: 'createdAt' },
-                    { data: 'updateAt' },
                     { data: 'delete' }
                 ]
             });
