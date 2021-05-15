@@ -4,7 +4,7 @@ const cinema = (sequelize, type) => {
 			type: type.INTEGER,
 			allownull: false,
 			primaryKey: true,
-			autoIncrement: true
+			autoIncrement: true,
 		},
 		name: {
 			type: type.STRING,
@@ -14,16 +14,15 @@ const cinema = (sequelize, type) => {
 			type: type.STRING,
 			allownull: false,
 		},
-        length: {
+		length: {
 			type: type.REAL,
 			allownull: false,
 		},
-        width: {
+		width: {
 			type: type.REAL,
 			allownull: false,
 		},
 	});
-
 
 	cinema.findById = async (id) => {
 		let result = await cinema.findOne({
@@ -39,4 +38,3 @@ const cinema = (sequelize, type) => {
 };
 
 module.exports = cinema;
-

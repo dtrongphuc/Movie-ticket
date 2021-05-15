@@ -18,6 +18,7 @@ class Booking {
 	theaterPicker = () => {
 		$$('.theater__item')?.forEach((element) => {
 			element.addEventListener('click', (e) => {
+				console.log('click');
 				// remove current active
 				$('.theater__item--active').classList.remove('theater__item--active');
 				// add active to selected theater
@@ -43,21 +44,11 @@ class Booking {
 		$$('.cinema__box:not(.cinema__box--disable)')?.forEach((element) => {
 			element.addEventListener('click', (e) => {
 				// remove current active
-				$('.cinema__box--active').classList.remove('cinema__box--active');
+				$('.cinema__box--active')?.classList.remove('cinema__box--active');
 				// add active to selected theater
 				element.classList.add('cinema__box--active');
 			});
 		});
-	};
-
-	innerSelectedDate = () => {
-		let day = $('.time__box--date.date--active')?.textContent;
-		let month = $('.time__box > .date--active')?.querySelector(
-			'.time__box--dayofweek'
-		)?.textContent;
-		// let year = $('.calendar__MM > .month');
-
-		console.log(`${day}/${month}`);
 	};
 }
 
