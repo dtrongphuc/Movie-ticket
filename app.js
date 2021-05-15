@@ -12,6 +12,7 @@ port = 3000;
 // app.use(require('morgan')('tiny'));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.locals.moment = require('moment');
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
