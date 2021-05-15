@@ -19,6 +19,8 @@ class ShowtimeController {
                 type: QueryTypes.SELECT
             }
         );
+
+        console.log(momentDate.format("YYYY-MM-DD hh:mm:ss A Z"));
         res.status(200).json(data);
     }
 
