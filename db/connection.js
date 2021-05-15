@@ -10,6 +10,10 @@ const TicketModel = require('../models/ticket.model');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
 	logging: false,
+	dialectOptions: {
+		useUTC: true,
+	},
+	timezone: '+07:00',
 });
 
 const models = {
@@ -21,14 +25,13 @@ const models = {
 	Showtime: ShowtimeModel(sequelize, Sequelize),
 	Booking: BookingModel(sequelize, Sequelize),
 	Ticket: TicketModel(sequelize, Sequelize),
-	sequelize
+	sequelize,
 };
 
 models.Theater.hasMany(models.Cinema);
 models.Cinema.belongsTo(models.Theater);
 
-models.Movie.hasMany(models.Image), 
-models.Image.belongsTo(models.Movie);
+models.Movie.hasMany(models.Image), models.Image.belongsTo(models.Movie);
 
 models.User.hasOne(models.Booking);
 models.Booking.belongsTo(models.User);

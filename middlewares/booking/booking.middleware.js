@@ -1,4 +1,6 @@
 const moment = require('moment');
+const { Op } = require('sequelize');
+const { Showtime } = require('../../db/connection');
 
 const dofNumberToString = (number) => {
 	let string = '';
@@ -30,33 +32,33 @@ const dofNumberToString = (number) => {
 	return string;
 };
 
+const getAvailableDate = async () => {
+	const st = await Showtime.findAll({
+		where: {
+			startTime: {
+				[Op.gte]: Date.now(),
+			},
+		},
+	});
+
+	return st.map((stime) => {
+		return moment(stime.startTime).format('YYYYMMDD');
+	});
+};
+
 module.exports = {
-	dateQuery: (req, res, next) => {
+	dateQuery: async (req, res, next) => {
 		// render 14 days to slider
 		const dateSliderCount = 14;
-
+		let activeDates = await getAvailableDate();
 		let selectedDate = req.query?.date || moment().format('YYYYMMDD');
-		let dateArr = [
-			{
-				active: selectedDate,
-				value: selectedDate,
-				year: moment(selectedDate, 'YYYYMMDD').year(),
-				month: moment(selectedDate, 'YYYYMMDD').month(),
-				day: moment(selectedDate, 'YYYYMMDD').date(),
-				dof: {
-					value: moment(selectedDate, 'YYYYMMDD').day(),
-					string: function () {
-						return dofNumberToString(this.value);
-					},
-				},
-				hasMovieShow: true,
-			},
-		];
-		for (let i = 1; i < dateSliderCount; ++i) {
+		let dateArr = [];
+		for (let i = 0; i < dateSliderCount; ++i) {
 			let nextDate = moment(selectedDate, 'YYYYMMDD')
 				.add(i, 'days')
 				.format('YYYYMMDD');
 			dateArr.push({
+				active: selectedDate,
 				value: nextDate,
 				year: moment(nextDate, 'YYYYMMDD').year(),
 				month: moment(nextDate, 'YYYYMMDD').month(),
@@ -67,8 +69,10 @@ module.exports = {
 						return dofNumberToString(this.value);
 					},
 				},
+				hasMovieShow: activeDates?.includes(nextDate),
 			});
 		}
+
 		res.locals.dateSlider = dateArr;
 		next();
 	},

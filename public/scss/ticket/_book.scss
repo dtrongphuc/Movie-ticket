@@ -211,6 +211,8 @@
 		background: $bg;
 		border: 1px solid $bg;
 		margin-bottom: 5px;
+		padding-left: 24px;
+		padding-right: 24px;
 		cursor: pointer;
 
 		&--disable {
@@ -230,6 +232,7 @@
 			color: #231f20;
 			border: 1px solid #999;
 			word-break: break-all;
+			word-wrap: break-word;
 			background-color: #fff;
 
 			&:after {
@@ -247,7 +250,7 @@
 		&--item {
 			font-size: 14px;
 			text-align: center;
-			padding: 18px 12px;
+			padding: 18px 0;
 			color: #666;
 		}
 	}
