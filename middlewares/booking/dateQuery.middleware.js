@@ -51,6 +51,7 @@ module.exports = async (req, res, next) => {
 	const dateSliderCount = 14;
 	let activeDates = await getAvailableDate();
 	let selectedDate = req.query?.date || moment().format('YYYYMMDD');
+	let currentDate = moment().format('YYYYMMDD');
 	let dateObj = {
 		active: {
 			value: selectedDate,
@@ -61,7 +62,7 @@ module.exports = async (req, res, next) => {
 		dateArr: [],
 	};
 	for (let i = 0; i < dateSliderCount; ++i) {
-		let nextDate = moment(selectedDate, 'YYYYMMDD')
+		let nextDate = moment(currentDate, 'YYYYMMDD')
 			.add(i, 'days')
 			.format('YYYYMMDD');
 		dateObj.dateArr.push({
