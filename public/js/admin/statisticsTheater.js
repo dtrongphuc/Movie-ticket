@@ -82,7 +82,7 @@ function submitTheater() {
     if (new Date(start) < new Date(end)) {
         chart(start, end);
     } else {
-        document.getElementById("mess").innerHTML = `<div class="alert alert-danger" style="text-align: center;" role="alert">
+        document.getElementById("chartContainer").innerHTML = `<div class="alert alert-danger" style="text-align: center;" role="alert">
         Ngày Không Hợp Lệ
       </div>`;
     }
