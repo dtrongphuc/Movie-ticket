@@ -1,5 +1,15 @@
 <%- include('../layouts/header', {title: 'Mua vé' }); -%>
     <%- include('../layouts/navbar/navbar') -%>
+        <div class="ticket d-flex justify-content-center align-items-center">
+            <div class="ticket__navbar d-flex justify-content-center align-items-center">
+                <div class="ticket__navbar--items">
+                    <a href="">MUA VÉ XEM PHIM</a>
+                </div>
+                <div class="ticket__navbar--items">
+                    <a href="">LỊCH CHIẾU PHIM</a>
+                </div>
+            </div>
+        </div>
         <div class="bookseat__header">
             <div class="container">
                 <div class="row">
@@ -20,6 +30,7 @@
                             <div class="bookseat__box--lable">Người lớn</div>
                             <div class="bookseat__box--select">
                                 <select>
+                                    <option class="option" value="0">0</option>
                                     <option class="option" value="1">1</option>
                                     <option class="option" value="2">2</option>
                                     <option class="option" value="3">3</option>
@@ -49,88 +60,90 @@
                                 <span>Screen</span>
                             </div>
 
+                            <!-- Nếu chưa chọn số ghế -->
+                            <!-- thì thêm id="btn-seatmodal" vào li để hiện modal message -->
                             <div class="seat__selectbox">
                                 <div class="seat__selectbox-row d-flex justify-content-center align-items-center">
                                     <div class="seat__selectbox--namecolumn">A</div>
                                     <ul>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
@@ -141,82 +154,82 @@
                                     <ul>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
@@ -227,82 +240,82 @@
                                     <ul>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
@@ -313,82 +326,82 @@
                                     <ul>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
@@ -399,82 +412,82 @@
                                     <ul>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
@@ -484,89 +497,106 @@
                                     <div class="seat__selectbox--namecolumn">F</div>
                                     <ul>
                                         <li>
-                                            <a class="seatnumber" href="">
-                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">
+                                            <a class="seatnumber">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>1</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>2</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>3</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>4</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>5</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>6</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>7</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>8</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="seatnumber" href="">
-                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt="" width="22px"
-                                                    height="22px">
-                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt="" width="22px"
-                                                    height="22px">                                                
+                                        <li id="btn-seatmodal">
+                                            <a class="seatnumber">
+                                                <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
+                                                    width="22px" height="22px">
+                                                <img class="seat_selected" src="/images/seat/seat_selected.gif" alt=""
+                                                    width="22px" height="22px">
                                                 <span>9</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
 
+                                <!-- modal chọn ghế chưa chọn số lượng -->
+                                <div id="seat-modal" class="seat__modal">
+                                    <div class="seat__modal--boby d-flex justify-content-center">
+                                        <div class="seat__modal-content">
+                                            <div class="seat__modal--header d-flex justify-content-between">
+                                                <p>Hướng dẫn</p>
+                                                <span class="seat__modal-close">&times;</span>
+                                            </div>
+                                            <div class="seat__modal-content--body d-flex align-items-center">
+                                                <p>Vui lòng chọn số ghế cần mua</p>
+                                                <div class="seat__modal-close btn--seat-check">Kiểm tra</div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="seat__info">
@@ -638,13 +668,13 @@
                     <div class="col-1"></div>
                     <div class="col-10 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
                         <div class="bookseat__step--pre">
-                            <a href="#" class=" d-flex align-items-center">
+                            <a href="/ticket/book" class=" d-flex align-items-center">
                                 <img class="imgpre" src="/images/icons/leftarrow.png" alt="" width="26px">
                                 <span>Trở về</span>
                             </a>
                         </div>
                         <div class="bookseat__step--next">
-                            <a href="#" class=" d-flex align-items-center">
+                            <a href="/ticket/book" class=" d-flex align-items-center">
                                 <span>Bước tiếp theo </span>
                                 <img class="imgnext" src="/images/icons/rightarrow.png" alt="" width="26px">
                             </a>
@@ -729,4 +759,28 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            const btn_modal = document.querySelector('#btn-seatmodal');
+            const seat_modal = document.querySelector('#seat-modal');
+            const span = document.getElementsByClassName("seat__modal-close");
+
+            btn_modal.addEventListener('click', e => {
+                // console.log(seat_modal);
+                seat_modal.style.display = 'block';
+            });
+
+            for(let i = 0; i<span.length ; i++){
+                span[i].addEventListener('click', e => {
+                // console.log("object");
+                seat_modal.style.display = 'none';
+            });
+            }
+            
+            window.addEventListener('click', e => {
+                if (e.target == seat_modal) {
+                    modal.style.display = "none";
+                }
+            });
+        </script>
         <%- include('../layouts/footer'); -%>
