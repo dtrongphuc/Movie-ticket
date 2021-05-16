@@ -24,7 +24,7 @@ class MovieController {
 
 	async add(req, res) {
 		try {
-			var { name, description, time, starttime } = req.body;
+			var { name, description, time, starttime, director } = req.body;
 			const { imagePoster, images, video } = req.files;
 			let [posterUploaded, imagesUploaded, trailerUploaded] = await Promise.all(
 				[
@@ -39,6 +39,7 @@ class MovieController {
 				time: time,
 				openingDay: starttime,
 				description: description,
+				directors: director,
 				posterUrl: posterUploaded.url,
 				posterPublicId: posterUploaded.publicId,
 				trailerUrl: trailerUploaded.url,
