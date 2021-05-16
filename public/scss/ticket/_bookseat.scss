@@ -109,15 +109,84 @@
           border-top: 1px solid;
           padding: 10px 0;
         }
-        &-items{
-          font-size: 14px;
-          span{
-            margin-left: 8px;
+        &-items {
+          font-size: 13px;
+          margin-left: 20px;
+          span {
+            margin-left: 3px;
           }
         }
       }
-      &__select{
+      &__select {
         padding: 30px 0;
+        img {
+        }
+        &-screen {
+          position: relative;
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+          }
+        }
+      }
+      &__selectbox {
+        background: #f9f6ec;
+        padding: 30px;
+        &-row {
+          padding: 5px 0;
+          ul {
+            list-style-type: none;
+            li {
+              display: inline;
+              .seatnumber {
+                position: relative;
+                width: 22px;
+                height: 22px;
+              }
+              .seat_selected {
+                display: none;
+                // position: absolute;
+                width: 22px;
+                height: 22px;
+                top: 0;
+                left: 0;
+                z-index: 99;
+              }
+              span {
+                position: absolute;
+                top: 55%;
+                left: 44%;
+                transform: translate(-50%, -50%);
+                font-size: 13px;
+                color: #fff;
+              }
+              &:hover {
+                .seatnumber span {
+                  color: #fff;
+                }
+                .seat_selected{
+                  display: inline;
+                }
+                .seat_select{
+                  display: none;
+                }
+                // .imgseat_selected{
+                //   display: block;
+                // }
+                // .imgseat_select{
+                //   display: none;
+                // }
+              }
+            }
+          }
+        }
+        &--namecolumn {
+          margin-right: 30px;
+          font-size: 15px;
+        }
       }
     }
   }
