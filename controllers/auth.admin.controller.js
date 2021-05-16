@@ -71,6 +71,25 @@ class AuthController {
         res.render('admin/auth/forgetPassword', {mess: "Vui Lòng Vào Mail Để Xác Nhận"})
     }
 
+    async changePassword(req,res){
+        const {oldPassword, newPassword, confirm} = req.body;
+        const usercurrent = req.session.user;
+        const user = await models.User.findOne({where:{
+            email: usercurrent.email
+        }});
+        await bcrypt.compare(oldPassword, user.hashedPassword, async function (err, result) {
+            if (result == true) {
+                user.hashedPassword = await bcrypt.hash(newPassword, 10);
+                await user.save();
+                res.status(200).json({mess: "Thành Công", type: "success"});
+                return;
+            } else {
+                res.status(200).json({mess: "Mật Khẩu Cũ Không Đúng", type: "danger"});
+                return;
+            }
+        });
+    }
+
 }
 
 module.exports = new AuthController
