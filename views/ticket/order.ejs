@@ -51,7 +51,8 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-2 col-md-12 col-sm-12 d-flex align-items-center justify-content-center">
+                                    <div
+                                        class="col-2 col-md-12 col-sm-12 d-flex align-items-center justify-content-center">
                                         <div class="order__movie-price">49.000₫</div>
                                     </div>
                                 </div>
@@ -78,25 +79,149 @@
 
         <!-- //pay -->
         <div class="pay">
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-1"></div>
-                        <div class="col-10">
-                            <div class="pay__inner">
-                                <div class="pay__top">
-                                    <div class="pay__top-title">Giảm giá</div>
-                                    <div class="pay__top-reset">
-                                        <img src="" alt="">
-                                        <span>Quay lại bước đầu</span>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="pay__inner">
+                            <div class="pay__top d-flex justify-content-between">
+                                <div class="pay__top-title">Giảm giá</div>
+                                <div class="pay__top-reset d-flex align-items-center">
+                                    <img src="/images/icons/refresh.png" alt="">
+                                    <span style="margin-left: 10px;">Quay lại bước đầu</span>
+                                </div>
+                            </div>
+                            <div class="pay__method " style="margin-top: 20px;">
+                                <div class="pay__cart-option">
+                                    <a href="javascript:void(0)"
+                                        class=" d-flex justify-content-between align-items-center">
+                                        <div class="pay__cart-header">Thanh toán</div>
+                                        <img src="/images/icons/up.png" alt="up">
+                                        <img src="/images/icons/down.png" alt="up" style="display: none;">
+                                    </a>
+                                </div>
+
+                                <div class="pay__method-box">
+                                    <div class="pay__cart">
+                                        <div class="pay__cart-inner d-flex align-items-center">
+                                            <div class="pay__cart--items">
+                                                <input type="radio" id="visa" name="pay-cart" value="visa">
+                                                <label for="visa">Thẻ tín dụng quốc tế (Mastercard, Visa,
+                                                    JCB,...)</label>
+                                            </div>
+                                            <div class="pay__cart--items">
+                                                <input type="radio" id="ATM" name="pay-cart" value="ATM">
+                                                <label for="ATM">ATM card(Thẻ nội địa)</label>
+                                            </div>
+                                            <div class="pay__cart--items">
+                                                <input type="radio" id="wallet" name="pay-cart" value="wallet">
+                                                <label for="wallet">eWallet(MoMo
+                                                    Pay,AirPay,ViettelPay,ZaloPay...)</label>
+                                            </div>
+
+
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1"></div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
             </div>
         </div>
 
+        <div class="bookseat__step">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
+                        <div class="bookseat__step--pre">
+                            <a href="/ticket/book" class=" d-flex align-items-center">
+                                <img class="imgpre" src="/images/icons/leftarrow.png" alt="" width="26px">
+                                <span>Trở về</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bookseat__footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1" style="padding: 0;"></div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-4" style="padding: 0; border-left: 1px solid #CDC197;">
+                                <div class="bookseat__footer--items">
+                                    <div class="bookseat__footer-title">
+                                        Phim chiếu rạp
+                                    </div>
+                                    <div class="bookseat__footer-moive d-flex">
+                                        <img src="/images/LatMat/poster_LM.jpg" alt="" width="80px">
+                                        <div class="bookseat__footer-moive--name">LẬT MẶT</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding: 0; border-left: 1px solid #CDC197;">
+                                <div class="bookseat__footer--items">
+                                    <div class="bookseat__footer-title">
+                                        Thông tin vé đã đặt
+                                    </div>
+                                    <div class="bookseat__footer-info">
+                                        <div class="d-flex">
+                                            <div class="bookseat__footer-info--lable">Ngày</div>
+                                            <div class="bookseat__footer-info--value">15/05/2021 (Bảy)</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bookseat__footer-info--lable">Giờ chiếu</div>
+                                            <div class="bookseat__footer-info--value">20:30 ~ 22:43</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bookseat__footer-info--lable">Rạp chiếu</div>
+                                            <div class="bookseat__footer-info--value">Vinh</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bookseat__footer-info--lable">Ghế ngồi</div>
+                                            <div class="bookseat__footer-info--value">C5</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="bookseat__price--big d-flex align-items-center justify-content-end">
+                                        <p>49.000</p>
+                                        <span style="text-decoration: underline; margin-left: 5px;">đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4"
+                                style="padding: 0; border-left: 1px solid #CDC197; border-right: 1px solid #CDC197;">
+                                <div class="bookseat__footer--items">
+                                    <div class="bookseat__footer-title">
+                                        Tông tiền đơn hàng
+                                    </div>
+                                    <div class="bookseat__footer-info">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="bookseat__footer-info--lable" style="width: 150px;">Đặt trước
+                                                phim</div>
+                                            <div class="bookseat__footer-info--value">150.000₫</div>
+                                        </div>
+                                    </div>
+                                    <div class="bookseat__price--big d-flex align-items-center justify-content-end"
+                                        style="margin-top: 70px;">
+                                        <p>49.000</p>
+                                        <span style="text-decoration: underline; margin-left: 5px;">đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
         <%- include('../layouts/footer'); -%>
