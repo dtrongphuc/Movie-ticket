@@ -9,4 +9,5 @@ router.get('/quen-mat-khau', function(req,res){
     res.render('admin/auth/forgetPassword', {mess: null})
 });
 router.post('/quen-mat-khau', controller.forgetPassword);
+router.post('/thay-doi-mat-khau', controller.changePassword);
 module.exports = router;

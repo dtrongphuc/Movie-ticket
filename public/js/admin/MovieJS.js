@@ -10,6 +10,7 @@ async function initTableData() {
                     STT: i++,
                     name: e.name,
                     time: e.time,
+                    director: e.directors != null ? e.directors : '',
                     open: (e.openingDay).substr(0, e.openingDay.length - 14),
                     createdAt: (e.createdAt).substr(0, e.createdAt.length - 14),
                     detail: "<a href=/admin/phim/chi-tiet/"+e.id+"><i class='fas fa-info-circle'></i></a>",
@@ -31,6 +32,7 @@ async function initTableData() {
                     { data: 'name' },
                     { data: 'time' },
                     { data: 'open' },
+                    { data: 'director' },
                     { data: 'createdAt' },
                     { data: 'detail' },
                     { data: 'delete' }

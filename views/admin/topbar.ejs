@@ -8,12 +8,13 @@
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                     <%- currrentUser ? currrentUser.fullname : 'trong db thiếu full name rồi @@' %>
                 </span>
-                <img class="img-profile rounded-circle" src="/images/admin.jpg">
+                <img class="img-profile rounded-circle"
+                    src="https://res.cloudinary.com/duobkg5np/image/upload/v1621126689/movie/admin_inihil.jpg">
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                
-                <a class="dropdown-item" href="#">
+
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modelchangePass">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Thay Đổi Mật Khẩu
                 </a>
@@ -26,5 +27,41 @@
         </li>
 
     </ul>
-
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="modelchangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Mật Khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="formchangePass">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="oldPassword" name="oldPassword"
+                            placeholder="Mật Khẩu Cũ" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="newPassword" name="newPassword"
+                            placeholder="Mật Khẩu Mới" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="confirm" name="confirm"
+                            placeholder="Nhập Lại Mật Khẩu Mới" required>
+                    </div>
+                    <div id="mess"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" onclick="submitChangePassword()" class="btn btn-primary">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/admin/Auth.js"></script>

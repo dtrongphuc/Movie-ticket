@@ -1,38 +1,32 @@
 const express = require('express');
 const models = require('../db/connection');
-const { QueryTypes } = require('sequelize');
+const { Sequelize, QueryTypes } = require('sequelize');
+const { movie } = require('./statiscics.admin.controller');
+const image = require('../models/image.model');
 
-
-//var list = [];
 class HomeController {
 
-    async index(req, res) {
+    async index(req, res, next) {
+
+        models.Movie.findAll({
+           include: [{
+
+               model: models.Image,
+               where: {},
+
+           }],
+           limit: 4,
+		})
+		.then(movies => {
+			return res.render('content/content', {movies:movies});
+		})
+		.catch(() => {
+			res.status(500).send({ error: 'Something failed!' })
+		})
 
 
-        // let query = `SELECT i."publicURL" , m.* 
-        //             FROM movie m JOIN image i on m.id = i."movieId"`;
+    };
 
-        // var data = await models.sequelize.query(query,
-        //     {
-        //         type: QueryTypes.SELECT
-        //     }
-        // );
-
-        // res.status(200).json(data);
-
-        // console.log(data);
-
-        var movies= await models.Movie.findAll({
-            order: [
-                ['id', 'DESC'],
-            ]
-        });
-
-
-        console.log(movies);
-        res.render('content/content', {movies:movies});
-    }
-
-}
+};
 
 module.exports = new HomeController

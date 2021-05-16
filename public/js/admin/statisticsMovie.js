@@ -1,5 +1,5 @@
 async function chart(start, end) {
-    var url = `/admin/thong-ke/getdata/${start}/${end}`;
+    var url = `/admin/thong-ke/phim/getdata/${start}/${end}`;
     axios.get(url).then(function (response) {
         var doanhthu = response.data.map(e => {
             return {
@@ -17,7 +17,7 @@ async function chart(start, end) {
             exportEnabled: true,
             animationEnabled: true,
             title: {
-                text: "Doanh Thu Cụm Rạp"
+                text: "Doanh Thu Phim"
             },
             subtitles: [{
                 text: `Doanh Thu Từ ${start} - ${end}`
@@ -76,7 +76,7 @@ async function chart(start, end) {
     })
 }
 
-function submitTheater() {
+function submitMovie() {
     var start = document.getElementById("startdate").value;
     var end = document.getElementById("enddate").value;
     if (new Date(start) < new Date(end)) {

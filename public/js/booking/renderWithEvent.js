@@ -1,8 +1,12 @@
 import Events from './events.js';
+import Session from './session.js';
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-export default function Render(state) {
+export default function Render() {
+	const session = Session();
+
 	// Render
 	const renderTheatersList = (theaters) => {
 		let htmlText = theaters?.map(
@@ -13,7 +17,7 @@ export default function Render(state) {
     </li>`
 		);
 		$('.theater__list').innerHTML = htmlText.join('');
-		Events(state);
+		Events();
 	};
 
 	const renderCinemaList = (cinemas) => {
@@ -21,7 +25,9 @@ export default function Render(state) {
 			(cinema) => `<div class="col-4" style="padding: 0 3px">
       <a href="javascript:void(0)">
         <div class="cinema__box ${
-					cinema.id === state.cinemaId ? 'cinema__box--active' : ''
+					cinema.id === session.getSession().cinemaId
+						? 'cinema__box--active'
+						: ''
 				}" data-id="${cinema.id}">
           <div class="cinema__box--item">${cinema.name}</div>
         </div>
@@ -29,11 +35,30 @@ export default function Render(state) {
     </div>`
 		);
 		$('.cinema__inner').innerHTML = htmlText.join('');
-		Events(state);
+		Events();
+	};
+
+	const renderShowtimeMovies = (movies) => {
+		let htmlText = movies?.map(
+			(movie) => `<li class="movie__item ${
+				session.getSession().movieId === movie.id ? 'movie__item--active' : ''
+			}" data-id="${movie.id}">
+			<a
+				href="javascript:void(0)"
+				class="d-flex align-items-center"
+			>
+				<div class="movie__item-img"></div>
+				<span>${movie.name}</span>
+			</a>
+		</li>`
+		);
+		$('.movie__body > ul').innerHTML = htmlText.join('');
+		Events();
 	};
 
 	return {
 		renderTheatersList,
 		renderCinemaList,
+		renderShowtimeMovies,
 	};
 }

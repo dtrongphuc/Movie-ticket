@@ -1,4 +1,5 @@
 import Render from './renderWithEvent.js';
+import Session from './session.js';
 
 // Axios config
 axios.defaults.baseURL = `${location.origin}/api`;
@@ -17,17 +18,15 @@ axios.interceptors.response.use(
 );
 class Api {
 	constructor() {
-		this.state = {
-			date: moment().format('YYYYMMDD'),
-			theaterId: null,
-			cinemaId: null,
-			movie: null,
-		};
+		this.session = Session();
 	}
 
 	init = async () => {
 		await this.getAllTheaters();
-		await this.getCinemasByTheater(this.state.theaterId);
+		await Promise.all([
+			this.getCinemasByTheater(this.session.getSession().theaterId),
+			this.getAllShowtimeMovies(),
+		]);
 	};
 
 	// Ajax request
@@ -35,11 +34,11 @@ class Api {
 		try {
 			let response = await axios.get('/theaters');
 			if (response.success) {
-				Render(this.state).renderTheatersList(response.theaters);
-				this.state = {
-					...this.state,
-					theaterId: response.theaters[0]?.id || null,
-				};
+				Render().renderTheatersList(response.theaters);
+				this.session.getAndModify(
+					'theaterId',
+					response.theaters[0]?.id || null
+				);
 			}
 		} catch (error) {
 			console.log(error);
@@ -54,7 +53,35 @@ class Api {
 				},
 			});
 			if (response.success) {
-				Render(this.state).renderCinemaList(response.cinemas);
+				Render().renderCinemaList(response.cinemas);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getAllShowtimeMovies = async () => {
+		try {
+			let response = await axios.get(`/showtime-movies`);
+			if (response.success) {
+				Render().renderShowtimeMovies(response.movies);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getMoviesByCinema = async () => {
+		try {
+			let { date, cinemaId } = this.session.getSession();
+			let response = await axios.get(`/movies`, {
+				params: {
+					date: date,
+					cinema: cinemaId,
+				},
+			});
+			if (response.success) {
+				Render().renderShowtimeMovies(response.movies);
 			}
 		} catch (error) {
 			console.log(error);
