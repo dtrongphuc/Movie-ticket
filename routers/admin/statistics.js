@@ -17,6 +17,6 @@ router.get('/phim', function (req, res) {
 	res.render('admin/statistics/statisticsMove');
 });
 
-router.post('/phim', controller.movie);
+router.get('/phim/getdata/:start/:end', controller.movie);
 
 module.exports = router;

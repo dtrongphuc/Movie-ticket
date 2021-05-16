@@ -36,7 +36,8 @@ class Statistics {
     };
 
     async movie(req, res) {
-        var body = req.body;
+        var starttime = req.params.start;
+        var endtime = req.params.end;
         var query = `SELECT m.id,m."name", SUM(statisshowtime."ve") as "ve", SUM(statisshowtime."doanhthu") as "doanhthu" FROM showtimes as s
                     JOIN (
                             SELECT  b."showtimeId" as "showtimeId", count(*) as "ve", sum(t.price) as "doanhthu" from bookings as b
@@ -53,14 +54,14 @@ class Statistics {
         var result = await models.sequelize.query(query,
             {
                 replacements: { 
-                    start: body.starttime+' 00:00:00+07',
-                    end: body.endtime+' 00:00:00+07'
+                    start: starttime +' 00:00:00+07',
+                    end: endtime +' 00:00:00+07'
                  },
                 raw: false,
                 type: QueryTypes.SELECT
             }
         );
-        res.render('admin/statistics/statisticsMove');
+        res.status(200).json(result);
     };
 
 }
