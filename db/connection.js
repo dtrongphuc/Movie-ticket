@@ -31,7 +31,8 @@ const models = {
 models.Theater.hasMany(models.Cinema);
 models.Cinema.belongsTo(models.Theater);
 
-models.Movie.hasMany(models.Image), models.Image.belongsTo(models.Movie);
+models.Movie.hasMany(models.Image);
+models.Image.belongsTo(models.Movie);
 
 models.User.hasOne(models.Booking);
 models.Booking.belongsTo(models.User);
