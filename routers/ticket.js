@@ -10,5 +10,6 @@ router.get(
 	ticketController.getBooking
 );
 router.get('/bookseat', ticketController.bookseat);
+router.get('/order', ticketController.order);
 
 module.exports = router;

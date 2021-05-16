@@ -135,6 +135,7 @@
       &__selectbox {
         background: #f9f6ec;
         padding: 30px;
+        margin-top: 20px;
         &-row {
           padding: 5px 0;
           ul {
@@ -167,10 +168,10 @@
                 .seatnumber span {
                   color: #fff;
                 }
-                .seat_selected{
+                .seat_selected {
                   display: inline;
                 }
-                .seat_select{
+                .seat_select {
                   display: none;
                 }
                 // .imgseat_selected{
@@ -188,6 +189,57 @@
           font-size: 15px;
         }
       }
+    }
+  }
+}
+
+.seat__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  &-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: #000;
+      cursor: pointer;
+    }
+  }
+
+  &-content {
+    width: 400px;
+    background: #fff;
+  }
+  &--header {
+    padding: 20px;
+    border-top: 3px solid;
+    border-bottom: 1px solid #c0c0c0;
+
+    p {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  &-content--body {
+    flex-direction: column;
+    padding: 20px;
+    .btn--seat-check {
+      padding: 10px 25px;
+      font-size: 15px;
+      background: #222;
+      color: #cdc197;
     }
   }
 }
