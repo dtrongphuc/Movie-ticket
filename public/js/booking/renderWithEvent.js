@@ -42,7 +42,7 @@ export default function Render() {
 		let htmlText = movies?.map(
 			(movie) => `<li class="movie__item ${
 				session.getSession().movieId === movie.id ? 'movie__item--active' : ''
-			}" data-id="${movie.id}">
+			} ${!movie.active ? 'movie__item--disable' : ''}" data-id="${movie.id}">
 			<a
 				href="javascript:void(0)"
 				class="d-flex align-items-center"
