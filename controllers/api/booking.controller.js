@@ -60,6 +60,7 @@ module.exports = {
 					return {
 						id: st.movie.id,
 						name: st.movie.name,
+						active: true,
 					};
 				})
 			);
@@ -79,7 +80,7 @@ module.exports = {
 
 	getMoviesByDateAndCinema: async (req, res) => {
 		try {
-			// ?date=''?cinema=''
+			// ?date=''&cinema=''
 			const { date, cinema } = req.query;
 
 			if (!date || !cinema) {
@@ -89,7 +90,21 @@ module.exports = {
 				});
 			}
 
-			let showtime = await models.Showtime.findAll({
+			let allShowtime = (
+				await models.Showtime.findAll({
+					where: {
+						startTime: {
+							[Op.gte]: Date.now(),
+						},
+					},
+					include: models.Movie,
+					attributes: ['movie.id'],
+					group: ['movie.id'],
+				})
+			).get({ plain: true });
+			console.log(allShowtime);
+
+			let availableShowtime = await models.Showtime.findAll({
 				where: {
 					startTime: {
 						[Op.and]: [
@@ -108,18 +123,20 @@ module.exports = {
 				group: ['movie.id'],
 			});
 
-			let movies = await Promise.all(
-				showtime?.map(async (st) => {
+			let availableMoviesId = availableShowtime?.map((st) => st.movie.id);
+
+			let mapActive = await Promise.all(
+				allShowtime?.map(async (mv) => {
 					return {
-						id: st.movie.id,
-						name: st.movie.name,
+						...mv,
+						active: availableMoviesId.includes(mv.movie.id),
 					};
 				})
 			);
 
 			return res.status(200).json({
 				success: true,
-				movies: movies,
+				movies: mapActive,
 			});
 		} catch (error) {
 			console.log(error);
