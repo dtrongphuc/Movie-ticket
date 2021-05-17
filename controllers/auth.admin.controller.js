@@ -9,6 +9,12 @@ class AuthController {
     async index(req, res) {
         let mess = req.session.mess;
         delete req.session.mess;
+        if(req.session.user){
+            if(req.session.user.role == "admin"){
+                res.redirect('/admin');
+                return;
+            }
+        }
         res.render('admin/auth/login', { message: mess });
     };
 

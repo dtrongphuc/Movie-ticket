@@ -21,6 +21,15 @@ app.set('trust proxy', 1); // trust first proxy
 // Passport
 initPassport(app);
 // home
+// Custom flash middleware -- from Ethan Brown's book, 'Web Development with Node & Express'
+app.use(function (req, res, next) {
+	// if there's a flash message in the session request, make it available in the response, then delete it
+	res.locals.currentUser = null;
+	res.locals.message = req.session.message;
+	delete req.session.message;
+	next();
+});
+
 app.use('/home', homeRouter);
 //---------------------------------------------------------------- ADMIN -----------------------------------------------------
 route(app);
