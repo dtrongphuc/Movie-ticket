@@ -23,6 +23,7 @@
 .header_content{
     display: flex;
     align-items: center;
+    
 }
 
 .title_content{
@@ -69,3 +70,36 @@
 .myactive > i{
     color: white !important;
 }
+@-webkit-keyframes xoayvong{
+    from{
+        -webkit-transform:rotate(0deg);
+        -moz-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+    }
+    to{
+        -webkit-transform:rotate(360deg);
+        -moz-transform:rotate(360deg);
+        -o-transform:rotate(360deg);
+    }
+}
+#loading{
+    position: absolute;
+    z-index: 1000000000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    height: 100vh;
+    background: gray;
+    opacity: .7;
+    margin: 0;
+}
+
+#loading img{
+    width: 200px;
+    height: auto;
+    background: gray;
+    animation: xoayvong 2s linear 0s infinite;
+}
+
