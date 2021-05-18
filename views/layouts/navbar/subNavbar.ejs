@@ -14,7 +14,7 @@
 			<ul>
 				<%if (currentUser) { %>
 				<li>
-					<p href="#"><%- currentUser %></p>
+					<a href="/user/profile/<%- currentUser.id %>"><%- currentUser.fullname %></a>
 				</li>
 				<li>
 					<a href="#">Đăng xuất</a>
