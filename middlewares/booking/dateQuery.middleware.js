@@ -2,7 +2,7 @@ const moment = require('moment');
 const { Op } = require('sequelize');
 const { Showtime } = require('../../db/connection');
 
-const dofNumberToString = (number) => {
+const dowNumberToString = (number) => {
 	let string = '';
 	switch (number) {
 		case 0:
@@ -50,36 +50,46 @@ module.exports = async (req, res, next) => {
 	// render 14 days to slider
 	const dateSliderCount = 14;
 	let activeDates = await getAvailableDate();
-	let selectedDate = req.query?.date || moment().format('YYYYMMDD');
+	let selectedDate =
+		req.query?.date || (activeDates.length > 0 ? activeDates[0] : null);
 	let currentDate = moment().format('YYYYMMDD');
-	let dateObj = {
-		active: {
-			value: selectedDate,
-			day: moment(selectedDate, 'YYYYMMDD').date(),
-			month: moment(selectedDate, 'YYYYMMDD').month() + 1,
-			year: moment(selectedDate, 'YYYYMMDD').year(),
-		},
-		dateArr: [],
-	};
-	for (let i = 0; i < dateSliderCount; ++i) {
-		let nextDate = moment(currentDate, 'YYYYMMDD')
-			.add(i, 'days')
-			.format('YYYYMMDD');
-		dateObj.dateArr.push({
-			value: nextDate,
-			year: moment(nextDate, 'YYYYMMDD').year(),
-			month: moment(nextDate, 'YYYYMMDD').month(),
-			day: moment(nextDate, 'YYYYMMDD').date(),
-			dof: {
-				value: moment(nextDate, 'YYYYMMDD').day(),
-				string: function () {
-					return dofNumberToString(this.value);
+	if (selectedDate !== null) {
+		let dateObj = {
+			active: {
+				value: selectedDate,
+				day: moment(selectedDate, 'YYYYMMDD').date(),
+				month: moment(selectedDate, 'YYYYMMDD').month() + 1,
+				year: moment(selectedDate, 'YYYYMMDD').year(),
+				dow: {
+					value: moment(selectedDate, 'YYYYMMDD').day(),
+					string: function () {
+						return dowNumberToString(this.value);
+					},
 				},
 			},
-			hasMovieShow: activeDates?.includes(nextDate),
-		});
+			dateArr: [],
+		};
+		for (let i = 0; i < dateSliderCount; ++i) {
+			let nextDate = moment(currentDate, 'YYYYMMDD')
+				.add(i, 'days')
+				.format('YYYYMMDD');
+			dateObj.dateArr.push({
+				value: nextDate,
+				year: moment(nextDate, 'YYYYMMDD').year(),
+				month: moment(nextDate, 'YYYYMMDD').month(),
+				day: moment(nextDate, 'YYYYMMDD').date(),
+				dow: {
+					value: moment(nextDate, 'YYYYMMDD').day(),
+					string: function () {
+						return dowNumberToString(this.value);
+					},
+				},
+				hasMovieShow: activeDates?.includes(nextDate),
+			});
+		}
+		res.locals.dateSlider = dateObj;
+	} else {
+		res.locals.dateSlider = null;
 	}
-
-	res.locals.dateSlider = dateObj;
 	next();
 };

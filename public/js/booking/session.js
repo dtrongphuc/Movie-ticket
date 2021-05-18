@@ -3,11 +3,15 @@ const SESSION_NAME = 'bookingState';
 export default function Session() {
 	return {
 		init() {
+			const urlParams = new URLSearchParams(window.location.search);
+			const date = urlParams.get('date');
 			const initialState = {
-				date: moment().format('YYYYMMDD'),
+				date: date || moment().format('YYYYMMDD'),
 				theaterId: null,
 				cinemaId: null,
-				movie: null,
+				cinemaName: null,
+				movieId: null,
+				movieName: null,
 			};
 
 			sessionStorage.setItem(SESSION_NAME, JSON.stringify(initialState));
