@@ -16,8 +16,10 @@ include('../layouts/navbar/navbar') -%>
 			class="calendar__MMYY d-flex align-items-center justify-content-center"
 		>
 			<div class="calendar__MM">
-				<span class="month">Tháng <%- dateSlider.active?.month %> </span>
-				<span class="year"><%- dateSlider.active?.year %> </span>
+				<% if(dateSlider) { %>
+				<span class="month">Tháng <%- dateSlider?.active?.month %> </span>
+				<span class="year"><%- dateSlider?.active?.year %> </span>
+				<% } %>
 			</div>
 		</div>
 		<div class="row">
@@ -55,13 +57,13 @@ include('../layouts/navbar/navbar') -%>
 												:
 												'no__showtime'%>
 												<%-
-												date.dof.value
+												date.dow.value
 												===
 												6
 												?
 												'time__box--blue'
 												:
-												date.dof.value
+												date.dow.value
 												===
 												0
 												?
@@ -72,7 +74,7 @@ include('../layouts/navbar/navbar') -%>
 											"
 										>
 											<div class="time__box--dayofweek">
-												<%- date.dof.string()%>
+												<%- date.dow.string()%>
 											</div>
 											<div
 												class="
@@ -173,7 +175,13 @@ include('../layouts/navbar/navbar') -%>
 					<div class="col-4">
 						<div class="cinMovie__selected--items d-flex">
 							<div class="cinMovie__selected--title">Ngày</div>
-							<div class="cinMovie__selected--value">14/05/2021(Sáu)</div>
+							<% if(dateSlider) { %>
+							<div id="date-selected" class="cinMovie__selected--value">
+								<%- dateSlider?.active?.day %>/<%- dateSlider?.active?.month
+								%>/<%- dateSlider?.active?.year %> (<%-
+								dateSlider?.active?.dow.string()%>)
+							</div>
+							<% } %>
 						</div>
 					</div>
 					<div class="col-4">
@@ -181,7 +189,7 @@ include('../layouts/navbar/navbar') -%>
 							<div class="cinMovie__selected--title">Rạp</div>
 							<!-- Khi chưa chọn rạp -->
 							<!-- <div class="cinMovie__selected--value">Vui lòng chọn rạp</div> -->
-							<div class="cinMovie__selected--value">Vinh</div>
+							<div id="cinema-selected" class="cinMovie__selected--value"></div>
 						</div>
 					</div>
 					<div class="col-4">
@@ -189,7 +197,7 @@ include('../layouts/navbar/navbar') -%>
 							<div class="cinMovie__selected--title">Phim</div>
 							<!-- Khi chưa chọn phim -->
 							<!-- <div class="cinMovie__selected--value">Vui lòng chọn phim</div> -->
-							<div class="cinMovie__selected--value">49K NHÂN ĐÔI TÌNH YÊU</div>
+							<div id="movie-selected" class="cinMovie__selected--value"></div>
 						</div>
 					</div>
 				</div>
@@ -204,15 +212,20 @@ include('../layouts/navbar/navbar') -%>
 					</div>
 					<div class="showtime__body">
 						<!-- nếu không có suất chiếu dùng phần này -->
-						<!-- <div class="showtime__noData d-flex align-items-center" style="flex-direction: column;">
-                    <img src="/images/icons/empty.png" alt="">
-                    <p>Kính mời quý khách chọn phim để xem lịch chiếu chi tiết tại rạp</p>
-                </div> -->
+						<div
+							class="showtime__noData align-items-center"
+							style="flex-direction: column"
+						>
+							<img src="/images/icons/empty.png" alt="" />
+							<p>
+								Kính mời quý khách chọn phim để xem lịch chiếu chi tiết tại rạp
+							</p>
+						</div>
 
 						<!-- Nếu có suất chiếu thì dùng này  -->
 						<div class="showtime__Data">
 							<div class="showtime__movie--title d-flex align-items-center">
-								<span>49K NHÂN ĐÔI TÌNH YÊU </span>
+								<span></span>
 								<div class="showtime__render-movie">
 									<a href="#">
 										<img src="/images/icons/right.png" alt="" />
@@ -220,45 +233,10 @@ include('../layouts/navbar/navbar') -%>
 								</div>
 							</div>
 							<div class="showtime__cinema">
-								<div class="showtime__cinema--title">Vinh</div>
+								<div class="showtime__cinema--title"></div>
 
 								<div class="showtime__list">
-									<div class="row">
-										<div class="col-2">
-											<div class="showtime__theater--type">Loại ghế: 2D</div>
-											<div class="showtime__box">
-												<a href="">
-													<div class="showtime__box--screen">Screen5</div>
-													<!-- startShow: thời gian bắt đầu phim -->
-													<div class="showtime__box--time startShow">15:00</div>
-													<!-- startToendtime: cộng thêm thời lượng phim -->
-													<div class="showtime__box--time startToendtime">
-														15:00 ~ 17:07
-													</div>
-													<div class="showtime__box--seat">
-														88 / 88 Ghế ngồi
-													</div>
-												</a>
-											</div>
-										</div>
-										<div class="col-2">
-											<div class="showtime__theater--type">Loại ghế: 2D</div>
-											<div class="showtime__box">
-												<a href="">
-													<div class="showtime__box--screen">Screen5</div>
-													<div class="showtime__box--time startShow">21:00</div>
-													<!-- startToendtime: cộng thêm thời lượng phim -->
-													<div class="showtime__box--time startToendtime">
-														21:00 ~ 23:00
-													</div>
-													<div class="showtime__box--seat">
-														88 / 99 Ghế ngồi
-													</div>
-												</a>
-											</div>
-										</div>
-										<div class="col-2"></div>
-									</div>
+									<div class="row"></div>
 								</div>
 							</div>
 						</div>

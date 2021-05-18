@@ -8,7 +8,7 @@
 	);
 	@each $prop, $value in $object {
 		.#{$name}#{$prop} {
-			display: $value;
+			display: $value !important;
 		}
 	}
 }

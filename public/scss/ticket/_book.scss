@@ -87,11 +87,14 @@
 	li {
 		// padding: 0 5px;
 		a {
-			font-size: 15px;
+			font-size: 14px;
 			line-height: 50px;
-			font-weight: 500;
+			font-weight: 600;
 			text-transform: uppercase;
 		}
+	}
+	.movie__item {
+		border: 1px solid #fff;
 	}
 
 	.movie__item--active {
@@ -108,8 +111,11 @@
 	}
 
 	.movie__item--disable {
-		color: #d1d1d1;
-		cursor: default;
+		// padding: 0 5px;
+		a {
+			color: #d1d1d1;
+			cursor: default;
+		}
 	}
 }
 .cinMovie__selected {
@@ -137,6 +143,7 @@
 }
 .showtime {
 	&__noData {
+		display: flex;
 		padding: 20px 50px;
 		background: rgb(231, 231, 231);
 		opacity: 0.5;
