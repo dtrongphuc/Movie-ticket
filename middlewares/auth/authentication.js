@@ -2,7 +2,12 @@ const { User } = require('../../db/connection');
 
 module.exports = {
 	isAuth: (req, res, next) => {
+		if(req.url.includes('/admin')){
+			return next();
+		}
 		if (req.isAuthenticated()) {
+			const user = req.user; 
+			res.locals.currentUser = user;
 			return next();
 		}
 		return res.redirect('/auth/login');
