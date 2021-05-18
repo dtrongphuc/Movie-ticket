@@ -224,8 +224,16 @@ const getShowtimeInfo = async (date, movieId, cinemaId) => {
 			},
 		});
 
-		let mapShowtimes = showtimes?.map((showtime) => {
+		let mapShowtimes = showtimes?.map(async (showtime) => {
 			let plain = showtime.get({ plain: true });
+			let countseat =  await models.Ticket.count({
+				include: [{
+					model: models.Booking,
+					where:{
+						showtimeId: showtime.id
+					}
+				}]
+			});
 			plain.duringTime = `${moment(plain.startTime).format('hh:mm')} ~ ${moment(
 				plain.endTime
 			).format('hh:mm')}`;
@@ -233,7 +241,7 @@ const getShowtimeInfo = async (date, movieId, cinemaId) => {
 			plain.cinema = {
 				...plain.cinema,
 				seat: parseInt(plain.cinema.width) * parseInt(plain.cinema.length),
-				booked: 1,
+				booked: countseat,
 			};
 
 			return plain;
