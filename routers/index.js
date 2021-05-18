@@ -26,6 +26,7 @@ function route(app) {
 		'/admin',
 		function (req, res, next) {
 			const path = req.url.split('/')[1];
+			console.log("a "+ path);
 			let location = 'trang-chu';
 			let u3;
 			switch (path) {
