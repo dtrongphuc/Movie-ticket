@@ -568,7 +568,7 @@
                                                 <span>8</span>
                                             </a>
                                         </li>
-                                        <li id="btn-seatmodal">
+                                        <li id="btn-seatmodal" id-modal="#seat-modal">
                                             <a class="seatnumber">
                                                 <img class="seat_select" src="/images/seat/seat_mybeselected.gif" alt=""
                                                     width="22px" height="22px">
@@ -593,8 +593,8 @@
                                                 <div class="seat__modal-close btn--seat-check">Kiểm tra</div>
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
                             </div>
@@ -760,27 +760,5 @@
             </div>
         </div>
 
-        <script>
-            const btn_modal = document.querySelector('#btn-seatmodal');
-            const seat_modal = document.querySelector('#seat-modal');
-            const span = document.getElementsByClassName("seat__modal-close");
-
-            btn_modal.addEventListener('click', e => {
-                // console.log(seat_modal);
-                seat_modal.style.display = 'block';
-            });
-
-            for(let i = 0; i<span.length ; i++){
-                span[i].addEventListener('click', e => {
-                // console.log("object");
-                seat_modal.style.display = 'none';
-            });
-            }
-            
-            window.addEventListener('click', e => {
-                if (e.target == seat_modal) {
-                    modal.style.display = "none";
-                }
-            });
-        </script>
+         <script src="/js/booking/modal.js"></script>
         <%- include('../layouts/footer'); -%>

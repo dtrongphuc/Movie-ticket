@@ -1,6 +1,6 @@
 const expressLayouts = require('express-ejs-layouts');
 const { isAuth } = require('../middlewares/auth/authentication');
-const cinemaRouter = require('./cinema');
+const movieRouter = require('./movie');
 const userRouter = require('./user');
 const authRouter = require('./auth');
 const adminRouter = require('./admin/index');
@@ -15,7 +15,7 @@ function route(app) {
 
 	app.use('/auth', authRouter);
 	app.use('/', isAuth);
-	app.use('/cinema', cinemaRouter);
+	app.use('/movie', movieRouter);
 	app.use('/user', userRouter);
 	app.use('/admin/dang-nhap', authAdminRouter);
 
