@@ -7,8 +7,6 @@ const express = require('express'),
 	{ initPassport } = require('./middlewares/passport/index'),
 	homeRouter = require('./routers/home');
 port = 3000;
-var bodyParser = require('body-parser');
-
 
 // APP CONFIGURE
 // app.use(require('morgan')('tiny'));
@@ -16,16 +14,22 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.locals.moment = require('moment');
 app.use(cookieParser());
-app.use(bodyParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1); // trust first proxy
 
+
 // Passport
 initPassport(app);
-
+app.use(function (req, res, next) {
+	// if there's a flash message in the session request, make it available in the response, then delete it
+	res.locals.currentUser = null;
+	res.locals.message = req.session.message;
+	delete req.session.message;
+	next();
+});
 // home
-app.use('/', homeRouter);
+
 
 
 //---------------------------------------------------------------- ADMIN -----------------------------------------------------

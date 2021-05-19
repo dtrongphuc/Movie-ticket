@@ -34,7 +34,10 @@ class HomeController {
                where: {},
 
            }],
-           limit: 3,
+		   order: [
+			['openingDay', 'DESC'],
+			],
+           	limit: 6,
 		})
 		.then(movies => {
 			return res.render('content/contentNew', {movies:movies});

@@ -14,7 +14,6 @@ const booking = (sequelize, type) => {
 		},
 	});
 
-
 	booking.findById = async (id) => {
 		let result = await booking.findOne({
 			where: {
