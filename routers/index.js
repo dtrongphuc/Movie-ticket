@@ -13,10 +13,11 @@ function route(app) {
 	app.use('/ticket',  isAuth, ticketRouter);
 	app.use('/api', bookingApi);
 
-	app.use('/auth', authRouter);
+	app.use('/auth' ,isAuth, authRouter);
+	
 	//app.use('/', );
 
-	app.use('/',isAuth, homeRouter);
+	app.use('/', isAuth, homeRouter);
 
 	app.use('/movie', movieRouter);
 	app.use('/user', userRouter);
@@ -62,7 +63,7 @@ function route(app) {
 		},
 		adminRouter
 	);
-	app.use('/home', homeRouter);
+	
 }
 
 module.exports = route;

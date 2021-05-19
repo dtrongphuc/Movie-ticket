@@ -93,12 +93,12 @@
 										<div class="col-1"></div>
 										<div class="col-10">
 											<div class="seat__modal--header d-flex justify-content-between">
-												<p>Trailer phim <%- movie.name %></p>
+												<p>Trailer phim <%= movie.name %></p>
 												<span class="seat__modal-close">&times;</span>
 											</div>
 											<div class="seat__modal-content--body d-flex align-items-center">
 												<video width="100%" controls>
-													<source src="<%- movie.trailerUrl %>" type="video/mp4">
+													<source src="<%= movie.trailerUrl %>" type="video/mp4">
 													Your browser does not support the video tag.
 												  </video>
 											</div>

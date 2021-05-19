@@ -5,7 +5,6 @@ const express = require('express'),
 	app = express(),
 	route = require('./routers/index'),
 	{ initPassport } = require('./middlewares/passport/index'),
-	homeRouter = require('./routers/home');
 port = 3000;
 
 // APP CONFIGURE
@@ -19,11 +18,17 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1); // trust first proxy
 
 
-// Passport
 
+// Passport
 initPassport(app);
 
-//---------------------------------------------------------------- ADMIN -----------------------------------------------------
+app.use(function (req, res, next) {
+	res.locals.currentUser = null;
+	res.locals.message = req.session.message;
+	delete req.session.message;
+	next();
+});
+
 route(app);
 
 app.listen(port, () => {

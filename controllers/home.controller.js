@@ -37,7 +37,6 @@ class HomeController {
 		   order: [
 			['openingDay', 'DESC'],
 			],
-           	limit: 6,
 		})
 		.then(movies => {
 			return res.render('content/contentNew', {movies:movies});
@@ -66,11 +65,7 @@ class HomeController {
 			res.status(500).send({ error: 'Something failed!' })
 		})
 			
-		
 	}
-
-
-
 
 };
 
