@@ -25,7 +25,8 @@
 				<div class="col-lg-12 col-4" style="margin: 0; padding: 0">
 					<div class="detailFlim__left d-flex justify-content-center">
 						<div class="detailFlim__avatar ">
-							<img src="/images/LatMat/poster_LM.jpg" alt="Lật mặt 48h" class="detailFlim__avatar-img" />
+							
+							<img src="<%= movie.images[0].publicUrl %>" alt="<%= movie.name%>" class="detailFlim__avatar-img" />
 						</div>
 						<!-- <div class="detailFlim">
                         <a href="#" type="button" class="btn btn-outline-secondary">Secondary</a>
@@ -35,10 +36,10 @@
 				<div class="col-lg-12 col-6" style="margin: 0; padding: 0">
 					<div class="detailFlim__right" style="padding-top: 30px;">
 						<h3 class="filmName">
-							<%- movie.name %>
+							<%= movie.name %>
 						</h3>
 						<p><strong class="content__title">Khởi chiếu: </strong>
-							Từ <%- movie.openingDay.toLocaleDateString('en-GB') %>
+							Từ <%= movie.openingDay.toLocaleDateString('en-GB') %>
 						</p>
 						<!-- <p><strong class="content__title">Xếp hạng: </strong>[Trong nước] 18 tuổi trở lên</p> -->
 						<!-- <p>
@@ -46,11 +47,11 @@
 							(110Phút)
 						</p> -->
 						<p><strong class="content__title">Thời lượng: </strong>
-							<%- movie.time %> phút
+							<%= movie.time %> phút
 						</p>
 						<p>
 							<strong class="content__title">Đạo diễn: </strong>
-							<%- movie.directors %>
+							<%= movie.directors %>
 						</p>
 						<div class="review d-flex align-items-center">
 							<strong style="margin-right: 15px">Đánh giá: </strong>
