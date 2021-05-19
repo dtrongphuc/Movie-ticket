@@ -22,69 +22,58 @@ class Api {
 	}
 
 	init = async () => {
-		await this.getAllTheaters();
-		await Promise.all([
-			this.getCinemasByTheater(this.session.getSession().theaterId),
-			this.getAllShowtimeMovies(),
-		]);
+		await this.initDate();
+		await this.getShowtime();
 	};
 
-	// Ajax request
-	getAllTheaters = async () => {
+	initDate = async () => {
 		try {
-			let response = await axios.get('/theaters');
+			let response = await axios.get('/showtime/available-date');
 			if (response.success) {
-				Render().renderTheatersList(response.theaters);
+				this.session.getAndModify('date', response.initDate);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getShowtime = async () => {
+		try {
+			let state = this.session.getSession();
+			let response = await axios.get('/showtime', {
+				params: {
+					date: state.date,
+					theaterId: state.theaterId,
+					cinemaId: state.cinemaId,
+					movieId: state.movieId,
+				},
+			});
+			if (response.success) {
 				this.session.getAndModify(
 					'theaterId',
-					response.theaters[0]?.id || null
+					state.theaterId || response.theaters[0]?.id
 				);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
-	getCinemasByTheater = async (theaterId) => {
-		try {
-			let response = await axios.get(`/cinemas`, {
-				params: {
-					theaterId: theaterId,
-				},
-			});
-			if (response.success) {
-				Render().renderCinemaList(response.cinemas);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	getAllShowtimeMovies = async () => {
-		try {
-			let response = await axios.get(`/showtime-movies`);
-			if (response.success) {
+				Render().renderTheatersList(response.theaters);
+				let theater = response.theaters.find(
+					(theater) =>
+						theater.id.toString() ===
+						this.session.getSession().theaterId.toString()
+				);
+				Render().renderCinemaList(theater.cinemas);
 				Render().renderShowtimeMovies(response.movies);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
-	getMoviesByCinema = async () => {
-		try {
-			let { date, cinemaId } = this.session.getSession();
-			let response = await axios.get(`/movies`, {
-				params: {
-					date: date,
-					cinema: cinemaId,
-				},
-			});
-			if (response.success) {
-				Render().renderShowtimeMovies(response.movies);
+				if (response.hasOwnProperty('show')) {
+					Render().renderShowtimeCinema(response.show);
+				} else {
+					Render().renderEmptyData();
+				}
+			} else {
+				Render().renderEmptyData();
 			}
 		} catch (error) {
 			console.log(error);
+			Render().renderEmptyData();
 		}
 	};
 }
