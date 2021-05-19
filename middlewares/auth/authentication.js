@@ -8,9 +8,9 @@ module.exports = {
 		if (req.isAuthenticated()) {
 			const user = req.user; 
 			res.locals.currentUser = user;
-			return next();
 		}
-		return res.redirect('/auth/login');
+		return next();
+		//return res.redirect('/auth/login');
 	},
 
 	isActive: async (req, res, next) => {

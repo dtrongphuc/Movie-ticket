@@ -14,11 +14,16 @@ function route(app) {
 	app.use('/api', bookingApi);
 
 	app.use('/auth', authRouter);
-	app.use('/', isAuth);
+	//app.use('/', );
+
+	app.use('/',isAuth, homeRouter);
+
 	app.use('/movie', movieRouter);
 	app.use('/user', userRouter);
 	app.use('/admin/dang-nhap', authAdminRouter);
 
+
+	//----------------------------------------ADMIN-------------------------//
 	// apply template layout
 	app.use(expressLayouts);
 	app.set('layout', 'admin/layout');
