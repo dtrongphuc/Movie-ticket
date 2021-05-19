@@ -100,7 +100,6 @@ export default function Render() {
 	};
 
 	const renderEmptyData = () => {
-		console.log('asdasda');
 		$('.showtime__Data')?.classList.add('d-none');
 		$('.showtime__noData')?.classList.remove('d-none');
 		$('#cinema-selected').innerHTML =

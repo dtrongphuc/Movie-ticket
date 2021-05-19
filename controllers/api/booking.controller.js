@@ -224,28 +224,32 @@ const getShowtimeInfo = async (date, movieId, cinemaId) => {
 			},
 		});
 
-		let mapShowtimes = showtimes?.map(async (showtime) => {
-			let plain = showtime.get({ plain: true });
-			let countseat =  await models.Ticket.count({
-				include: [{
-					model: models.Booking,
-					where:{
-						showtimeId: showtime.id
-					}
-				}]
-			});
-			plain.duringTime = `${moment(plain.startTime).format('hh:mm')} ~ ${moment(
-				plain.endTime
-			).format('hh:mm')}`;
-			plain.time = moment(plain.startTime).format('hh:mm');
-			plain.cinema = {
-				...plain.cinema,
-				seat: parseInt(plain.cinema.width) * parseInt(plain.cinema.length),
-				booked: countseat,
-			};
+		let mapShowtimes = await Promise.all(
+			showtimes?.map(async (showtime) => {
+				let plain = showtime.get({ plain: true });
+				let countseat = await models.Ticket.count({
+					include: [
+						{
+							model: models.Booking,
+							where: {
+								showtimeId: showtime.id,
+							},
+						},
+					],
+				});
+				plain.duringTime = `${moment(plain.startTime).format(
+					'hh:mm'
+				)} ~ ${moment(plain.endTime).format('hh:mm')}`;
+				plain.time = moment(plain.startTime).format('hh:mm');
+				plain.cinema = {
+					...plain.cinema,
+					seat: parseInt(plain.cinema.width) * parseInt(plain.cinema.length),
+					booked: countseat,
+				};
 
-			return plain;
-		});
+				return plain;
+			})
+		);
 
 		return mapShowtimes;
 	} catch (error) {
