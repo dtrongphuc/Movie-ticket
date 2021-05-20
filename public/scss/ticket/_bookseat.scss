@@ -39,9 +39,6 @@
       padding: 5px 10px;
       background: #fff;
     }
-
-   
-
   }
   &__step {
     background: #cdc197;
@@ -149,6 +146,8 @@
                 position: relative;
                 width: 22px;
                 height: 22px;
+
+
               }
               .seat_selected {
                 display: none;
@@ -184,11 +183,7 @@
                 //   display: none;
                 // }
 
-                select {
-                  width: 22px;
-                  height: 22px;
-                  background-image: "../../images/seat/seat__noname.gif";
-                }
+                
               }
             }
           }
@@ -252,3 +247,130 @@
     }
   }
 }
+
+body
+{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.smallBox::before
+{
+  content:".";
+  width:15px;
+  height:15px;
+  float:left;
+  margin-right:10px;
+}
+.greenBox::before
+{
+  content:"";
+  background:Green;
+}
+.redBox::before
+{
+  content:"";
+  background:Red;
+}
+.emptyBox::before
+{
+  content:"";
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    background-color:#ccc;
+}
+
+.seats
+{
+  border:1px solid red;background:yellow;
+} 
+
+
+
+.seatGap
+{
+  width:40px;
+}
+
+.seatVGap
+{
+  height:40px;
+}
+
+table
+{
+  text-align:center;
+}
+
+
+.Displaytable
+{
+  text-align:center;
+}
+.Displaytable td, .Displaytable th {
+    border: 1px solid;
+    text-align: left;
+}
+
+textarea
+{
+  border:none;
+  background:transparent;
+}
+
+
+
+input[type=checkbox] {
+    width:0px;
+    margin-right:18px;
+}
+
+input[type=checkbox]:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    vertical-align:middle;
+    text-align: center;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    background-color:#ccc;
+}
+
+input[type=checkbox]:checked:before {
+    background-color:Green;
+    font-size: 15px;
+}
+
+.btn{
+
+  padding: 6px 12px;
+  margin-left: 15px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid;
+  background: #fff;
+  color: #231f20;
+}
+
+.btn:hover{
+   background: #222;
+   color: #fff;
+}
+
+.btn__confirm{
+
+  padding: 6px 12px;
+  margin-left: 850px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid rgb(6, 104, 6);
+  background: rgb(6, 104, 6);
+  color: #fff;
+}
+
+.btn__confirm:hover{
+   background: rgb(26, 192, 11);
+}
+
+
+
+
+
