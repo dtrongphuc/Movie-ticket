@@ -121,11 +121,34 @@ export default async function Events() {
 		});
 	};
 
+	const showTimePicker = () => {
+		$$('.showtime__box')?.forEach((element) => {
+			element.onclick = async (e) => {
+				if (element.classList.contains('showtime__box--active')) {
+					element?.classList.remove('showtime__box--active');
+					session.getAndModify('duringTime', null);
+				} else {
+					// remove current active
+					$('.showtime__box--active')?.classList.remove(
+						'showtime__box--active'
+					);
+					// add active to selected theater
+					element?.classList.add('showtime__box--active');
+
+					let showtimeId = element.dataset?.id;
+					if (showtimeId !== undefined) {
+						session.getAndModify('showtimeId', +showtimeId);
+					}
+				}
+			};
+		});
+	};
 
 	return (function () {
 		datePicker();
 		theaterPicker();
 		moviePicker();
 		cinemaPicker();
+		showTimePicker();
 	})();
 }

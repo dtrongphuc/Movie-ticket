@@ -1,6 +1,7 @@
 const { Op } = require('sequelize');
 const models = require('../../db/connection');
 const moment = require('moment');
+const dowNumberToString = require('../../helpers/date.format');
 
 const getTheaters = async () => {
 	try {
@@ -346,6 +347,73 @@ module.exports = {
 			return res.status(200).json({
 				success: true,
 				initDate: moment(time).format('YYYYMMDD'),
+			});
+		} catch (error) {
+			console.log(error);
+			return res.status(500).json({
+				success: false,
+				message: error,
+			});
+		}
+	},
+
+	getDuringTime: async (req, res) => {
+		try {
+			const { id } = req.query;
+
+			let showtime = await models.Showtime.findByPk(id);
+			let duringTime = `${moment(showtime.startTime).format(
+				'hh:mm'
+			)} ~ ${moment(showtime.endTime).format('hh:mm')}`;
+
+			return res.status(200).json({
+				success: true,
+				duringTime,
+			});
+		} catch (error) {
+			console.log(error);
+			return res.status(500).json({
+				success: false,
+				message: error,
+			});
+		}
+	},
+
+	getDateString: (req, res) => {
+		try {
+			const { date } = req.query;
+			const dateMoment = moment(date, 'YYYYMMDD');
+
+			let dayOfWeekString = dowNumberToString(dateMoment.day());
+			let dateString = `${dateMoment.date()}/${
+				dateMoment.month() + 1
+			}/${dateMoment.year()} (${dayOfWeekString})`;
+
+			console.log(dateString);
+			return res.status(200).json({
+				success: true,
+				dateString,
+			});
+		} catch (error) {
+			console.log(error);
+			return res.status(500).json({
+				success: false,
+				message: error,
+			});
+		}
+	},
+
+	getMovieInfo: async (req, res) => {
+		try {
+			const { id } = req.query;
+
+			const movie = await models.Movie.findByPk(id, {
+				attributes: ['id', 'name', 'posterUrl'],
+			});
+
+			return res.status(200).json({
+				success: true,
+				movie,
 			});
 		} catch (error) {
 			console.log(error);

@@ -76,6 +76,48 @@ class Api {
 			Render().renderEmptyData();
 		}
 	};
+
+	getDuringTime = async (id) => {
+		try {
+			let response = await axios.get('/showtime/during-time', {
+				params: {
+					id,
+				},
+			});
+
+			return response.duringTime;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getDateString = async (date) => {
+		try {
+			const response = await axios.get('/date/string', {
+				params: {
+					date,
+				},
+			});
+
+			return response.dateString;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getMovie = async (id) => {
+		try {
+			const response = await axios.get('/movie', {
+				params: {
+					id,
+				},
+			});
+
+			return response.movie;
+		} catch (error) {
+			console.log(error);
+		}
+	};
 }
 
 export default new Api();

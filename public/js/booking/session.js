@@ -12,6 +12,7 @@ export default function Session() {
 				cinemaName: null,
 				movieId: null,
 				movieName: null,
+				showtimeId: null,
 			};
 
 			sessionStorage.setItem(SESSION_NAME, JSON.stringify(initialState));

@@ -78,9 +78,9 @@ export default function Render() {
 		let htmlText = showtimes?.map(
 			(showtime) => `<div class="col-2">
 			<div class="showtime__theater--type">Loại ghế:${showtime.cinema.type}</div>
-			<div class="showtime__box">
-				<a href="">
-					<div class="showtime__box--screen">Screen5</div>
+			<div class="showtime__box" data-id="${showtime.id}">
+				<a href="/ticket/bookseat">
+					<div class="showtime__box--screen">Screen</div>
 					<!-- startShow: thời gian bắt đầu phim -->
 					<div class="showtime__box--time startShow">${showtime.time}</div>
 					<!-- startToendtime: cộng thêm thời lượng phim -->

@@ -286,8 +286,8 @@ include('../layouts/navbar/navbar') -%>
             <div class="bookseat__footer--items">
               <div class="bookseat__footer-title">Phim chiếu rạp</div>
               <div class="bookseat__footer-moive d-flex">
-                <img src="/images/LatMat/poster_LM.jpg" alt="" width="80px" />
-                <div class="bookseat__footer-moive--name">LẬT MẶT</div>
+                <img id="ticket-movie-poster" src="" alt="" width="80px" />
+                <div id="ticket-movie-name" class="bookseat__footer-moive--name"></div>
               </div>
             </div>
           </div>
@@ -297,17 +297,17 @@ include('../layouts/navbar/navbar') -%>
               <div class="bookseat__footer-info">
                 <div class="d-flex">
                   <div class="bookseat__footer-info--lable">Ngày</div>
-                  <div class="bookseat__footer-info--value">
+                  <div id="ticket-date" class="bookseat__footer-info--value">
                     15/05/2021 (Bảy)
                   </div>
                 </div>
                 <div class="d-flex">
                   <div class="bookseat__footer-info--lable">Giờ chiếu</div>
-                  <div class="bookseat__footer-info--value">20:30 ~ 22:43</div>
+                  <div id="ticket-during-time" class="bookseat__footer-info--value"></div>
                 </div>
                 <div class="d-flex">
                   <div class="bookseat__footer-info--lable">Rạp chiếu</div>
-                  <div class="bookseat__footer-info--value">Vinh</div>
+                  <div id="ticket-cinema" class="bookseat__footer-info--value"></div>
                 </div>
                 <div class="d-flex">
                   <div class="bookseat__footer-info--lable">Ghế ngồi</div>
@@ -377,6 +377,7 @@ include('../layouts/navbar/navbar') -%>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
+<script type="module" src="/js/booking/bookseat.js"></script>
 <script src="/js/booking/modal.js"></script>
 <script src="/js/booking/choose.js"></script>
 

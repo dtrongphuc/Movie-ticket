@@ -204,7 +204,8 @@
 			border-bottom: 1px solid rgb(202, 202, 202);
 		}
 
-		&:hover {
+		&:hover,
+		&--active {
 			background: #222;
 			.showtime__box--time {
 				color: #fff;
