@@ -23,6 +23,7 @@ class Bookseat {
 				Api.getMovie(this.session.getSession().movieId),
 			]);
 	}
+	
 	async renderTiket() {
 		const session = this.session.getSession();
 		document.querySelector('#ticket-movie-poster').src =

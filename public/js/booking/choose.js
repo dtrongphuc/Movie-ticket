@@ -51,9 +51,8 @@ $(":checkbox").click(function() {
     $(":checkbox").prop('disabled', true);
     $(':checked').prop('disabled', false);
   }
-  else
-    {
+  else{
       $(":checkbox").prop('disabled', false);
-    }
+  }
 });
 

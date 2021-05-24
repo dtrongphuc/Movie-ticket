@@ -3,15 +3,14 @@
 <div id="container" class="sub">
   <div id="content">
     <div class="screen_cwrap">
-     
-        <ul class="tab_st02">
-          <li>
-            <a href="/" id="aNow" name="aNow" class="on">Phim Hot tại rap</a>
-          </li>
-          <li>
-            <a href="/home" id="aSoon" name="aSoon">Phim mới đang chiếu</a>
-          </li>
-        </ul>
+      <ul class="tab_st02">
+        <li>
+          <a href="/" id="aNow" name="aNow" class="on">Phim Hot tại rap</a>
+        </li>
+        <li>
+          <a href="/home" id="aSoon" name="aSoon">Phim mới đang chiếu</a>
+        </li>
+      </ul>
 
       <div class="item_list">
         <div class="blind">
@@ -22,11 +21,11 @@
       <% if (movies != undefined ) { %>
 
       <!-- tab content on -->
-      <div class="tab_content on">
-        <ul class="curr_list movie_clist" id="ulMovieList">
+      <div class="tab_content on" >
+        <ul class="curr_list movie_clist" >
           <% movies.forEach(function(item, index) { %>
-          <li>
-            <div class="curr_box">
+          <li class="target">
+            <div class="curr_box" >
               <span class="num"><%= index += 1 %> </span>
               <span class="img">
                 <a href="./" id="aFocusItem0">
@@ -39,15 +38,8 @@
             </div>
 
             <div class="layer_hover">
-              <a href="./ticket/book" onclick="goToTiketing('10726');" class="btn_reserve1"
-                >Đặt vé</a
-              >
-              <a
-                href="./detail/<%= item.id %>"
-                onclick="goToTiketing('10726');"
-                class="btn_reserve2"
-                >Chi tiet</a
-              >
+              <a href="./ticket/book" class="btn_reserve1">Đặt vé</a>
+              <a href="./detail/<%= item.id %>" class="btn_reserve2">Chi tiết</a>
             </div>
 
             <dl class="list_text">
@@ -55,12 +47,10 @@
                 <a href="./"> <span class="grade_13"></span><%= item.name %></a>
               </dt>
               <dd>
-                <span class="rate"><%= item.time + 'phút'%></span>
+                <span class="rate"><%= item.time + ' phút'%></span>
                 <span class="grade"
                   ><em
-                    ><%= moment(item.openingDay).format( 'DD-MM-YYYY') %></em
-                  ></span
-                >
+                    ><%= moment(item.openingDay).format( 'DD-MM-YYYY') %></em></span>
               </dd>
             </dl>
           </li>
@@ -69,10 +59,6 @@
 
         <% } %>
 
-        <!-- button Them -->
-        <!-- <a href="javascript:void(0);" class="btn_view">
-          <span>Thêm</span>
-        </a> -->
       </div>
 
       <!-- end tab content on -->
@@ -81,5 +67,4 @@
 </div>
 
 <%- include('../layouts/footer'); -%>
-
 
