@@ -31,7 +31,11 @@ function updateTextArea() {
      });
 
      $('#seatsDisplay').val(allSeatsVals);
-
+     const money = ($("#Numseats").val()) * 45000;
+     var currencyFormatter = new Intl.NumberFormat().format(money);
+     document.querySelector("#ticket-movie-money1").innerHTML = currencyFormatter;
+     document.querySelector("#ticket-movie-money2").innerHTML = currencyFormatter;
+     document.querySelector("#ticket-movie-money3").innerHTML = currencyFormatter;
     }
   else
     {

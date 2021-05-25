@@ -17,6 +17,9 @@ include('../layouts/navbar/navbar') -%>
     <div class="row">
       <div class="col-1 col-lg-0"></div>
       <div class="col-10 col-lg-12">
+        <div class="seat__info--lable" style="padding-bottom: 15px; margin-left: 20px; color:rgb(247, 57, 57); font-size: 16px;" >
+          * Vui lòng chọn số lượng ghế trước khi chọn ghế
+        </div>
         <div
           class="
             bookseat__seattop
@@ -29,13 +32,13 @@ include('../layouts/navbar/navbar') -%>
             <h2 style="margin: 0">Chọn ghế</h2>
           </div>
           <div class="bookseat__seattop--btn">
-            <button>
+            
+            <button onclick="window.location.href='/ticket/bookseat'">
               <img src="/images/icons/refresh.png" alt="" />
-              <span> Đặt lại</span>
+              <span > Đặt lại</span>
             </button>
           </div>
         </div>
-
         <div class="bookseat__box d-flex align-items-center">
           <div class="bookseat__box--lable">Người lớn</div>
           <div class="bookseat__box--select">
@@ -324,7 +327,7 @@ include('../layouts/navbar/navbar') -%>
                   justify-content-end
                 "
               >
-                <p>49.000</p>
+                <p id="ticket-movie-money1" >0đ</p>
                 <span style="text-decoration: underline; margin-left: 5px"
                   >đ</span
                 >
@@ -350,7 +353,7 @@ include('../layouts/navbar/navbar') -%>
                   >
                     Đặt trước phim
                   </div>
-                  <div class="bookseat__footer-info--value">150.000₫</div>
+                  <div id="ticket-movie-money2" class="bookseat__footer-info--value">0đ</div>
                 </div>
               </div>
               <div
@@ -362,7 +365,7 @@ include('../layouts/navbar/navbar') -%>
                 "
                 style="margin-top: 70px"
               >
-                <p>49.000</p>
+                <p id="ticket-movie-money3">0đ</p>
                 <span style="text-decoration: underline; margin-left: 5px"
                   >đ</span
                 >
