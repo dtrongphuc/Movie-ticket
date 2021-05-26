@@ -118,6 +118,20 @@ class Api {
 			console.log(error);
 		}
 	};
+
+	getFare = async (id) => {
+		try {
+			let response = await axios.get('/showtime/fare', {
+				params: {
+					id,
+				},
+			});
+
+			return response.fare;
+		} catch (error) {
+			console.log(error);
+		}
+	};
 }
 
 export default new Api();
