@@ -4,6 +4,7 @@ import Api from './api.js';
 class Bookseat {
 
 	constructor() {
+
 		this.session = Session();
 		this.state = {
 			duringTime: '',
@@ -26,7 +27,7 @@ class Bookseat {
 	}
 	
 	async renderTiket() {
-		const money = ($("#Numseats").val());
+
 		const session = this.session.getSession();
 		document.querySelector('#ticket-movie-poster').src =
 			this.state.movie?.posterUrl;
@@ -37,8 +38,8 @@ class Bookseat {
 			this.state.duringTime;
 		document.querySelector('#ticket-cinema').innerHTML = session.cinemaName;
 
-		document.querySelector("#ticket-movie-money").innerHTML = money;
 	}
+	
 }
 
 export default new Bookseat();
