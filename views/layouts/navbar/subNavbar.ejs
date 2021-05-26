@@ -14,15 +14,17 @@
 			<ul>
 				<%if (currentUser) { %>
 				<li>
-					<a href="/user/profile/<%- currentUser.id %>"><%- currentUser.fullname %></a>
+					<a href="/user/profile/<%- currentUser.id %>"
+						><%- currentUser.fullname %></a
+					>
 				</li>
 				<li>
-					<a href="#">Đăng xuất</a>
+					<a href="/auth/logout">Đăng xuất</a>
 				</li>
-				<% }else{ %>
-					<li>
-						<a href="#">Đăng nhập</a>
-					</li>
+				<% } else { %>
+				<li>
+					<a href="/auth/login">Đăng nhập</a>
+				</li>
 				<% } %>
 				<li>
 					<a href="#">Hỗ trợ khách hàng</a>

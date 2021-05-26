@@ -59,7 +59,7 @@ module.exports = {
 				`Vui lòng xác thực tài khoản qua liên kết: <a href=${verifyLink}>Xác thực</a>`
 			);
 
-			return res.render('auth/login', {
+			return res.render('auth/register', {
 				message: {
 					content: 'Vui lòng kiểm tra thư xác thực tài khoản',
 					type: 'success',
@@ -187,7 +187,7 @@ module.exports = {
 					`Vui lòng xác thực qua liên kết: <a href=${verifyLink}>Xác thực</a>`
 				),
 			]);
-			
+
 			return res.render('auth/forgotPwd', {
 				message: {
 					content: 'Vui lòng kiểm tra thư xác nhận',
@@ -234,9 +234,9 @@ module.exports = {
 
 			await user.save();
 			delete req.session.sessionId;
-			if(user.role == 'admin'){
+			if (user.role == 'admin') {
 				return res.redirect('/admin/dang-nhap');
-			}else{
+			} else {
 				return res.redirect('/auth/login');
 			}
 		} catch (error) {
@@ -248,5 +248,10 @@ module.exports = {
 				},
 			});
 		}
+	},
+
+	logout: (req, res) => {
+		req.session.destroy();
+		res.redirect('/auth/login');
 	},
 };
