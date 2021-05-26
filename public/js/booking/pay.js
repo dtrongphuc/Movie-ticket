@@ -44,7 +44,8 @@ class Bookseat {
 			this.state.duringTime;
 
 		document.querySelector('#order-movie-cinema').innerHTML = session.cinemaName;
-		document.querySelector('#order-price').value = this.state.fare;
+
+		document.querySelector('#orderprice').value = this.state.fare;
 
 	}
 

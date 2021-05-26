@@ -10,14 +10,14 @@ const init = function(e) {
     spn3.innerHTML = sessionStorage.getItem('numberSeat');
     spn1.innerHTML = JSON.parse(sessionStorage.getItem('lenghtSeat').length);
 
-    document.querySelector("#order-total").value = sessionStorage.getItem('totalPay');
-    document.querySelector("#order-seat").value = sessionStorage.getItem('lenghtSeat');
+    document.querySelector("#ordertotal").value = sessionStorage.getItem('totalPay');
+    document.querySelector("#orderseat").value = sessionStorage.getItem('lenghtSeat');
 
     //const storedArray = sessionStorage.getItem('bookingState').showtimeId.value;//no brackets
 
     // for(var i = 0 ; i < storedArray.length ; i++ ){
     //     console.log(storedArray[i]);
-        //document.querySelector("#order-showtimeId").value = storedArray;
+        //document.querySelector("#ordershowtimeId").value = storedArray;
     //}
 };
 
