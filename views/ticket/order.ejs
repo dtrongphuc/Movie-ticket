@@ -23,8 +23,8 @@
                             <div class="order__movie">
                                 <div class="row" style="margin-bottom: 30px;">
                                     <div class="col-2 col-md-6 col-sm-12 d-flex justify-content-end">
-                                        <div class="order__movie-img" id="order-movie-img">
-                                            <img src="" alt="" width="103px">
+                                        <div class="order__movie-img" >
+                                            <img id="order-movie-img" src="" alt="" width="103px">
                                         </div>
                                     </div>
                                     <div class="col-8 col-md-6 col-sm-12" >
@@ -32,29 +32,29 @@
                                         <div class="order__movie-info">
                                             <ul>
                                                 <li>
-                                                    Ngày chiếu <span id="time" name="time">15-05-2021</span>
+                                                    Ngày chiếu <span id="order-movie-date" ></span>
                                                 </li>
                                                 <li>
-                                                    Lịch chiếu <span id="date" name="date">phim 15:30 ~ 17:31</span>
+                                                    Lịch chiếu <span id="order-movie-time" ></span>
                                                 </li>
                                                 <li>
-                                                    Rạp chiếu <span id="order-movie-cinema">Vinh</span>
+                                                    Rạp chiếu <span id="order-movie-cinema"></span>
                                                 </li>
                                                 <li>
                                                     Phòng chiếu <span> Screen04</span>
                                                 </li>
                                                 <li>
-                                                    Số lượt truy cập <span id="order-movie-count"> Người lớn - 1</span>
+                                                    Số lượt truy cập Người lớn - <span id="order-movie-count">  </span>
                                                 </li>
                                                 <li>
-                                                    Ghế ngồi<span id="order-movie-seat"> A8</span>
+                                                    Ghế ngồi <span id="order-movie-seat"></span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div
                                         class="col-2 col-md-12 col-sm-12 d-flex align-items-center justify-content-center">
-                                        <div class="order__movie-price" id="order-movie-price">49.000₫</div>
+                                        <div class="order__movie-price" id="order-movie-price"></div>
                                     </div>
                                 </div>
                             </div>
@@ -64,8 +64,7 @@
                                         <div class="order__total--lable">Tổng số tiền đặt hàng</div>
                                     </div>
                                     <div class="col-2">
-                                        <div class="order__total--price" id="total" name="total">
-                                            49000
+                                        <div class="order__total--price" id="order-movie-total">
                                         </div>
                                     </div>
                                 </div>
@@ -287,8 +286,14 @@
 
             </div>
         </div>
+     
 
-        <button class="confirmOrder__price--btn" style="margin-left: 1300px;" type="submit">
+        <input type="text"  id="order-seat"  name="order-seat" value="">
+        <input type="text"  id="order-total"  name="order-total"value="">
+        <input type="text"  id="order-showtimeId" name="order-showtimeId"value="">
+        <input type="text"  id="order-seatId"  name="order-seatId"value="">
+        <input type="text"  id="order-price"  name="order-price"value="">
+        <button class="confirmOrder__price--btn" style="margin-left: 1300px;" type="submit" onclick="removSession()">
             Thanh toán
         </button>
 
@@ -311,8 +316,6 @@
             </div>
         </div>
 
-
-    
         <!--
         <div class="confirmOrder">
             <div class="container">
@@ -362,9 +365,9 @@
 
         -->
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="/js/booking/pay.js"></script>
+        <script type="module" src="/js/booking/pay.js"></script>
         <script src="/js/booking/chooseseat.js"></script>
 
         <script>

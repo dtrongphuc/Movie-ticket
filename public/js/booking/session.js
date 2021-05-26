@@ -32,7 +32,6 @@ export default function Session() {
 				...state,
 				[attr]: value,
 			};
-
 			this.setSession(newState);
 		},
 	};

@@ -1,6 +1,5 @@
 import Session from './session.js';
 import Api from './api.js';
-
 class Bookseat {
 	constructor() {
 		this.session = Session();

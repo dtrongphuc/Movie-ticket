@@ -1,60 +1,33 @@
 
-import Session from './session.js';
-import Api from './api.js';
+const init = function(e) {
 
-class booking {
+    var spn1 = document.querySelector('#order-movie-count'); 
+    var spn2 = document.querySelector('#order-movie-price');
+    var spn3 = document.querySelector('#order-movie-seat');
+    var spn4 = document.querySelector('#order-movie-total');
+    spn2.innerHTML = new Intl.NumberFormat().format(sessionStorage.getItem('totalPay'));
+    spn4.innerHTML = new Intl.NumberFormat().format(sessionStorage.getItem('totalPay'));
+    spn3.innerHTML = sessionStorage.getItem('numberSeat');
+    spn1.innerHTML = JSON.parse(sessionStorage.getItem('lenghtSeat').length);
 
-	constructor() {
-		this.session = Session();
-		this.state = {
-			duringTime: '',
-			dateString: '',
-			movie: {},
-		};
+    document.querySelector("#order-total").value = sessionStorage.getItem('totalPay');
+    document.querySelector("#order-seat").value = sessionStorage.getItem('lenghtSeat');
 
-		this.init().then(() => {
-			this.renderTiket();
-		});
-	}
+    //const storedArray = sessionStorage.getItem('bookingState').showtimeId.value;//no brackets
 
-	async init() {
-		[this.state.duringTime, this.state.dateString, this.state.movie] =
-			await Promise.all([
-				Api.getDuringTime(this.session.getSession().showtimeId),
-				Api.getDateString(this.session.getSession().date),
-				Api.getMovie(this.session.getSession().movieId),
-			]);
-	}
-	
-	// async renderTiket() {
-	// 	const session = this.session.getSession();
-    //     return  [
-    //     { 
-    //         ticketTimedate: this.state.duringTime, 
-    //         ticketTime : session.date,
-    //         ticketCinemaName: session.cinameName,
-    //         //ticketUserId: session.
-    //         ticketName: this.state.movie?.name, 
-    //         ticketImg: this.state.movie?.posterUrl, 
-    //         ticketshowtimeId: session.showtimeId, 
-    //         ticketCount: $("#Numseats").val(),
-    //         ticketSeat: {number}
-    //     },
-    //     ];
-	// }
+    // for(var i = 0 ; i < storedArray.length ; i++ ){
+    //     console.log(storedArray[i]);
+        //document.querySelector("#order-showtimeId").value = storedArray;
+    //}
+};
 
-    async renderTiket() {
+document.addEventListener('DOMContentLoaded', function(){
+    init();
+});
 
-		const session = this.session.getSession();
-		document.querySelector('#order-movie-img').src =
-			this.state.movie?.posterUrl;
-		document.querySelector('#order-movie-name').innerHTML =
-			this.state.movie?.name;
-		document.querySelector('#order-movie-date').innerHTML = this.state.dateString;
-		document.querySelector('#order-movie-time').innerHTML =
-			this.state.duringTime;
-		document.querySelector('#ticket-cinema').innerHTML = session.cinemaName;
-	}
+
+function removSession(){
+    sessionStorage.removeItem("totalPay");
+    sessionStorage.removeItem("numberSeat");
+    sessionStorage.removeItem("lenghtSeat");
 }
-
-export default new booking();

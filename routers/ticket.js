@@ -3,6 +3,7 @@ const router = express.Router();
 const ticketController = require('../controllers/ticket.controller');
 const bookingMiddleware = require('../middlewares/booking/booking.middleware');
 const booking = require('../controllers/pay.controller');
+const auth = require('../controllers/auth.controller');
 
 router.get(
 	'/book',

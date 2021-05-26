@@ -262,7 +262,7 @@ include('../layouts/navbar/navbar') -%>
             <span>Trở về</span>
           </a>
         </div>
-        <div class="bookseat__step--next">
+        <button class="bookseat__step--next" style="border: none; background:none" id="nextPage" onclick="getData()">
           <a href="/ticket/order" class="d-flex align-items-center">
             <span>Bước tiếp theo </span>
             <img
@@ -272,7 +272,7 @@ include('../layouts/navbar/navbar') -%>
               width="26px"
             />
           </a>
-        </div>
+        </button >
       </div>
       <div class="col-1"></div>
     </div>
@@ -378,6 +378,7 @@ include('../layouts/navbar/navbar') -%>
     </div>
   </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script type="module" src="/js/booking/bookseat.js"></script>

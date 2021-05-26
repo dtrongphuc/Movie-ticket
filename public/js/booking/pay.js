@@ -1,25 +1,53 @@
+import Session from './session.js';
+import Api from './api.js';
+class Bookseat {
+	constructor() {
+		this.session = Session();
+		this.state = {
+			duringTime: '',
+			dateString: '',
+			movie: {},
+			fare: '',
+		};
 
-import Ticket from './chooseseat';
+		this.init().then(() => {
+			this.renderOrder();
+		});
+	}
 
-this.ticket = Ticket;
+	async init() {
+		[
+			this.state.duringTime,
+			this.state.dateString,
+			this.state.movie,
+			this.state.fare,
+		] = await Promise.all([
+			Api.getDuringTime(this.session.getSession().showtimeId),
+			Api.getDateString(this.session.getSession().date),
+			Api.getMovie(this.session.getSession().movieId),
+			Api.getFare(this.session.getSession().showtimeId),
+		]);
+	}
 
-$(document).ready(function() {
 
-    const session = this.ticket.renderTiket();
-    // console.log(session.ticketImg);
-    // console.log(session.ticketName);
-    // console.log(session.ticketTimeDate);
-    // console.log(session.ticketTime);
-    // console.log(session.ticketcinemaName);
-    // console.log(session.ticketCount);
-    document.querySelector("#order-movie-date").innerHTML =  session.ticketImg  + session.ticketName + session.ticketTimeDate + session.ticketTime;
+	async renderOrder() {
+		
+		const session = this.session.getSession();
 
-});
 
-const session = this.ticket.setBooking();
-document.querySelector('#order-movie-img').src = session.ticketImg;
-document.querySelector('#order-movie-name').innerHTML = session.ticketName;
-document.querySelector('#order-movie-date').innerHTML = session.ticketTimeDate;
-document.querySelector('#order-movie-time').innerHTML = session.ticketTime;
-document.querySelector('#order-movie-cinema').innerHTML = session.ticketcinemaName;
-document.querySelector('#order-movie-cinema').innerHTML = session.ticketCount;
+		document.querySelector('#order-movie-img').src =
+			this.state.movie?.posterUrl;
+		document.querySelector('#order-movie-name').innerHTML =
+			this.state.movie?.name;
+		document.querySelector('#order-movie-date').innerHTML = this.state.dateString;
+		document.querySelector('#order-movie-time').innerHTML =
+			this.state.duringTime;
+
+		document.querySelector('#order-movie-cinema').innerHTML = session.cinemaName;
+		document.querySelector('#order-price').value = this.state.fare;
+
+	}
+
+}
+
+export default new Bookseat();
