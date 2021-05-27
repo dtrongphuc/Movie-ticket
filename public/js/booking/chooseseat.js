@@ -1,4 +1,3 @@
-
 const init = function(e) {
 
     var spn1 = document.querySelector('#order-movie-count'); 
@@ -12,13 +11,9 @@ const init = function(e) {
 
     document.querySelector("#ordertotal").value = sessionStorage.getItem('totalPay');
     document.querySelector("#orderseat").value = sessionStorage.getItem('lenghtSeat');
+    document.querySelector("#ordernumberSeat").value = JSON.parse(sessionStorage.getItem('numberSeat'));
 
-    //const storedArray = sessionStorage.getItem('bookingState').showtimeId.value;//no brackets
-
-    // for(var i = 0 ; i < storedArray.length ; i++ ){
-    //     console.log(storedArray[i]);
-        //document.querySelector("#ordershowtimeId").value = storedArray;
-    //}
+   
 };
 
 document.addEventListener('DOMContentLoaded', function(){

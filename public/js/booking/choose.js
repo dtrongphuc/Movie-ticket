@@ -61,7 +61,7 @@ function getData(){
     const mumberSeats = allSeatsVals;
     const length = JSON.stringify(allSeatsVals);
     sessionStorage.setItem('totalPay', totalpay);
-    sessionStorage.setItem('numberSeat', mumberSeats);
+    sessionStorage.setItem('numberSeat', JSON.stringify(mumberSeats));
     sessionStorage.setItem('lenghtSeat', length);
     window.document.location = '/views/ticket/order.ejs';
 

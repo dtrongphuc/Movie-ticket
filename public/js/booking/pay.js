@@ -34,7 +34,6 @@ class Bookseat {
 		
 		const session = this.session.getSession();
 
-
 		document.querySelector('#order-movie-img').src =
 			this.state.movie?.posterUrl;
 		document.querySelector('#order-movie-name').innerHTML =
@@ -44,6 +43,8 @@ class Bookseat {
 			this.state.duringTime;
 
 		document.querySelector('#order-movie-cinema').innerHTML = session.cinemaName;
+
+		document.querySelector('#ordershowtimeId').value = this.session.getSession()?.showtimeId;
 
 		document.querySelector('#orderprice').value = this.state.fare;
 
