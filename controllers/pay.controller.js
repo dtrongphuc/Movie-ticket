@@ -3,21 +3,17 @@ const models = require('../db/connection');
 const { QueryTypes } = require('sequelize');
 class PayController {
 
-    async addBooking(req, res) {
-
+	async addBooking(req, res,next) {
+		const bookingId = await models.Booking.count({});
 		var today = new Date();
-		var date =  today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        var seats = [];
+		var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+		var seats = [];
 		var data = req.body;
-        var userId = req.user;
+		var userId = req.user;
 		seats = data.orderseat;
-		for(var j = 0; seats.lenght; j++){
-			console.log("a" + seats[i]);
-		}
-
 
 		await models.Booking.create({
-
+			id: bookingId + 1,
 			time: date,
 			total: data.ordertotal,
 			userId: userId,
@@ -25,17 +21,17 @@ class PayController {
 
 		});
 
-		for(var i = 0; seats.lenght; i++){
-			await models.Ticket.create({
-				seatId: seats[i],
-				price: data.orderprice,
-				bookingId: '9c938e37-5c17-4923-afb6-0fc193e1062b',
-			});
-		}
+		await models.Ticket.create({
 
+			seatId: seats,
+			price: data.orderprice,
+			bookingId: bookingId,
+			
+		});
 		res.redirect('/ticket/order');
+		//next();
 	}
-
+	
 }
 
-module.exports = new PayController 
+module.exports = new PayController

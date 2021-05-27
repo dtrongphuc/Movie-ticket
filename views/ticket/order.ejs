@@ -292,7 +292,7 @@
         <input type="text"  id="ordershowtimeId" name="ordershowtimeId"value="">
         <input type="text"  id="orderseatId"  name="orderseatId"value="">
         <input type="text"  id="orderprice"  name="orderprice"value="">
-        <button class="confirmOrder__price--btn" style="margin-left: 1300px;" type="submit" onclick="removSession()">
+        <button class="confirmOrder__price--btn" style="margin-left: 1300px;" type="submit" >
             Thanh toán
         </button>
 
@@ -303,7 +303,7 @@
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
-                        <div class="bookseat__step--pre">
+                        <div class="bookseat__step--pre" onclick="removSession()">
                             <a href="/ticket/bookseat" class=" d-flex align-items-center">
                                 <img class="imgpre" src="/images/icons/leftarrow.png" alt="" width="26px">
                                 <span>Trở về</span>
