@@ -11,18 +11,17 @@ const bookingApi = require('./api/booking');
 
 function route(app) {
 	app.use('/api', bookingApi);
-	
-	app.use('/auth' ,isAuth, authRouter);
-	
+
+	app.use('/auth', isAuth, authRouter);
+
 	//app.use('/', );
-	
+
 	app.use('/', isAuth, homeRouter);
-	app.use('/ticket',  isAuth, ticketRouter);
+	app.use('/ticket', isAuth, ticketRouter);
 
 	app.use('/movie', movieRouter);
 	app.use('/user', userRouter);
 	app.use('/admin/dang-nhap', authAdminRouter);
-
 
 	//----------------------------------------ADMIN-------------------------//
 	// apply template layout
@@ -32,7 +31,6 @@ function route(app) {
 		'/admin',
 		function (req, res, next) {
 			const path = req.url.split('/')[1];
-			console.log("a "+ path);
 			let location = 'trang-chu';
 			let u3;
 			switch (path) {
@@ -63,7 +61,6 @@ function route(app) {
 		},
 		adminRouter
 	);
-	
 }
 
 module.exports = route;
