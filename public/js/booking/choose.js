@@ -1,9 +1,22 @@
 
+var seatChoose = ['E1', 'A2' ,'E12'];
 
 var allSeatsVals = [];
-
 function onLoaderFunc() {
   $(".seatStructure *").prop("disabled", true);
+
+  $('#seatsBlock tr').each(function(){
+    $(this).find('td').each(function(){
+      var seat = $(this).find('input[type=checkbox]').val();
+      for(var i = 0; i < seatChoose.length; i++){
+        if(seatChoose[i] == seat){
+          $(this).find('input[type=checkbox]').removeClass("seats");
+          $(this).find('input[type=checkbox]').addClass("chooseSeat");
+        }
+      }
+    })
+  })
+
 }
 
 function takeData() {
@@ -20,6 +33,7 @@ function updateTextArea() {
 
   if ($("input:checked").length == ($("#Numseats").val())) {
     $(".seatStructure *").prop("disabled", true);
+
 
     $('#seatsBlock :checked').each(function () {
       allSeatsVals.push($(this).val());
@@ -43,7 +57,6 @@ function myFunction() {
   alert($("input:checked").length);
 }
 
-
 $(":checkbox").click(function () {
   if ($("input:checked").length == ($("#Numseats").val())) {
     $(":checkbox").prop('disabled', true);
@@ -66,5 +79,6 @@ function getData(){
     window.document.location = '/views/ticket/order.ejs';
 
 }
+
 
 

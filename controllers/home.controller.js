@@ -10,7 +10,6 @@ class HomeController {
         
         models.Movie.findAll({
            include: [{
-
                model: models.Image,
                where: {},
 

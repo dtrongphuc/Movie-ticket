@@ -17,10 +17,10 @@ class PayController {
 			time: date,
 			total: data.ordertotal,
 			userId: userId,
-			showtimeId: 1,
+			showtimeId: data.ordershowtimeId,
 
 		});
-		for(var i =0; i< seats.length ; i++){
+		for(var i = 0; i < seats.length ; i++){
 			await models.Ticket.create({
 
 				seatId: seats[i],
@@ -29,7 +29,6 @@ class PayController {
 				
 			});
 		}
-
 		res.redirect('/ticket/order');
 
 	}

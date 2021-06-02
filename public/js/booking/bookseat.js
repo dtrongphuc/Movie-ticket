@@ -1,6 +1,11 @@
 import Session from './session.js';
 import Api from './api.js';
+
+const express = require('express');
+const models = require('../../../db/connection');
+const { Sequelize, QueryTypes } = require('sequelize');
 class Bookseat {
+
 	constructor() {
 		this.session = Session();
 		this.state = {
@@ -12,6 +17,7 @@ class Bookseat {
 
 		this.init().then(() => {
 			this.renderTiket();
+			this.setSeatSession();
 		});
 	}
 
@@ -42,6 +48,27 @@ class Bookseat {
 
 		document.querySelector('#ticket-movie-money1').innerHTML = this.state.fare;
 	}
+
+	// Lay danh sach ghe ngoi cua phim va Rap phim hien tai
+	async setSeatSession() {
+
+        var movieId = this.session.getSession()?.movieId;
+        var cinemaId = this.session.getSession()?.cinemaId;
+
+        var query = `Select tk."seatId" from tickets as tk join bookings as bk on bk.id = tk."bookingId" 
+						join showtimes as st on bk."showtimeId" = st.id Where st."movieId" = movieid and st."cinemaId" = cinemaid`;
+        var result = await models.sequelize.query(query,
+            {
+				replacements: { 
+                    movieid: movieId,
+                    cinemaid: cinemaId
+                 },
+                raw: false,
+                type: QueryTypes.SELECT
+            }
+        );
+		sessionStorage.setItem('Seats', JSON.stringify(result));
+    };
 
 }
 
