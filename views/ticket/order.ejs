@@ -11,6 +11,7 @@
             </div>
         </div>
 
+        <form action="/ticket/order" method="post">
         <!-- //order -->
         <div class="order">
             <div class="container">
@@ -22,38 +23,38 @@
                             <div class="order__movie">
                                 <div class="row" style="margin-bottom: 30px;">
                                     <div class="col-2 col-md-6 col-sm-12 d-flex justify-content-end">
-                                        <div class="order__movie-img">
-                                            <img src="/images/LatMat/poster_LM.jpg" alt="" width="103px">
+                                        <div class="order__movie-img" >
+                                            <img id="order-movie-img" src="" alt="" width="103px">
                                         </div>
                                     </div>
-                                    <div class="col-8 col-md-6 col-sm-12">
-                                        <div class="order__movie-title">49K ĐIỆP VIÊN SIÊU LẦY(2DPhụ đề)</div>
+                                    <div class="col-8 col-md-6 col-sm-12" >
+                                        <div class="order__movie-title" id="order-movie-name">49K ĐIỆP VIÊN SIÊU LẦY(2DPhụ đề)</div>
                                         <div class="order__movie-info">
                                             <ul>
                                                 <li>
-                                                    Ngày chiếu <span> 16/05/2021(Chủ nhật)</span>
+                                                    Ngày chiếu <span id="order-movie-date" ></span>
                                                 </li>
                                                 <li>
-                                                    Lịch chiếu <span>phim 15:30 ~ 17:31</span>
+                                                    Lịch chiếu <span id="order-movie-time" ></span>
                                                 </li>
                                                 <li>
-                                                    Rạp chiếu <span> Vinh</span>
+                                                    Rạp chiếu <span id="order-movie-cinema"></span>
                                                 </li>
                                                 <li>
                                                     Phòng chiếu <span> Screen04</span>
                                                 </li>
                                                 <li>
-                                                    Số lượt truy cập <span> Người lớn - 1</span>
+                                                    Số lượt truy cập Người lớn - <span id="order-movie-count">  </span>
                                                 </li>
                                                 <li>
-                                                    Ghế ngồi<span> A8</span>
+                                                    Ghế ngồi <span id="order-movie-seat"></span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div
                                         class="col-2 col-md-12 col-sm-12 d-flex align-items-center justify-content-center">
-                                        <div class="order__movie-price">49.000₫</div>
+                                        <div class="order__movie-price" id="order-movie-price"></div>
                                     </div>
                                 </div>
                             </div>
@@ -63,8 +64,7 @@
                                         <div class="order__total--lable">Tổng số tiền đặt hàng</div>
                                     </div>
                                     <div class="col-2">
-                                        <div class="order__total--price">
-                                            49.000₫
+                                        <div class="order__total--price" id="order-movie-total">
                                         </div>
                                     </div>
                                 </div>
@@ -283,19 +283,27 @@
                     <div class="col-1"></div>
                 </div>
 
-
             </div>
         </div>
 
+        <input type="text"  id="orderseat"  name="orderseat" value="" hidden>
+        <input type="text"  id="ordertotal"  name="ordertotal" value="" hidden>
+        <input type="text"  id="ordershowtimeId" name="ordershowtimeId" value="" hidden>
+        <input type="text"  id="ordernumberSeat"  name="ordernumberSeat" value="" hidden>
+        <input type="text"  id="orderprice"  name="orderprice" value="" hidden>
+        <button class="confirmOrder__price--btn" style="margin-left: 1300px;" type="submit" onclick="removSession()" >
+            Thanh toán
+        </button>
 
+    </form>
 
         <div class="bookseat__step">
             <div class="container">
                 <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
-                        <div class="bookseat__step--pre">
-                            <a href="/ticket/book" class=" d-flex align-items-center">
+                        <div class="bookseat__step--pre" >
+                            <a href="/ticket/bookseat" class=" d-flex align-items-center">
                                 <img class="imgpre" src="/images/icons/leftarrow.png" alt="" width="26px">
                                 <span>Trở về</span>
                             </a>
@@ -306,6 +314,7 @@
             </div>
         </div>
 
+        <!--
         <div class="confirmOrder">
             <div class="container">
                 <div class="row">
@@ -340,9 +349,9 @@
                                 <div class="confirmOrder-price confirmOrder__items">
                                     <div class="confirmOrder-title">Tổng tiền đơn hàng</div>
                                     <div class="confirmOrder__price--big">98.000đ</div>
-                                    <div class="confirmOrder__price--btn">
+                                    <button class="confirmOrder__price--btn">
                                         Thanh toán
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -351,6 +360,13 @@
                 </div>
             </div>
         </div>
+
+        -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="module" src="/js/booking/pay.js"></script>
+        <script src="/js/booking/chooseseat.js"></script>
 
         <script>
             const btn_showPay = document.querySelector('.btn-showpay');
@@ -374,3 +390,4 @@
 
         </script>
         <%- include('../layouts/footer'); -%>
+       

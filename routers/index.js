@@ -7,22 +7,18 @@ const adminRouter = require('./admin/index');
 const authAdminRouter = require('./admin/auth');
 const homeRouter = require('./home');
 const ticketRouter = require('./ticket');
-const bookingApi = require('./api/booking');
 
 function route(app) {
-	app.use('/ticket',  isAuth, ticketRouter);
-	app.use('/api', bookingApi);
+	app.use('/auth', authRouter);
 
-	app.use('/auth' ,isAuth, authRouter);
-	
 	//app.use('/', );
 
-	app.use('/', isAuth, homeRouter);
-
+	app.use('/', homeRouter);
 	app.use('/movie', movieRouter);
-	app.use('/user', userRouter);
-	app.use('/admin/dang-nhap', authAdminRouter);
 
+	app.use('/ticket', isAuth, ticketRouter);
+	app.use('/user', isAuth, userRouter);
+	app.use('/admin/dang-nhap', authAdminRouter);
 
 	//----------------------------------------ADMIN-------------------------//
 	// apply template layout
@@ -32,7 +28,6 @@ function route(app) {
 		'/admin',
 		function (req, res, next) {
 			const path = req.url.split('/')[1];
-			console.log("a "+ path);
 			let location = 'trang-chu';
 			let u3;
 			switch (path) {
@@ -63,7 +58,6 @@ function route(app) {
 		},
 		adminRouter
 	);
-	
 }
 
 module.exports = route;

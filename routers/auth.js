@@ -6,6 +6,7 @@ const loginMiddleware = require('../middlewares/auth/login.middleware');
 const registerMiddleware = require('../middlewares/auth/register.middleware');
 const { passport } = require('../middlewares/passport/index');
 
+router.get('/logout', authController.logout);
 // LOGIN ROUTES
 // GET
 router.get('/login', authController.getLogin);

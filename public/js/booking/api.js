@@ -1,18 +1,39 @@
 import Render from './renderWithEvent.js';
 import Session from './session.js';
 
+const toggleLoading = () => {
+	document.querySelector('.loading')?.classList.toggle('active');
+	console.log('toggle');
+};
+
 // Axios config
 axios.defaults.baseURL = `${location.origin}/api`;
+
+axios.interceptors.request.use(
+	function (config) {
+		// Do something before request is sent
+		toggleLoading();
+		return config;
+	},
+	function (error) {
+		// Do something with request error
+		toggleLoading();
+		return Promise.reject(error);
+	}
+);
+
 // Add a response interceptor
 axios.interceptors.response.use(
 	(response) => {
 		// Any status code that lie within the range of 2xx cause this function to trigger
 		// Do something with response data
+		toggleLoading();
 		return response.data;
 	},
 	(error) => {
 		// Any status codes that falls outside the range of 2xx cause this function to trigger
 		// Do something with response error
+		toggleLoading();
 		return Promise.reject(error);
 	}
 );
@@ -114,6 +135,20 @@ class Api {
 			});
 
 			return response.movie;
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	getFare = async (id) => {
+		try {
+			let response = await axios.get('/showtime/fare', {
+				params: {
+					id,
+				},
+			});
+
+			return response.fare;
 		} catch (error) {
 			console.log(error);
 		}

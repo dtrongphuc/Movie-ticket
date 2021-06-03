@@ -1,5 +1,6 @@
 <%- include('../layouts/header', {title: 'Phim' }); -%>
 <%-include('../layouts/navbar/navbar') -%>
+
 <div id="container" class="sub">
   <div id="content">
     <div class="screen_cwrap">
@@ -24,7 +25,7 @@
       <div class="tab_content on">
         <ul class="curr_list movie_clist" id="ulMovieList">
           <% movies.forEach(function(item, index) { %>
-          <li>
+          <li class="target">
             <div class="curr_box">
               <span class="num"><%= index += 1 %> </span>
               <span class="img">
@@ -37,13 +38,12 @@
               </span>
             </div>
 
-            <div class="layer_hover">
-              <a href="./" onclick="goToTiketing('10726');" class="btn_reserve1"
+            <div class="layer_hover" >
+              <a href="./ticket/book"  class="btn_reserve1"
                 >Đặt vé</a
               >
               <a
                 href="./detail/<%= item.id %>"
-                onclick="goToTiketing('10726');"
                 class="btn_reserve2"
                 >Chi tiet</a
               >
@@ -54,7 +54,7 @@
                 <a href="./"> <span class="grade_13"></span><%= item.name %></a>
               </dt>
               <dd>
-                <span class="rate"><%= item.time + 'phút'%></span>
+                <span class="rate"><%= item.time + ' phút'%></span>
                 <span class="grade"
                   ><em
                     ><%= moment(item.openingDay).format( 'DD-MM-YYYY') %></em
@@ -68,10 +68,6 @@
 
         <% } %>
 
-        <!-- button Them -->
-        <!-- <a href="javascript:void(0);" class="btn_view">
-          <span>Thêm</span>
-        </a> -->
       </div>
 
       <!-- end tab content on -->
@@ -80,4 +76,5 @@
 </div>
 
 <%- include('../layouts/footer'); -%>
+
 

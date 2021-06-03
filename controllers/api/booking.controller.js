@@ -416,7 +416,24 @@ module.exports = {
 				movie,
 			});
 		} catch (error) {
-			console.log(error);
+			return res.status(500).json({
+				success: false,
+				message: error,
+			});
+		}
+	},
+
+	getFare: async (req, res) => {
+		try {
+			const { id } = req.query;
+			let showtime = await models.Showtime.findByPk(id);
+			let fare = showtime.fare;
+
+			return res.status(200).json({
+				success: true,
+				fare,
+			});
+		} catch (error) {
 			return res.status(500).json({
 				success: false,
 				message: error,

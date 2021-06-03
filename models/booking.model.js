@@ -1,10 +1,10 @@
 const booking = (sequelize, type) => {
 	const booking = sequelize.define('booking', {
 		id: {
-			type: type.UUID,
+			type: type.INTEGER,
 			allownull: false,
 			primaryKey: true,
-			defaultValue: type.UUIDV4,
+			defaultValue: type.INTEGER,
 		},
 		time: {
 			type: type.DATE,

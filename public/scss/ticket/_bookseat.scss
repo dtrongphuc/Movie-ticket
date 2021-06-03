@@ -261,15 +261,15 @@ body
   float:left;
   margin-right:10px;
 }
-.greenBox::before
-{
-  content:"";
-  background:Green;
-}
 .redBox::before
 {
   content:"";
   background:Red;
+}
+.greenBox::before
+{
+  content:"";
+  background:Green;
 }
 .emptyBox::before
 {
@@ -282,8 +282,6 @@ body
 {
   border:1px solid red;background:yellow;
 } 
-
-
 
 .seatGap
 {
@@ -316,8 +314,6 @@ textarea
   background:transparent;
 }
 
-
-
 input[type=checkbox] {
     width:0px;
     margin-right:18px;
@@ -337,6 +333,11 @@ input[type=checkbox]:before {
 input[type=checkbox]:checked:before {
     background-color:Green;
     font-size: 15px;
+}
+// Class choose
+input.chooseSeat:before{
+  content:"";
+  background-color:Red;
 }
 
 .btn{

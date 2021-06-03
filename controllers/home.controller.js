@@ -10,12 +10,10 @@ class HomeController {
         
         models.Movie.findAll({
            include: [{
-
                model: models.Image,
                where: {},
 
            }],
-           limit: 5,
 		})
 		.then(movies => {
 			return res.render('content/content', {movies:movies});

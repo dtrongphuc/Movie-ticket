@@ -11,31 +11,31 @@ include('../layouts/navbar/navbar') -%>
     </div>
   </div>
 </div>
-
 <div class="bookseat__header" >
   <div class="container">
     <div class="row">
       <div class="col-1 col-lg-0"></div>
       <div class="col-10 col-lg-12">
+        <div class="seat__info--lable" style="padding-bottom: 15px; margin-left: 20px; color:rgb(247, 57, 57); font-size: 16px;" >
+          * Vui lòng chọn số lượng ghế trước khi chọn ghế
+        </div>
         <div
           class="
             bookseat__seattop
             d-flex
             justify-content-between
-            align-items-center
-          "
-        >
+            align-items-center">
           <div class="bookseat__seattop--title">
             <h2 style="margin: 0">Chọn ghế</h2>
           </div>
           <div class="bookseat__seattop--btn">
-            <button>
+            
+            <button onclick="window.location.href='/ticket/bookseat'">
               <img src="/images/icons/refresh.png" alt="" />
-              <span> Đặt lại</span>
+              <span > Đặt lại</span>
             </button>
           </div>
         </div>
-
         <div class="bookseat__box d-flex align-items-center">
           <div class="bookseat__box--lable">Người lớn</div>
           <div class="bookseat__box--select">
@@ -51,7 +51,6 @@ include('../layouts/navbar/navbar') -%>
               <option class="option" value="8">8</option>
             </select>
           </div>
-
           <button class="btn" onclick="takeData()"> Chọn ghế </button>
 
         </div>
@@ -78,12 +77,12 @@ include('../layouts/navbar/navbar') -%>
         <div class="seat__selectbox">
 
          <div class="seat__selectbox-row d-flex justify-content-center align-items-center">
+
             <table id="seatsBlock">
               <p id="notification"></p>
                   <tr>
                     <br/>
                   </tr>
-                  
                   <tr>
                     <td width="22px" height="22px"></td>
                     <td width="22px" height="22px" >1</td>
@@ -259,7 +258,7 @@ include('../layouts/navbar/navbar') -%>
             <span>Trở về</span>
           </a>
         </div>
-        <div class="bookseat__step--next">
+        <button class="bookseat__step--next" style="border: none; background:none" id="nextPage" onclick="getData()">
           <a href="/ticket/order" class="d-flex align-items-center">
             <span>Bước tiếp theo </span>
             <img
@@ -269,7 +268,7 @@ include('../layouts/navbar/navbar') -%>
               width="26px"
             />
           </a>
-        </div>
+        </button >
       </div>
       <div class="col-1"></div>
     </div>
@@ -324,7 +323,7 @@ include('../layouts/navbar/navbar') -%>
                   justify-content-end
                 "
               >
-                <p>49.000</p>
+                <p id="ticket-movie-money1"></p>
                 <span style="text-decoration: underline; margin-left: 5px"
                   >đ</span
                 >
@@ -350,7 +349,7 @@ include('../layouts/navbar/navbar') -%>
                   >
                     Đặt trước phim
                   </div>
-                  <div class="bookseat__footer-info--value">150.000₫</div>
+                  <div id="ticket-movie-money2" class="bookseat__footer-info--value">0đ</div>
                 </div>
               </div>
               <div
@@ -362,7 +361,7 @@ include('../layouts/navbar/navbar') -%>
                 "
                 style="margin-top: 70px"
               >
-                <p>49.000</p>
+                <p id="ticket-movie-money3">0đ</p>
                 <span style="text-decoration: underline; margin-left: 5px"
                   >đ</span
                 >
@@ -375,11 +374,13 @@ include('../layouts/navbar/navbar') -%>
     </div>
   </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script type="module" src="/js/booking/bookseat.js"></script>
 <script src="/js/booking/modal.js"></script>
 <script src="/js/booking/choose.js"></script>
+<!-- <script src="/js/booking/chooseseat.js"></script> -->
 
 </body>
 <%- include('../layouts/footer'); -%>
