@@ -15,11 +15,11 @@
                             <div class="profileinfo-box__img d-flex justify-content-center">
                                 <img src="/images/icons/user.png" alt="">
                                 <div class="showmodal__updateprofile">
-                                    <button data-modal="#modal2"
-                                        class="btn btn--updateprofile d-flex align-items-center modal__trigger">
+                                    <div data-modal="#modal2"
+                                        class="btn_ofProfile btn--updateprofile d-flex align-items-center modal__trigger" style="border: none;">
                                         <img src="/images/icons/edit.png" alt="" width="25px" style="padding: 2px;">
                                         <span>Sửa thông tin</span>
-                                    </button>
+                                </div>
                                 </div>
                                 <div id="modal2" class="modal modal--align-top modal__bg" role="dialog"
                                     aria-hidden="true">
@@ -48,7 +48,7 @@
                                                             value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
 
-                                                    <button type="submit" class="btn btn--updateprofile btn_updateinfo "
+                                                    <button type="submit" class="btn_ofProfile btn--updateprofile btn_updateinfo "
                                                         style="margin-top: 20px;">
                                                         Lưu thay đổi
                                                     </button>
