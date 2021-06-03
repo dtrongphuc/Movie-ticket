@@ -24,8 +24,8 @@
 	}
 
 	&__navbar {
-		padding-top: 10px;
-		padding-bottom: 26px;
+		padding-top: 16px;
+		padding-bottom: 24px;
 	}
 }
 
@@ -50,6 +50,23 @@
 			width: 1px;
 			height: 16px;
 			border-right: 1px solid #dedede;
+		}
+
+		&--active {
+			color: #000;
+			font-weight: 600;
+			position: relative;
+
+			&::before {
+				content: url('/images/icons/bullet02.gif');
+				position: absolute;
+				width: 5px;
+				height: 5px;
+				color: #000;
+				bottom: -8px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
 		}
 
 		& > a {

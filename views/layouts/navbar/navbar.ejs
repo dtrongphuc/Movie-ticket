@@ -7,11 +7,33 @@
 	</div>
 	<nav class="header__navbar">
 		<ul class="navbar__list">
-			<li class="navbar__item">
-				<a href="/ticket/book">mua vé</a>
-			</li>
-			<li class="navbar__item">
+			<li
+				class="
+					navbar__item
+					<%-
+					location
+					===
+					'home'
+					&&
+					'navbar__item--active'
+					%>
+				"
+			>
 				<a href="/">phim</a>
+			</li>
+			<li
+				class="
+					navbar__item
+					<%-
+					location
+					===
+					'ticket'
+					&&
+					'navbar__item--active'
+					%>
+				"
+			>
+				<a href="/ticket/book">mua vé</a>
 			</li>
 		</ul>
 	</nav>

@@ -7,20 +7,17 @@ const adminRouter = require('./admin/index');
 const authAdminRouter = require('./admin/auth');
 const homeRouter = require('./home');
 const ticketRouter = require('./ticket');
-const bookingApi = require('./api/booking');
 
 function route(app) {
-	app.use('/api', bookingApi);
-
-	app.use('/auth', isAuth, authRouter);
+	app.use('/auth', authRouter);
 
 	//app.use('/', );
 
-	app.use('/', isAuth, homeRouter);
-	app.use('/ticket', isAuth, ticketRouter);
-
+	app.use('/', homeRouter);
 	app.use('/movie', movieRouter);
-	app.use('/user', userRouter);
+
+	app.use('/ticket', isAuth, ticketRouter);
+	app.use('/user', isAuth, userRouter);
 	app.use('/admin/dang-nhap', authAdminRouter);
 
 	//----------------------------------------ADMIN-------------------------//

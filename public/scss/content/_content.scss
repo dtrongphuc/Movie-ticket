@@ -1,267 +1,265 @@
 body {
-  font-size: 12px;
-  font-family: "Arial", "Helvetica", "sans-serif";
-  font-weight: 400;
-  color: #555;
-  line-height: 1;
+	font-size: 12px;
+	font-family: 'Arial', 'Helvetica', 'sans-serif';
+	font-weight: 400;
+	color: #555;
+	line-height: 1;
 }
 
 div {
-  display: block;
+	display: block;
 }
 
 ol,
 ul,
 li {
-  list-style: none;
+	list-style: none;
 }
 
 address,
 caption,
 em {
-  font-weight: normal;
-  font-style: normal;
+	font-weight: normal;
+	font-style: normal;
 }
 
 a {
-  text-decoration: none;
-  color: #555;
+	text-decoration: none;
+	color: #555;
 }
 
 img {
-  border: 0;
-  vertical-align: middle;
+	border: 0;
+	vertical-align: middle;
 }
 // Button Chosse
 #container.sub {
-  margin: 39px 0 0 0;
+	margin: 39px 0 0 0;
 }
 
 #container {
-  position: relative;
-  min-width: 980px;
-  border-top: 1px solid #e9e4d2;
-  min-height: 669px;
+	position: relative;
+	min-width: 980px;
+	min-height: 669px;
 }
 
 #content {
-  position: relative;
-  min-height: 400px;
+	position: relative;
+	min-height: 400px;
 }
 
 .screen_cwrap {
-  width: 980px;
-  margin: 0 auto;
-  padding-top: 40px;
+	width: 980px;
+	margin: 0 auto;
+	padding-top: 40px;
 }
 
 .screen_cwrap .tab_st02 {
-  margin-bottom: 17px;
+	margin-bottom: 17px;
 }
 .tab_st02 {
-  margin-bottom: 29px;
-  text-align: center;
+	margin-bottom: 29px;
+	text-align: center;
 }
 
 .tab_st02 li {
-  display: inline-block;
+	display: inline-block;
 }
 
 .tab_st02 li a.on {
-  background: #231f20 url(../../images/content/btn_st02_on.gif) no-repeat 0 0;
-  color: #cdc197;
-  font-weight: bold;
+	background: #231f20 url(../../images/content/btn_st02_on.gif) no-repeat 0 0;
+	color: #cdc197;
+	font-weight: bold;
 }
 .tab_st02 li a {
-  display: block;
-  width: 175px;
-  height: 50px;
-  margin-left: 1px;
-  background: #efebdb;
-  color: #6f6247;
-  font-size: 16px;
-  line-height: 50px;
-  text-align: center;
+	display: block;
+	width: 175px;
+	height: 50px;
+	margin-left: 1px;
+	background: #efebdb;
+	color: #6f6247;
+	font-size: 16px;
+	line-height: 50px;
+	text-align: center;
 }
 
 .tab_st02:after {
-  content: "";
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 //Item list
 .screen_cwrap .item_list {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .blind {
-  overflow: hidden;
-  position: absolute;
-  left: -9999px !important;
-  top: -9999px !important;
+	overflow: hidden;
+	position: absolute;
+	left: -9999px !important;
+	top: -9999px !important;
 }
 
 .item_list:after {
-  content: "";
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 // Tap content
 .screen_cwrap .tab_content.on {
-  display: block;
+	display: block;
 }
 .screen_cwrap .tab_content {
-  display: none;
-  padding-bottom: 10px;
+	display: none;
+	padding-bottom: 10px;
 }
 
 .movie_clist {
 }
 
 .curr_list {
-  margin-left: -20px;
-  min-height: 441px;
+	margin-left: -20px;
+	min-height: 441px;
 }
 .curr_list:after {
-  content: "";
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 .movie_clist.curr_list > li {
-  width: 230px;
-  height: 411px;
-  margin: 0 0 40px 20px;
+	width: 230px;
+	height: 411px;
+	margin: 0 0 40px 20px;
 }
 .curr_list > li {
-  position: relative;
-  float: left;
-  width: 180px;
-  height: 340px;
-  margin: 0 0 30px 20px;
-  border: 1px solid #dedede;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+	position: relative;
+	float: left;
+	width: 180px;
+	height: 340px;
+	margin: 0 0 30px 20px;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 .curr_list .curr_box {
-  position: relative;
+	position: relative;
 }
 .curr_list .num {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 11;
-  display: block;
-  width: 100%;
-  height: 49px;
-  background: url(../../images/content/bg_w_mk.png) repeat-y left bottom;
-  font-size: 28px;
-  color: #fff;
-  font-family: "linlivertine";
-  font-weight: bold;
-  padding: 5px 0 0 20px;
-  font-style: italic;
-  line-height: 45px;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  text-align: left;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 11;
+	display: block;
+	width: 100%;
+	height: 49px;
+	background: url(../../images/content/bg_w_mk.png) repeat-y left bottom;
+	font-size: 28px;
+	color: #fff;
+	font-family: 'linlivertine';
+	font-weight: bold;
+	padding: 5px 0 0 20px;
+	font-style: italic;
+	line-height: 45px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-align: left;
 }
 .movie_clist.curr_list .img {
-  width: 228px;
-  height: 334px;
+	width: 228px;
+	height: 334px;
 }
 
 .curr_list a {
-  display: block;
+	display: block;
 }
 
 // Hover
 .layer_hover {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 228px;
-  height: 334px;
-  padding: 100px 10px 0;
-  background: url("../../images/content/bg_mask06_2.png") repeat;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  line-height: 27px;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  z-index: 11;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 228px;
+	height: 334px;
+	padding: 100px 10px 0;
+	background: url('../../images/content/bg_mask06_2.png') repeat;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	line-height: 27px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	z-index: 11;
 }
 
-.layer_hover [class^="btn_"] {
-  font-size: 15px;
+.layer_hover [class^='btn_'] {
+	font-size: 15px;
 }
 
 .layer_hover .btn_reserve2 {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
-.layer_hover [class^="btn_"] {
-  width: 100%;
-  height: 50px;
-  border: 1px solid #c0b687;
-  color: #c0b687;
-  text-align: center;
-  font-size: 16px;
-  line-height: 50px;
-  font-weight: bold;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  font-weight: bold;
-
+.layer_hover [class^='btn_'] {
+	width: 100%;
+	height: 50px;
+	border: 1px solid #c0b687;
+	color: #c0b687;
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+	font-weight: bold;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-weight: bold;
 }
 
-.target:hover > .layer_hover{
-  display: block;
+.target:hover > .layer_hover {
+	display: block;
 }
 
 //List text
 .curr_list .list_text dt {
-    padding: 10px 9px 10px 9px;
-    border-bottom: 1px solid #dedede;
+	padding: 10px 9px 10px 9px;
+	border-bottom: 1px solid #dedede;
 }
 
 .curr_list .list_text dt a {
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 16px;
-    color: #231f20;
-    font-weight: bold;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 16px;
+	color: #231f20;
+	font-weight: bold;
 }
 
 .curr_list .list_text dd {
-    line-height: 30px;
+	line-height: 30px;
 }
 .curr_list .list_text dd .rate {
-    display: inline-block;
+	display: inline-block;
 }
 .curr_list .list_text dd .grade {
-    position: relative;
-    display: inline-block;
-    margin-left: 6px;
-    padding-left: 8px;
+	position: relative;
+	display: inline-block;
+	margin-left: 6px;
+	padding-left: 8px;
 }
 
 .curr_list .list_text dd .grade:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 1px;
-    height: 11px;
-    background: #dfdfdf;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 10px;
+	width: 1px;
+	height: 11px;
+	background: #dfdfdf;
 }
