@@ -12,7 +12,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"axios": "^0.21.1",
-		"const bcrypt = require('bcrypt');": "^5.0.1",
+		"bcrypt": "^5.0.1",
 		"body-parser": "^1.19.0",
 		"cloudinary": "^1.25.1",
 		"cookie-parser": "^1.4.5",
@@ -24,6 +24,7 @@
 		"faker": "^5.5.3",
 		"moment": "^2.29.1",
 		"multer": "^1.4.2",
+		"node-sessionstorage": "^1.0.0",
 		"nodemailer": "^6.6.0",
 		"passport": "^0.4.1",
 		"passport-facebook": "^3.0.0",
@@ -33,6 +34,8 @@
 		"query-string": "^7.0.0",
 		"randomstring": "^1.2.1",
 		"sequelize": "^6.6.2",
+		"sessionstorage": "^0.1.0",
+		"sessionstorage-for-nodejs": "^1.0.0",
 		"sweetalert2": "^10.16.7"
 	},
 	"devDependencies": {
