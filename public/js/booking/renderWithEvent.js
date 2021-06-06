@@ -79,7 +79,9 @@ export default function Render() {
 			(showtime) => `<div class="col-2">
 			<div class="showtime__theater--type">Loại ghế:${showtime.cinema.type}</div>
 			<div class="showtime__box" data-id="${showtime.id}">
-				<a href="/ticket/bookseat">
+				<a href="/ticket/bookseat?cinemaId=${session.getSession().cinemaId}&movieId=${
+				session.getSession().movieId
+			}">
 					<div class="showtime__box--screen">Screen</div>
 					<!-- startShow: thời gian bắt đầu phim -->
 					<div class="showtime__box--time startShow">${showtime.time}</div>
