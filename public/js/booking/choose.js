@@ -1,9 +1,21 @@
 
-var seatChoose = ['E1', 'A2' ,'E12'];
-
+var seatChoose = [];
 var allSeatsVals = [];
 function onLoaderFunc() {
   $(".seatStructure *").prop("disabled", true);
+
+
+  var oTable = document.getElementById('noChooseSeat');
+    var rowLength = oTable.rows.length;
+
+    for (i = 0; i < rowLength; i++){
+       var oCells = oTable.rows.item(i).cells;
+       var cellLength = oCells.length;
+       for(var j = 0; j < cellLength; j++){
+              var cellVal = oCells.item(j).innerHTML;
+              seatChoose.push(cellVal);
+           }
+    }
 
   $('#seatsBlock tr').each(function(){
     $(this).find('td').each(function(){
@@ -69,7 +81,7 @@ $(":checkbox").click(function () {
 
 
 function getData(){
-
+  
     const totalpay = $("#ticket-movie-money2").text();
     const mumberSeats = allSeatsVals;
     const length = JSON.stringify(allSeatsVals);

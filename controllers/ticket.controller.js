@@ -2,17 +2,23 @@
 const express = require('express');
 const models = require('../db/connection');
 const { Sequelize, QueryTypes } = require('sequelize');
-const Session = require('./api/sessionSeat.controller');
 
 module.exports = {
-
+  
 	getBooking: (req, res) => {
 		return res.render('ticket/book');
 	},
 
 	async bookseat(req, res) {
+
         //const session = Session.getSession;
-        var movieId =  5;
+
+        // const data1 = req.movie?.id;
+        // const data2 = req.showtime?.id;
+        // console.log(data1);
+        // console.log(data2);
+
+        var movieId =  3;
         var cinemaId = 10;
 
         var query = `Select tk."seatId" from tickets as tk join bookings as bk on bk.id = tk."bookingId" 
@@ -27,10 +33,9 @@ module.exports = {
                 type: QueryTypes.SELECT
             }
         )
+        console.log(typeof result);
+        return res.render('ticket/bookseat' , {result : result });
 
-		const auth = sessionStorage.setItem('seatSession', JSON.stringify(result));
-
-		return res.render('ticket/bookseat');
 	},
 
 	order: (req, res) => {
