@@ -366,7 +366,7 @@ include('../layouts/navbar/navbar') -%>
                 >
               </div>
 
-              <table id='noChooseSeat'>
+              <table id='noChooseSeat' hidden>
                 <tr>
                   <% result.forEach(function(item, index) { %>
                   <td><%= result[index]['seatId']%></td> 

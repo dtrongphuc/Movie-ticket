@@ -11,29 +11,22 @@ module.exports = {
 
 	async bookseat(req, res) {
 
-        //const session = Session.getSession;
-
-        // const data1 = req.movie?.id;
-        // const data2 = req.showtime?.id;
-        // console.log(data1);
-        // console.log(data2);
-
-        var movieId =  3;
-        var cinemaId = 10;
+        var movieId =  req.query.movieId;
+        var cinemaId = req.query.cinemaId;
 
         var query = `Select tk."seatId" from tickets as tk join bookings as bk on bk.id = tk."bookingId" 
 						join showtimes as st on bk."showtimeId" = st.id Where st."movieId" = :movieId and st."cinemaId" = :cinemaId`;
+
         var result = await models.sequelize.query(query,
             {
 				replacements: { 
                     movieId: movieId,
                     cinemaId: cinemaId
-                 },
+                },
                 raw: false,
                 type: QueryTypes.SELECT
             }
         )
-        console.log(typeof result);
         return res.render('ticket/bookseat' , {result : result });
 
 	},

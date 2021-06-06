@@ -13,16 +13,17 @@ const init = function(e) {
     document.querySelector("#orderseat").value = sessionStorage.getItem('lenghtSeat');
     document.querySelector("#ordernumberSeat").value = JSON.parse(sessionStorage.getItem('numberSeat'));
 
-   
 };
 
 document.addEventListener('DOMContentLoaded', function(){
     init();
 });
 
-
 function removSession(){
-    sessionStorage.removeItem("totalPay");
-    sessionStorage.removeItem("numberSeat");
-    sessionStorage.removeItem("lenghtSeat");
+    var conf = confirm("Bạn muốn booking! ");
+    if(conf == true){
+        sessionStorage.removeItem("totalPay");
+        sessionStorage.removeItem("numberSeat");
+        sessionStorage.removeItem("lenghtSeat");
+    }
 }
