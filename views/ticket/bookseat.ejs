@@ -70,7 +70,6 @@ include('../layouts/navbar/navbar') -%>
             <img src="/images/seat/screen.gif" alt="" width="100%" />
             <span>Screen</span>
           </div>
-
           <!-- Nếu chưa chọn số ghế -->
           <!-- thì thêm id="btn-seatmodal" vào li để hiện modal message -->
         <div class="seatStructure" >
@@ -366,6 +365,15 @@ include('../layouts/navbar/navbar') -%>
                   >đ</span
                 >
               </div>
+
+              <table id='noChooseSeat'>
+                <tr>
+                  <% result.forEach(function(item, index) { %>
+                  <td><%= result[index]['seatId']%></td> 
+                  <% }) %>
+                </tr>
+              </table>
+
             </div>
           </div>
         </div>
