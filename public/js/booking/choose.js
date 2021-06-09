@@ -7,7 +7,6 @@ function onLoaderFunc() {
 
   var oTable = document.getElementById('noChooseSeat');
     var rowLength = oTable.rows.length;
-
     for (i = 0; i < rowLength; i++){
        var oCells = oTable.rows.item(i).cells;
        var cellLength = oCells.length;

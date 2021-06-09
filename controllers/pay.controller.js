@@ -11,7 +11,6 @@ class PayController {
 		var seats = data.ordernumberSeat.slice(0, data.orderseat.length - 2).split(',');
 		var userId = req.user?.id;
 
-
 		await models.Booking.create({
 			id: bookingId + 1,
 			time: date,
@@ -30,7 +29,7 @@ class PayController {
 			});
 		}
 		res.redirect('/ticket/order');
-
+		next();
 	}
 
 }
