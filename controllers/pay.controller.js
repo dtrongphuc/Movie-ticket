@@ -21,7 +21,6 @@ class PayController {
 		});
 		for(var i = 0; i < seats.length ; i++){
 			await models.Ticket.create({
-
 				seatId: seats[i],
 				price: data.orderprice,
 				bookingId: bookingId + 1,

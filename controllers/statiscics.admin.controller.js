@@ -62,8 +62,8 @@ class Statistics {
             }
         );
         res.status(200).json(result);
+        
     };
-
 }
 
 module.exports = new Statistics
