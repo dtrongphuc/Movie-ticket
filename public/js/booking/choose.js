@@ -35,7 +35,11 @@ function takeData() {
     alert("Vui lòng chọn số lượng ghế");
   }
   else {
-    $(".seatStructure *").prop("disabled", false);
+    $('#seatsBlock tr').each(function(){
+      $(this).find('td').each(function(){
+        $(this).find('input[type=checkbox].seats').prop("disabled", false);
+      })
+    })
     document.getElementById("notification").innerHTML = "<b style='margin-bottom:0px;background:yellow;'>Vui lòng chọn ghế!</b>";
   }
 }
