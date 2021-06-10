@@ -1,0 +1,129 @@
+.movie {
+	&-section {
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+}
+
+.movie-item {
+	$border-color: #dedede;
+	position: relative;
+	border: 1px solid $border-color;
+	width: 100%;
+	height: 430px;
+
+	&:hover {
+		.movie-item__top > .movie-item__overlay {
+			display: flex;
+		}
+	}
+
+	&__top {
+		position: relative;
+		width: 100%;
+	}
+
+	&__middle {
+		& > a {
+			display: block;
+			padding: 12px 15px;
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-top: 1px solid $border-color;
+	}
+
+	&__img {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: top center;
+		padding-top: 100%;
+		height: 360px;
+	}
+
+	&__description {
+		position: relative;
+		text-align: center;
+		padding: 8px 15px;
+		font-size: 13px;
+		color: #777;
+
+		&:nth-child(2)::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 10px;
+			background-color: rgb(156, 156, 156);
+		}
+	}
+
+	&__name {
+		color: #231f20;
+		font-size: 14px;
+		margin: 0;
+		font-weight: 600;
+
+		text-transform: uppercase;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		word-break: break-word;
+	}
+
+	&__number {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 14px;
+		padding: 12px 15px;
+
+		&.rank {
+			font-family: 'linlivertine';
+			font-size: 26px;
+			font-style: italic;
+			font-weight: 700;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		display: none;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background-color: rgba($color: #000000, $alpha: 0.8);
+		z-index: 2;
+	}
+}
+
+.btn-movie__overlay {
+	margin: 6px 0;
+	width: calc(100% - 30px);
+	border: 1px solid rgb(192, 182, 135);
+	height: 50px;
+	line-height: 50px;
+	background: transparent;
+	font-size: 15px;
+	font-weight: 600;
+
+	& > a {
+		display: block;
+		color: rgb(192, 182, 135);
+	}
+}
