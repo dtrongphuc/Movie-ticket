@@ -10,9 +10,7 @@ class PayController {
 				'-' +
 				today.getDate();
 			var data = req.body;
-			var seats = data.ordernumberSeat
-				.slice(0, data.orderseat.length - 2)
-				.split(',');
+			var seats = `${data.ordernumberSeat}`.split(',');
 			var userId = req.user?.id;
 
 			let showtime = await models.Showtime.findByPk(data.ordershowtimeId);
@@ -39,10 +37,12 @@ class PayController {
 			);
 			newBooking.total = totalPrice;
 			await newBooking.save();
+
 			return res.redirect(
 				'/ticket/order?error=' + encodeURIComponent('Incorrect')
 			);
 		} catch (error) {
+			console.log(error);
 			return res.redirect(
 				'/ticket/order?error=' + encodeURIComponent('NoIncorrect')
 			);

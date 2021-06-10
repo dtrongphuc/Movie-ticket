@@ -96,9 +96,7 @@ $(':checkbox').click(function () {
 function getData() {
 	const totalpay = $('#ticket-movie-money2').text();
 	const mumberSeats = allSeatsVals;
-	const length = JSON.stringify(allSeatsVals);
 	sessionStorage.setItem('totalPay', totalpay);
 	sessionStorage.setItem('numberSeat', JSON.stringify(mumberSeats));
-	sessionStorage.setItem('lenghtSeat', length);
 	window.document.location = '/views/ticket/order.ejs';
 }

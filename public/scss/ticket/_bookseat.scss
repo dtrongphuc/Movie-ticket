@@ -105,6 +105,10 @@
 		background: #fff;
 		.seat {
 			&__info {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 20px;
 				&-bottom {
 					border-top: 1px solid;
 					padding: 10px 0;
@@ -345,7 +349,7 @@ input.chooseSeat:before {
 
 .btn__confirm {
 	padding: 6px 12px;
-	margin-left: 850px;
+	margin: auto 0;
 	font-size: 16px;
 	text-align: center;
 	border: 1px solid rgb(6, 104, 6);

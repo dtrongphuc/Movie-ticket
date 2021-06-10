@@ -14,9 +14,9 @@ include('../layouts/navbar/navbar') -%>
 <div class="bookseat__header" >
   <div class="container">
     <div class="row">
-      <div class="col-1 col-lg-0"></div>
-      <div class="col-10 col-lg-12">
-        <div class="seat__info--lable" style="padding-bottom: 15px; margin-left: 20px; color:rgb(247, 57, 57); font-size: 16px;" >
+      <!-- <div class="col-1 col-lg-0"></div> -->
+      <div class="col-12 col-lg-12">
+        <div class="seat__info--lable" style="padding-bottom: 15px; color:rgb(247, 57, 57); font-size: 16px;" >
           * Vui lòng chọn số lượng ghế trước khi chọn ghế
         </div>
         <div
@@ -55,7 +55,7 @@ include('../layouts/navbar/navbar') -%>
 
         </div>
       </div>
-      <div class="col-1 col-lg-0"></div>
+      <!-- <div class="col-1 col-lg-0"></div> -->
     </div>
   </div>
 </div>
@@ -63,8 +63,7 @@ include('../layouts/navbar/navbar') -%>
 <div class="bookseat__body" >
   <div class="container">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
+      <div class="col-12">
         <div class="seat__select">
           <div class="seat__select-screen">
             <img src="/images/seat/screen.gif" alt="" width="100%" />
@@ -202,38 +201,35 @@ include('../layouts/navbar/navbar') -%>
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
-
+        </div>
       </div>
-
-      <button class="btn__confirm" onclick="updateTextArea()"> Xác nhận </button>
-
-    </div>
-          <div class="seat__info" >
-            <div class="seat__info--lable" style="padding: 10px 0; margin-left: 150px; ">
-              * Nhấp lại vào chỗ ngồi đã chọn để hủy.
+      <div class="col-12">
+        <div class="seat__info" >
+          <div class="seat__info--lable">
+            * Nhấp lại vào chỗ ngồi đã chọn để hủy.
+          </div>
+          <div class="seat__info-list d-flex justify-content-end" >
+            <div class="seat__info-items d-flex align-items-center">
+              <div class="smallBox redBox">Chỗ đã được đặt</div><br/>
             </div>
-            <div class="seat__info-list d-flex justify-content-end" style="margin-bottom: 50px; width: 100%; margin-left: 400px;" >
-              <div class="seat__info-items d-flex align-items-center">
-                <div class="smallBox redBox">Chỗ đã được đặt</div><br/>
-              </div>
-              <div class="seat__info-items d-flex align-items-center">
-                <div class="smallBox greenBox">Chỗ ngồi đã chọn</div> <br/>
-              </div>
-              <div class="seat__info-items d-flex align-items-center">
-                <div class="smallBox emptyBox">Ghế trống</div><br/>
-              </div>
-           
+            <div class="seat__info-items d-flex align-items-center">
+              <div class="smallBox greenBox">Chỗ ngồi đã chọn</div> <br/>
+            </div>
+            <div class="seat__info-items d-flex align-items-center">
+              <div class="smallBox emptyBox">Ghế trống</div><br/>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-12" style="text-align: right;margin-bottom: 20px;">
+        <button class="btn__confirm" onclick="updateTextArea()">Xác nhận</button>
+      </div>
+  </div>
 
 
       </div>
-      <div class="col-1"></div>
     </div>
   </div>
 </div>
@@ -241,9 +237,8 @@ include('../layouts/navbar/navbar') -%>
 <div class="bookseat__step">
   <div class="container">
     <div class="row">
-      <div class="col-1"></div>
       <div
-        class="col-10 d-flex justify-content-between align-items-center"
+        class="col-12 d-flex justify-content-between align-items-center"
         style="padding: 13px 0"
       >
         <div class="bookseat__step--pre">
@@ -269,7 +264,6 @@ include('../layouts/navbar/navbar') -%>
           </a>
         </button >
       </div>
-      <div class="col-1"></div>
     </div>
   </div>
 </div>
@@ -277,8 +271,7 @@ include('../layouts/navbar/navbar') -%>
 <div class="bookseat__footer">
   <div class="container">
     <div class="row">
-      <div class="col-1" style="padding: 0"></div>
-      <div class="col-10">
+      <div class="col-12">
         <div class="row">
           <div class="col-4" style="padding: 0; border-left: 1px solid #cdc197">
             <div class="bookseat__footer--items">
@@ -372,7 +365,6 @@ include('../layouts/navbar/navbar') -%>
           </div>
         </div>
       </div>
-      <div class="col-1"></div>
     </div>
   </div>
 </div>
