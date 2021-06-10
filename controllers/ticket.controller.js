@@ -33,5 +33,6 @@ module.exports = {
 
 	order: (req, res) => {
 		return res.render('ticket/order');
+
 	},
 };
