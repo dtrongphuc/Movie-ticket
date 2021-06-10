@@ -13,6 +13,15 @@ const init = function(e) {
     document.querySelector("#orderseat").value = sessionStorage.getItem('lenghtSeat');
     document.querySelector("#ordernumberSeat").value = JSON.parse(sessionStorage.getItem('numberSeat'));
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('error');
+    if(myParam != null){
+        if(myParam == "Incorrect"){
+            alert("Xác nhận thành công");
+        }else{
+            alert("Xác nhận không thành công");
+        }
+    }
 };
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -20,10 +29,12 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function removSession(){
-    var conf = confirm("Bạn muốn booking! ");
-    if(conf == true){
-        sessionStorage.removeItem("totalPay");
-        sessionStorage.removeItem("numberSeat");
-        sessionStorage.removeItem("lenghtSeat");
-    }
+
+    var conf = confirm(" Bạn muốn booking! ");
+    // if(conf == true){
+    //     sessionStorage.removeItem("totalPay");
+    //     sessionStorage.removeItem("numberSeat");
+    //     sessionStorage.removeItem("lenghtSeat");
+    // }
+    
 }
