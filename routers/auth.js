@@ -12,6 +12,7 @@ router.get('/logout', authController.logout);
 router.get('/login', authController.getLogin);
 router.get('/forgot-pwd', authController.getForgotPwdForm);
 router.get('/reset-pwd/:id/:verifyString', authController.getResetPwdForm);
+router.get('/pairing', authController.getConfirmPwd);
 
 //### GOOGLE
 router.get(
@@ -47,6 +48,7 @@ router.post(
 );
 router.post('/forgot-pwd', authController.postForgotPwd);
 router.post('/reset-pwd', authController.postResetPwd);
+router.post('/pairing', authController.postPairing);
 
 // REGISTER ROUTES
 // GET
