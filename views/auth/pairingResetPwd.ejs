@@ -1,0 +1,25 @@
+<%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<main>
+	<div class="auth__wrapper">
+		<div class="container-md">
+			<h3 class="auth__title auth__title--center">Quên mật khẩu</h3>
+			<div class="auth__form__wrapper center__form__wrapper">
+				<form action="/auth/forgot-pwd" method="POST" class="auth__form">
+					<% if(message) { %>
+					<div class="alert alert-<%- message?.type %>">
+						<%- message?.content %>
+					</div>
+					<% } %>
+					<p class="text-top">Chúng tôi sẽ gửi thư xác nhận đến bạn.</p>
+					<div class="form-group">
+						<label class="form-label" for="email">Email</label>
+						<input type="email" name="email" id="email" class="form-input" />
+					</div>
+					<button type="submit" class="register__form__submit">Gửi</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('../layouts/footer') -%>

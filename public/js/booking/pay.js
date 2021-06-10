@@ -29,27 +29,24 @@ class Bookseat {
 		]);
 	}
 
-
 	async renderOrder() {
-		
 		const session = this.session.getSession();
 
 		document.querySelector('#order-movie-img').src =
 			this.state.movie?.posterUrl;
 		document.querySelector('#order-movie-name').innerHTML =
 			this.state.movie?.name;
-		document.querySelector('#order-movie-date').innerHTML = this.state.dateString;
+		document.querySelector('#order-movie-date').innerHTML =
+			this.state.dateString;
 		document.querySelector('#order-movie-time').innerHTML =
 			this.state.duringTime;
 
-		document.querySelector('#order-movie-cinema').innerHTML = session.cinemaName;
+		document.querySelector('#order-movie-cinema').innerHTML =
+			session.cinemaName;
 
-		document.querySelector('#ordershowtimeId').value = this.session.getSession()?.showtimeId;
-
-		document.querySelector('#orderprice').value = this.state.fare;
-
+		document.querySelector('#ordershowtimeId').value =
+			this.session.getSession()?.showtimeId;
 	}
-
 }
 
 export default new Bookseat();

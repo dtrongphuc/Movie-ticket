@@ -1,36 +1,47 @@
-const express = require('express');
 const models = require('../db/connection');
-const { QueryTypes } = require('sequelize');
 class PayController {
-
-	async addBooking(req, res,next) {
-		const bookingId = await models.Booking.count({});
+	async addBooking(req, res, next) {
 		var today = new Date();
-		var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+		var date =
+			today.getFullYear() +
+			'-' +
+			(today.getMonth() + 1) +
+			'-' +
+			today.getDate();
 		var data = req.body;
-		var seats = data.ordernumberSeat.slice(0, data.orderseat.length - 2).split(',');
+		var seats = data.ordernumberSeat
+			.slice(0, data.orderseat.length - 2)
+			.split(',');
 		var userId = req.user?.id;
 
-		await models.Booking.create({
-			id: bookingId + 1,
+		let showtime = await models.Showtime.findByPk(data.ordershowtimeId);
+		let newBooking = await models.Booking.create({
 			time: date,
-			total: data.ordertotal,
+			total: 0,
 			userId: userId,
 			showtimeId: data.ordershowtimeId,
-
 		});
-		for(var i = 0; i < seats.length ; i++){
-			await models.Ticket.create({
-				seatId: seats[i],
-				price: data.orderprice,
-				bookingId: bookingId + 1,
-				
-			});
-		}
+
+		let tickets = await Promise.all(
+			[...Array(seats.length).keys()].map(async (i) => {
+				return await models.Ticket.create({
+					seatId: seats[i],
+					price: showtime.fare,
+					bookingId: newBooking.id,
+				});
+			})
+		);
+
+		const totalPrice = tickets.reduce(
+			(total, ticket) => total + parseInt(ticket.price),
+			0
+		);
+		newBooking.total = totalPrice;
+		await newBooking.save();
+
 		res.redirect('/ticket/order');
 		next();
 	}
-
 }
 
-module.exports = new PayController
+module.exports = new PayController();

@@ -1,15 +1,15 @@
 const booking = (sequelize, type) => {
 	const booking = sequelize.define('booking', {
 		id: {
-			type: type.INTEGER,
+			type: type.UUID,
 			allownull: false,
 			primaryKey: true,
-			defaultValue: type.INTEGER,
+			defaultValue: type.UUIDV4,
 		},
 		time: {
 			type: type.DATE,
 		},
-        total: {
+		total: {
 			type: type.DOUBLE,
 		},
 	});
@@ -28,4 +28,3 @@ const booking = (sequelize, type) => {
 };
 
 module.exports = booking;
-

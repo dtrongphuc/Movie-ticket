@@ -16,8 +16,7 @@
         <div class="order">
             <div class="container">
                 <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10">
+                    <div class="col-12">
                         <div class="order__title">Đặt hàng/Thanh toán</div>
                         <div class="order__info">
                             <div class="order__movie">
@@ -39,12 +38,6 @@
                                                 </li>
                                                 <li>
                                                     Rạp chiếu <span id="order-movie-cinema"></span>
-                                                </li>
-                                                <li>
-                                                    Phòng chiếu <span> Screen04</span>
-                                                </li>
-                                                <li>
-                                                    Số lượt truy cập Người lớn - <span id="order-movie-count">  </span>
                                                 </li>
                                                 <li>
                                                     Ghế ngồi <span id="order-movie-seat"></span>
@@ -72,7 +65,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-1"></div>
                 </div>
             </div>
         </div>
@@ -81,9 +73,8 @@
         <div class="pay">
 
             <div class="container">
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10">
+                <div class="row justify-content-center">
+                    <div class="col-12">
                         <div class="pay__inner">
                             <div class="pay__top d-flex justify-content-between">
                                 <div class="pay__top-title">Giảm giá</div>
@@ -279,29 +270,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-1"></div>
-
-                    <button class="confirmOrder__price--btn" style="margin-left: 1100px;" type="submit" onclick="removSession()" >
-                        Thanh toán
-                    </button>
+                    
+                    <div style="width: 100%; text-align: right;" class="col-12">
+                        <button class="confirmOrder__price--btn" type="submit" onclick="removSession()" >
+                            Thanh toán
+                        </button>
+                    </div>
             
                 </div>
             </div>
         </div>
 
-        <input type="text"  id="orderseat"  name="orderseat" value="" hidden>
-        <input type="text"  id="ordertotal"  name="ordertotal" value="" hidden>
-        <input type="text"  id="ordershowtimeId" name="ordershowtimeId" value="" hidden>
-        <input type="text"  id="ordernumberSeat"  name="ordernumberSeat" value="" hidden>
-        <input type="text"  id="orderprice"  name="orderprice" value="" hidden>
+        <input type="text" class="d-none" id="orderseat" name="orderseat" value="" hidden>
+        <input type="text" class="d-none" id="ordertotal" name="ordertotal" value="" hidden>
+        <input type="text" class="d-none" id="ordershowtimeId" name="ordershowtimeId" value="" hidden>
+        <input type="text" class="d-none" id="ordernumberSeat" name="ordernumberSeat" value="" hidden>
 
     </form>
 
         <div class="bookseat__step">
             <div class="container">
                 <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
+                    <div class="col-12 d-flex justify-content-between align-items-center" style="padding: 13px 0;">
                         <div class="bookseat__step--pre" >
                             <a href="/ticket/bookseat" class=" d-flex align-items-center">
                                 <img class="imgpre" src="/images/icons/leftarrow.png" alt="" width="26px">
@@ -309,7 +299,6 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-1"></div>
                 </div>
             </div>
         </div>

@@ -1,9 +1,7 @@
-
 import Session from './session.js';
 import Api from './api.js';
 
 class Bookseat {
-
 	constructor() {
 		this.session = Session();
 		this.state = {
@@ -33,7 +31,6 @@ class Bookseat {
 	}
 
 	async renderTiket() {
-
 		const session = this.session.getSession();
 		document.querySelector('#ticket-movie-poster').src =
 			this.state.movie?.posterUrl;
@@ -44,9 +41,12 @@ class Bookseat {
 			this.state.duringTime;
 		document.querySelector('#ticket-cinema').innerHTML = session.cinemaName;
 
-		document.querySelector('#ticket-movie-money1').innerHTML = this.state.fare;
+		document.querySelector('#ticket-movie-money1').innerHTML =
+			new Intl.NumberFormat('vi-VN', {
+				style: 'currency',
+				currency: 'VND',
+			}).format(this.state.fare);
 	}
-
 }
 
 export default new Bookseat();
