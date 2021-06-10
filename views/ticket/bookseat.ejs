@@ -316,6 +316,9 @@ include('../layouts/navbar/navbar') -%>
                 "
               >
                 <p id="ticket-movie-money1"></p>
+                <span style="text-decoration: underline; margin-left: 5px"
+                  >đ</span
+                >
               </div>
             </div>
           </div>
@@ -331,7 +334,7 @@ include('../layouts/navbar/navbar') -%>
             <div class="bookseat__footer--items">
               <div class="bookseat__footer-title">Tông tiền đơn hàng</div>
               <div class="bookseat__footer-info">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between">
                   <div
                     class="bookseat__footer-info--lable"
                     style="width: 150px"
@@ -348,11 +351,10 @@ include('../layouts/navbar/navbar') -%>
                   align-items-center
                   justify-content-end
                 "
-                style="margin-top: 82px;"
-              >
+                style="margin-top: 70px">
                 <p id="ticket-movie-money3">0đ</p>
+                <span style="text-decoration: underline; margin-left: 5px">đ</span>
               </div>
-
               <table id='noChooseSeat' hidden>
                 <tr>
                   <% result.forEach(function(item, index) { %>
@@ -360,7 +362,6 @@ include('../layouts/navbar/navbar') -%>
                   <% }) %>
                 </tr>
               </table>
-
             </div>
           </div>
         </div>
@@ -370,11 +371,10 @@ include('../layouts/navbar/navbar') -%>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
 <script type="module" src="/js/booking/bookseat.js"></script>
 <script src="/js/booking/modal.js"></script>
 <script src="/js/booking/choose.js"></script>
-<!-- <script src="/js/booking/chooseseat.js"></script> -->
 
 </body>
 <%- include('../layouts/footer'); -%>

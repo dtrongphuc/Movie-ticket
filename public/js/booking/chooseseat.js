@@ -10,7 +10,7 @@ const init = function (e) {
 		sessionStorage.getItem('numberSeat')
 	);
 	const urlParams = new URLSearchParams(window.location.search);
-	const myParam = urlParams.get('error');
+	const myParam = urlParams.get('e');
 	if (myParam != null) {
 		if (myParam == 'Incorrect') {
 			alert('Xác nhận thành công');
@@ -26,9 +26,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function removSession() {
 	var conf = confirm(' Bạn muốn booking! ');
-	// if(conf == true){
-	//     sessionStorage.removeItem("totalPay");
-	//     sessionStorage.removeItem("numberSeat");
-	//     sessionStorage.removeItem("lenghtSeat");
-	// }
 }
