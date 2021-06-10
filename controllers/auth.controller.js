@@ -3,6 +3,9 @@ const { Op } = require('sequelize');
 const randomstring = require('randomstring');
 const { User } = require('../db/connection');
 const { sendMail } = require('../helpers/mailer');
+const {
+	comparePassword,
+} = require('../middlewares/validate/password.validate');
 
 module.exports = {
 	// login
@@ -253,5 +256,48 @@ module.exports = {
 	logout: (req, res) => {
 		req.session.destroy();
 		res.redirect('/auth/login');
+	},
+
+	getConfirmPwd: (req, res) => {
+		res.render('auth/pairing');
+	},
+
+	postPairing: async (req, res) => {
+		const { profile } = req.session;
+		const { password } = req.body;
+		try {
+			const user = await User.findOne({
+				where: {
+					email: profile.email,
+				},
+			});
+
+			if (!(await comparePassword(password, user.hashedPassword))) {
+				res.locals.message = {
+					content: 'Mật khẩu không chính xác',
+					type: 'error',
+				};
+
+				return res.render('auth/pairing');
+			}
+
+			if (profile.facebookId) {
+				user.facebookId = profile.facebookId;
+			} else if (profile.googleId) {
+				user.googleId = profile.googleId;
+			}
+
+			await user.save();
+
+			req.logIn(user, function (err) {
+				if (err) {
+					res.locals.message = err;
+				}
+			});
+
+			return res.redirect('/');
+		} catch (error) {
+			res.locals.message = error;
+		}
 	},
 };

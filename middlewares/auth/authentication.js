@@ -17,7 +17,7 @@ module.exports = {
 		try {
 			const { email } = req.body;
 			let user = await User.findByEmail(email);
-			if (!user?.active) {
+			if (user && !user.active) {
 				return res.render('auth/login', {
 					message: {
 						content: 'Tài khoản chưa được xác thực',

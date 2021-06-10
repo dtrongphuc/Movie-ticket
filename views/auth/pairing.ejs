@@ -1,0 +1,100 @@
+<%- include('../layouts/header', {title: 'Đăng nhập'}); -%> <%-
+include('../layouts/navbar/navbar') -%>
+<main>
+	<div class="auth__wrapper">
+		<div class="container">
+			<h3 class="auth__title login__title">Đăng nhập</h3>
+			<div class="auth__form__wrapper">
+				<div class="row justify-content-end">
+					<div class="col-7 col-md-12">
+						<form action="/auth/pairing" method="POST" class="login__form">
+							<% if(message) { %>
+							<div class="alert alert-<%- message?.type %>">
+								<%- message?.content %>
+							</div>
+							<% } %>
+							<p class="text-top">
+								Email đã tồn tại trong hệ thống, vui lòng điền mật khẩu để xác
+								nhận liên kết.
+							</p>
+							<div class="row">
+								<div class="col-9">
+									<div class="login__form--left">
+										<div class="form-group">
+											<label class="form-label" for="password">Mật khẩu</label>
+											<input
+												type="password"
+												name="password"
+												id="password"
+												class="form-input"
+											/>
+										</div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="login__form--right">
+										<button type="submit" class="login__form__submit">
+											Đăng nhập
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="login__form--bottom">
+								<ul class="login__form__options">
+									<li>
+										<div class="form-group">
+											<input type="checkbox" name="cbSave" id="cbSave" />
+											<label for="cbSave" style="bottom: 1px">Lưu ID</label>
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="#">Tìm ID</a>
+										</div>
+									</li>
+									<li>
+										<div class="form-group">
+											<a href="/auth/forgot-pwd">Tìm mật khẩu</a>
+										</div>
+									</li>
+								</ul>
+								<div class="login__social">
+									<button>
+										<a href="/auth/google">
+											<i class="fab fa-google"></i>
+											Google
+										</a>
+									</button>
+									<button>
+										<a href="/auth/facebook">
+											<i class="fab fa-facebook-f"></i>
+											Facebook
+										</a>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-5 col-md-12">
+						<a href="#">
+							<img
+								src="/images/auth/c776c5c1a6f347b4b6ecd42921159152.jpg"
+								alt="Thăng cấp thẻ quyền lực"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="auth__footer">
+				<span>
+					Nếu bạn có một ID, bạn có thể đăng nhập trực tuyến / app của tất cả
+					các Công ty áp dụng Thẻ thành viên L.Point một cách thuận tiện.
+				</span>
+				<button type="button">
+					<a href="/auth/register">Đăng kí tài khoản</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('../layouts/footer') -%>

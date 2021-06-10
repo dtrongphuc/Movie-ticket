@@ -47,7 +47,18 @@ module.exports = {
 		passport.authenticate('google', (error, profile, info) => {
 			if (error) {
 				req.session.message = error;
-			} else if (!profile) {
+			} else if (
+				info &&
+				Object.keys(info).length !== 0 &&
+				info.constructor === Object
+			) {
+				if (info.type === 'redirect') {
+					req.session.profile = {
+						email: profile?.emails[0]?.value,
+						googleId: profile.id,
+					};
+					return res.render('auth/pairing');
+				}
 				req.session.message = info;
 			} else {
 				req.logIn(profile, function (err) {
@@ -65,7 +76,18 @@ module.exports = {
 		passport.authenticate('facebook', (error, profile, info) => {
 			if (error) {
 				req.session.message = error;
-			} else if (!profile) {
+			} else if (
+				info &&
+				Object.keys(info).length !== 0 &&
+				info.constructor === Object
+			) {
+				if (info.type === 'redirect') {
+					req.session.profile = {
+						email: profile?.emails[0]?.value,
+						facebookId: profile.id,
+					};
+					return res.render('auth/pairing');
+				}
 				req.session.message = info;
 			} else {
 				req.logIn(profile, function (err) {
