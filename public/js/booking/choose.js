@@ -46,6 +46,7 @@ function takeData() {
 		document.getElementById('notification').innerHTML =
 			"<b style='margin-bottom:0px;background:yellow;'>Vui lòng chọn ghế!</b>";
 	}
+
 }
 
 function updateTextArea() {
@@ -92,15 +93,22 @@ $(':checkbox').click(function () {
 		$(':checkbox').prop('disabled', true);
 		$(':checked').prop('disabled', false);
 	} else {
-		$(':checkbox').prop('disabled', false);
+		$('#seatsBlock tr').each(function () {
+			$(this)
+				.find('td')
+				.each(function () {
+					$(this).find('input[type=checkbox].seats').prop('disabled', false);
+				});
+		});
+		//$(':checkbox').prop('disabled', false);
 	}
 });
 
-$("#confirmChooseSeat").on("click", function(){
+$("#confirmChooseSeat").on("click", function () {
 	if ($('#Numseats').val() == 0) {
 		alert('Vui lòng chọn số lượng ghế');
-	}else{
-		if($('input:checked').length == $('#Numseats').val()){
+	} else {
+		if ($('input:checked').length == $('#Numseats').val()) {
 			$('#nextPage').show();
 		}
 	}
@@ -115,5 +123,5 @@ function getData() {
 	sessionStorage.setItem('numberSeat', JSON.stringify(mumberSeats));
 	sessionStorage.setItem('lenghtSeat', length);
 	window.document.location = '/views/ticket/order.ejs';
-	
+
 }

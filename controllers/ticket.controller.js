@@ -8,19 +8,19 @@ module.exports = {
 	},
 
 	async bookseat(req, res) {
-		var movieId = req.query.movieId;
-		var cinemaId = req.query.cinemaId;
-		if (!movieId || !cinemaId) {
+
+        var idShowTime = req.query.showtime;
+
+		if (!idShowTime) {
 			return res.redirect('/404');
 		}
 
 		var query = `Select tk."seatId" from tickets as tk join bookings as bk on bk.id = tk."bookingId" 
-						join showtimes as st on bk."showtimeId" = st.id Where st."movieId" = :movieId and st."cinemaId" = :cinemaId`;
+						join showtimes as st on bk."showtimeId" = st.id Where st."id" = :showtime`;
 
 		var result = await models.sequelize.query(query, {
 			replacements: {
-				movieId: movieId,
-				cinemaId: cinemaId,
+                showtime: idShowTime,
 			},
 			raw: false,
 			type: QueryTypes.SELECT,
