@@ -7,7 +7,7 @@
       <a href="/" id="aNow" name="aNow">Phim đang chiếu</a>
     </li>
     <li>
-      <a href="/home" id="aSoon" name="aSoon" class="on"
+      <a href="/new" id="aSoon" name="aSoon" class="on"
         >Phim sắp chiếu</a
       >
     </li>
@@ -30,7 +30,7 @@
                 class="movie-item__img"
                 style="background-image: url('<%- item.posterUrl %>')"
               ></div>
-              <span class="movie-item__number"><%- index + 1%></span>
+              <span class="movie-item__number"><%- item.daysleft %> - Ngày nữa</span>
               <div class="movie-item__overlay">
                 <button class="btn-movie__overlay">
                   <a href="/ticket/book">Đặt vé</a>

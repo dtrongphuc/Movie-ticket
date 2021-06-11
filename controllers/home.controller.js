@@ -1,11 +1,9 @@
-const express = require('express');
 const models = require('../db/connection');
-const { Sequelize, QueryTypes } = require('sequelize');
-const { movie } = require('./statiscics.admin.controller');
-const image = require('../models/image.model');
+const moment = require('moment');
+const { Op } = require('sequelize');
 
 class HomeController {
-	async index(req, res, next) {
+	async index(req, res) {
 		models.Movie.findAll({
 			include: [
 				{
@@ -22,20 +20,27 @@ class HomeController {
 			});
 	}
 
-	async indexNew(req, res, next) {
+	async indexNew(req, res) {
 		models.Movie.findAll({
-			include: [
-				{
-					model: models.Image,
-					where: {},
+			where: {
+				openingDay: {
+					[Op.gt]: moment().add(1, 'days'),
 				},
-			],
-			order: [['openingDay', 'DESC']],
+			},
+			order: [['openingDay', 'ASC']],
 		})
-			.then((movies) => {
+			.then((mvs) => {
+				let movies = mvs.map((movie) => {
+					let moviePlain = movie.get({ plain: true });
+					return {
+						...moviePlain,
+						daysleft: moment(moviePlain.openingDay).diff(Date.now(), 'days'),
+					};
+				});
 				return res.render('content/contentNew', { movies: movies });
 			})
-			.catch(() => {
+			.catch((err) => {
+				console.log(err);
 				res.status(500).send({ error: 'Something failed!' });
 			});
 	}
