@@ -1,42 +1,34 @@
 const models = require('../db/connection');
 const moment = require('moment');
-const { Op } = require('sequelize');
+const { Op, QueryTypes } = require('sequelize');
 
 class HomeController {
 	async index(req, res) {
-		models.Movie.findAll({
-			include: [
-				{
-					model: models.Image,
-					where: {},
-				},
-			],
+
+		var query = `select mv."id", count(tk."seatId"),mv.* from movies as mv 
+						join showtimes as st on mv.id = st."movieId"
+						join bookings as bk on bk."showtimeId" = st.id 
+						join tickets tk on tk."bookingId" = bk.id 
+						group by mv."id"
+						order by count(tk."seatId") ASC`;
+
+		var movies = await models.sequelize.query(query, {
+			raw: false,
+			type: QueryTypes.SELECT,
 		})
-			.then((movies) => {
-				return res.render('content/content', { movies: movies });
-			})
-			.catch(() => {
-				res.status(500).send({ error: 'Something failed!' });
-			});
+		return res.render('content/content', { movies: movies });
 	}
 
 	async indexNew(req, res) {
 		models.Movie.findAll({
 			where: {
 				openingDay: {
-					[Op.gt]: moment().add(1, 'days'),
+					 [Op.gte]:  moment().subtract(30, 'days').toDate()
 				},
 			},
 			order: [['openingDay', 'ASC']],
 		})
-			.then((mvs) => {
-				let movies = mvs.map((movie) => {
-					let moviePlain = movie.get({ plain: true });
-					return {
-						...moviePlain,
-						daysleft: moment(moviePlain.openingDay).diff(Date.now(), 'days'),
-					};
-				});
+			.then((movies) => {
 				return res.render('content/contentNew', { movies: movies });
 			})
 			.catch((err) => {
