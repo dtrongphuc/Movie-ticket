@@ -1,9 +1,7 @@
 const express = require('express');
 const models = require('../db/connection');
-const { Sequelize, QueryTypes } = require('sequelize');
-const { movie } = require('./statiscics.admin.controller');
+const { Op } = require('sequelize');
 const image = require('../models/image.model');
-
 class HomeController {
 
     async index(req, res, next) {
@@ -12,7 +10,6 @@ class HomeController {
            include: [{
                model: models.Image,
                where: {},
-
            }],
 		})
 		.then(movies => {
@@ -24,13 +21,11 @@ class HomeController {
     };
 
 	async indexNew(req, res, next) {
-        
+
         models.Movie.findAll({
            include: [{
-
                model: models.Image,
-               where: {},
-
+               where: {}
            }],
 		   order: [
 			['openingDay', 'DESC'],
@@ -62,9 +57,7 @@ class HomeController {
 		.catch(()=>{
 			res.status(500).send({ error: 'Something failed!' })
 		})
-			
 	}
-
 };
 
 module.exports = new HomeController

@@ -1,5 +1,6 @@
 var seatChoose = [];
 var allSeatsVals = [];
+
 function onLoaderFunc() {
 	$('.seatStructure *').prop('disabled', true);
 
@@ -27,6 +28,8 @@ function onLoaderFunc() {
 				}
 			});
 	});
+
+	$('#nextPage').hide();
 }
 
 function takeData() {
@@ -63,7 +66,7 @@ function updateTextArea() {
 			.then((response) => {
 				console.log(response);
 				const { fare } = response;
-				const money = $('#Numseats').val() * +fare;
+				const money = $('#Numseats').val() * + fare;
 
 				var currencyFormatter = new Intl.NumberFormat('vi-VN', {
 					style: 'currency',
@@ -93,10 +96,24 @@ $(':checkbox').click(function () {
 	}
 });
 
+$("#confirmChooseSeat").on("click", function(){
+	if ($('#Numseats').val() == 0) {
+		alert('Vui lòng chọn số lượng ghế');
+	}else{
+		if($('input:checked').length == $('#Numseats').val()){
+			$('#nextPage').show();
+		}
+	}
+});
+
 function getData() {
+
 	const totalpay = $('#ticket-movie-money2').text();
 	const mumberSeats = allSeatsVals;
+	const length = JSON.stringify(allSeatsVals);
 	sessionStorage.setItem('totalPay', totalpay);
 	sessionStorage.setItem('numberSeat', JSON.stringify(mumberSeats));
+	sessionStorage.setItem('lenghtSeat', length);
 	window.document.location = '/views/ticket/order.ejs';
+	
 }

@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <form action="/ticket/order" method="post">
+        <form action="/ticket/order" method="post" onsubmit="return(checkValue());">
         <!-- //order -->
         <div class="order">
             <div class="container">
@@ -272,7 +272,7 @@
                     </div>
                     
                     <div style="width: 100%; text-align: right;" class="col-12">
-                        <button class="confirmOrder__price--btn" type="submit" onclick="removSession()" >
+                        <button class="confirmOrder__price--btn" type="submit" >
                             Thanh toán
                         </button>
                     </div>

@@ -224,7 +224,7 @@ include('../layouts/navbar/navbar') -%>
         </div>
       </div>
       <div class="col-12" style="text-align: right;margin-bottom: 20px;">
-        <button class="btn__confirm" onclick="updateTextArea()">Xác nhận</button>
+        <button class="btn__confirm" id="confirmChooseSeat" onclick="updateTextArea()">Xác nhận</button>
       </div>
   </div>
 
@@ -317,7 +317,7 @@ include('../layouts/navbar/navbar') -%>
               >
                 <p id="ticket-movie-money1"></p>
                 <span style="text-decoration: underline; margin-left: 5px"
-                  >đ</span
+                  ></span
                 >
               </div>
             </div>
@@ -353,7 +353,7 @@ include('../layouts/navbar/navbar') -%>
                 "
                 style="margin-top: 70px">
                 <p id="ticket-movie-money3">0đ</p>
-                <span style="text-decoration: underline; margin-left: 5px">đ</span>
+                <span style="text-decoration: underline; margin-left: 5px"></span>
               </div>
               <table id='noChooseSeat' hidden>
                 <tr>
