@@ -20,6 +20,7 @@ app.set('trust proxy', 1); // trust first proxy
 
 // Passport
 initPassport(app);
+app.get('/404', (req, res) => res.render('404'));
 app.use('/api', bookingApi);
 
 app.use(function (req, res, next) {
