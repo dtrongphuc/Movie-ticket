@@ -19,7 +19,7 @@
 	<div class="movie-section">
 		<div class="row">
 			<% movies.forEach(function(item, index) { %>
-			<div class="col-3">
+			<div class="col-3 col-sm-12 col-md-6 col-lg-4">
 				<div class="movie-item">
 					<div class="movie-item__top">
 						<div
@@ -56,5 +56,11 @@
 	</div>
 	<% } %>
 </div>
-
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('.movie-item__img')?.forEach((element) => {
+			element.style.height = `${(334 * element.offsetWidth) / 228}px`;
+		});
+	});
+</script>
 <%- include('../layouts/footer'); -%>

@@ -18,7 +18,7 @@ class HomeController {
 		})
 		return res.render('content/content', { movies: movies });
 	}
-
+	
 	async indexNew(req, res) {
 		models.Movie.findAll({
 			where: {
