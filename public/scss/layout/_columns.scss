@@ -1,11 +1,11 @@
 @mixin columns($name: col, $gap: 12px, $column: 12) {
 	$object: (
 		'': 100%,
-		'-sm': 576px,
-		'-md': 768px,
-		'-lg': 992px,
-		'-xl': 1200px,
 		'-xxl': 1400px,
+		'-xl': 1200px,
+		'-lg': 992px,
+		'-md': 768px,
+		'-sm': 576px,
 	);
 
 	.row {
