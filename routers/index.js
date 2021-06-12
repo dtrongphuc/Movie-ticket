@@ -16,7 +16,7 @@ function route(app) {
 	app.use('/', homeRouter);
 	app.use('/movie', movieRouter);
 
-	app.use('/ticket', isAuth, ticketRouter);
+	app.use('/ticket', ticketRouter);
 	app.use('/user', isAuth, userRouter);
 	app.use('/admin/dang-nhap', authAdminRouter);
 

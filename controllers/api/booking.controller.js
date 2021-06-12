@@ -151,7 +151,6 @@ const getByMovie = async (date, movieId) => {
 				count: count.length,
 			};
 		});
-
 		return mapWithTime;
 	} catch (error) {
 		console.log(error);
@@ -334,6 +333,9 @@ module.exports = {
 						[Op.gte]: Date.now(),
 					},
 				},
+				order: [
+					['startTime', 'ASC']
+				]
 			});
 
 			if (st.length <= 0) {

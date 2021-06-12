@@ -10,6 +10,9 @@ const getAvailableDate = async () => {
 				[Op.gte]: Date.now(),
 			},
 		},
+		order: [
+			['startTime', 'ASC']
+		]
 	});
 
 	return st.map((stime) => {
