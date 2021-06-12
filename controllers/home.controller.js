@@ -18,7 +18,7 @@ class HomeController {
 		})
 		return res.render('content/content', { movies: movies });
 	}
-
+	
 	async indexNew(req, res) {
 		models.Movie.findAll({
 			where: {
@@ -49,7 +49,7 @@ class HomeController {
 			],
 		})
 			.then((movie) => {
-				return res.render('movie/detail', { movie: movie });
+				return res.render('content/detail', { movie: movie });
 			})
 			.catch(() => {
 				res.status(500).send({ error: 'Something failed!' });
