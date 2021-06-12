@@ -3,7 +3,6 @@ import Session from './session.js';
 
 const toggleLoading = () => {
 	document.querySelector('.loading')?.classList.toggle('active');
-	console.log('toggle');
 };
 
 // Axios config

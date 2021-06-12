@@ -1,6 +1,5 @@
-const express = require('express');
+const { QueryTypes } = require('sequelize');
 const models = require('../db/connection');
-const { Sequelize, QueryTypes } = require('sequelize');
 
 module.exports = {
 	getBooking: (req, res) => {
@@ -8,9 +7,7 @@ module.exports = {
 	},
 
 	async bookseat(req, res) {
-
-        var idShowTime = req.query.showtime;
-
+		var idShowTime = req.query.showtime;
 		if (!idShowTime) {
 			return res.redirect('/404');
 		}
@@ -20,12 +17,22 @@ module.exports = {
 
 		var result = await models.sequelize.query(query, {
 			replacements: {
-                showtime: idShowTime,
+				showtime: idShowTime,
 			},
 			raw: false,
 			type: QueryTypes.SELECT,
 		});
-		return res.render('ticket/bookseat', { result: result });
+
+		let showtime = await models.Showtime.findByPk(idShowTime);
+		let cinema = await models.Cinema.findByPk(showtime.cinemaId);
+
+		return res.render('ticket/bookseat', {
+			result: result,
+			cinema: {
+				width: cinema.width,
+				length: cinema.length,
+			},
+		});
 	},
 
 	order: (req, res) => {

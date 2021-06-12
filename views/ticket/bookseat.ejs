@@ -1,16 +1,6 @@
 <%- include('../layouts/header', {title: 'Mua vé' }); -%> <%-
 include('../layouts/navbar/navbar') -%>
 <body onload="onLoaderFunc()">
-<div class="ticket d-flex justify-content-center align-items-center">
-  <div class="ticket__navbar d-flex justify-content-center align-items-center">
-    <div class="ticket__navbar--items">
-      <a href="">MUA VÉ XEM PHIM</a>
-    </div>
-    <div class="ticket__navbar--items">
-      <a href="">LỊCH CHIẾU PHIM</a>
-    </div>
-  </div>
-</div>
 <div class="bookseat__header" >
   <div class="container">
     <div class="row">
@@ -29,10 +19,9 @@ include('../layouts/navbar/navbar') -%>
             <h2 style="margin: 0">Chọn ghế</h2>
           </div>
           <div class="bookseat__seattop--btn">
-            
-            <button onclick="window.location.href='/ticket/bookseat'">
+            <button class="btn__bookseat__reload" onclick="location.reload()">
               <img src="/images/icons/refresh.png" alt="" />
-              <span > Đặt lại</span>
+              <span>Đặt lại</span>
             </button>
           </div>
         </div>
@@ -74,7 +63,7 @@ include('../layouts/navbar/navbar') -%>
         <div class="seatStructure" >
         <div class="seat__selectbox">
 
-         <div class="seat__selectbox-row d-flex justify-content-center align-items-center">
+          <div class="seat__selectbox-row d-flex justify-content-center align-items-center">
 
             <table id="seatsBlock">
               <p id="notification"></p>
@@ -83,102 +72,20 @@ include('../layouts/navbar/navbar') -%>
                   </tr>
                   <tr>
                     <td width="22px" height="22px"></td>
-                    <td width="22px" height="22px" >1</td>
-                    <td width="22px" height="22px" >2</td>
-                    <td width="22px" height="22px" >3</td>
-                    <td width="22px" height="22px" >4</td>
-                    <td width="22px" height="22px" >5</td>
-                    <td width="22px" height="22px" >6</td>
-                    <td width="22px" height="22px" >7</td>
-                    <td width="22px" height="22px" >8</td>
-                    <td width="22px" height="22px" >9</td>
-                    <td width="22px" height="22px" >10</td>
-                    <td width="22px" height="22px" >11</td>
-                    <td width="22px" height="22px" >12</td>
+                    <% for(let i = 1; i <= cinema.length; i++) { %>
+                      <td width="22px" height="22px"><%- i %></td>
+                    <% } %>
                 </tr>
-                  
-                <tr>
-                    <td>A</td>
-                    <td><input type="checkbox" class="seats" value="A1"></td>
-                    <td><input type="checkbox" class="seats" value="A2"></td>
-                    <td><input type="checkbox" class="seats" value="A3"></td>
-                    <td><input type="checkbox" class="seats" value="A4"></td>
-                    <td><input type="checkbox" class="seats" value="A5"></td>
-                    <td><input type="checkbox" class="seats" value="A6"></td>
-                    <td><input type="checkbox" class="seats" value="A7"></td>
-                    <td><input type="checkbox" class="seats" value="A8"></td>
-                    <td><input type="checkbox" class="seats" value="A9"></td>
-                    <td><input type="checkbox" class="seats" value="A10"></td>
-                    <td><input type="checkbox" class="seats" value="A11"></td>
-                    <td><input type="checkbox" class="seats" value="A12"></td>
-                  </tr>
-                  
+                <% for(let i = 1; i <= cinema.width; i++) { %>
                   <tr>
-                    <td>B</td>
-                    <td><input type="checkbox" class="seats" value="B1"></td>
-                    <td><input type="checkbox" class="seats" value="B2"></td>
-                    <td><input type="checkbox" class="seats" value="B3"></td>
-                    <td><input type="checkbox" class="seats" value="B4"></td>
-                    <td><input type="checkbox" class="seats" value="B5"></td>
-                    <td><input type="checkbox" class="seats" value="B6"></td>
-                    <td><input type="checkbox" class="seats" value="B7"></td>
-                    <td><input type="checkbox" class="seats" value="B8"></td>
-                    <td><input type="checkbox" class="seats" value="B9"></td>
-                    <td><input type="checkbox" class="seats" value="B10"></td>
-                    <td><input type="checkbox" class="seats" value="B11"></td>
-                    <td><input type="checkbox" class="seats" value="B12"></td>
+                    <td><%- String.fromCharCode(i + 64) %></td>
+                    <% for(let i = 1; i <= cinema.length; i++) { %>
+                      <td><input type="checkbox" class="seats seat-checkbox" value="<%- String.fromCharCode(i + 64) %><%- i %>"></td>
+                    <% } %>
                   </tr>
-                  
-                  <tr>
-                    <td>C</td>
-                    <td><input type="checkbox" class="seats" value="C1"></td>
-                    <td><input type="checkbox" class="seats" value="C2"></td>
-                    <td><input type="checkbox" class="seats" value="C3"></td>
-                    <td><input type="checkbox" class="seats" value="C4"></td>
-                    <td><input type="checkbox" class="seats" value="C5"></td>
-                    <td><input type="checkbox" class="seats" value="C6"></td>
-                    <td><input type="checkbox" class="seats" value="C7"></td>
-                    <td><input type="checkbox" class="seats" value="C8"></td>
-                    <td><input type="checkbox" class="seats" value="C9"></td>
-                    <td><input type="checkbox" class="seats" value="C10"></td>
-                    <td><input type="checkbox" class="seats" value="C11"></td>
-                    <td><input type="checkbox" class="seats" value="C12"></td>
-                </tr>
-                  
-                <tr>
-                    <td>D</td>
-                    <td><input type="checkbox" class="seats" value="D1"></td>
-                    <td><input type="checkbox" class="seats" value="D2"></td>
-                    <td><input type="checkbox" class="seats" value="D3"></td>
-                    <td><input type="checkbox" class="seats" value="D4"></td>
-                    <td><input type="checkbox" class="seats" value="D5"></td>
-                    <td><input type="checkbox" class="seats" value="D6"></td>
-                    <td><input type="checkbox" class="seats" value="D7"></td>
-                    <td><input type="checkbox" class="seats" value="D8"></td>
-                    <td><input type="checkbox" class="seats" value="D9"></td>
-                    <td><input type="checkbox" class="seats" value="D10"></td>
-                    <td><input type="checkbox" class="seats" value="D11"></td>
-                    <td><input type="checkbox" class="seats" value="D12"></td>
-                </tr>
-                  
-                <tr>
-                    <td>E</td>
-                    <td><input type="checkbox" class="seats" value="E1"></td>
-                    <td><input type="checkbox" class="seats" value="E2"></td>
-                    <td><input type="checkbox" class="seats" value="E3"></td>
-                    <td><input type="checkbox" class="seats" value="E4"></td>
-                    <td><input type="checkbox" class="seats" value="E5"></td>
-                    <td><input type="checkbox" class="seats" value="E6"></td>
-                    <td><input type="checkbox" class="seats" value="E7"></td>
-                    <td><input type="checkbox" class="seats" value="E8"></td>
-                    <td><input type="checkbox" class="seats" value="E9"></td>
-                    <td><input type="checkbox" class="seats" value="E10"></td>
-                    <td><input type="checkbox" class="seats" value="E11"></td>
-                    <td><input type="checkbox" class="seats" value="E12"></td>
-                </tr>
-
-                </table>
-              </div>
+                  <% } %>
+            </table>
+          </div>
 
               <!-- modal chọn ghế chưa chọn số lượng -->
               <div id="seat-modal" class="seat__modal">
