@@ -86,7 +86,7 @@ function myFunction() {
 	alert($('input:checked').length);
 }
 
-$(':checkbox').click(function () {
+$(':checkbox').on('click', function () {
 	if ($('input:checked').length == $('#Numseats').val()) {
 		$(':checkbox').prop('disabled', true);
 		$(':checked').prop('disabled', false);

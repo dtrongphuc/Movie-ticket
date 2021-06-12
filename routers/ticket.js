@@ -15,4 +15,8 @@ router.get('/bookseat', ticketController.bookseat);
 router.get('/order', ticketController.order);
 router.post('/order', booking.addBooking);
 
+router.get('/order/success', (req, res) => {
+	res.render('ticket/success');
+});
+
 module.exports = router;

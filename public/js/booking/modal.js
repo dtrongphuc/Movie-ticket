@@ -1,12 +1,19 @@
-const ModalPrimary = (id) => {
-	const btn_modal = document.querySelector(`.${id}`);
-	const attribute = btn_modal?.getAttribute('id-modal');
+const ModalPrimary = (className) => {
+	const allCheckbox = document.querySelectorAll(`.${className}`);
+	const attribute = allCheckbox[0]?.getAttribute('id-modal');
 	const seat_modal = document.querySelector(attribute);
 	const span = document.getElementsByClassName('seat__modal-close');
+	const seatCountSelected = document.querySelector('#Numseats');
 
-	btn_modal?.addEventListener('click', (e) => {
-		// console.log(seat_modal);
-		seat_modal.style.display = 'block';
+	allCheckbox?.forEach((checkbox) => {
+		checkbox.addEventListener('click', (e) => {
+			// console.log(seat_modal);
+			console.log('click');
+			if (seatCountSelected.value === '0') {
+				console.log('if');
+				seat_modal.style.display = 'block';
+			}
+		});
 	});
 
 	for (let i = 0; i < span.length; i++) {
@@ -23,5 +30,5 @@ const ModalPrimary = (id) => {
 	});
 };
 
-const id = 'btn-seatmodal';
-ModalPrimary(id);
+const className = 'seat-checkbox';
+ModalPrimary(className);

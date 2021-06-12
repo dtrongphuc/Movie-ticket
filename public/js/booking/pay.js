@@ -16,6 +16,11 @@ class Bookseat {
 	}
 
 	async init() {
+		if (!this.session.getSession().showtimeId) {
+			window.location.href = '/404';
+			return;
+		}
+
 		[
 			this.state.duringTime,
 			this.state.dateString,

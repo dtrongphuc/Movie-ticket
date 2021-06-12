@@ -6,9 +6,6 @@ include('../layouts/navbar/navbar') -%>
     <div class="row">
       <!-- <div class="col-1 col-lg-0"></div> -->
       <div class="col-12 col-lg-12">
-        <div class="seat__info--lable" style="padding-bottom: 15px; color:rgb(247, 57, 57); font-size: 16px;" >
-          * Vui lòng chọn số lượng ghế trước khi chọn ghế
-        </div>
         <div
           class="
             bookseat__seattop
@@ -54,6 +51,9 @@ include('../layouts/navbar/navbar') -%>
     <div class="row">
       <div class="col-12">
         <div class="seat__select">
+          <div class="seat__info--lable" style="padding-bottom: 15px; color:rgb(247, 57, 57); font-size: 16px;" >
+            * Vui lòng chọn số lượng ghế trước khi chọn ghế
+          </div>
           <div class="seat__select-screen">
             <img src="/images/seat/screen.gif" alt="" width="100%" />
             <span>Screen</span>
@@ -81,7 +81,10 @@ include('../layouts/navbar/navbar') -%>
                   <tr>
                     <td><%- String.fromCharCode(i + 64) %></td>
                     <% for(let i = 1; i <= cinema.length; i++) { %>
-                      <td><input type="checkbox" class="seats seat-checkbox" value="<%- String.fromCharCode(i + 64) %><%- i %>"></td>
+                      <td>
+                        <input type="checkbox" class="seats seat-checkbox" 
+                        id-modal="#seat-modal" value="<%- String.fromCharCode(i + 64) %><%- i %>">
+                      </td>
                     <% } %>
                   </tr>
                   <% } %>
@@ -275,6 +278,26 @@ include('../layouts/navbar/navbar') -%>
         </div>
       </div>
     </div>
+  </div>
+  <div class="loading">
+    <div class="loading-wrapper">
+      <div class="loadingio-spinner-spinner-dtzaazu3jr6">
+        <div class="ldio-7ufeuvxzq46">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="loading-modal"></div>
   </div>
 </div>
 

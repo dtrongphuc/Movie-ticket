@@ -71,10 +71,14 @@
 		}
 		&-reset {
 			border: 1px solid #555;
-			padding: 10px 20px;
-			color: #222;
-			font-size: 14px;
 			cursor: pointer;
+
+			& > a {
+				display: block;
+				color: #222;
+				font-size: 14px;
+				padding: 10px 20px;
+			}
 		}
 	}
 	&__cart {

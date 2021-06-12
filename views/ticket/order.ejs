@@ -1,22 +1,16 @@
 <%- include('../layouts/header', {title: 'Mua vé' }); -%>
     <%- include('../layouts/navbar/navbar') -%>
-        <div class="ticket d-flex justify-content-center align-items-center">
-            <div class="ticket__navbar d-flex justify-content-center align-items-center">
-                <div class="ticket__navbar--items">
-                    <a href="">MUA VÉ XEM PHIM</a>
-                </div>
-                <div class="ticket__navbar--items">
-                    <a href="">LỊCH CHIẾU PHIM</a>
-                </div>
-            </div>
-        </div>
-
         <form action="/ticket/order" method="post" onsubmit="return(checkValue());">
         <!-- //order -->
         <div class="order">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                        <% if(message) { %>
+							<div class="alert alert-error">
+								<%- message %>
+							</div>
+                        <% } %>
                         <div class="order__title">Đặt hàng/Thanh toán</div>
                         <div class="order__info">
                             <div class="order__movie">
@@ -79,8 +73,10 @@
                             <div class="pay__top d-flex justify-content-between">
                                 <div class="pay__top-title">Giảm giá</div>
                                 <div class="pay__top-reset d-flex align-items-center">
-                                    <img src="/images/icons/refresh.png" alt="">
-                                    <span style="margin-left: 10px;">Quay lại bước đầu</span>
+                                    <a href="/ticket/book">
+                                        <img src="/images/icons/refresh.png" alt="">
+                                        <span style="margin-left: 10px;">Quay lại bước đầu</span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="pay__method " style="margin-top: 20px;">
@@ -348,6 +344,26 @@
         </div>
 
         -->
+        <div class="loading">
+            <div class="loading-wrapper">
+                <div class="loadingio-spinner-spinner-dtzaazu3jr6">
+                    <div class="ldio-7ufeuvxzq46">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading-modal"></div>
+        </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

@@ -38,12 +38,10 @@ class PayController {
 			newBooking.total = totalPrice;
 			await newBooking.save();
 
-			return res.redirect('/ticket/order?e=' + encodeURIComponent('Incorrect'));
+			return res.redirect('/ticket/order/success');
 		} catch (error) {
-			console.log(error);
-			return res.redirect(
-				'/ticket/order?e=' + encodeURIComponent('NoIncorrect')
-			);
+			res.locals.message = 'Đã có lỗi xảy ra';
+			return res.render('ticket/order');
 		}
 	}
 }
