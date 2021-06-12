@@ -26,16 +26,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function checkValue(){
+
 	var Checkbox = document.getElementById('cb_rule');
 	var isChecked = Checkbox.checked;
-	if(isChecked == false){
-		alert("Bạn vui lòng chấp nhận điều kiện và điều khoản của chúng tôi!");
-		return false;
+	var CheckboxWallet = document.getElementById('wallet');
+	var isCheckedWallet = CheckboxWallet.checked;
+	var CheckboxVisa = document.getElementById('visa');
+	var isCheckedVisa = CheckboxVisa.checked;
+	var CheckboxAtm = document.getElementById('ATM');
+	var isCheckedAtm = CheckboxAtm.checked;
+
+	if((isCheckedWallet == true && isCheckedVisa == false && isCheckedAtm == false)||
+		(isCheckedWallet == false && isCheckedVisa == true && isCheckedAtm == false) ||
+		(isCheckedWallet == false && isCheckedVisa == false && isCheckedAtm == true) ){
+			if(isChecked == false){
+				alert("Bạn vui lòng chấp nhận điều kiện và điều khoản của chúng tôi!");
+				return false;
+			}else{
+				var conf = confirm(' Bạn thật sự muốn booking! ');
+				if(conf == true){
+					return true
+				}
+			}
 	}else{
-		var conf = confirm(' Bạn thật sự muốn booking! ');
-		if(conf == true){
-			return true
-		}
+		alert("Bạn vui lòng chọn phương thức thanh toán!");
+		return false;
 	}
 	return false;
 }

@@ -123,8 +123,6 @@
 			}
 			&__select {
 				padding: 30px 0;
-				img {
-				}
 				&-screen {
 					position: relative;
 					span {
@@ -305,12 +303,12 @@ textarea {
 	background: transparent;
 }
 
-input[type='checkbox'] {
+.seat-checkbox {
 	width: 0px;
 	margin-right: 18px;
 }
 
-input[type='checkbox']:before {
+.seat-checkbox:before {
 	content: '';
 	width: 15px;
 	height: 15px;
@@ -322,7 +320,7 @@ input[type='checkbox']:before {
 	background-color: #ccc;
 }
 
-input[type='checkbox']:checked:before {
+.seat-checkbox:checked:before {
 	background-color: Green;
 	font-size: 15px;
 }
@@ -359,4 +357,12 @@ input.chooseSeat:before {
 
 .btn__confirm:hover {
 	background: rgb(26, 192, 11);
+}
+
+.btn__bookseat__reload {
+	cursor: pointer;
+
+	& > img {
+		padding-right: 4px;
+	}
 }

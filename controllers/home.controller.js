@@ -4,7 +4,6 @@ const { Op, QueryTypes } = require('sequelize');
 
 class HomeController {
 	async index(req, res) {
-
 		var query = `select mv."id", count(tk."seatId"),mv.* from movies as mv 
 						join showtimes as st on mv.id = st."movieId"
 						join bookings as bk on bk."showtimeId" = st.id 
@@ -15,7 +14,7 @@ class HomeController {
 		var movies = await models.sequelize.query(query, {
 			raw: false,
 			type: QueryTypes.SELECT,
-		})
+		});
 		return res.render('content/content', { movies: movies });
 	}
 
@@ -23,7 +22,7 @@ class HomeController {
 		models.Movie.findAll({
 			where: {
 				openingDay: {
-					 [Op.gte]:  moment().subtract(30, 'days').toDate()
+					[Op.gte]: moment().subtract(30, 'days').toDate(),
 				},
 			},
 			order: [['openingDay', 'ASC']],
