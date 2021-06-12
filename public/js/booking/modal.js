@@ -1,5 +1,5 @@
 const ModalPrimary = (id) => {
-	const btn_modal = document.querySelector(`#${id}`);
+	const btn_modal = document.querySelector(`.${id}`);
 	const attribute = btn_modal?.getAttribute('id-modal');
 	const seat_modal = document.querySelector(attribute);
 	const span = document.getElementsByClassName('seat__modal-close');
