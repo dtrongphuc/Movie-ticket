@@ -5,6 +5,7 @@ const express = require('express'),
 	app = express(),
 	route = require('./routers/index'),
 	bookingApi = require('./routers/api/booking'),
+	homeApi = require('./routers/api/home'),
 	{ initPassport } = require('./middlewares/passport/index'),
 	port = 3000;
 
@@ -22,6 +23,7 @@ app.set('trust proxy', 1); // trust first proxy
 initPassport(app);
 app.get('/404', (req, res) => res.render('404'));
 app.use('/api', bookingApi);
+app.use('/api', homeApi);
 
 app.use(function (req, res, next) {
 	if (req.isAuthenticated()) {
