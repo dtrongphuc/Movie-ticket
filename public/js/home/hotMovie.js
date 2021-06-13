@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				});
 
 				state.offset += response.movies.length;
+				if (state.offset >= state.total) {
+					document.querySelector('.btn__load-more').style.display = 'none';
+				}
 				response.movies.forEach((movie, index) => {
 					let div = document.createElement('div');
 					div.classList.add('col-3', 'col-sm-12', 'col-md-6', 'col-lg-4');

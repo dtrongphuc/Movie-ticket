@@ -14,7 +14,7 @@
 
 	&:hover {
 		.movie-item__top > .movie-item__overlay {
-			display: flex;
+			visibility: visible;
 		}
 	}
 
@@ -103,12 +103,14 @@
 		bottom: 0;
 		right: 0;
 
-		display: none;
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		background-color: rgba($color: #000000, $alpha: 0.8);
 		z-index: 2;
+		visibility: collapse;
+		transition: all 0.05s ease;
 	}
 }
 
