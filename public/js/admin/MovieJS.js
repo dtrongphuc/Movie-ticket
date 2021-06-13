@@ -91,7 +91,27 @@ $(document).ready(async function () {
         },
     });
 
+
+    // $('#submit').on('click', function () {
+    //     let formData = $('#form').serializeArray();
+    //     let validation =  true;
+	// 	$.each(formData, function(i,v){
+	// 		if(v.value == ""){
+    //             console.log("error");
+    //             validation = false;
+    //         };
+	// 	});
+    //     if(validation){
+    //         loading();
+    //         console.log("xuat");
+    //     }else{
+    //         console.log("khong xuat");
+    //     }
+        
+    // });
+
 });
+
 
 
 
