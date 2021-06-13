@@ -1,8 +1,9 @@
 const models = require('../db/connection');
 const { transporter } = require('../helpers/mailer');
 const hbs = require('nodemailer-express-handlebars');
+const moment = require('moment');
 
-async function sendBill(email) {
+async function sendBill(email, data) {
 	try {
 		let options = {
 			viewEngine: {
@@ -20,12 +21,12 @@ async function sendBill(email) {
 			subject: 'Đặt vé thành công', // Subject line
 			template: 'bill',
 			context: {
-				name: '',
-				bookingId: '',
-				date: '',
-				tickets: [],
-				total: '',
-				support_url: '',
+				name: data.name,
+				bookingId: data.bookingId,
+				date: data.date,
+				tickets: data.tickets,
+				total: data.total,
+				support_url: data.support_url,
 			},
 		});
 
@@ -71,8 +72,40 @@ class PayController {
 				0
 			);
 			newBooking.total = totalPrice;
-			await newBooking.save();
-			await sendBill(req.user?.email);
+			let [saveBooking, movie, cinema] = await Promise.all([
+				newBooking.save(),
+				models.Movie.findByPk(showtime.movieId),
+				models.Cinema.findByPk(showtime.cinemaId),
+			]);
+
+			let mailTickets = tickets.map((ticket) => {
+				let value = ticket.get({ plain: true });
+				return {
+					...value,
+					price: new Intl.NumberFormat('vi-VN', {
+						style: 'currency',
+						currency: 'VND',
+					}).format(ticket.price),
+					movieName: movie.name,
+					cinemaName: cinema.name,
+					startTime: moment(showtime.startTime).format('HH:mm DD/MM/YYYY'),
+				};
+			});
+
+			let mailData = {
+				name: req.user?.fullname || req.user?.email,
+				bookingId: newBooking.id,
+				date: moment(newBooking.createdAt).format('HH:mm DD/MM/YYYY'),
+				tickets: mailTickets,
+				total: new Intl.NumberFormat('vi-VN', {
+					style: 'currency',
+					currency: 'VND',
+				}).format(newBooking.total),
+				support_url: `${req.protocol}://${req.get('host')}/404`,
+			};
+
+			await sendBill(req.user?.email, mailData);
+
 			return res.redirect('/ticket/order/success');
 		} catch (error) {
 			console.log(error);
