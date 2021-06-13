@@ -1,7 +1,6 @@
 .movie {
 	&-section {
 		margin-top: 20px;
-		margin-bottom: 30px;
 	}
 }
 
@@ -10,11 +9,12 @@
 	position: relative;
 	border: 1px solid $border-color;
 	width: 100%;
+	margin-bottom: 30px;
 	// height: 430px;
 
 	&:hover {
 		.movie-item__top > .movie-item__overlay {
-			display: flex;
+			visibility: visible;
 		}
 	}
 
@@ -103,12 +103,14 @@
 		bottom: 0;
 		right: 0;
 
-		display: none;
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		background-color: rgba($color: #000000, $alpha: 0.8);
 		z-index: 2;
+		visibility: collapse;
+		transition: all 0.05s ease;
 	}
 }
 
@@ -139,9 +141,11 @@
 	background-image: url('/images/icons/btn_plus02.png');
 	background-repeat: no-repeat;
 	background-position: center 26px;
+	cursor: pointer;
 
-	& > a {
-		display: block;
+	& > p {
+		margin-top: 0;
+		margin-bottom: 0;
 		color: #231f20;
 		font-weight: 700;
 		font-size: 14px;
@@ -149,5 +153,11 @@
 		padding-bottom: 4px;
 		width: 100%;
 		height: 100%;
+	}
+
+	&:active,
+	&:focus {
+		border: 1px solid #dedede;
+		outline: none;
 	}
 }
