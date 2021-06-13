@@ -79,7 +79,10 @@ class HomeController {
 					[Op.gte]: moment().subtract(30, 'days').toDate(),
 				},
 			},
-			order: [['openingDay', 'ASC']],
+			order: [['openingDay', 'DESC']],
+			offset: 0,
+			limit: 8,
+			subQuery: false,
 		})
 			.then((movies) => {
 				return res.render('content/contentNew', { movies: movies });

@@ -8,7 +8,7 @@
     </li>
     <li>
       <a href="/new" id="aSoon" name="aSoon" class="on"
-        >Phim đang chiếu</a>
+        >Phim mới công chiếu</a>
     </li>
   </ul>
 
@@ -31,9 +31,11 @@
               ></div>
               <span class="movie-item__number"><%- index + 1%></span>
               <div class="movie-item__overlay">
-                <button class="btn-movie__overlay">
-                  <a href="/ticket/book">Đặt vé</a>
-                </button>
+                <% if(moment(item.openingDay) < Date.now()) { %>
+                  <button class="btn-movie__overlay">
+                    <a href="/ticket/book">Đặt vé</a>
+                  </button>
+                <% } %>
                 <button class="btn-movie__overlay">
                   <a href="/detail/<%- item.id %>">Chi tiết</a>
                 </button>
@@ -50,6 +52,9 @@
 						  >
               <span class="movie-item__description">
                 <%= moment(item.openingDay).format('DD/MM/YY') %>
+                <% if(moment(item.openingDay) >= Date.now()) { %>
+                   Chưa mở
+                <% } %>
               </span>
             </div>
           </div>
@@ -57,14 +62,40 @@
         <% }) %>
       </div>
     </div>
+    <div class="load-more__wrapper">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn__load-more">
+            <p>Thêm</p>
+          </button>
+        </div>
+      </div>
+    </div>
     <% } %>
   </div>
+
+  <div class="loading">
+		<div class="loading-wrapper">
+			<div class="loadingio-spinner-spinner-dtzaazu3jr6">
+				<div class="ldio-7ufeuvxzq46">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div class="loading-modal"></div>
+	</div>
 </div>
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		document.querySelectorAll('.movie-item__img')?.forEach((element) => {
-			element.style.height = `${(334 * element.offsetWidth) / 228}px`;
-		});
-	});
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="/js/home/newMovie.js"></script>
 <%- include('../layouts/footer'); -%>
