@@ -16,7 +16,7 @@ module.exports = {
 				return true;
 			}
 
-			return true;
+			return false;
 		} catch (error) {
 			console.log(error);
 			return true;
