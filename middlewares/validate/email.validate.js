@@ -6,14 +6,17 @@ const emailRegexp =
 module.exports = {
 	checkEmailExisted: async (email) => {
 		try {
-			let user = models.User.findOne({
+			let count = await models.User.count({
 				where: {
 					email: email,
 				},
 			});
-			if (user) {
-				return false;
+
+			if (count > 0) {
+				return true;
 			}
+
+			return true;
 		} catch (error) {
 			console.log(error);
 			return true;
