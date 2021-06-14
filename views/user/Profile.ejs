@@ -16,10 +16,11 @@
                                 <img src="/images/icons/user.png" alt="">
                                 <div class="showmodal__updateprofile">
                                     <div data-modal="#modal2"
-                                        class="btn_ofProfile btn--updateprofile d-flex align-items-center modal__trigger" style="border: none;">
+                                        class="btn_ofProfile btn--updateprofile d-flex align-items-center modal__trigger"
+                                        style="border: none;">
                                         <img src="/images/icons/edit.png" alt="" width="25px" style="padding: 2px;">
                                         <span>Sửa thông tin</span>
-                                </div>
+                                    </div>
                                 </div>
                                 <div id="modal2" class="modal modal--align-top modal__bg" role="dialog"
                                     aria-hidden="true">
@@ -48,7 +49,8 @@
                                                             value="<%- user.phoneNumber %>" name="phone">
                                                     </div>
 
-                                                    <button type="submit" class="btn_ofProfile btn--updateprofile btn_updateinfo "
+                                                    <button type="submit"
+                                                        class="btn_ofProfile btn--updateprofile btn_updateinfo "
                                                         style="margin-top: 20px;">
                                                         Lưu thay đổi
                                                     </button>
@@ -113,122 +115,132 @@
                                                 </div>
                                                 <div class="boxinfo__items--content">
                                                     <span>Mật khẩu</span>
-                                                    <%if(user.hashedPassword == null) {%>
-                                                        <div data-modal="#modal-add_password" class="modal__trigger" 
-                                                        style="box-shadow: none; padding: 0; display: block;">
+                                                    <%if(user.hashedPassword==null) {%>
+                                                        <div data-modal="#modal-add_password" class="modal__trigger"
+                                                            style="box-shadow: none; padding: 0; display: block;">
                                                             <p style="cursor: pointer;">Thêm Mật khẩu</p>
                                                         </div>
-                                                        
-                                            <div id="modal-add_password" class="modal modal--align-top modal__bg"
-                                            role="dialog" aria-hidden="true">
-                                            <div class="modal__dialog">
-                                                <div class="modal__content">
-                                                    <div class="infouser__modal">
-                                                        <h1>Thêm mật khẩu</h1>
-                                                    </div>
-                                                    <form id="updateinfo-form--addpassword" class="d-flex"
-                                                        style="flex-direction: column;">
-                                                        <div
-                                                            class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
-                                                            <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
-                                                            <input class="input--type" type="password"
-                                                                placeholder="Mật khẩu mới"
-                                                                name="add_password" id="add_password">
-                                                                <span class="input__lable--error error__addpass" style="color: red; "></span>
-                                                        </div>
-                                                        <div
-                                                            class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
-                                                            <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
-                                                            <input class="input--type" type="password"
-                                                                placeholder="Nhập lại mật khẩu mới" 
-                                                                name="confirm-addPassword" id="confirm-addPassword">
-                                                                <span class="input__lable--error error__addpass" style="color: red; "></span>
-                                                        </div>
 
-                                                        <button type="submit"
-                                                            class="btn btn--updateprofile btn_addpassword"
-                                                            style="margin-top: 20px;">
-                                                            Lưu thay đổi
-                                                        </button>
-                                                    </form>
-                                                    <a href="" class="modal__close demo-close">
-                                                        <svg class="" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
-                                                            <path d="M0 0h24v24h-24z" fill="none" />
-                                                        </svg>
-                                                    </a>
+                                                        <div id="modal-add_password"
+                                                            class="modal modal--align-top modal__bg" role="dialog"
+                                                            aria-hidden="true">
+                                                            <div class="modal__dialog">
+                                                                <div class="modal__content">
+                                                                    <div class="infouser__modal">
+                                                                        <h1>Thêm mật khẩu</h1>
+                                                                    </div>
+                                                                    <form id="updateinfo-form--addpassword"
+                                                                        class="d-flex" style="flex-direction: column;">
+                                                                        <div class="infouser__item d-flex "
+                                                                            style="flex-direction: column; margin-bottom: 5px;">
+                                                                            <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
+                                                                            <input class="input--type" type="password"
+                                                                                placeholder="Mật khẩu mới"
+                                                                                name="add_password" id="add_password">
+                                                                            <span
+                                                                                class="input__lable--error error__addpass"
+                                                                                style="color: red; "></span>
+                                                                        </div>
+                                                                        <div class="infouser__item d-flex "
+                                                                            style="flex-direction: column; margin-bottom: 5px;">
+                                                                            <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
+                                                                            <input class="input--type" type="password"
+                                                                                placeholder="Nhập lại mật khẩu mới"
+                                                                                name="confirm-addPassword"
+                                                                                id="confirm-addPassword">
+                                                                            <span
+                                                                                class="input__lable--error error__addpass"
+                                                                                style="color: red; "></span>
+                                                                        </div>
+
+                                                                        <button type="submit"
+                                                                            class="btn btn--updateprofile btn_addpassword"
+                                                                            style="margin-top: 20px;">
+                                                                            Lưu thay đổi
+                                                                        </button>
+                                                                    </form>
+                                                                    <a href="" class="modal__close demo-close">
+                                                                        <svg class="" viewBox="0 0 24 24">
+                                                                            <path
+                                                                                d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
+                                                                            <path d="M0 0h24v24h-24z" fill="none" />
+                                                                        </svg>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <% } else{ %>
+                                                            <p>*************</p>
+                                                            <% } %>
                                                 </div>
                                             </div>
-                                            </div>
-                                                    <% } else{ %>
-                                                        <p>*************</p>
-                                                    <% } %>
-                                                </div>
-                                            </div>
 
-                                            <%if(user.hashedPassword != null) {%>
+                                            <%if(user.hashedPassword !=null) {%>
                                                 <div data-modal="#modal-password" class="modal__trigger"
-                                                style="padding: 0; box-shadow: none;">
+                                                    style="padding: 0; box-shadow: none;">
                                                     <img src="/images/icons/edit.png" alt="" width="25px"
                                                         style="padding: 2px;">
                                                 </div>
-                                                 <!-- modal add pass -->
-                                            <% } %> 
-                                           
+                                                <!-- modal add pass -->
+                                                <% } %>
 
-                                            <!-- MODal change pass -->
-                                            
-                                            <div id="modal-password" class="modal modal--align-top modal__bg"
-                                                role="dialog" aria-hidden="true">
-                                                <div class="modal__dialog">
-                                                    <div class="modal__content">
-                                                        <div class="infouser__modal">
-                                                            <h1>Thay đổi mật khẩu</h1>
+
+                                                    <!-- MODal change pass -->
+
+                                                    <div id="modal-password" class="modal modal--align-top modal__bg"
+                                                        role="dialog" aria-hidden="true">
+                                                        <div class="modal__dialog">
+                                                            <div class="modal__content">
+                                                                <div class="infouser__modal">
+                                                                    <h1>Thay đổi mật khẩu</h1>
+                                                                </div>
+                                                                <form id="updateinfo-form--password" class="d-flex"
+                                                                    style="flex-direction: column;">
+                                                                    <div class="infouser__item d-flex"
+                                                                        style="flex-direction: column; margin-bottom: 5px;">
+                                                                        <!-- <div class="infouser__item-title">Mật khẩu cũ: </div> -->
+                                                                        <!-- hiển thị lỗi: input--error -->
+                                                                        <input class="input--type" type="password"
+                                                                            placeholder="Mật khẩu cũ"
+                                                                            name="old_password" id="old_password">
+                                                                        <span class="input__lable--error error__oldPass"
+                                                                            style="color: red; "></span>
+                                                                    </div>
+                                                                    <div class="infouser__item d-flex "
+                                                                        style="flex-direction: column; margin-bottom: 5px;">
+                                                                        <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
+                                                                        <input class="input--type" type="password"
+                                                                            placeholder="Mật khẩu mới"
+                                                                            name="new_password" id="new_password">
+                                                                        <span class="input__lable--error error__oldPass"
+                                                                            style="color: red; "></span>
+                                                                    </div>
+                                                                    <div class="infouser__item d-flex "
+                                                                        style="flex-direction: column; margin-bottom: 5px;">
+                                                                        <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
+                                                                        <input class="input--type" type="password"
+                                                                            placeholder="Nhập lại mật khẩu mới"
+                                                                            name="confirm" id="confirm">
+                                                                        <span class="input__lable--error error__oldPass"
+                                                                            style="color: red; "></span>
+                                                                    </div>
+
+                                                                    <button type="submit"
+                                                                        class="btn btn--updateprofile btn_updatepassword"
+                                                                        style="margin-top: 20px;">
+                                                                        Lưu thay đổi
+                                                                    </button>
+                                                                </form>
+                                                                <a href="" class="modal__close demo-close">
+                                                                    <svg class="" viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
+                                                                        <path d="M0 0h24v24h-24z" fill="none" />
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                        <form id="updateinfo-form--password" class="d-flex"
-                                                            style="flex-direction: column;">
-                                                            <div class="infouser__item d-flex" style="flex-direction: column; margin-bottom: 5px;">
-                                                                <!-- <div class="infouser__item-title">Mật khẩu cũ: </div> -->
-                                                                <!-- hiển thị lỗi: input--error -->
-                                                                <input class="input--type" type="password"
-                                                                    placeholder="Mật khẩu cũ" 
-                                                                    name="old_password" id="old_password">
-                                                                <span class="input__lable--error error__oldPass" style="color: red; "></span>
-                                                            </div>
-                                                            <div
-                                                                class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
-                                                                <!-- <div class="infouser__item-title">Mật khẩu mới: </div> -->
-                                                                <input class="input--type" type="password"
-                                                                    placeholder="Mật khẩu mới"
-                                                                    name="new_password" id="new_password">
-                                                                    <span class="input__lable--error error__oldPass" style="color: red; "></span>
-                                                            </div>
-                                                            <div
-                                                                class="infouser__item d-flex " style="flex-direction: column; margin-bottom: 5px;">
-                                                                <!-- <div class="infouser__item-title">Nhập lại mật khẩu mới: </div> -->
-                                                                <input class="input--type" type="password"
-                                                                    placeholder="Nhập lại mật khẩu mới" 
-                                                                    name="confirm" id="confirm">
-                                                                    <span class="input__lable--error error__oldPass" style="color: red; "></span>
-                                                            </div>
-
-                                                            <button type="submit"
-                                                                class="btn btn--updateprofile btn_updatepassword"
-                                                                style="margin-top: 20px;">
-                                                                Lưu thay đổi
-                                                            </button>
-                                                        </form>
-                                                        <a href="" class="modal__close demo-close">
-                                                            <svg class="" viewBox="0 0 24 24">
-                                                                <path
-                                                                    d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z" />
-                                                                <path d="M0 0h24v24h-24z" fill="none" />
-                                                            </svg>
-                                                        </a>
                                                     </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -248,47 +260,61 @@
             <div class="container">
                 <div class="histoty__title">
                     <h1>Lịch Sử Đặt Vé</h1>
-                    <div class="history__table d-flex justify-content-center">
-                        <% if(joins.length == 0) {%>
-                            <div class="history--empty d-flex align-items-center" style="flex-direction: column; opacity: .6;">
+                    <div class="history__table justify-content-center">
+                        <% if(joins.length==0) {%>
+                            <div class="history--empty d-flex align-items-center"
+                                style="flex-direction: column; opacity: .6;">
                                 <img src="/images/icons/empty.png" alt="">
                                 <p>Bạn chưa đặt vé</p>
                             </div>
-                        <% } else{ %>
-                        <table>
-                            <tr>
-                                <th>#</th>
-                                <th>Phim</th>
-                                <th>Rạp</th>
-                                <th>Cụm Rạp</th>
-                                <th>Ghế </th>
-                                <th>Ngày/giờ</th>
-                            </tr>
+                            <% } else{ %>
+                                <table id="example" class="ui celled table" style="width:100%;  font-size: 20px;
+                                line-height: 40px;">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Phim</th>
+                                            <th>Rạp</th>
+                                            <th>Cụm Rạp</th>
+                                            <th>Ghế </th>
+                                            <th>Ngày</th>
+                                            <th>Giờ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% joins.forEach(function(book, index) { %>
+                                            <tr>
+                                                <td>
+                                                    <%= index + 1 %>
+                                                </td>
+                                                <td>
+                                                    <%= book.showtime.movie.name %>
+                                                </td>
+                                                <td>
+                                                    <%= book.showtime.cinema.name %>
+                                                </td>
+                                                <td>
+                                                    <%= book.showtime.cinema.theater.name %>
+                                                </td>
+                                                <td>
+                                                    <%= book.ticket.seatId %>
+                                                </td>
+                                                <td>
+                                                    <%= book.time.toLocaleDateString('en-GB') %>
+                                                </td>
+                                                <td>
+                                                    <%= book.time.toLocaleTimeString() %>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
 
-                            <!-- truy vấn query -->
-                                <!--  index + 1 
-                                 book.moviename 
-                                 book.cinemaname 
-                                 book.theatername 
-                                 book.seatId 
-                                 book.time.toLocaleDateString('en-GB')  -->
-                         
-                            <!-- join model -->                          
+                                    </tbody>
+                                </table>
 
-                            <% joins.forEach(function(book, index) { %>
-                            <tr>
-                                <td><%= index + 1 %></td>
-                                <td><%= book.showtime.movie.name %></td>
-                                <td><%= book.showtime.cinema.name %></td>
-                                <td><%= book.showtime.cinema.theater.name %></td>
-                                <td><%= book.ticket.seatId %></td>
-                                <td><%= book.time.toLocaleDateString('en-GB') %></td>
-                            </tr>
-                            <% }); %>
 
-                        </table>
-                        
-                        <% } %>
+                                <% } %>
+
+
                     </div>
 
                 </div>
@@ -296,5 +322,26 @@
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.2/sweetalert2.all.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+        <script type="text/javascript" src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <script>
+            $('#example').DataTable({
+                "searching": false,
+                "lengthChange": false,
+                "pageLength": 5,
+                "language": {
+                    "lengthMenu": "Số dòng  _MENU_ ",
+                    "info": "Trang _PAGE_ / _PAGES_ ",
+                    "search": "",
+                    "paginate": {
+                        "previous": "Trước đó",
+                        "next": "Tiếp theo",
+                    },
+                    searchPlaceholder: "Tìm kiếm",
+                },
+                // "ordering": false,
+            })
 
+        </script>
         <%- include('../layouts/footer'); -%>
