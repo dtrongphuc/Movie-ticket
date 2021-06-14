@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 							}</span>
               <div class="movie-item__overlay">
                 <button class="btn-movie__overlay">
-                  <a href="/ticket/book">Đặt vé</a>
-                </button>
-                <button class="btn-movie__overlay">
                   <a href="/detail/${movie.id}">Chi tiết</a>
                 </button>
               </div>

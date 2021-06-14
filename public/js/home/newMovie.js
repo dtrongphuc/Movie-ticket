@@ -88,13 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 								state.offset + index + 1
 							}</span>
               <div class="movie-item__overlay">
-                ${
-									moment(movie.openingDay) < Date.now()
-										? `<button class='btn-movie__overlay'>
-											<a href='/ticket/book'>Đặt vé</a>
-										</button>`
-										: ''
-								}
                 <button class="btn-movie__overlay">
                   <a href="/detail/${movie.id}">Chi tiết</a>
                 </button>
