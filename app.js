@@ -7,7 +7,7 @@ const express = require('express'),
 	bookingApi = require('./routers/api/booking'),
 	homeApi = require('./routers/api/home'),
 	{ initPassport } = require('./middlewares/passport/index'),
-	port = 3000;
+	port = process.env.PORT || 3000;
 
 // APP CONFIGURE
 // app.use(require('morgan')('tiny'));
