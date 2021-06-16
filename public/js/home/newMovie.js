@@ -9,7 +9,7 @@ const toggleLoading = () => {
 
 const countMovies = async () => {
 	try {
-		let response = await axios.get('/movie/count/hot');
+		let response = await axios.get('/movie/count/new-opening');
 		state.total = response.count;
 		if (state.offset >= state.total) {
 			document.querySelector('.btn__load-more').style.display = 'none';
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	);
 
 	document.querySelectorAll('.movie-item__img')?.forEach((element) => {
-		console.log('set height');
 		element.style.height = `${(334 * element.offsetWidth) / 228}px`;
 	});
 
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		.querySelector('.btn__load-more')
 		?.addEventListener('click', async (e) => {
 			try {
-				const response = await axios.get('/movie/hot', {
+				const response = await axios.get('/movie/new-opening', {
 					params: {
 						offset: state.offset,
 						limit: state.limit,
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 									movie.posterUrl
 								}');height: ${height};"
               ></div>
-              <span class="movie-item__number rank">${
+              <span class="movie-item__number">${
 								state.offset + index + 1
 							}</span>
               <div class="movie-item__overlay">
@@ -105,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
               >
               <span class="movie-item__description">
                 ${moment(movie.openingDay).format('DD/MM/YY')}
+                ${moment(movie.openingDay) >= Date.now() ? ' Chưa mở' : ''}
               </span>
             </div>
           </div>`;

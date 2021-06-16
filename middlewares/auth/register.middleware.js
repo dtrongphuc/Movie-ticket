@@ -14,17 +14,16 @@ module.exports = {
 		const { email, password, confirmPassword, fullname, phoneNumber } =
 			req.body;
 		let error = '';
-
+		let isExisted = await checkEmailExisted(email);
 		if (!email || !password || !confirmPassword || !fullname || !phoneNumber) {
 			error = 'Vui lòng điền đầy đủ dữ liệu';
-		} else if (await checkEmailExisted(email)) {
+		} else if (isExisted) {
 			error = 'Email đã tồn tại';
 		} else if (password !== confirmPassword) {
 			error = 'Mật khẩu xác nhận không khớp';
 		} else if (!checkValidEmail(email)) {
 			error = 'Email không hợp lệ';
 		}
-
 		res.locals.error = error;
 
 		if (!error) {

@@ -6,9 +6,10 @@ const {
 	Booking,
 	sequelize,
 } = require('../../db/connection');
+const moment = require('moment');
 
 module.exports = {
-	topMovie: async (req, res) => {
+	topMovies: async (req, res) => {
 		try {
 			// skip $offset, fetch $limit item
 			const { offset, limit } = req.query;
@@ -54,18 +55,6 @@ module.exports = {
 				subQuery: false,
 			});
 
-			// var query = `select mv."id", count(tk."seatId"),mv.* from movies as mv
-			// 				join showtimes as st on mv.id = st."movieId"
-			// 				join bookings as bk on bk."showtimeId" = st.id
-			// 				join tickets tk on tk."bookingId" = bk.id
-			// 				group by mv."id"
-			// 				order by count(tk."seatId") ASC`;
-
-			// var movies = await models.sequelize.query(query, {
-			// 	raw: false,
-			// 	type: QueryTypes.SELECT,
-			// });
-
 			res.status(200).json({ movies });
 		} catch (error) {
 			console.log(error);
@@ -75,7 +64,7 @@ module.exports = {
 		}
 	},
 
-	countHotMovie: async (req, res) => {
+	countHotMovies: async (req, res) => {
 		try {
 			const movies = await Movie.findAll({
 				where: {
@@ -115,6 +104,53 @@ module.exports = {
 				group: ['movie.id'],
 				order: [[sequelize.literal('sold'), 'DESC']],
 				subQuery: false,
+			});
+
+			return res.status(200).json({
+				count: movies.length,
+			});
+		} catch (error) {
+			console.log(error);
+			res.status(400).json({
+				error,
+			});
+		}
+	},
+
+	newOpeningMovies: async (req, res) => {
+		try {
+			// skip $offset, fetch $limit item
+			const { offset, limit } = req.query;
+			const movies = await Movie.findAll({
+				where: {
+					openingDay: {
+						[Op.gte]: moment().subtract(30, 'days').toDate(),
+					},
+				},
+				order: [['openingDay', 'DESC']],
+				offset: offset || 0,
+				limit: limit || 8,
+				subQuery: false,
+			});
+
+			res.status(200).json({ movies });
+		} catch (error) {
+			console.log(error);
+			res.status(400).json({
+				error,
+			});
+		}
+	},
+
+	countNewOpeningMovies: async (req, res) => {
+		try {
+			const movies = await Movie.findAll({
+				where: {
+					openingDay: {
+						[Op.gte]: moment().subtract(30, 'days').toDate(),
+					},
+				},
+				order: [['openingDay', 'DESC']],
 			});
 
 			return res.status(200).json({

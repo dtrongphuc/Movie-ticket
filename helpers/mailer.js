@@ -32,3 +32,5 @@ exports.sendMail = async (email, subject, text, html) => {
 
 	return true;
 };
+
+exports.transporter = transporter;

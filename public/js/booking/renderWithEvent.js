@@ -77,7 +77,7 @@ export default function Render() {
 
 		let htmlText = showtimes?.map(
 			(showtime) => `<div class="col-2">
-			<div class="showtime__theater--type">Loại ghế:${showtime.cinema.type}</div>
+			<div class="showtime__theater--type">Loại rạp:${showtime.cinema.type}</div>
 			<div class="showtime__box" data-id="${showtime.id}">
 				<a href="/ticket/bookseat?showtime=${showtime.id}">
 					<div class="showtime__box--screen">Screen</div>

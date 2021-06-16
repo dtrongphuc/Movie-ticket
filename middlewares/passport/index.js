@@ -4,12 +4,14 @@ const { User } = require('../../db/connection');
 
 exports.initPassport = (app) => {
 	app.use(
-		require('express-session')({
-			secret: 'keyboard cat',
-			resave: false,
-			saveUninitialized: false,
-			cookie: { secure: false, httpOnly: false },
-			expires: +process.env.SESSION_LIFE,
+		require('cookie-session')({
+			secret: process.env.SESSION_KEY,
+			name: 'token',
+			cookie: {
+				secure: false,
+				httpOnly: false,
+				maxAge: +process.env.SESSION_LIFE,
+			},
 		})
 	);
 
