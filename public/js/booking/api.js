@@ -33,6 +33,7 @@ axios.interceptors.response.use(
 		// Any status codes that falls outside the range of 2xx cause this function to trigger
 		// Do something with response error
 		toggleLoading();
+		window.location.href = '/404';
 		return Promise.reject(error);
 	}
 );
@@ -50,7 +51,11 @@ class Api {
 		try {
 			let response = await axios.get('/showtime/available-date');
 			if (response.success) {
-				this.session.getAndModify('date', response.initDate);
+				const urlParams = new URLSearchParams(window.location.search);
+				const date = urlParams.get('date');
+				if (!date) {
+					this.session.getAndModify('date', response.initDate);
+				}
 			}
 		} catch (error) {
 			console.log(error);
