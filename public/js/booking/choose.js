@@ -107,6 +107,8 @@ $('#confirmChooseSeat').on('click', function () {
 		alert('Vui lòng chọn số lượng ghế');
 	} else {
 		if ($('input:checked').length == $('#Numseats').val()) {
+			alert("Xác nhận chọn ghế. Vui lòng chọn bước tiếp theo!");
+			$('#confirmChooseSeat').prop('disabled', true);
 			$('#nextPage').show();
 		}
 	}
