@@ -38,20 +38,13 @@ async function sendBill(email, data) {
 class PayController {
 	async addBooking(req, res) {
 		try {
-			var today = new Date();
-			var date =
-				today.getFullYear() +
-				'-' +
-				(today.getMonth() + 1) +
-				'-' +
-				today.getDate();
 			var data = req.body;
 			var seats = `${data.ordernumberSeat}`.split(',');
 			var userId = req.user?.id;
 
 			let showtime = await models.Showtime.findByPk(data.ordershowtimeId);
 			let newBooking = await models.Booking.create({
-				time: date,
+				time: Date.now(),
 				total: 0,
 				userId: userId,
 				showtimeId: data.ordershowtimeId,

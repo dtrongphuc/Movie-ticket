@@ -69,12 +69,23 @@ module.exports = function initLogin(passport) {
 							fullname: profile.displayName,
 							active: true,
 						});
-					} else if (!user.googleId && user.email === userEmail) {
+					} else if (
+						!user.googleId &&
+						!user.facebookId &&
+						user.email === userEmail
+					) {
 						return cb(null, profile, {
 							content:
 								'Email đã được đăng ký, vui lòng xác nhận mật khẩu để liên kết',
 							type: 'redirect',
 						});
+					} else if (
+						!user.googleId &&
+						user.facebookId &&
+						user.email === userEmail
+					) {
+						user.googleId = profile.id;
+						await user.save();
 					}
 
 					return cb(null, user);
@@ -110,12 +121,23 @@ module.exports = function initLogin(passport) {
 							fullname: profile.displayName,
 							active: true,
 						});
-					} else if (!user.facebookId && user.email === userEmail) {
+					} else if (
+						!user.facebookId &&
+						!user.googleId &&
+						user.email === userEmail
+					) {
 						return cb(null, profile, {
 							content:
 								'Email đã được đăng ký, vui lòng xác nhận mật khẩu để liên kết',
 							type: 'redirect',
 						});
+					} else if (
+						!user.facebookId &&
+						user.googleId &&
+						user.email === userEmail
+					) {
+						user.facebookId = profile.id;
+						await user.save();
 					}
 
 					return cb(null, user);
