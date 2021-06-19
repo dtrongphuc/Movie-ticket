@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authentication = require('../middlewares/auth/authentication');
-const authController = require('../controllers/auth.controller');
-const loginMiddleware = require('../middlewares/auth/login.middleware');
-const registerMiddleware = require('../middlewares/auth/register.middleware');
-const { passport } = require('../middlewares/passport/index');
+const authentication = require('../../middlewares/auth/authentication');
+const authController = require('../../controllers/auth.controller');
+const loginMiddleware = require('../../middlewares/auth/login.middleware');
+const registerMiddleware = require('../../middlewares/auth/register.middleware');
+const { passport } = require('../../middlewares/passport/index');
 
 router.get('/logout', authController.logout);
 // LOGIN ROUTES

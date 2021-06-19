@@ -1,5 +1,5 @@
 const express = require('express');
-const homeController = require('../../controllers/api/home.controller');
+const homeController = require('../../api/home.api');
 const router = express.Router();
 
 router.get('/movie/hot', homeController.topMovies);

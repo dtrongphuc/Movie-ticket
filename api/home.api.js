@@ -5,7 +5,7 @@ const {
 	Ticket,
 	Booking,
 	sequelize,
-} = require('../../db/connection');
+} = require('../db/connection');
 const moment = require('moment');
 
 module.exports = {

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bookingController = require('../../controllers/api/booking.controller');
+const bookingController = require('../../api/booking.api');
 
 router.get('/showtime', bookingController.getWithQuery);
 router.get('/showtime/during-time', bookingController.getDuringTime);

@@ -1,12 +1,12 @@
 const expressLayouts = require('express-ejs-layouts');
 const { isAuth } = require('../middlewares/auth/authentication');
-const movieRouter = require('./movie');
-const userRouter = require('./user');
-const authRouter = require('./auth');
+const movieRouter = require('./user/movie');
+const userRouter = require('./user/user');
+const authRouter = require('./user/auth');
 const adminRouter = require('./admin/index');
 const authAdminRouter = require('./admin/auth');
-const homeRouter = require('./home');
-const ticketRouter = require('./ticket');
+const homeRouter = require('./user/home');
+const ticketRouter = require('./user/ticket');
 
 function route(app) {
 	app.use('/auth', authRouter);

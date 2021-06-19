@@ -1,7 +1,7 @@
 const { Op } = require('sequelize');
-const models = require('../../db/connection');
+const models = require('../db/connection');
 const moment = require('moment');
-const dowNumberToString = require('../../helpers/date.format');
+const dowNumberToString = require('../helpers/date.format');
 
 const getTheaters = async () => {
 	try {
@@ -333,9 +333,7 @@ module.exports = {
 						[Op.gte]: Date.now(),
 					},
 				},
-				order: [
-					['startTime', 'ASC']
-				]
+				order: [['startTime', 'ASC']],
 			});
 
 			if (st.length <= 0) {
