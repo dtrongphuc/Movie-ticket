@@ -73,14 +73,14 @@ include('../layouts/navbar/navbar') -%>
                   </tr>
                   <tr>
                     <td width="22px" height="22px"></td>
-                    <% for(let i = 1; i <= cinema.length; i++) { %>
+                    <% for(let i = 1; i <= cinema.width; i++) { %>
                       <td width="22px" height="22px"><%- i %></td>
                     <% } %>
                 </tr>
-                <% for(let j = 1; j <= cinema.width; j++) { %>
+                <% for(let j = 1; j <= cinema.length; j++) { %>
                   <tr>
                     <td><%- String.fromCharCode(j + 64) %></td>
-                    <% for(let k = 1; k <= cinema.length; k++) { %>
+                    <% for(let k = 1; k <= cinema.width; k++) { %>
                       <td>
                         <input type="checkbox" class="seats seat-checkbox" 
                         id-modal="#seat-modal" value="<%- String.fromCharCode(j + 64) %><%- k %>">
