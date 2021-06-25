@@ -1645,7 +1645,8 @@ img {
   padding: 0 55px;
   margin-bottom: 50px; }
   .descriptionMovie p {
-    font-size: 20px; }
+    font-size: 20px;
+    line-height: 27px; }
 
 .footer {
   background-color: #fff;
