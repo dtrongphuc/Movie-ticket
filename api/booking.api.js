@@ -363,8 +363,8 @@ module.exports = {
 
 			let showtime = await models.Showtime.findByPk(id);
 			let duringTime = `${moment(showtime.startTime).format(
-				'hh:mm'
-			)} ~ ${moment(showtime.endTime).format('hh:mm')}`;
+				'HH:mm'
+			)} ~ ${moment(showtime.endTime).format('HH:mm')}`;
 
 			return res.status(200).json({
 				success: true,
