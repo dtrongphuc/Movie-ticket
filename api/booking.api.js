@@ -238,9 +238,9 @@ const getShowtimeInfo = async (date, movieId, cinemaId) => {
 					],
 				});
 				plain.duringTime = `${moment(plain.startTime).format(
-					'hh:mm'
-				)} ~ ${moment(plain.endTime).format('hh:mm')}`;
-				plain.time = moment(plain.startTime).format('hh:mm');
+					'HH:mm'
+				)} ~ ${moment(plain.endTime).format('HH:mm')}`;
+				plain.time = moment(plain.startTime).format('HH:mm');
 				plain.cinema = {
 					...plain.cinema,
 					seat: parseInt(plain.cinema.width) * parseInt(plain.cinema.length),
