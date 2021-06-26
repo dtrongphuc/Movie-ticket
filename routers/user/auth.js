@@ -17,7 +17,10 @@ router.get('/pairing', authController.getConfirmPwd);
 //### GOOGLE
 router.get(
 	'/google',
-	passport.authenticate('google', { scope: ['email', 'profile'] })
+	passport.authenticate('google', {
+		scope: ['email', 'profile'],
+		prompt: 'select_account',
+	})
 );
 
 router.get(
